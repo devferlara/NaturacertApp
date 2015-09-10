@@ -101,14 +101,18 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/estilosbuscarfinca"
                 android:singleLine="true"
+                android:paddingLeft="5dp"
                 android:textColor="#61B246"
                 android:textSize="18sp" />
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
+                android:layout_marginLeft="15dp"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:id="@+id/buscar"
+                android:textColor="#fff"
+                android:background="@drawable/estilosbotonfincaverde"
                 android:text="Buscar"/>
 
         </LinearLayout>

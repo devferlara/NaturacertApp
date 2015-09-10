@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -235,6 +236,73 @@ public class crear_finca_individual extends ActionBarActivity {
         EditText observaciones = (EditText) findViewById(R.id.observaciones);
 
         if (!nombre.getText().toString().equals("") && departamento.getSelectedItemId() != 0 && !codigo.getText().toString().equals("") && !hora.getText().toString().equals("") && !fecha.getText().toString().equals("") && !municipio.getText().toString().equals("") && !vereda.getText().toString().equals("") && !altura.getText().toString().equals("") && !latitud.getText().toString().equals("") && !longitud.getText().toString().equals("") && !propietario.getText().toString().equals("") && !area_finca.getText().toString().equals("") && !area_conservacion.getText().toString().equals("") && !area_infraestructura.getText().toString().equals("") && !periodo_cosecha.getText().toString().equals("") && !produccion_regional.getText().toString().equals("") && !fr_cafe.getText().toString().equals("") && !trabajadores_temporales.getText().toString().equals("") && !almendra_sana.getText().toString().equals("") && !problemas_sanitarios.getText().toString().equals("") && !trabajadores_permanentes.getText().toString().equals("") && !documentos_anexos.getText().toString().equals("") && !proveedores_visitados.getText().toString().equals("") && !observaciones.getText().toString().equals("")) {
+
+
+            CheckBox check1 = (CheckBox) findViewById(R.id.check1);
+            if(check1.isChecked()){
+                EditText tabla_cultivo_1 = (EditText) findViewById(R.id.tabla_cultivo_1);
+                EditText tabla_variedad_1 = (EditText) findViewById(R.id.tabla_variedad_1);
+                EditText tabla_produccionyear_1 = (EditText) findViewById(R.id.tabla_produccionyear_1);
+                EditText tabla_produccionha_1 = (EditText) findViewById(R.id.tabla_produccionha_1);
+                EditText tabla_produccionestimada_1 = (EditText) findViewById(R.id.tabla_produccionestimada_1);
+                if(tabla_cultivo_1.getText().toString().isEmpty() || tabla_variedad_1.getText().toString().isEmpty() || tabla_produccionyear_1.getText().toString().isEmpty() || tabla_produccionha_1.getText().toString().isEmpty() || tabla_produccionestimada_1.getText().toString().isEmpty()){
+                    Toast.makeText(crear_finca_individual.this, "Hemos encontrado datos incompletos en la tabla de cultivos, fila # 1, complételos o elimínelos antes de continuar", Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
+
+            CheckBox check2 = (CheckBox) findViewById(R.id.check2);
+            if(check2.isChecked()){
+                EditText tabla_cultivo_2 = (EditText) findViewById(R.id.tabla_cultivo_2);
+                EditText tabla_variedad_2 = (EditText) findViewById(R.id.tabla_variedad_2);
+                EditText tabla_produccionyear_2 = (EditText) findViewById(R.id.tabla_produccionyear_2);
+                EditText tabla_produccionha_2 = (EditText) findViewById(R.id.tabla_produccionha_2);
+                EditText tabla_produccionestimada_2 = (EditText) findViewById(R.id.tabla_produccionestimada_2);
+                if(tabla_cultivo_2.getText().toString().isEmpty() || tabla_variedad_2.getText().toString().isEmpty() || tabla_produccionyear_2.getText().toString().isEmpty() || tabla_produccionha_2.getText().toString().isEmpty() || tabla_produccionestimada_2.getText().toString().isEmpty()){
+                    Toast.makeText(crear_finca_individual.this, "Hemos encontrado datos incompletos en la tabla de cultivos, fila # 2, complételos o elimínelos antes de continuar", Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
+
+            CheckBox check3 = (CheckBox) findViewById(R.id.check3);
+            if(check3.isChecked()){
+                EditText tabla_cultivo_3 = (EditText) findViewById(R.id.tabla_cultivo_3);
+                EditText tabla_variedad_3 = (EditText) findViewById(R.id.tabla_variedad_3);
+                EditText tabla_produccionyear_3 = (EditText) findViewById(R.id.tabla_produccionyear_3);
+                EditText tabla_produccionha_3 = (EditText) findViewById(R.id.tabla_produccionha_3);
+                EditText tabla_produccionestimada_3 = (EditText) findViewById(R.id.tabla_produccionestimada_3);
+                if(tabla_cultivo_3.getText().toString().isEmpty() || tabla_variedad_3.getText().toString().isEmpty() || tabla_produccionyear_3.getText().toString().isEmpty() || tabla_produccionha_3.getText().toString().isEmpty() || tabla_produccionestimada_3.getText().toString().isEmpty()){
+                    Toast.makeText(crear_finca_individual.this, "Hemos encontrado datos incompletos en la tabla de cultivos, fila # 3, complételos o elimínelos antes de continuar", Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
+
+            CheckBox check4 = (CheckBox) findViewById(R.id.check4);
+            if(check4.isChecked()){
+                EditText tabla_cultivo_4 = (EditText) findViewById(R.id.tabla_cultivo_4);
+                EditText tabla_variedad_4 = (EditText) findViewById(R.id.tabla_variedad_4);
+                EditText tabla_produccionyear_4 = (EditText) findViewById(R.id.tabla_produccionyear_4);
+                EditText tabla_produccionha_4 = (EditText) findViewById(R.id.tabla_produccionha_4);
+                EditText tabla_produccionestimada_4 = (EditText) findViewById(R.id.tabla_produccionestimada_4);
+                if(tabla_cultivo_4.getText().toString().isEmpty() || tabla_variedad_4.getText().toString().isEmpty() || tabla_produccionyear_4.getText().toString().isEmpty() || tabla_produccionha_4.getText().toString().isEmpty() || tabla_produccionestimada_4.getText().toString().isEmpty()){
+                    Toast.makeText(crear_finca_individual.this, "Hemos encontrado datos incompletos en la tabla de cultivos, fila # 4, complételos o elimínelos antes de continuar", Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
+
+            CheckBox check5 = (CheckBox) findViewById(R.id.check5);
+            if(check5.isChecked()){
+                EditText tabla_cultivo_5 = (EditText) findViewById(R.id.tabla_cultivo_5);
+                EditText tabla_variedad_5 = (EditText) findViewById(R.id.tabla_variedad_5);
+                EditText tabla_produccionyear_5 = (EditText) findViewById(R.id.tabla_produccionyear_5);
+                EditText tabla_produccionha_5 = (EditText) findViewById(R.id.tabla_produccionha_5);
+                EditText tabla_produccionestimada_5 = (EditText) findViewById(R.id.tabla_produccionestimada_5);
+                if(tabla_cultivo_5.getText().toString().isEmpty() || tabla_variedad_5.getText().toString().isEmpty() || tabla_produccionyear_5.getText().toString().isEmpty() || tabla_produccionha_5.getText().toString().isEmpty() || tabla_produccionestimada_5.getText().toString().isEmpty()){
+                    Toast.makeText(crear_finca_individual.this, "Hemos encontrado datos incompletos en la tabla de cultivos, fila # 5, complételos o elimínelos antes de continuar", Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
+            
 
             progress = ProgressDialog.show(crear_finca_individual.this, "Información",
                     "Estamos creando la finca, espere un momento.", true);

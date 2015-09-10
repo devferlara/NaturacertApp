@@ -3,6 +3,7 @@ package naturacert.baumsoft.dev.naturacert;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -40,10 +41,11 @@ public class mis_fincas extends Activity {
                 EditText texto_busqueda = (EditText) findViewById(R.id.texto_buscar);
                 String texto = texto_busqueda.getText().toString();
                 QueryBuilder qb = DaoAPP.daoSession.getFincasDao().queryBuilder();
-                qb.whereOr(FincasDao.Properties.Nombre.like(texto), FincasDao.Properties.Municipio.like(texto), FincasDao.Properties.Vereda.like(texto), FincasDao.Properties.Grupo.like(texto), FincasDao.Properties.Codigo.like(texto));
+                qb.whereOr(FincasDao.Properties.Nombre.like("%" + texto + "%"), FincasDao.Properties.Municipio.like("%" + texto + "%"), FincasDao.Properties.Vereda.like("%" + texto + "%"), FincasDao.Properties.Grupo.like("%" + texto + "%"), FincasDao.Properties.Codigo.like("%" + texto + "%"));
 
                 ListView lista = (ListView) findViewById(R.id.lista);
                 List fincas = qb.list();
+                Log.d("Size", "- " + fincas.size());
                 if(fincas.size() != 0){
                     lista.setAdapter(null);
                     lista.setAdapter(new adapter_fincas(mis_fincas.this, fincas, mis_fincas.this));

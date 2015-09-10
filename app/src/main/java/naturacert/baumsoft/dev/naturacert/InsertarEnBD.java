@@ -108,11 +108,19 @@ public class InsertarEnBD extends Application {
             case "1.2":
                 urlEnviar.append("rpone_unopdos");
                 columnas = DaoAPP.daoSession.getP1p2Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 13) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[m - 1]);
+                    }
                 }
                 p1p2 op1p2 = DaoAPP.daoSession.getP1p2Dao().load(idCons);
                 op1p2.setEapcn(datos[0]);
@@ -136,11 +144,19 @@ public class InsertarEnBD extends Application {
             case "1.3":
                 urlEnviar.append("rpone_unoptres");
                 columnas = DaoAPP.daoSession.getP1p3Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 6) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[m - 1]);
+                    }
                 }
 
                 p1p3 op1p3 = DaoAPP.daoSession.getP1p3Dao().load(idCons);
@@ -158,8 +174,8 @@ public class InsertarEnBD extends Application {
                 urlEnviar.append("rpone_unopcuatro");
                 columnas = DaoAPP.daoSession.getP1p4Dao().getAllColumns();
 
-                for (int m = 1; m < columnas.length; m++) {
-                    if (m == 3 || m == 6) {
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 3 || m == 6 || m == 8) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -190,8 +206,8 @@ public class InsertarEnBD extends Application {
             case "1.5":
                 urlEnviar.append("rpone_unopcinco");
                 columnas = DaoAPP.daoSession.getP1p5Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    if (m == 3) {
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 3 || m == 6) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -218,11 +234,19 @@ public class InsertarEnBD extends Application {
             case "1.6":
                 urlEnviar.append("rpone_unopseis");
                 columnas = DaoAPP.daoSession.getP1p6Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 6) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
 
                 p1p6 op1p6 = DaoAPP.daoSession.getP1p6Dao().load(idCons);
@@ -239,11 +263,19 @@ public class InsertarEnBD extends Application {
             case "1.7":
                 urlEnviar.append("rpone_unopsiete");
                 columnas = DaoAPP.daoSession.getP1p7Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 16) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
 
                 p1p7 op1p7 = DaoAPP.daoSession.getP1p7Dao().load(idCons);
@@ -270,11 +302,19 @@ public class InsertarEnBD extends Application {
             case "1.8":
                 urlEnviar.append("rpone_unopocho");
                 columnas = DaoAPP.daoSession.getP1p8Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 6) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
 
                 p1p8 op1p8 = DaoAPP.daoSession.getP1p8Dao().load(idCons);
@@ -291,11 +331,19 @@ public class InsertarEnBD extends Application {
             case "1.9":
                 urlEnviar.append("rpone_unopnueve");
                 columnas = DaoAPP.daoSession.getP1p9Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 12) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
 
                 p1p9 op1p9 = DaoAPP.daoSession.getP1p9Dao().load(idCons);
@@ -318,11 +366,19 @@ public class InsertarEnBD extends Application {
             case "1.10":
                 urlEnviar.append("rpone_unopdiez");
                 columnas = DaoAPP.daoSession.getP1p10Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 8) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
 
                 p1p10 op1p10 = DaoAPP.daoSession.getP1p10Dao().load(idCons);
@@ -341,11 +397,19 @@ public class InsertarEnBD extends Application {
             case "1.11":
                 urlEnviar.append("rpone_unoponce");
                 columnas = DaoAPP.daoSession.getP1p11Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 8) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
 
                 p1p11 op1p11 = DaoAPP.daoSession.getP1p11Dao().load(idCons);
@@ -366,11 +430,19 @@ public class InsertarEnBD extends Application {
             case "2.1":
                 urlEnviar.append("rptwo_dospuno");
                 columnas = DaoAPP.daoSession.getP2p1Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 9) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p2p1 op2p1 = DaoAPP.daoSession.getP2p1Dao().load(idCons);
                 op2p1.setEco_pro_rec(datos[0]);
@@ -380,7 +452,7 @@ public class InsertarEnBD extends Application {
                 op2p1.setPro_eco(datos[4]);
                 op2p1.setRec_eco(datos[5]);
                 op2p1.setProg_inc_eco(datos[6]);
-                op2p1.setOrigen(datos[6]);
+                op2p1.setOrigen(datos[7]);
                 op2p1.setObser(valores[0]);
                 DaoAPP.daoSession.getP2p1Dao().update(op2p1);
                 new enviar().execute(urlEnviar.toString());
@@ -389,11 +461,19 @@ public class InsertarEnBD extends Application {
             case "2.2":
                 urlEnviar.append("rptwo_dospdos");
                 columnas = DaoAPP.daoSession.getP2p2Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 10) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p2p2 op2p2 = DaoAPP.daoSession.getP2p2Dao().load(idCons);
                 op2p2.setFndsn(datos[0]);
@@ -413,11 +493,19 @@ public class InsertarEnBD extends Application {
             case "2.3":
                 urlEnviar.append("rptwo_dosptres");
                 columnas = DaoAPP.daoSession.getP2p3Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 13) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p2p3 op2p3 = DaoAPP.daoSession.getP2p3Dao().load(idCons);
                 op2p3.setApnuc(datos[0]);
@@ -440,11 +528,19 @@ public class InsertarEnBD extends Application {
             case "2.4":
                 urlEnviar.append("rptwo_dospcuatro");
                 columnas = DaoAPP.daoSession.getP2p4Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 7) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p2p4 op2p4 = DaoAPP.daoSession.getP2p4Dao().load(idCons);
                 op2p4.setFndsn(datos[0]);
@@ -461,11 +557,19 @@ public class InsertarEnBD extends Application {
             case "2.5":
                 urlEnviar.append("rptwo_dospcinco");
                 columnas = DaoAPP.daoSession.getP2p5Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 7) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p2p5 op2p5 = DaoAPP.daoSession.getP2p5Dao().load(idCons);
                 op2p5.setNent(datos[0]);
@@ -482,8 +586,8 @@ public class InsertarEnBD extends Application {
             case "2.6":
                 urlEnviar.append("rptwo_dospseis");
                 columnas = DaoAPP.daoSession.getP2p6Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    if (m == 7) {
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 7 || m == 10) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -514,11 +618,19 @@ public class InsertarEnBD extends Application {
             case "2.7":
                 urlEnviar.append("rptwo_dospsiete");
                 columnas = DaoAPP.daoSession.getP2p7Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 7) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
 
                 p2p7 op2p7 = DaoAPP.daoSession.getP2p7Dao().load(idCons);
@@ -536,8 +648,8 @@ public class InsertarEnBD extends Application {
             case "2.8":
                 urlEnviar.append("rptwo_dospocho");
                 columnas = DaoAPP.daoSession.getP2p8Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    if (m == 2 || m == 3 || m == 4 || m == 5) {
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 2 || m == 3 || m == 4 || m == 5 || m ==8) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -566,11 +678,19 @@ public class InsertarEnBD extends Application {
             case "2.9":
                 urlEnviar.append("rptwo_dospnueve");
                 columnas = DaoAPP.daoSession.getP2p9Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 9) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p2p9 op2p9 = DaoAPP.daoSession.getP2p9Dao().load(idCons);
                 op2p9.setFlipc(datos[0]);
@@ -592,11 +712,19 @@ public class InsertarEnBD extends Application {
             case "3.1":
                 urlEnviar.append("rpthree_trespuno");
                 columnas = DaoAPP.daoSession.getP3p1Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 5) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p3p1 op3p1 = DaoAPP.daoSession.getP3p1Dao().load(idCons);
                 op3p1.setCmivs(datos[0]);
@@ -611,11 +739,19 @@ public class InsertarEnBD extends Application {
             case "3.2":
                 urlEnviar.append("rpthree_trespdos");
                 columnas = DaoAPP.daoSession.getP3p2Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 7) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p3p2 op3p2 = DaoAPP.daoSession.getP3p2Dao().load(idCons);
                 op3p2.setNiea(datos[0]);
@@ -632,11 +768,19 @@ public class InsertarEnBD extends Application {
             case "3.3":
                 urlEnviar.append("rpthree_tresptres");
                 columnas = DaoAPP.daoSession.getP3p3Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 9) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p3p3 op3p3 = DaoAPP.daoSession.getP3p3Dao().load(idCons);
                 op3p3.setPceta(datos[0]);
@@ -655,17 +799,25 @@ public class InsertarEnBD extends Application {
             case "3.4":
                 urlEnviar.append("rpthree_trespcuatro");
                 columnas = DaoAPP.daoSession.getP3p4Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 5) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p3p4 op3p4 = DaoAPP.daoSession.getP3p4Dao().load(idCons);
                 op3p4.setNmac(datos[0]);
                 op3p4.setCprt(datos[1]);
                 op3p4.setCifc(datos[2]);
-                op3p4.setOrigen(datos[4]);
+                op3p4.setOrigen(datos[3]);
                 op3p4.setObser(valores[0]);
                 DaoAPP.daoSession.getP3p4Dao().update(op3p4);
                 new enviar().execute(urlEnviar.toString());
@@ -674,11 +826,19 @@ public class InsertarEnBD extends Application {
             case "3.5":
                 urlEnviar.append("rpthree_trespcinco");
                 columnas = DaoAPP.daoSession.getP3p5Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 4) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p3p5 op3p5 = DaoAPP.daoSession.getP3p5Dao().load(idCons);
                 op3p5.setNezc(datos[0]);
@@ -692,11 +852,19 @@ public class InsertarEnBD extends Application {
             case "3.6":
                 urlEnviar.append("rpthree_trespseis");
                 columnas = DaoAPP.daoSession.getP3p6Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 6) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p3p6 op3p6 = DaoAPP.daoSession.getP3p6Dao().load(idCons);
                 op3p6.setNish(datos[0]);
@@ -714,11 +882,19 @@ public class InsertarEnBD extends Application {
             case "4.1":
                 urlEnviar.append("rpfour_cuatropuno");
                 columnas = DaoAPP.daoSession.getP4p1Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 11) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p4p1 op4p1 = DaoAPP.daoSession.getP4p1Dao().load(idCons);
                 op4p1.setFepca(datos[0]);
@@ -739,11 +915,19 @@ public class InsertarEnBD extends Application {
             case "4.2":
                 urlEnviar.append("rpfour_cuatropdos");
                 columnas = DaoAPP.daoSession.getP4p2Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 5) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p4p2 op4p2 = DaoAPP.daoSession.getP4p2Dao().load(idCons);
                 op4p2.setNeas(datos[0]);
@@ -758,11 +942,19 @@ public class InsertarEnBD extends Application {
             case "4.3":
                 urlEnviar.append("rpfour_cuatroptres");
                 columnas = DaoAPP.daoSession.getP4p3Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 7) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p4p3 op4p3 = DaoAPP.daoSession.getP4p3Dao().load(idCons);
                 op4p3.setFntr(datos[0]);
@@ -779,11 +971,19 @@ public class InsertarEnBD extends Application {
             case "4.4":
                 urlEnviar.append("rpfour_cuatropcuatro");
                 columnas = DaoAPP.daoSession.getP4p4Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 7) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p4p4 op4p4 = DaoAPP.daoSession.getP4p4Dao().load(idCons);
                 op4p4.setFcsts(datos[0]);
@@ -800,11 +1000,19 @@ public class InsertarEnBD extends Application {
             case "4.5":
                 urlEnviar.append("rpfour_cuatropcinco");
                 columnas = DaoAPP.daoSession.getP4p5Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 5) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p4p5 op4p5 = DaoAPP.daoSession.getP4p5Dao().load(idCons);
                 op4p5.setNsasa(datos[0]);
@@ -819,11 +1027,19 @@ public class InsertarEnBD extends Application {
             case "4.6":
                 urlEnviar.append("rpfour_cuatropseis");
                 columnas = DaoAPP.daoSession.getP4p6Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 6) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p4p6 op4p6 = DaoAPP.daoSession.getP4p6Dao().load(idCons);
                 op4p6.setNvara(datos[0]);
@@ -839,11 +1055,19 @@ public class InsertarEnBD extends Application {
             case "4.7":
                 urlEnviar.append("rpfour_cuatropsiete");
                 columnas = DaoAPP.daoSession.getP4p7Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 4) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p4p7 op4p7 = DaoAPP.daoSession.getP4p7Dao().load(idCons);
                 op4p7.setFnpd(datos[0]);
@@ -857,11 +1081,19 @@ public class InsertarEnBD extends Application {
             case "4.8":
                 urlEnviar.append("rpfour_cuatropocho");
                 columnas = DaoAPP.daoSession.getP4p8Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 9) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p4p8 op4p8 = DaoAPP.daoSession.getP4p8Dao().load(idCons);
                 op4p8.setFruts(datos[0]);
@@ -880,11 +1112,19 @@ public class InsertarEnBD extends Application {
             case "4.9":
                 urlEnviar.append("rpfour_cuatropnueve");
                 columnas = DaoAPP.daoSession.getP4p9Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 8) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p4p9 op4p9 = DaoAPP.daoSession.getP4p9Dao().load(idCons);
                 op4p9.setFcpr(datos[0]);
@@ -902,11 +1142,19 @@ public class InsertarEnBD extends Application {
             case "5.1":
                 urlEnviar.append("rpfive_cincopuno");
                 columnas = DaoAPP.daoSession.getP5p1Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 11) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
 
                 p5p1 op5p1 = DaoAPP.daoSession.getP5p1Dao().load(idCons);
@@ -927,11 +1175,19 @@ public class InsertarEnBD extends Application {
             case "5.2":
                 urlEnviar.append("rpfive_cincopdos");
                 columnas = DaoAPP.daoSession.getP5p2Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 8) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p5p2 op5p2 = DaoAPP.daoSession.getP5p2Dao().load(idCons);
                 op5p2.setArmf(datos[0]);
@@ -948,11 +1204,19 @@ public class InsertarEnBD extends Application {
             case "5.3":
                 urlEnviar.append("rpfive_cincoptres");
                 columnas = DaoAPP.daoSession.getP5p3Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 7) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p5p3 op5p3 = DaoAPP.daoSession.getP5p3Dao().load(idCons);
                 op5p3.setArmf(datos[0]);
@@ -960,7 +1224,7 @@ public class InsertarEnBD extends Application {
                 op5p3.setCmod(datos[2]);
                 op5p3.setCrn(datos[3]);
                 op5p3.setNdpe(datos[4]);
-                op5p3.setOrigen(datos[6]);
+                op5p3.setOrigen(datos[5]);
                 op5p3.setObser(valores[0]);
                 new enviar().execute(urlEnviar.toString());
                 break;
@@ -968,8 +1232,8 @@ public class InsertarEnBD extends Application {
             case "5.4":
                 urlEnviar.append("rpfive_cincopcuatro");
                 columnas = DaoAPP.daoSession.getP5p4Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    if (m == 6) {
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 6 || m==20) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -1009,11 +1273,19 @@ public class InsertarEnBD extends Application {
             case "5.5":
                 urlEnviar.append("rpfive_cincopcinco");
                 columnas = DaoAPP.daoSession.getP5p5Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 10) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p5p5 op5p5 = DaoAPP.daoSession.getP5p5Dao().load(idCons);
                 op5p5.setArmf(datos[0]);
@@ -1032,8 +1304,8 @@ public class InsertarEnBD extends Application {
             case "5.6":
                 urlEnviar.append("rpfive_cincopseis");
                 columnas = DaoAPP.daoSession.getP5p6Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    if (m == 2 || m == 3 || m == 4) {
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 2 || m == 3 || m == 4 || m == 11) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -1064,11 +1336,19 @@ public class InsertarEnBD extends Application {
             case "5.7":
                 urlEnviar.append("rpfive_cincopsiete");
                 columnas = DaoAPP.daoSession.getP5p7Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 11) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p5p7 op5p7 = DaoAPP.daoSession.getP5p7Dao().load(idCons);
                 op5p7.setArmf(datos[0]);
@@ -1088,8 +1368,8 @@ public class InsertarEnBD extends Application {
             case "5.8":
                 urlEnviar.append("rpfive_cincopocho");
                 columnas = DaoAPP.daoSession.getP5p8Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    if (m == 15 || m == 16) {
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 15 || m == 16 || m == 20) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -1129,11 +1409,19 @@ public class InsertarEnBD extends Application {
             case "5.9":
                 urlEnviar.append("rpfive_cincopnueve");
                 columnas = DaoAPP.daoSession.getP5p9Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 4) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p5p9 op5p9 = DaoAPP.daoSession.getP5p9Dao().load(idCons);
                 op5p9.setLcnpm(datos[0]);
@@ -1146,11 +1434,19 @@ public class InsertarEnBD extends Application {
             case "5.10":
                 urlEnviar.append("rpfive_cincopdiez");
                 columnas = DaoAPP.daoSession.getP5p10Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 9) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p5p10 op5p10 = DaoAPP.daoSession.getP5p10Dao().load(idCons);
                 op5p10.setArmf(datos[0]);
@@ -1168,11 +1464,19 @@ public class InsertarEnBD extends Application {
             case "5.11":
                 urlEnviar.append("rpfive_cincoponce");
                 columnas = DaoAPP.daoSession.getP5p11Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 6) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p5p11 op5p11 = DaoAPP.daoSession.getP5p11Dao().load(idCons);
                 op5p11.setArmf(datos[0]);
@@ -1187,8 +1491,8 @@ public class InsertarEnBD extends Application {
             case "5.12":
                 urlEnviar.append("rpfive_cincopdoce");
                 columnas = DaoAPP.daoSession.getP5p12Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    if (m == 11) {
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 11 || m == 13) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -1221,11 +1525,19 @@ public class InsertarEnBD extends Application {
             case "5.13":
                 urlEnviar.append("rpfive_cincoptrece");
                 columnas = DaoAPP.daoSession.getP5p13Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 7) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p5p13 op5p13 = DaoAPP.daoSession.getP5p13Dao().load(idCons);
                 op5p13.setArmf(datos[0]);
@@ -1241,11 +1553,19 @@ public class InsertarEnBD extends Application {
             case "5.14":
                 urlEnviar.append("rpfive_cincopcatorce");
                 columnas = DaoAPP.daoSession.getP5p14Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 11) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p5p14 op5p14 = DaoAPP.daoSession.getP5p14Dao().load(idCons);
                 op5p14.setFnav(datos[0]);
@@ -1265,8 +1585,8 @@ public class InsertarEnBD extends Application {
             case "5.15":
                 urlEnviar.append("rpfive_cincopquince");
                 columnas = DaoAPP.daoSession.getP5p15Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    if (m == 5 || m == 10) {
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 5 || m == 10 || m == 14) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -1300,8 +1620,8 @@ public class InsertarEnBD extends Application {
             case "5.16":
                 urlEnviar.append("rpfive_cincopdiezyseis");
                 columnas = DaoAPP.daoSession.getP5p16Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    if (m == 7) {
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 7 || m == 9) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -1330,11 +1650,19 @@ public class InsertarEnBD extends Application {
             case "5.17":
                 urlEnviar.append("rpfive_cincopdiezysiete");
                 columnas = DaoAPP.daoSession.getP5p17Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 6) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p5p17 op5p17 = DaoAPP.daoSession.getP5p17Dao().load(idCons);
                 op5p17.setFgeh(datos[0]);
@@ -1349,11 +1677,19 @@ public class InsertarEnBD extends Application {
             case "5.18":
                 urlEnviar.append("rpfive_cincopdiezyocho");
                 columnas = DaoAPP.daoSession.getP5p18Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 6) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p5p18 op5p18 = DaoAPP.daoSession.getP5p18Dao().load(idCons);
                 op5p18.setFipe(datos[0]);
@@ -1368,11 +1704,19 @@ public class InsertarEnBD extends Application {
             case "5.19":
                 urlEnviar.append("rpfive_cincopdiezynueve");
                 columnas = DaoAPP.daoSession.getP5p19Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 6) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p5p19 op5p19 = DaoAPP.daoSession.getP5p19Dao().load(idCons);
                 op5p19.setLnpm(datos[0]);
@@ -1387,11 +1731,19 @@ public class InsertarEnBD extends Application {
             case "6.1":
                 urlEnviar.append("rpsix_seispuno");
                 columnas = DaoAPP.daoSession.getP6p1Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 14) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p6p1 op6p1 = DaoAPP.daoSession.getP6p1Dao().load(idCons);
                 op6p1.setLfdi(datos[0]);
@@ -1414,11 +1766,19 @@ public class InsertarEnBD extends Application {
             case "6.2":
                 urlEnviar.append("rpsix_seispdos");
                 columnas = DaoAPP.daoSession.getP6p2Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 14) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p6p2 op6p2 = DaoAPP.daoSession.getP6p2Dao().load(idCons);
                 op6p2.setLfup(datos[0]);
@@ -1441,8 +1801,8 @@ public class InsertarEnBD extends Application {
             case "6.3":
                 urlEnviar.append("rpsix_seisptres");
                 columnas = DaoAPP.daoSession.getP6p3Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    if (m == 5) {
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 5 || m == 7) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -1469,8 +1829,8 @@ public class InsertarEnBD extends Application {
             case "6.4":
                 urlEnviar.append("rpsix_seispcuatro");
                 columnas = DaoAPP.daoSession.getP6p4Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    if (m == 4) {
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 4 || m == 11) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -1501,11 +1861,19 @@ public class InsertarEnBD extends Application {
             case "6.5":
                 urlEnviar.append("rpsix_seispcinco");
                 columnas = DaoAPP.daoSession.getP6p5Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 11) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p6p5 op6p5 = DaoAPP.daoSession.getP6p5Dao().load(idCons);
                 op6p5.setEpqm(datos[0]);
@@ -1525,11 +1893,19 @@ public class InsertarEnBD extends Application {
             case "6.6":
                 urlEnviar.append("rpsix_seispseis");
                 columnas = DaoAPP.daoSession.getP6p6Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 8) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p6p6 op6p6 = DaoAPP.daoSession.getP6p6Dao().load(idCons);
                 op6p6.setTltq(datos[0]);
@@ -1546,11 +1922,19 @@ public class InsertarEnBD extends Application {
             case "6.7":
                 urlEnviar.append("rpsix_seispsiete");
                 columnas = DaoAPP.daoSession.getP6p7Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 8) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p6p7 op6p7 = DaoAPP.daoSession.getP6p7Dao().load(idCons);
                 op6p7.setLfdm(datos[0]);
@@ -1567,11 +1951,19 @@ public class InsertarEnBD extends Application {
             case "6.8":
                 urlEnviar.append("rpsix_seispocho");
                 columnas = DaoAPP.daoSession.getP6p8Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 7) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p6p8 op6p8 = DaoAPP.daoSession.getP6p8Dao().load(idCons);
                 op6p8.setLtyl(datos[0]);
@@ -1587,11 +1979,19 @@ public class InsertarEnBD extends Application {
             case "6.9":
                 urlEnviar.append("rpsix_seispnueve");
                 columnas = DaoAPP.daoSession.getP6p9Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 11) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p6p9 op6p9 = DaoAPP.daoSession.getP6p9Dao().load(idCons);
                 op6p9.setLada(datos[0]);
@@ -1611,11 +2011,19 @@ public class InsertarEnBD extends Application {
             case "6.10":
                 urlEnviar.append("rpsix_seispdiez");
                 columnas = DaoAPP.daoSession.getP6p10Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 13) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p6p10 op6p10 = DaoAPP.daoSession.getP6p10Dao().load(idCons);
                 op6p10.setLfda(datos[0]);
@@ -1637,11 +2045,19 @@ public class InsertarEnBD extends Application {
             case "6.11":
                 urlEnviar.append("rpsix_seisponce");
                 columnas = DaoAPP.daoSession.getP6p11Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 4) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p6p11 op6p11 = DaoAPP.daoSession.getP6p11Dao().load(idCons);
                 op6p11.setLfdd(datos[0]);
@@ -1654,11 +2070,19 @@ public class InsertarEnBD extends Application {
             case "6.12":
                 urlEnviar.append("rpsix_seispdoce");
                 columnas = DaoAPP.daoSession.getP6p12Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 10) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p6p12 op6p12 = DaoAPP.daoSession.getP6p12Dao().load(idCons);
                 op6p12.setLfdt(datos[0]);
@@ -1677,11 +2101,19 @@ public class InsertarEnBD extends Application {
             case "6.13":
                 urlEnviar.append("rpsix_seisptrece");
                 columnas = DaoAPP.daoSession.getP6p13Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 7) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p6p13 op6p13 = DaoAPP.daoSession.getP6p13Dao().load(idCons);
                 op6p13.setTltq(datos[0]);
@@ -1697,8 +2129,8 @@ public class InsertarEnBD extends Application {
             case "6.14":
                 urlEnviar.append("rpsix_seispcatorce");
                 columnas = DaoAPP.daoSession.getP6p14Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    if (m == 2 || m == 4) {
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 2 || m == 4 || m == 6) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -1724,8 +2156,8 @@ public class InsertarEnBD extends Application {
             case "6.15":
                 urlEnviar.append("rpsix_seispquince");
                 columnas = DaoAPP.daoSession.getP6p15Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    if (m == 3) {
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 3 || m == 13) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -1759,11 +2191,19 @@ public class InsertarEnBD extends Application {
             case "6.16":
                 urlEnviar.append("rpsix_seispdieciseis");
                 columnas = DaoAPP.daoSession.getP6p16Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 6) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p6p16 op6p16 = DaoAPP.daoSession.getP6p16Dao().load(idCons);
                 op6p16.setElfd(datos[0]);
@@ -1778,11 +2218,19 @@ public class InsertarEnBD extends Application {
             case "6.17":
                 urlEnviar.append("rpsix_seispdiecisiete");
                 columnas = DaoAPP.daoSession.getP6p17Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 6) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p6p17 op6p17 = DaoAPP.daoSession.getP6p17Dao().load(idCons);
                 op6p17.setPnms(datos[0]);
@@ -1797,11 +2245,19 @@ public class InsertarEnBD extends Application {
             case "6.18":
                 urlEnviar.append("rpsix_seispdieciocho");
                 columnas = DaoAPP.daoSession.getP6p18Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 8) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p6p18 op6p18 = DaoAPP.daoSession.getP6p18Dao().load(idCons);
                 op6p18.setAltd(datos[0]);
@@ -1818,11 +2274,19 @@ public class InsertarEnBD extends Application {
             case "6.19":
                 urlEnviar.append("rpsix_seispdiecinueve");
                 columnas = DaoAPP.daoSession.getP6p19Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 10) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p6p19 op6p19 = DaoAPP.daoSession.getP6p19Dao().load(idCons);
                 op6p19.setFdcc(datos[0]);
@@ -1841,11 +2305,19 @@ public class InsertarEnBD extends Application {
             case "6.20":
                 urlEnviar.append("rpsix_seispveinte");
                 columnas = DaoAPP.daoSession.getP6p20Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 7) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p6p20 op6p20 = DaoAPP.daoSession.getP6p20Dao().load(idCons);
                 op6p20.setFdip(datos[0]);
@@ -1862,11 +2334,19 @@ public class InsertarEnBD extends Application {
             case "7.1":
                 urlEnviar.append("rpseven_sietepuno");
                 columnas = DaoAPP.daoSession.getP7p1Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 4) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p7p1 op7p1 = DaoAPP.daoSession.getP7p1Dao().load(idCons);
                 op7p1.setFdrl(datos[0]);
@@ -1880,11 +2360,19 @@ public class InsertarEnBD extends Application {
             case "7.2":
                 urlEnviar.append("rpseven_sietepdos");
                 columnas = DaoAPP.daoSession.getP7p2Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 10) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p7p2 op7p2 = DaoAPP.daoSession.getP7p2Dao().load(idCons);
                 op7p2.setLadf(datos[0]);
@@ -1904,11 +2392,19 @@ public class InsertarEnBD extends Application {
             case "7.3":
                 urlEnviar.append("rpseven_sieteptres");
                 columnas = DaoAPP.daoSession.getP7p3Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 5) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p7p3 op7p3 = DaoAPP.daoSession.getP7p3Dao().load(idCons);
                 op7p3.setPypp(datos[0]);
@@ -1924,11 +2420,19 @@ public class InsertarEnBD extends Application {
             case "7.4":
                 urlEnviar.append("rpseven_sietepcuatro");
                 columnas = DaoAPP.daoSession.getP7p4Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 6) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p7p4 op7p4 = DaoAPP.daoSession.getP7p4Dao().load(idCons);
                 op7p4.setLfdc(datos[0]);
@@ -1943,11 +2447,19 @@ public class InsertarEnBD extends Application {
             case "7.5":
                 urlEnviar.append("rpseven_sietepcinco");
                 columnas = DaoAPP.daoSession.getP7p1Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 5) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p7p5 op7p5 = DaoAPP.daoSession.getP7p5Dao().load(idCons);
                 op7p5.setLfdc(datos[0]);
@@ -1961,11 +2473,19 @@ public class InsertarEnBD extends Application {
             case "7.6":
                 urlEnviar.append("rpseven_sietepseis");
                 columnas = DaoAPP.daoSession.getP7p6Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 8) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p7p6 op7p6 = DaoAPP.daoSession.getP7p6Dao().load(idCons);
                 op7p6.setFdtl(datos[0]);
@@ -1984,11 +2504,19 @@ public class InsertarEnBD extends Application {
             case "8.1":
                 urlEnviar.append("rpeight_ochopuno");
                 columnas = DaoAPP.daoSession.getP8p1Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 18) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p8p1 op8p1 = DaoAPP.daoSession.getP8p1Dao().load(idCons);
                 op8p1.setLfde(datos[0]);
@@ -2015,11 +2543,19 @@ public class InsertarEnBD extends Application {
             case "8.2":
                 urlEnviar.append("rpeight_ochopdos");
                 columnas = DaoAPP.daoSession.getP8p2Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 22) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p8p2 op8p2 = DaoAPP.daoSession.getP8p2Dao().load(idCons);
                 op8p2.setLfdd(datos[0]);
@@ -2050,11 +2586,19 @@ public class InsertarEnBD extends Application {
             case "8.3":
                 urlEnviar.append("rpeight_ochoptres");
                 columnas = DaoAPP.daoSession.getP8p3Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 9) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p8p3 op8p3 = DaoAPP.daoSession.getP8p3Dao().load(idCons);
                 op8p3.setLfdi(datos[0]);
@@ -2072,11 +2616,19 @@ public class InsertarEnBD extends Application {
             case "8.4":
                 urlEnviar.append("rpeight_ochopcuatro");
                 columnas = DaoAPP.daoSession.getP8p4Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 11) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p8p4 op8p4 = DaoAPP.daoSession.getP8p4Dao().load(idCons);
                 op8p4.setNspe(datos[0]);
@@ -2096,11 +2648,19 @@ public class InsertarEnBD extends Application {
             case "8.5":
                 urlEnviar.append("rpeight_ochopcinco");
                 columnas = DaoAPP.daoSession.getP8p5Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 6) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p8p5 op8p5 = DaoAPP.daoSession.getP8p5Dao().load(idCons);
                 op8p5.setDeup(datos[0]);
@@ -2115,11 +2675,19 @@ public class InsertarEnBD extends Application {
             case "8.6":
                 urlEnviar.append("rpeight_ochopseis");
                 columnas = DaoAPP.daoSession.getP8p6Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 4) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p8p6 op8p6 = DaoAPP.daoSession.getP8p6Dao().load(idCons);
                 op8p6.setDtmp(datos[0]);
@@ -2134,11 +2702,19 @@ public class InsertarEnBD extends Application {
             case "8.7":
                 urlEnviar.append("rpeight_ochopsiete");
                 columnas = DaoAPP.daoSession.getP8p7Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 11) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p8p7 op8p7 = DaoAPP.daoSession.getP8p7Dao().load(idCons);
                 op8p7.setFdus(datos[0]);
@@ -2159,11 +2735,19 @@ public class InsertarEnBD extends Application {
             case "8.8":
                 urlEnviar.append("rpeight_ochopocho");
                 columnas = DaoAPP.daoSession.getP8p8Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 5) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p8p8 op8p8 = DaoAPP.daoSession.getP8p8Dao().load(idCons);
                 op8p8.setNslp(datos[0]);
@@ -2177,11 +2761,19 @@ public class InsertarEnBD extends Application {
             case "8.9":
                 urlEnviar.append("rpeight_ochopnueve");
                 columnas = DaoAPP.daoSession.getP8p9Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 6) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p8p9 op8p9 = DaoAPP.daoSession.getP8p9Dao().load(idCons);
                 op8p9.setSspu(datos[0]);
@@ -2198,11 +2790,19 @@ public class InsertarEnBD extends Application {
             case "9.1":
                 urlEnviar.append("rpnine_nuevepuno");
                 columnas = DaoAPP.daoSession.getP9p1Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 7) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p9p1 op9p1 = DaoAPP.daoSession.getP9p1Dao().load(idCons);
                 op9p1.setFepce(datos[0]);
@@ -2218,8 +2818,8 @@ public class InsertarEnBD extends Application {
             case "9.2":
                 urlEnviar.append("rpnine_nuevepdos");
                 columnas = DaoAPP.daoSession.getP9p2Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    if (m == 12) {
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 12 || m == 17) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -2257,11 +2857,19 @@ public class InsertarEnBD extends Application {
             case "9.3":
                 urlEnviar.append("rpnine_nueveptres");
                 columnas = DaoAPP.daoSession.getP9p3Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 11) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p9p3 op9p3 = DaoAPP.daoSession.getP9p3Dao().load(idCons);
                 op9p3.setFdec(datos[0]);
@@ -2281,11 +2889,19 @@ public class InsertarEnBD extends Application {
             case "9.4":
                 urlEnviar.append("rpnine_nuevepcuatro");
                 columnas = DaoAPP.daoSession.getP9p4Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 11) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p9p4 op9p4 = DaoAPP.daoSession.getP9p4Dao().load(idCons);
                 op9p4.setFpad(datos[0]);
@@ -2305,11 +2921,19 @@ public class InsertarEnBD extends Application {
             case "9.5":
                 urlEnviar.append("rpnine_nuevepcinco");
                 columnas = DaoAPP.daoSession.getP9p5Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 9) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p9p5 op9p5 = DaoAPP.daoSession.getP9p5Dao().load(idCons);
                 op9p5.setNsna(datos[0]);
@@ -2329,11 +2953,19 @@ public class InsertarEnBD extends Application {
             case "10.1":
                 urlEnviar.append("rpten_diezpuno");
                 columnas = DaoAPP.daoSession.getP10p1Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 10) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p10p1 op10p1 = DaoAPP.daoSession.getP10p1Dao().load(idCons);
                 op10p1.setFtpd(datos[0]);
@@ -2352,11 +2984,19 @@ public class InsertarEnBD extends Application {
             case "10.2":
                 urlEnviar.append("rpten_diezpdos");
                 columnas = DaoAPP.daoSession.getP10p2Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 9) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p10p2 op10p2 = DaoAPP.daoSession.getP10p2Dao().load(idCons);
                 op10p2.setNpbca(datos[0]);
@@ -2374,8 +3014,8 @@ public class InsertarEnBD extends Application {
             case "10.3":
                 urlEnviar.append("rpten_diezptres");
                 columnas = DaoAPP.daoSession.getP10p3Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    if (m == 10) {
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 10 || m == 12) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -2407,8 +3047,8 @@ public class InsertarEnBD extends Application {
             case "10.4":
                 urlEnviar.append("rpten_diezpcuatro");
                 columnas = DaoAPP.daoSession.getP10p4Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    if (m == 3 || m == 4) {
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 3 || m == 4 || m == 9) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -2437,11 +3077,19 @@ public class InsertarEnBD extends Application {
             case "10.5":
                 urlEnviar.append("rpten_diezpcinco");
                 columnas = DaoAPP.daoSession.getP10p5Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 8) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p10p5 op10p5 = DaoAPP.daoSession.getP10p5Dao().load(idCons);
 
@@ -2459,11 +3107,19 @@ public class InsertarEnBD extends Application {
             case "10.6":
                 urlEnviar.append("rpten_diezpseis");
                 columnas = DaoAPP.daoSession.getP10p6Dao().getAllColumns();
-                for (int m = 1; m < columnas.length; m++) {
-                    urlEnviar.append("&");
-                    urlEnviar.append(columnas[m].toLowerCase());
-                    urlEnviar.append("=");
-                    urlEnviar.append(datos[m - 1]);
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 15) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
                 }
                 p10p6 op10p6 = DaoAPP.daoSession.getP10p6Dao().load(idCons);
                 op10p6.setFiprg(datos[0]);

@@ -113,13 +113,13 @@
                             android:layout_height="wrap_content" />
 
                         <ImageButton
+                            android:id="@+id/agregarCliente"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
+                            android:layout_margin="10dp"
                             android:background="@null"
                             android:scaleType="fitXY"
-                            android:layout_margin="10dp"
-                            android:id="@+id/agregarCliente"
-                            android:src="@drawable/observaciones"/>
+                            android:src="@drawable/observaciones" />
 
                     </LinearLayout>
 
@@ -139,10 +139,11 @@
                         android:textSize="18sp" />
 
                     <EditText
+                        android:id="@+id/nombre"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/nombre"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -159,10 +160,11 @@
                         android:textSize="18sp" />
 
                     <EditText
+                        android:id="@+id/codigo"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/codigo"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
                 </LinearLayout>
                 <!-- nombre de la finca -->
                 <LinearLayout
@@ -171,11 +173,11 @@
                     android:gravity="right">
 
                     <ImageButton
+                        android:id="@+id/camara"
                         android:layout_width="55dp"
                         android:layout_height="40dp"
                         android:layout_margin="25dp"
                         android:background="@null"
-                        android:id="@+id/camara"
                         android:scaleType="fitXY"
                         android:src="@drawable/camaraverde" />
                 </LinearLayout>
@@ -199,22 +201,22 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/texthora"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Hora"
-                        android:id="@+id/texthora"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/hora"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
+                        android:fontFamily="sans-serif-medium"
                         android:text="00:00"
                         android:textSize="20sp"
-                        android:fontFamily="sans-serif-medium"
-                        android:textStyle="bold|italic"
-                        android:id="@+id/hora" />
+                        android:textStyle="bold|italic" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -225,13 +227,13 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/fecha"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/fecha"
+                        android:fontFamily="sans-serif-medium"
                         android:text="XX-XX-XXX"
                         android:textSize="20sp"
-                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold|italic" />
 
                 </LinearLayout>
@@ -248,13 +250,13 @@
                         android:text="Departamento"
                         android:textSize="20sp"
                         android:textStyle="bold" />
-                    
+
                     <Spinner
-                        android:layout_width="150dp"
                         android:id="@+id/departamento"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
 
-                        android:entries="@array/departamentos"/>
+                        android:entries="@array/departamentos" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -265,11 +267,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/municipio"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/municipio"
                         android:layout_marginLeft="15dp"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -280,11 +283,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/vereda"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/vereda"
                         android:layout_marginLeft="15dp"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -301,11 +305,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/altura"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/altura"
                         android:layout_marginLeft="15dp"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -325,11 +330,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/latitud"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/latitud"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -341,18 +347,19 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/longitud"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/longitud"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                     <ImageButton
+                        android:id="@+id/getCoordenadas"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="30dp"
                         android:layout_marginTop="3dp"
-                        android:id="@+id/getCoordenadas"
                         android:background="@null"
                         android:scaleType="fitXY"
                         android:src="@drawable/posicion" />
@@ -372,11 +379,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/propietario"
                         android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/propietario"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -387,11 +395,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/grupo"
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/grupo"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                 </LinearLayout>
 
@@ -411,8 +420,8 @@
                     <Spinner
                         android:id="@+id/tipo_auditoria"
                         android:layout_width="300dp"
-                        android:entries="@array/tipo_auditoria"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:entries="@array/tipo_auditoria" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -425,8 +434,8 @@
                     <Spinner
                         android:id="@+id/tipo_auditor"
                         android:layout_width="300dp"
-                        android:entries="@array/tipo_auditor"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:entries="@array/tipo_auditor" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -481,66 +490,302 @@
                         android:textColor="#989898"
                         android:textSize="16sp" />
 
-                    <LinearLayout
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content">
-
-                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Activo"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <EditText
+                        android:id="@+id/tabla_cultivo_1"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="#F4F4F4"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:id="@+id/tabla_variedad_1"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="#E5E5E5"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:id="@+id/tabla_produccionyear_1"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="#F4F4F4"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="35dp"
+                        android:id="@+id/tabla_produccionha_1"
                         android:layout_weight="1"
-                        android:background="#F4F4F4" />
+                        android:background="#E5E5E5"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="35dp"
+                        android:id="@+id/tabla_produccionestimada_1"
                         android:layout_weight="1"
-                        android:background="#E5E5E5" />
+                        android:background="#F4F4F4"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <CheckBox android:id="@+id/check1"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <EditText
+                        android:id="@+id/tabla_cultivo_2"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="#F4F4F4"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:id="@+id/tabla_variedad_2"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="#E5E5E5"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:id="@+id/tabla_produccionyear_2"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="#F4F4F4"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="35dp"
+                        android:id="@+id/tabla_produccionha_2"
                         android:layout_weight="1"
-                        android:background="#F4F4F4" />
+                        android:background="#E5E5E5"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="35dp"
+                        android:id="@+id/tabla_produccionestimada_2"
                         android:layout_weight="1"
-                        android:background="#E5E5E5" />
+                        android:background="#F4F4F4"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <CheckBox android:id="@+id/check2"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <EditText
+                        android:id="@+id/tabla_cultivo_3"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="#F4F4F4"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:id="@+id/tabla_variedad_3"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="#E5E5E5"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:id="@+id/tabla_produccionyear_3"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="#F4F4F4"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="35dp"
+                        android:id="@+id/tabla_produccionha_3"
                         android:layout_weight="1"
-                        android:background="#F4F4F4" />
+                        android:background="#E5E5E5"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
 
-                    <LinearLayout
-                        android:layout_width="60dp"
-                        android:gravity="center_horizontal"
-                        android:layout_height="wrap_content">
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@null"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/observaciones"/>
-                    </LinearLayout>
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:id="@+id/tabla_produccionestimada_3"
+                        android:layout_weight="1"
+                        android:background="#F4F4F4"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <CheckBox android:id="@+id/check3"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <EditText
+                        android:id="@+id/tabla_cultivo_4"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="#F4F4F4"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:id="@+id/tabla_variedad_4"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="#E5E5E5"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:id="@+id/tabla_produccionyear_4"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="#F4F4F4"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:id="@+id/tabla_produccionha_4"
+                        android:layout_weight="1"
+                        android:background="#E5E5E5"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:id="@+id/tabla_produccionestimada_4"
+                        android:layout_weight="1"
+                        android:background="#F4F4F4"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <CheckBox android:id="@+id/check4"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <EditText
+                        android:id="@+id/tabla_cultivo_5"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="#F4F4F4"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:id="@+id/tabla_variedad_5"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="#E5E5E5"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:id="@+id/tabla_produccionyear_5"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="#F4F4F4"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:id="@+id/tabla_produccionha_5"
+                        android:layout_weight="1"
+                        android:background="#E5E5E5"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:id="@+id/tabla_produccionestimada_5"
+                        android:layout_weight="1"
+                        android:background="#F4F4F4"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+                    <CheckBox android:id="@+id/check5"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"/>
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
                     android:background="#61B246"></LinearLayout>
 
                 <LinearLayout
@@ -557,11 +802,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/area_finca"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/area_finca"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -572,11 +818,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/area_conservacion"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/area_conservacion"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -587,11 +834,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/area_infraestructura"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/area_infraestructura"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                 </LinearLayout>
 
@@ -609,11 +857,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/periodo_cosecha"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/periodo_cosecha"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -624,11 +873,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/produccion_regional"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/produccion_regional"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -639,11 +889,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/fr_cafe"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/fr_cafe"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                 </LinearLayout>
 
@@ -661,11 +912,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/almendra_sana"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/almendra_sana"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -676,11 +928,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/problemas_sanitarios"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/problemas_sanitarios"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                 </LinearLayout>
 
@@ -698,11 +951,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/trabajadores_permanentes"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/trabajadores_permanentes"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -713,11 +967,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/trabajadores_temporales"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/trabajadores_temporales"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                 </LinearLayout>
 
@@ -735,11 +990,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/documentos_anexos"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/documentos_anexos"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -750,11 +1006,12 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/proveedores_visitados"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/proveedores_visitados"
-                        android:background="@drawable/estiloseditcrearfinca" />
+                        android:background="@drawable/estiloseditcrearfinca"
+                        android:singleLine="true" />
 
                 </LinearLayout>
 
@@ -772,14 +1029,15 @@
                         android:textSize="18sp" />
 
                     <EditText
+                        android:id="@+id/observaciones"
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:background="#F4F4F4"
-                        android:id="@+id/observaciones"
-                        android:gravity="left|top"
                         android:ems="10"
+                        android:gravity="left|top"
                         android:inputType="textMultiLine"
-                        android:padding="10dp" />
+                        android:padding="10dp"
+                        android:singleLine="true" />
 
 
                 </LinearLayout>
@@ -787,10 +1045,11 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
                     android:layout_marginBottom="20dp"
                     android:layout_marginTop="20dp"
+                    android:gravity="right"
                     android:orientation="vertical">
+
                     <Button
                         android:id="@+id/guardar"
                         android:layout_width="200dp"

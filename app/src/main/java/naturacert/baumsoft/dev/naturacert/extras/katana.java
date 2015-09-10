@@ -69,4 +69,17 @@ public class katana extends Application {
         return clientes;
     }
 
+
+    public String[] informacionAuditor(){
+        String[] cadena = new String[3];
+
+        List<Auditores> auditores_lista = DaoAPP.daoSession.getAuditoresDao().loadAll();
+        Auditores auditor = auditores_lista.get(0);
+        cadena[0] = auditor.getNombre();
+        cadena[1] = auditor.getApellido();
+        cadena[2] = auditor.getFoto();
+
+        return cadena;
+    }
+
 }
