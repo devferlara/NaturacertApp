@@ -1,0 +1,1 @@
+{"principio":5,"punto":"5.19","maestra":{"pregunta":"La legislación colombiana no permite que los menores participen en la cosecha","respuestas":[1,2,3,4]},"informativas":[{"nombre-pregunta":"","orientacion":"v","internas":[{"titulo":"Se encuentran menores de edad trabajando en la cosecha ","tipo":1}]}]}

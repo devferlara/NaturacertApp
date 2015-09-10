@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contenedor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/imagenmain" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/usuario"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/estilosedittextinicio"
+            android:gravity="center"
+            android:hint="Usuario"
+            android:padding="5dp"
+            android:singleLine="true"
+            android:textColor="#61B246"
+            android:textSize="22sp" />
+
+
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/estilosedittextinicio"
+            android:gravity="center"
+            android:hint="Contraseña"
+            android:padding="5dp"
+            android:singleLine="true"
+            android:textColor="#61B246"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/iniciar"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/estilosbotoninicio"
+            android:text="Iniciar Sesión"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="¿Olvidaste tu contraseña?"
+            android:textColor="#008848" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="2015 ©  Naturacert"
+            android:textColor="#5F5F5F" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

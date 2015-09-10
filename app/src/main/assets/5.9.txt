@@ -1,0 +1,1 @@
+{"principio":5,"punto":"5.9","maestra":{"pregunta":"La legislación colombiana no permite que menores de 14 años se encuentren trabajando.","respuestas":[1,2,3,4]},"informativas":[{"nombre-pregunta":"","orientacion":"v","internas":[{"titulo":"No se contratan trabajadores menores de 15 años ","tipo":1}]}]}

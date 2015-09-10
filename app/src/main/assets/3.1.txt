@@ -1,0 +1,1 @@
+{"principio":3,"punto":3.1,"maestra":{"pregunta":"Se debe crear y mantener un inventario de la vida silvestre y de sus hábitats presentes en la finca","respuestas":[1,2,3]},"informativas":[{"nombre-pregunta":"","orientacion":"h","internas":[{"titulo":"Inventario de vida silvestre","tipo":1},{"titulo":"Inventario de hábitats","tipo":1}]}]}

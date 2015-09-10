@@ -1,0 +1,1 @@
+{"principio":1,"punto":"1.4","maestra":{"pregunta":"Las capacitaciones deben ser realizadas en los idiomas o dialectos de los participantes,y a niveles educativos y con características culturales que posibilitan una comunicación exitosa","respuestas":[1,2,3]},"informativas":[{"nombre-pregunta":"","orientacion":"","internas":[{"titulo":"","tipo":""}]}]}

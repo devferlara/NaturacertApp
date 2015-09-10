@@ -1,0 +1,1 @@
+{"principio":4,"punto":"4.2","maestra":{"pregunta":"No se explotan aguas superficiales o subterráneas en la finca ","respuestas":[1,2,3,4]},"informativas":[{"nombre-pregunta":"","orientacion":"h","internas":[{"titulo":"La finca se abastece de fuentes de agua propias","tipo":1},{"titulo":"La finca cuenta con concesión vigente para las fuentes de agua","tipo":1}]}]}

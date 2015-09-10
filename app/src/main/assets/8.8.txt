@@ -1,0 +1,1 @@
+{"principio":8,"punto":"8.8","maestra":{"pregunta":"No es un cultivo de caña de azúcar","respuestas":[1,2,3,4]},"informativas":[{"nombre-pregunta":"","orientacion":"h","internas":[{"titulo":"Uso de fuego para la preparación de la cosecha ","tipo":1},{"titulo":"Se evita la propagación del fuego en áreas de conservación ","tipo":1}]}]}

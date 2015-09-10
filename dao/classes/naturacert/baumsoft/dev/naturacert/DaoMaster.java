@@ -1,0 +1,482 @@
+package naturacert.baumsoft.dev.naturacert;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import de.greenrobot.dao.AbstractDaoMaster;
+import de.greenrobot.dao.identityscope.IdentityScopeType;
+
+import naturacert.baumsoft.dev.naturacert.p1p1Dao;
+import naturacert.baumsoft.dev.naturacert.p1p2Dao;
+import naturacert.baumsoft.dev.naturacert.p1p3Dao;
+import naturacert.baumsoft.dev.naturacert.p1p4Dao;
+import naturacert.baumsoft.dev.naturacert.p1p5Dao;
+import naturacert.baumsoft.dev.naturacert.p1p6Dao;
+import naturacert.baumsoft.dev.naturacert.p1p7Dao;
+import naturacert.baumsoft.dev.naturacert.p1p8Dao;
+import naturacert.baumsoft.dev.naturacert.p1p9Dao;
+import naturacert.baumsoft.dev.naturacert.p1p10Dao;
+import naturacert.baumsoft.dev.naturacert.p1p11Dao;
+import naturacert.baumsoft.dev.naturacert.p2p1Dao;
+import naturacert.baumsoft.dev.naturacert.p2p2Dao;
+import naturacert.baumsoft.dev.naturacert.p2p3Dao;
+import naturacert.baumsoft.dev.naturacert.p2p4Dao;
+import naturacert.baumsoft.dev.naturacert.p2p5Dao;
+import naturacert.baumsoft.dev.naturacert.p2p6Dao;
+import naturacert.baumsoft.dev.naturacert.p2p7Dao;
+import naturacert.baumsoft.dev.naturacert.p2p8Dao;
+import naturacert.baumsoft.dev.naturacert.p2p9Dao;
+import naturacert.baumsoft.dev.naturacert.p3p1Dao;
+import naturacert.baumsoft.dev.naturacert.p3p2Dao;
+import naturacert.baumsoft.dev.naturacert.p3p3Dao;
+import naturacert.baumsoft.dev.naturacert.p3p4Dao;
+import naturacert.baumsoft.dev.naturacert.p3p5Dao;
+import naturacert.baumsoft.dev.naturacert.p3p6Dao;
+import naturacert.baumsoft.dev.naturacert.p4p1Dao;
+import naturacert.baumsoft.dev.naturacert.p4p2Dao;
+import naturacert.baumsoft.dev.naturacert.p4p3Dao;
+import naturacert.baumsoft.dev.naturacert.p4p4Dao;
+import naturacert.baumsoft.dev.naturacert.p4p5Dao;
+import naturacert.baumsoft.dev.naturacert.p4p6Dao;
+import naturacert.baumsoft.dev.naturacert.p4p7Dao;
+import naturacert.baumsoft.dev.naturacert.p4p8Dao;
+import naturacert.baumsoft.dev.naturacert.p4p9Dao;
+import naturacert.baumsoft.dev.naturacert.p5p1Dao;
+import naturacert.baumsoft.dev.naturacert.p5p2Dao;
+import naturacert.baumsoft.dev.naturacert.p5p3Dao;
+import naturacert.baumsoft.dev.naturacert.p5p4Dao;
+import naturacert.baumsoft.dev.naturacert.p5p5Dao;
+import naturacert.baumsoft.dev.naturacert.p5p6Dao;
+import naturacert.baumsoft.dev.naturacert.p5p7Dao;
+import naturacert.baumsoft.dev.naturacert.p5p8Dao;
+import naturacert.baumsoft.dev.naturacert.p5p9Dao;
+import naturacert.baumsoft.dev.naturacert.p5p10Dao;
+import naturacert.baumsoft.dev.naturacert.p5p11Dao;
+import naturacert.baumsoft.dev.naturacert.p5p12Dao;
+import naturacert.baumsoft.dev.naturacert.p5p13Dao;
+import naturacert.baumsoft.dev.naturacert.p5p14Dao;
+import naturacert.baumsoft.dev.naturacert.p5p15Dao;
+import naturacert.baumsoft.dev.naturacert.p5p16Dao;
+import naturacert.baumsoft.dev.naturacert.p5p17Dao;
+import naturacert.baumsoft.dev.naturacert.p5p18Dao;
+import naturacert.baumsoft.dev.naturacert.p5p19Dao;
+import naturacert.baumsoft.dev.naturacert.p6p1Dao;
+import naturacert.baumsoft.dev.naturacert.p6p2Dao;
+import naturacert.baumsoft.dev.naturacert.p6p3Dao;
+import naturacert.baumsoft.dev.naturacert.p6p4Dao;
+import naturacert.baumsoft.dev.naturacert.p6p5Dao;
+import naturacert.baumsoft.dev.naturacert.p6p6Dao;
+import naturacert.baumsoft.dev.naturacert.p6p7Dao;
+import naturacert.baumsoft.dev.naturacert.p6p8Dao;
+import naturacert.baumsoft.dev.naturacert.p6p9Dao;
+import naturacert.baumsoft.dev.naturacert.p6p10Dao;
+import naturacert.baumsoft.dev.naturacert.p6p11Dao;
+import naturacert.baumsoft.dev.naturacert.p6p12Dao;
+import naturacert.baumsoft.dev.naturacert.p6p13Dao;
+import naturacert.baumsoft.dev.naturacert.p6p14Dao;
+import naturacert.baumsoft.dev.naturacert.p6p15Dao;
+import naturacert.baumsoft.dev.naturacert.p6p16Dao;
+import naturacert.baumsoft.dev.naturacert.p6p17Dao;
+import naturacert.baumsoft.dev.naturacert.p6p18Dao;
+import naturacert.baumsoft.dev.naturacert.p6p19Dao;
+import naturacert.baumsoft.dev.naturacert.p6p20Dao;
+import naturacert.baumsoft.dev.naturacert.p7p1Dao;
+import naturacert.baumsoft.dev.naturacert.p7p2Dao;
+import naturacert.baumsoft.dev.naturacert.p7p3Dao;
+import naturacert.baumsoft.dev.naturacert.p7p4Dao;
+import naturacert.baumsoft.dev.naturacert.p7p5Dao;
+import naturacert.baumsoft.dev.naturacert.p7p6Dao;
+import naturacert.baumsoft.dev.naturacert.p8p1Dao;
+import naturacert.baumsoft.dev.naturacert.p8p2Dao;
+import naturacert.baumsoft.dev.naturacert.p8p3Dao;
+import naturacert.baumsoft.dev.naturacert.p8p4Dao;
+import naturacert.baumsoft.dev.naturacert.p8p5Dao;
+import naturacert.baumsoft.dev.naturacert.p8p6Dao;
+import naturacert.baumsoft.dev.naturacert.p8p7Dao;
+import naturacert.baumsoft.dev.naturacert.p8p8Dao;
+import naturacert.baumsoft.dev.naturacert.p8p9Dao;
+import naturacert.baumsoft.dev.naturacert.p9p1Dao;
+import naturacert.baumsoft.dev.naturacert.p9p2Dao;
+import naturacert.baumsoft.dev.naturacert.p9p3Dao;
+import naturacert.baumsoft.dev.naturacert.p9p4Dao;
+import naturacert.baumsoft.dev.naturacert.p9p5Dao;
+import naturacert.baumsoft.dev.naturacert.p10p1Dao;
+import naturacert.baumsoft.dev.naturacert.p10p2Dao;
+import naturacert.baumsoft.dev.naturacert.p10p3Dao;
+import naturacert.baumsoft.dev.naturacert.p10p4Dao;
+import naturacert.baumsoft.dev.naturacert.p10p5Dao;
+import naturacert.baumsoft.dev.naturacert.p10p6Dao;
+import naturacert.baumsoft.dev.naturacert.TokensBDDao;
+import naturacert.baumsoft.dev.naturacert.AuditoresDao;
+import naturacert.baumsoft.dev.naturacert.ClientesDao;
+import naturacert.baumsoft.dev.naturacert.FincasDao;
+
+// THIS CODE IS GENERATED BY greenDAO, DO NOT EDIT.
+/** 
+ * Master of DAO (schema version 1): knows all DAOs.
+*/
+public class DaoMaster extends AbstractDaoMaster {
+    public static final int SCHEMA_VERSION = 1;
+
+    /** Creates underlying database table using DAOs. */
+    public static void createAllTables(SQLiteDatabase db, boolean ifNotExists) {
+        p1p1Dao.createTable(db, ifNotExists);
+        p1p2Dao.createTable(db, ifNotExists);
+        p1p3Dao.createTable(db, ifNotExists);
+        p1p4Dao.createTable(db, ifNotExists);
+        p1p5Dao.createTable(db, ifNotExists);
+        p1p6Dao.createTable(db, ifNotExists);
+        p1p7Dao.createTable(db, ifNotExists);
+        p1p8Dao.createTable(db, ifNotExists);
+        p1p9Dao.createTable(db, ifNotExists);
+        p1p10Dao.createTable(db, ifNotExists);
+        p1p11Dao.createTable(db, ifNotExists);
+        p2p1Dao.createTable(db, ifNotExists);
+        p2p2Dao.createTable(db, ifNotExists);
+        p2p3Dao.createTable(db, ifNotExists);
+        p2p4Dao.createTable(db, ifNotExists);
+        p2p5Dao.createTable(db, ifNotExists);
+        p2p6Dao.createTable(db, ifNotExists);
+        p2p7Dao.createTable(db, ifNotExists);
+        p2p8Dao.createTable(db, ifNotExists);
+        p2p9Dao.createTable(db, ifNotExists);
+        p3p1Dao.createTable(db, ifNotExists);
+        p3p2Dao.createTable(db, ifNotExists);
+        p3p3Dao.createTable(db, ifNotExists);
+        p3p4Dao.createTable(db, ifNotExists);
+        p3p5Dao.createTable(db, ifNotExists);
+        p3p6Dao.createTable(db, ifNotExists);
+        p4p1Dao.createTable(db, ifNotExists);
+        p4p2Dao.createTable(db, ifNotExists);
+        p4p3Dao.createTable(db, ifNotExists);
+        p4p4Dao.createTable(db, ifNotExists);
+        p4p5Dao.createTable(db, ifNotExists);
+        p4p6Dao.createTable(db, ifNotExists);
+        p4p7Dao.createTable(db, ifNotExists);
+        p4p8Dao.createTable(db, ifNotExists);
+        p4p9Dao.createTable(db, ifNotExists);
+        p5p1Dao.createTable(db, ifNotExists);
+        p5p2Dao.createTable(db, ifNotExists);
+        p5p3Dao.createTable(db, ifNotExists);
+        p5p4Dao.createTable(db, ifNotExists);
+        p5p5Dao.createTable(db, ifNotExists);
+        p5p6Dao.createTable(db, ifNotExists);
+        p5p7Dao.createTable(db, ifNotExists);
+        p5p8Dao.createTable(db, ifNotExists);
+        p5p9Dao.createTable(db, ifNotExists);
+        p5p10Dao.createTable(db, ifNotExists);
+        p5p11Dao.createTable(db, ifNotExists);
+        p5p12Dao.createTable(db, ifNotExists);
+        p5p13Dao.createTable(db, ifNotExists);
+        p5p14Dao.createTable(db, ifNotExists);
+        p5p15Dao.createTable(db, ifNotExists);
+        p5p16Dao.createTable(db, ifNotExists);
+        p5p17Dao.createTable(db, ifNotExists);
+        p5p18Dao.createTable(db, ifNotExists);
+        p5p19Dao.createTable(db, ifNotExists);
+        p6p1Dao.createTable(db, ifNotExists);
+        p6p2Dao.createTable(db, ifNotExists);
+        p6p3Dao.createTable(db, ifNotExists);
+        p6p4Dao.createTable(db, ifNotExists);
+        p6p5Dao.createTable(db, ifNotExists);
+        p6p6Dao.createTable(db, ifNotExists);
+        p6p7Dao.createTable(db, ifNotExists);
+        p6p8Dao.createTable(db, ifNotExists);
+        p6p9Dao.createTable(db, ifNotExists);
+        p6p10Dao.createTable(db, ifNotExists);
+        p6p11Dao.createTable(db, ifNotExists);
+        p6p12Dao.createTable(db, ifNotExists);
+        p6p13Dao.createTable(db, ifNotExists);
+        p6p14Dao.createTable(db, ifNotExists);
+        p6p15Dao.createTable(db, ifNotExists);
+        p6p16Dao.createTable(db, ifNotExists);
+        p6p17Dao.createTable(db, ifNotExists);
+        p6p18Dao.createTable(db, ifNotExists);
+        p6p19Dao.createTable(db, ifNotExists);
+        p6p20Dao.createTable(db, ifNotExists);
+        p7p1Dao.createTable(db, ifNotExists);
+        p7p2Dao.createTable(db, ifNotExists);
+        p7p3Dao.createTable(db, ifNotExists);
+        p7p4Dao.createTable(db, ifNotExists);
+        p7p5Dao.createTable(db, ifNotExists);
+        p7p6Dao.createTable(db, ifNotExists);
+        p8p1Dao.createTable(db, ifNotExists);
+        p8p2Dao.createTable(db, ifNotExists);
+        p8p3Dao.createTable(db, ifNotExists);
+        p8p4Dao.createTable(db, ifNotExists);
+        p8p5Dao.createTable(db, ifNotExists);
+        p8p6Dao.createTable(db, ifNotExists);
+        p8p7Dao.createTable(db, ifNotExists);
+        p8p8Dao.createTable(db, ifNotExists);
+        p8p9Dao.createTable(db, ifNotExists);
+        p9p1Dao.createTable(db, ifNotExists);
+        p9p2Dao.createTable(db, ifNotExists);
+        p9p3Dao.createTable(db, ifNotExists);
+        p9p4Dao.createTable(db, ifNotExists);
+        p9p5Dao.createTable(db, ifNotExists);
+        p10p1Dao.createTable(db, ifNotExists);
+        p10p2Dao.createTable(db, ifNotExists);
+        p10p3Dao.createTable(db, ifNotExists);
+        p10p4Dao.createTable(db, ifNotExists);
+        p10p5Dao.createTable(db, ifNotExists);
+        p10p6Dao.createTable(db, ifNotExists);
+        TokensBDDao.createTable(db, ifNotExists);
+        AuditoresDao.createTable(db, ifNotExists);
+        ClientesDao.createTable(db, ifNotExists);
+        FincasDao.createTable(db, ifNotExists);
+    }
+    
+    /** Drops underlying database table using DAOs. */
+    public static void dropAllTables(SQLiteDatabase db, boolean ifExists) {
+        p1p1Dao.dropTable(db, ifExists);
+        p1p2Dao.dropTable(db, ifExists);
+        p1p3Dao.dropTable(db, ifExists);
+        p1p4Dao.dropTable(db, ifExists);
+        p1p5Dao.dropTable(db, ifExists);
+        p1p6Dao.dropTable(db, ifExists);
+        p1p7Dao.dropTable(db, ifExists);
+        p1p8Dao.dropTable(db, ifExists);
+        p1p9Dao.dropTable(db, ifExists);
+        p1p10Dao.dropTable(db, ifExists);
+        p1p11Dao.dropTable(db, ifExists);
+        p2p1Dao.dropTable(db, ifExists);
+        p2p2Dao.dropTable(db, ifExists);
+        p2p3Dao.dropTable(db, ifExists);
+        p2p4Dao.dropTable(db, ifExists);
+        p2p5Dao.dropTable(db, ifExists);
+        p2p6Dao.dropTable(db, ifExists);
+        p2p7Dao.dropTable(db, ifExists);
+        p2p8Dao.dropTable(db, ifExists);
+        p2p9Dao.dropTable(db, ifExists);
+        p3p1Dao.dropTable(db, ifExists);
+        p3p2Dao.dropTable(db, ifExists);
+        p3p3Dao.dropTable(db, ifExists);
+        p3p4Dao.dropTable(db, ifExists);
+        p3p5Dao.dropTable(db, ifExists);
+        p3p6Dao.dropTable(db, ifExists);
+        p4p1Dao.dropTable(db, ifExists);
+        p4p2Dao.dropTable(db, ifExists);
+        p4p3Dao.dropTable(db, ifExists);
+        p4p4Dao.dropTable(db, ifExists);
+        p4p5Dao.dropTable(db, ifExists);
+        p4p6Dao.dropTable(db, ifExists);
+        p4p7Dao.dropTable(db, ifExists);
+        p4p8Dao.dropTable(db, ifExists);
+        p4p9Dao.dropTable(db, ifExists);
+        p5p1Dao.dropTable(db, ifExists);
+        p5p2Dao.dropTable(db, ifExists);
+        p5p3Dao.dropTable(db, ifExists);
+        p5p4Dao.dropTable(db, ifExists);
+        p5p5Dao.dropTable(db, ifExists);
+        p5p6Dao.dropTable(db, ifExists);
+        p5p7Dao.dropTable(db, ifExists);
+        p5p8Dao.dropTable(db, ifExists);
+        p5p9Dao.dropTable(db, ifExists);
+        p5p10Dao.dropTable(db, ifExists);
+        p5p11Dao.dropTable(db, ifExists);
+        p5p12Dao.dropTable(db, ifExists);
+        p5p13Dao.dropTable(db, ifExists);
+        p5p14Dao.dropTable(db, ifExists);
+        p5p15Dao.dropTable(db, ifExists);
+        p5p16Dao.dropTable(db, ifExists);
+        p5p17Dao.dropTable(db, ifExists);
+        p5p18Dao.dropTable(db, ifExists);
+        p5p19Dao.dropTable(db, ifExists);
+        p6p1Dao.dropTable(db, ifExists);
+        p6p2Dao.dropTable(db, ifExists);
+        p6p3Dao.dropTable(db, ifExists);
+        p6p4Dao.dropTable(db, ifExists);
+        p6p5Dao.dropTable(db, ifExists);
+        p6p6Dao.dropTable(db, ifExists);
+        p6p7Dao.dropTable(db, ifExists);
+        p6p8Dao.dropTable(db, ifExists);
+        p6p9Dao.dropTable(db, ifExists);
+        p6p10Dao.dropTable(db, ifExists);
+        p6p11Dao.dropTable(db, ifExists);
+        p6p12Dao.dropTable(db, ifExists);
+        p6p13Dao.dropTable(db, ifExists);
+        p6p14Dao.dropTable(db, ifExists);
+        p6p15Dao.dropTable(db, ifExists);
+        p6p16Dao.dropTable(db, ifExists);
+        p6p17Dao.dropTable(db, ifExists);
+        p6p18Dao.dropTable(db, ifExists);
+        p6p19Dao.dropTable(db, ifExists);
+        p6p20Dao.dropTable(db, ifExists);
+        p7p1Dao.dropTable(db, ifExists);
+        p7p2Dao.dropTable(db, ifExists);
+        p7p3Dao.dropTable(db, ifExists);
+        p7p4Dao.dropTable(db, ifExists);
+        p7p5Dao.dropTable(db, ifExists);
+        p7p6Dao.dropTable(db, ifExists);
+        p8p1Dao.dropTable(db, ifExists);
+        p8p2Dao.dropTable(db, ifExists);
+        p8p3Dao.dropTable(db, ifExists);
+        p8p4Dao.dropTable(db, ifExists);
+        p8p5Dao.dropTable(db, ifExists);
+        p8p6Dao.dropTable(db, ifExists);
+        p8p7Dao.dropTable(db, ifExists);
+        p8p8Dao.dropTable(db, ifExists);
+        p8p9Dao.dropTable(db, ifExists);
+        p9p1Dao.dropTable(db, ifExists);
+        p9p2Dao.dropTable(db, ifExists);
+        p9p3Dao.dropTable(db, ifExists);
+        p9p4Dao.dropTable(db, ifExists);
+        p9p5Dao.dropTable(db, ifExists);
+        p10p1Dao.dropTable(db, ifExists);
+        p10p2Dao.dropTable(db, ifExists);
+        p10p3Dao.dropTable(db, ifExists);
+        p10p4Dao.dropTable(db, ifExists);
+        p10p5Dao.dropTable(db, ifExists);
+        p10p6Dao.dropTable(db, ifExists);
+        TokensBDDao.dropTable(db, ifExists);
+        AuditoresDao.dropTable(db, ifExists);
+        ClientesDao.dropTable(db, ifExists);
+        FincasDao.dropTable(db, ifExists);
+    }
+    
+    public static abstract class OpenHelper extends SQLiteOpenHelper {
+
+        public OpenHelper(Context context, String name, CursorFactory factory) {
+            super(context, name, factory, SCHEMA_VERSION);
+        }
+
+        @Override
+        public void onCreate(SQLiteDatabase db) {
+            Log.i("greenDAO", "Creating tables for schema version " + SCHEMA_VERSION);
+            createAllTables(db, false);
+        }
+    }
+    
+    /** WARNING: Drops all table on Upgrade! Use only during development. */
+    public static class DevOpenHelper extends OpenHelper {
+        public DevOpenHelper(Context context, String name, CursorFactory factory) {
+            super(context, name, factory);
+        }
+
+        @Override
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+            Log.i("greenDAO", "Upgrading schema from version " + oldVersion + " to " + newVersion + " by dropping all tables");
+            dropAllTables(db, true);
+            onCreate(db);
+        }
+    }
+
+    public DaoMaster(SQLiteDatabase db) {
+        super(db, SCHEMA_VERSION);
+        registerDaoClass(p1p1Dao.class);
+        registerDaoClass(p1p2Dao.class);
+        registerDaoClass(p1p3Dao.class);
+        registerDaoClass(p1p4Dao.class);
+        registerDaoClass(p1p5Dao.class);
+        registerDaoClass(p1p6Dao.class);
+        registerDaoClass(p1p7Dao.class);
+        registerDaoClass(p1p8Dao.class);
+        registerDaoClass(p1p9Dao.class);
+        registerDaoClass(p1p10Dao.class);
+        registerDaoClass(p1p11Dao.class);
+        registerDaoClass(p2p1Dao.class);
+        registerDaoClass(p2p2Dao.class);
+        registerDaoClass(p2p3Dao.class);
+        registerDaoClass(p2p4Dao.class);
+        registerDaoClass(p2p5Dao.class);
+        registerDaoClass(p2p6Dao.class);
+        registerDaoClass(p2p7Dao.class);
+        registerDaoClass(p2p8Dao.class);
+        registerDaoClass(p2p9Dao.class);
+        registerDaoClass(p3p1Dao.class);
+        registerDaoClass(p3p2Dao.class);
+        registerDaoClass(p3p3Dao.class);
+        registerDaoClass(p3p4Dao.class);
+        registerDaoClass(p3p5Dao.class);
+        registerDaoClass(p3p6Dao.class);
+        registerDaoClass(p4p1Dao.class);
+        registerDaoClass(p4p2Dao.class);
+        registerDaoClass(p4p3Dao.class);
+        registerDaoClass(p4p4Dao.class);
+        registerDaoClass(p4p5Dao.class);
+        registerDaoClass(p4p6Dao.class);
+        registerDaoClass(p4p7Dao.class);
+        registerDaoClass(p4p8Dao.class);
+        registerDaoClass(p4p9Dao.class);
+        registerDaoClass(p5p1Dao.class);
+        registerDaoClass(p5p2Dao.class);
+        registerDaoClass(p5p3Dao.class);
+        registerDaoClass(p5p4Dao.class);
+        registerDaoClass(p5p5Dao.class);
+        registerDaoClass(p5p6Dao.class);
+        registerDaoClass(p5p7Dao.class);
+        registerDaoClass(p5p8Dao.class);
+        registerDaoClass(p5p9Dao.class);
+        registerDaoClass(p5p10Dao.class);
+        registerDaoClass(p5p11Dao.class);
+        registerDaoClass(p5p12Dao.class);
+        registerDaoClass(p5p13Dao.class);
+        registerDaoClass(p5p14Dao.class);
+        registerDaoClass(p5p15Dao.class);
+        registerDaoClass(p5p16Dao.class);
+        registerDaoClass(p5p17Dao.class);
+        registerDaoClass(p5p18Dao.class);
+        registerDaoClass(p5p19Dao.class);
+        registerDaoClass(p6p1Dao.class);
+        registerDaoClass(p6p2Dao.class);
+        registerDaoClass(p6p3Dao.class);
+        registerDaoClass(p6p4Dao.class);
+        registerDaoClass(p6p5Dao.class);
+        registerDaoClass(p6p6Dao.class);
+        registerDaoClass(p6p7Dao.class);
+        registerDaoClass(p6p8Dao.class);
+        registerDaoClass(p6p9Dao.class);
+        registerDaoClass(p6p10Dao.class);
+        registerDaoClass(p6p11Dao.class);
+        registerDaoClass(p6p12Dao.class);
+        registerDaoClass(p6p13Dao.class);
+        registerDaoClass(p6p14Dao.class);
+        registerDaoClass(p6p15Dao.class);
+        registerDaoClass(p6p16Dao.class);
+        registerDaoClass(p6p17Dao.class);
+        registerDaoClass(p6p18Dao.class);
+        registerDaoClass(p6p19Dao.class);
+        registerDaoClass(p6p20Dao.class);
+        registerDaoClass(p7p1Dao.class);
+        registerDaoClass(p7p2Dao.class);
+        registerDaoClass(p7p3Dao.class);
+        registerDaoClass(p7p4Dao.class);
+        registerDaoClass(p7p5Dao.class);
+        registerDaoClass(p7p6Dao.class);
+        registerDaoClass(p8p1Dao.class);
+        registerDaoClass(p8p2Dao.class);
+        registerDaoClass(p8p3Dao.class);
+        registerDaoClass(p8p4Dao.class);
+        registerDaoClass(p8p5Dao.class);
+        registerDaoClass(p8p6Dao.class);
+        registerDaoClass(p8p7Dao.class);
+        registerDaoClass(p8p8Dao.class);
+        registerDaoClass(p8p9Dao.class);
+        registerDaoClass(p9p1Dao.class);
+        registerDaoClass(p9p2Dao.class);
+        registerDaoClass(p9p3Dao.class);
+        registerDaoClass(p9p4Dao.class);
+        registerDaoClass(p9p5Dao.class);
+        registerDaoClass(p10p1Dao.class);
+        registerDaoClass(p10p2Dao.class);
+        registerDaoClass(p10p3Dao.class);
+        registerDaoClass(p10p4Dao.class);
+        registerDaoClass(p10p5Dao.class);
+        registerDaoClass(p10p6Dao.class);
+        registerDaoClass(TokensBDDao.class);
+        registerDaoClass(AuditoresDao.class);
+        registerDaoClass(ClientesDao.class);
+        registerDaoClass(FincasDao.class);
+    }
+    
+    public DaoSession newSession() {
+        return new DaoSession(db, IdentityScopeType.Session, daoConfigMap);
+    }
+    
+    public DaoSession newSession(IdentityScopeType type) {
+        return new DaoSession(db, type, daoConfigMap);
+    }
+    
+}

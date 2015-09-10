@@ -1,0 +1,1 @@
+{"principio":3,"punto":"3.5","maestra":{"pregunta":"No Existen zoo criaderos","respuestas":[1,2,3,4]},"informativas":[{"nombre-pregunta":"","orientacion":"v","internas":[{"titulo":"Cuenta con condiciones adecuadas y permisos respectivos","tipo":1}]}]}

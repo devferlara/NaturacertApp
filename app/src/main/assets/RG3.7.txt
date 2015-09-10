@@ -1,0 +1,1 @@
+{"principio":3,"punto":"3.7","maestra":{"pregunta":"En caso de la solicitud por un miembro del grupo, el administrador de grupo debe apoyarle a crear y mantener registros","respuestas":[1,2,3]},"informativas":[{"nombre-pregunta":"","orientacion":"","internas":[{"titulo":"","tipo":1},{"titulo":"","tipo":2},{"titulo":"","tipo":1},{"titulo":"","tipo":1},{"titulo":"","tipo":1}]}]}

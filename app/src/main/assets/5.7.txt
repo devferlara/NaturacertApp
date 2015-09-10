@@ -1,0 +1,69 @@
+{
+  "principio": 5,
+  "punto": "5.7",
+  "maestra": {
+    "pregunta": "No hay contratación de ningún tipo, todas las actividades son realizadas con mano de obra familiar ",
+    "respuestas": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "informativas": [
+    {
+      "nombre-pregunta": "",
+      "orientacion": "v",
+      "internas": [
+        {
+          "titulo": "Se trabajan horas extra",
+          "tipo": 1
+        },
+        {
+          "titulo": "Todo trabajo de horas extra es voluntario",
+          "tipo": 1
+        },
+        {
+          "titulo": "Se cuenta con políticas y procedimientos para su asignación",
+          "tipo": 1
+        },
+        {
+          "titulo": "Se comunican políticas y procedimientos antes de contratación",
+          "tipo": 1
+        }
+      ]
+    },
+    {
+      "nombre-pregunta": "",
+      "orientacion": "v",
+      "internas": [
+        {
+          "titulo": "El máximo de horas extra en la finca es de ",
+          "tipo": 2
+        },
+        {
+          "titulo": "Las horas extra llegan a # horas por semana / trabajador",
+          "tipo": 2
+        }
+      ]
+    },
+    {
+      "nombre-pregunta": "",
+      "orientacion": "v",
+      "internas": [
+        {
+          "titulo": " Las horas extra son pagadas a una tasa más alta que la de un salario normal ",
+          "tipo": 1
+        },
+        {
+          "titulo": "La finca utiliza periodos de excepción para sobrepasar el número de horas extra regular",
+          "tipo": 1
+        },
+        {
+          "titulo": "Cumple con las condiciones establecidas en el criterio",
+          "tipo": 1
+        }
+      ]
+    }
+  ]
+}

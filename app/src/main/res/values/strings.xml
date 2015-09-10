@@ -1,0 +1,86 @@
+<resources>
+    <string name="app_name">Naturacert</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_iniciorac">iniciorac</string>
+    <string name="title_activity_recomendaciones">recomendaciones</string>
+
+
+    <string name="recomendacionesuno">La lista de chequeo debe ser diligenciada en su totalidad.</string>
+    <string name="recomendacionesdos">El espacio Si M m NA corresponde a la siguiente calificación:</string>
+    <string name="recomendacionestres">El campo D E O se utiliza para conocer el origen de la información mediante la cual se basó para otorgar una calificación al criterio:</string>
+    <string name="recomendacionescuatro">Recuerde que la lista de chequeo constituye la evidencia más importante del trabajo que usted ha realizado, escriba la información que considere relevante en el campo de OBSERVACIONES, con el fin de soportar un cumplimiento o no cumplimiento del criterio</string>
+    <string name="recomendacionescinco">La lista de chequeo ha sido desarrollada a partir de los requisitos de cada uno de los criterios de la norma, se recomienda tener en mente la totalidad del criterio para otorgar una calificación.</string>
+    <string name="recomendacionesseis">Los criterios que tienen sombreada la celda son los que probablemente pueden ser evaluados a partir de documentos, se recomienda verificar que estos criterios hayan sido revisados durante la revisión de los documentos con el fin de adelantar una auditoría eficiente.</string>
+    <string name="recomendacionessiete">En el caso de que un criterio sea calificado como NO APLICA, solo se requerirá marcar el enunciado correspondiente a esta calificación. Los demás enunciados se deberán dejar en blanco. </string>
+    <string name="recomendacionesocho">Los criterios que no tienen la opción de “NA” corresponden a los que siempre deben ser evaluados de acuerdo a lo descrito en el Sistema de Calificación de la RAS que se encuentra en la Norma para Agricultura Sostenible y los lineamientos del Área Técnica de NaturaCert.
+</string>
+    <string name="title_activity_mis_fincas">mis_fincas</string>
+    <string name="title_activity_formularioracindividual">formularioracindividual</string>
+
+    <string name="Si">Si</string>
+    <string name="M">M</string>
+    <string name="m">m</string>
+    <string name="NA">NA</string>
+    <string name="No">No</string>
+    <string name="D">D</string>
+    <string name="E">E</string>
+    <string name="O">O</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_formularioracgrupal">formularioracgrupal</string>
+    <string name="title_activity_crear_finca_individual">crear_finca_individual</string>
+
+    <string-array name="tipo_auditoria">
+        <item>Certificacion</item>
+        <item>Anual 1</item>
+        <item>Anual 2</item>
+        <item>Verificacion</item>
+        <item>No anunciada</item>
+    </string-array>
+
+    <string-array name="tipo_auditor">
+        <item>L</item>
+        <item>A</item>
+        <item>O</item>
+    </string-array>
+
+    <string-array name="departamentos">
+        <item>Seleccione</item>
+        <item>Amazonas</item>
+        <item>Antioquia</item>
+        <item>Arauca</item>
+        <item>Atlántico</item>
+        <item>Bolívar</item>
+        <item>Boyacá</item>
+        <item>Caldas</item>
+        <item>Caquetá</item>
+        <item>Casanare</item>
+        <item>Cauca</item>
+        <item>Cesar</item>
+        <item>Chocó</item>
+        <item>Córdoba</item>
+        <item>Cundinamarca</item>
+        <item>Guainía</item>
+        <item>Guaviare</item>
+        <item>Huila</item>
+        <item>La Guajira</item>
+        <item>Magdalena</item>
+        <item>Meta</item>
+        <item>Nariño</item>
+        <item>Norte de Santander</item>
+        <item>Putumayo</item>
+        <item>Quindío</item>
+        <item>Risaralda</item>
+        <item>San Andrés y Providencia</item>
+        <item>Santander</item>
+        <item>Sucre</item>
+        <item>Tolima</item>
+        <item>Valle del Cauca</item>
+        <item>Vaupés</item>
+        <item>Vichada</item>
+    </string-array>
+
+</resources>

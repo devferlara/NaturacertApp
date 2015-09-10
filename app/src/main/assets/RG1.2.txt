@@ -1,0 +1,1 @@
+{"principio":1,"punto":"1.2","maestra":{"pregunta":"El administrador de grupo debe capacitar a su personal del sistema interno de gestión  para que pueda cumplir con sus tareas.","respuestas":[1,2,3]},"informativas":[{"nombre-pregunta":"","orientacion":"h","internas":[{"titulo":"Fecha de última capacitación","tipo":2}]}]}

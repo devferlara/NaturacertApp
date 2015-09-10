@@ -1,0 +1,1 @@
+{"principio":4,"punto":"4.7","maestra":{"pregunta":"La finca no produce ningún tipo de desechos","respuestas":[1,2,3,4]},"informativas":[{"nombre-pregunta":"","orientacion":"h","internas":[{"titulo":"No se depositan desechos sólidos en ecosistemas acuáticos ","tipo":1}]}]}

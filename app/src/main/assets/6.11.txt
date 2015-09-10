@@ -1,0 +1,1 @@
+{"principio":6,"punto":"6.11","maestra":{"pregunta":"No se almacenan agroquímicos en la finca","respuestas":[1,2,3,4]},"informativas":[{"nombre-pregunta":"","orientacion":"h","internas":[{"titulo":"La ubicación de las áreas de almacenamiento de agroquímicos\n y combustibles cumple con la legislación vigente","tipo":1}]}]}

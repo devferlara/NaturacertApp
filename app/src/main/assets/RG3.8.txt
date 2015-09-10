@@ -1,0 +1,1 @@
+{"principio":3,"punto":"3.8","maestra":{"pregunta":"Los documentos del administrador de grupo deben ser consistentes con el idioma y nivel de entendimiento de los miembros del grupo.","respuestas":[1,2,3]},"informativas":[{"nombre-pregunta":"","orientacion":"h","internas":[{"titulo":"Nivel de escolaridad de los miembros","tipo":2}]}]}

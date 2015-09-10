@@ -1,0 +1,1 @@
+{"principio":7,"punto":"7.1","maestra":{"pregunta":"La finca debe respetar las áreas y actividades de importancia social,cultural, biológica, ambiental y religiosa para la comunidad","respuestas":[1,2,3]},"informativas":[{"nombre-pregunta":"","orientacion":"h","internas":[{"titulo":"Se realizan actividades o existen áreas del tipo mencionado cerca de la finca","tipo":1}]}]}
