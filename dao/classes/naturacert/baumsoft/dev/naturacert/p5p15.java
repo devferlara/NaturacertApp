@@ -23,8 +23,8 @@ public class p5p15 {
     private Integer depo;
     private Integer hagu;
     private Integer origen;
+    private String obser;
     private Integer id_formulario;
-    private String observaciones;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -36,7 +36,7 @@ public class p5p15 {
         this.id = id;
     }
 
-    public p5p15(Long id, Integer tfap, Integer acue, Integer naci, Integer cau, String otro, Integer taap, Integer apcs, Integer adlt, Integer ana, String dfec, Integer depo, Integer hagu, Integer origen, Integer id_formulario, String observaciones) {
+    public p5p15(Long id, Integer tfap, Integer acue, Integer naci, Integer cau, String otro, Integer taap, Integer apcs, Integer adlt, Integer ana, String dfec, Integer depo, Integer hagu, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
         this.tfap = tfap;
         this.acue = acue;
@@ -51,8 +51,8 @@ public class p5p15 {
         this.depo = depo;
         this.hagu = hagu;
         this.origen = origen;
+        this.obser = obser;
         this.id_formulario = id_formulario;
-        this.observaciones = observaciones;
     }
 
     public Long getId() {
@@ -167,20 +167,20 @@ public class p5p15 {
         this.origen = origen;
     }
 
+    public String getObser() {
+        return obser;
+    }
+
+    public void setObser(String obser) {
+        this.obser = obser;
+    }
+
     public Integer getId_formulario() {
         return id_formulario;
     }
 
     public void setId_formulario(Integer id_formulario) {
         this.id_formulario = id_formulario;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
     }
 
     // KEEP METHODS - put your custom methods here

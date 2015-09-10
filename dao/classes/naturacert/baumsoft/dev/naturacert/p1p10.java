@@ -17,8 +17,8 @@ public class p1p10 {
     private Integer rtra;
     private Integer pad;
     private Integer origen;
+    private String obser;
     private Integer id_formulario;
-    private String observaciones;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -30,7 +30,7 @@ public class p1p10 {
         this.id = id;
     }
 
-    public p1p10(Long id, Integer spem, Integer sef, Integer set, Integer poi, Integer rtra, Integer pad, Integer origen, Integer id_formulario, String observaciones) {
+    public p1p10(Long id, Integer spem, Integer sef, Integer set, Integer poi, Integer rtra, Integer pad, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
         this.spem = spem;
         this.sef = sef;
@@ -39,8 +39,8 @@ public class p1p10 {
         this.rtra = rtra;
         this.pad = pad;
         this.origen = origen;
+        this.obser = obser;
         this.id_formulario = id_formulario;
-        this.observaciones = observaciones;
     }
 
     public Long getId() {
@@ -107,20 +107,20 @@ public class p1p10 {
         this.origen = origen;
     }
 
+    public String getObser() {
+        return obser;
+    }
+
+    public void setObser(String obser) {
+        this.obser = obser;
+    }
+
     public Integer getId_formulario() {
         return id_formulario;
     }
 
     public void setId_formulario(Integer id_formulario) {
         this.id_formulario = id_formulario;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
     }
 
     // KEEP METHODS - put your custom methods here

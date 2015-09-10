@@ -224,8 +224,8 @@ public class Main {
         p.addIntProperty("laborales");
         p.addIntProperty("ambientales");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear1p2(Schema schema){
@@ -243,8 +243,8 @@ public class Main {
         p.addIntProperty("pol");
         p.addIntProperty("proc");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear1p3(Schema schema){
@@ -255,8 +255,8 @@ public class Main {
         p.addIntProperty("adc");
         p.addIntProperty("aer");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear1p4(Schema schema){
@@ -269,8 +269,8 @@ public class Main {
         p.addIntProperty("edd");
         p.addStringProperty("cuales");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear1p5(Schema schema) {
@@ -280,8 +280,8 @@ public class Main {
         p.addIntProperty("dfdr");
         p.addStringProperty("dgsca");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear1p6(Schema schema) {
@@ -292,8 +292,8 @@ public class Main {
         p.addIntProperty("erac");
         p.addIntProperty("eipi");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear1p7(Schema schema) {
@@ -314,8 +314,8 @@ public class Main {
         p.addIntProperty("mdam");
         p.addIntProperty("apam");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear1p8(Schema schema) {
@@ -326,8 +326,8 @@ public class Main {
         p.addIntProperty("vcp");
         p.addIntProperty("fvc");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear1p9(Schema schema) {
@@ -344,8 +344,8 @@ public class Main {
         p.addIntProperty("pdt");
         p.addIntProperty("tdl");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear1p10(Schema schema) {
@@ -358,8 +358,8 @@ public class Main {
         p.addIntProperty("rtra");
         p.addIntProperty("pad");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear1p11(Schema schema) {
@@ -372,8 +372,8 @@ public class Main {
         p.addIntProperty("pedn");
         p.addIntProperty("rce");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
 
@@ -390,8 +390,8 @@ public class Main {
         p.addIntProperty("rec_eco");
         p.addIntProperty("prog_inc_eco");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear2p2(Schema schema) {
@@ -406,8 +406,8 @@ public class Main {
         p.addIntProperty("pmit");
         p.addIntProperty("ipla");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear2p3(Schema schema) {
@@ -425,8 +425,8 @@ public class Main {
         p.addIntProperty("arec");
         p.addIntProperty("rnsc");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear2p4(Schema schema) {
@@ -438,8 +438,8 @@ public class Main {
         p.addIntProperty("ndedc");
         p.addIntProperty("nden");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear2p5(Schema schema) {
@@ -451,8 +451,8 @@ public class Main {
         p.addIntProperty("osv");
         p.addIntProperty("sepyn");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear2p6(Schema schema) {
@@ -467,8 +467,8 @@ public class Main {
         p.addStringProperty("decyc");
         p.addIntProperty("ucv");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear2p7(Schema schema) {
@@ -480,8 +480,8 @@ public class Main {
         p.addIntProperty("apc");
         p.addIntProperty("rdpyh");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear2p8(Schema schema) {
@@ -494,8 +494,8 @@ public class Main {
         p.addStringProperty("adre");
         p.addIntProperty("admh");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear2p9(Schema schema) {
@@ -509,8 +509,8 @@ public class Main {
         p.addIntProperty("adc");
         p.addIntProperty("pex");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     /* Principio 2 */
@@ -524,8 +524,8 @@ public class Main {
         p.addIntProperty("ivs");
         p.addIntProperty("idh");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear3p2(Schema schema) {
@@ -537,8 +537,8 @@ public class Main {
         p.addIntProperty("phf");
         p.addIntProperty("pep");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear3p3(Schema schema) {
@@ -552,8 +552,8 @@ public class Main {
         p.addIntProperty("prea");
         p.addIntProperty("pgec");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear3p4(Schema schema) {
@@ -563,8 +563,8 @@ public class Main {
         p.addIntProperty("cprt");
         p.addIntProperty("cifc");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear3p5(Schema schema) {
@@ -573,8 +573,8 @@ public class Main {
         p.addIntProperty("nezc");
         p.addIntProperty("capr");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear3p6(Schema schema) {
@@ -585,8 +585,8 @@ public class Main {
         p.addIntProperty("cap");
         p.addIntProperty("nvsf");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     /* Principio 3 */
@@ -605,8 +605,8 @@ public class Main {
         p.addIntProperty("frmr");
         p.addIntProperty("rcaf");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear4p2(Schema schema) {
@@ -616,8 +616,8 @@ public class Main {
         p.addIntProperty("fapa");
         p.addIntProperty("fcva");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear4p3(Schema schema) {
@@ -629,8 +629,8 @@ public class Main {
         p.addIntProperty("dcau");
         p.addIntProperty("sred");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear4p4(Schema schema) {
@@ -642,8 +642,8 @@ public class Main {
         p.addIntProperty("pevs");
         p.addIntProperty("sota");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear4p5(Schema schema) {
@@ -653,8 +653,8 @@ public class Main {
         p.addIntProperty("avcp");
         p.addIntProperty("nsarc");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear4p6(Schema schema) {
@@ -665,8 +665,8 @@ public class Main {
         p.addIntProperty("proma");
         p.addIntProperty("procr");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear4p7(Schema schema) {
@@ -675,8 +675,8 @@ public class Main {
         p.addIntProperty("fnpd");
         p.addIntProperty("nsda");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear4p8(Schema schema) {
@@ -690,8 +690,8 @@ public class Main {
         p.addIntProperty("rale");
         p.addIntProperty("tarq");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear4p9(Schema schema) {
@@ -704,8 +704,8 @@ public class Main {
         p.addIntProperty("pmue");
         p.addIntProperty("amdc");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
     /* Principio 4 */
 
@@ -724,8 +724,8 @@ public class Main {
         p.addIntProperty("comu");
         p.addIntProperty("rdtya");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear5p2(Schema schema) {
@@ -738,8 +738,8 @@ public class Main {
         p.addIntProperty("niprc");
         p.addIntProperty("ndplc");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear5p3(Schema schema) {
@@ -751,8 +751,8 @@ public class Main {
         p.addIntProperty("crn");
         p.addIntProperty("ndpe");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear5p4(Schema schema) {
@@ -777,8 +777,8 @@ public class Main {
         p.addIntProperty("pagt");
         p.addIntProperty("pagn");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
     private static void crear5p5(Schema schema) {
         Entity p = schema.addEntity("p5p5");
@@ -792,8 +792,8 @@ public class Main {
         p.addIntProperty("snpc");
         p.addIntProperty("tacn");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear5p6(Schema schema) {
@@ -809,8 +809,8 @@ public class Main {
         p.addIntProperty("vac");
         p.addIntProperty("dybc");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
     private static void crear5p7(Schema schema) {
         Entity p = schema.addEntity("p5p7");
@@ -825,8 +825,8 @@ public class Main {
         p.addIntProperty("upeh");
         p.addIntProperty("ccec");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
     private static void crear5p8(Schema schema) {
         Entity p = schema.addEntity("p5p8");
@@ -850,8 +850,8 @@ public class Main {
         p.addIntProperty("hnie");
         p.addIntProperty("tmnr");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear5p9(Schema schema) {
@@ -860,8 +860,8 @@ public class Main {
         p.addIntProperty("lcnpm");
         p.addIntProperty("metf");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
     private static void crear5p10(Schema schema) {
         Entity p = schema.addEntity("p5p10");
@@ -874,8 +874,8 @@ public class Main {
         p.addIntProperty("dtra");
         p.addIntProperty("fotl");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear5p11(Schema schema) {
@@ -886,8 +886,8 @@ public class Main {
         p.addIntProperty("snat");
         p.addIntProperty("mfmt");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear5p12(Schema schema) {
@@ -905,8 +905,8 @@ public class Main {
         p.addIntProperty("cul");
         p.addStringProperty("de");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
     private static void crear5p13(Schema schema) {
         Entity p = schema.addEntity("p5p13");
@@ -917,8 +917,8 @@ public class Main {
         p.addIntProperty("fpt");
         p.addIntProperty("trcp");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
     private static void crear5p14(Schema schema) {
         Entity p = schema.addEntity("p5p14");
@@ -933,8 +933,8 @@ public class Main {
         p.addIntProperty("idta");
         p.addIntProperty("memc");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
     private static void crear5p15(Schema schema) {
         Entity p = schema.addEntity("p5p15");
@@ -952,8 +952,8 @@ public class Main {
         p.addIntProperty("depo");
         p.addIntProperty("hagu");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
     private static void crear5p16(Schema schema) {
         Entity p = schema.addEntity("p5p16");
@@ -966,8 +966,8 @@ public class Main {
         p.addIntProperty("otro");
         p.addStringProperty("cual");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
     private static void crear5p17(Schema schema) {
         Entity p = schema.addEntity("p5p17");
@@ -977,8 +977,8 @@ public class Main {
         p.addIntProperty("mgaet");
         p.addIntProperty("eapf");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
 
     }
     private static void crear5p18(Schema schema) {
@@ -989,8 +989,8 @@ public class Main {
         p.addIntProperty("anlc");
         p.addIntProperty("iftf");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
     private static void crear5p19(Schema schema) {
         Entity p = schema.addEntity("p5p19");
@@ -998,8 +998,8 @@ public class Main {
         p.addIntProperty("lnpm");
         p.addIntProperty("metc");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
     /* Principio 5 */
 
@@ -1020,8 +1020,8 @@ public class Main {
         p.addIntProperty("ucds");
         p.addIntProperty("peps");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p2(Schema schema) {
@@ -1040,8 +1040,8 @@ public class Main {
         p.addIntProperty("ladu");
         p.addIntProperty("obje");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p3(Schema schema) {
@@ -1053,8 +1053,8 @@ public class Main {
         p.addIntProperty("eptl");
         p.addStringProperty("fdlu");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p4(Schema schema) {
@@ -1070,8 +1070,8 @@ public class Main {
         p.addIntProperty("siap");
         p.addIntProperty("sgta");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p5(Schema schema) {
@@ -1087,8 +1087,8 @@ public class Main {
         p.addIntProperty("sslr");
         p.addIntProperty("etta");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p6(Schema schema) {
@@ -1101,8 +1101,8 @@ public class Main {
         p.addIntProperty("ssed");
         p.addIntProperty("seeu");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p7(Schema schema) {
@@ -1115,8 +1115,8 @@ public class Main {
         p.addIntProperty("idma");
         p.addIntProperty("scep");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
     private static void crear6p8(Schema schema) {
         Entity p = schema.addEntity("p6p8");
@@ -1127,8 +1127,8 @@ public class Main {
         p.addIntProperty("eicc");
         p.addIntProperty("edcc");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p9(Schema schema) {
@@ -1144,8 +1144,8 @@ public class Main {
         p.addIntProperty("mdpd");
         p.addIntProperty("lade");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p10(Schema schema) {
@@ -1163,8 +1163,8 @@ public class Main {
         p.addIntProperty("smlh");
         p.addIntProperty("shea");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p11(Schema schema) {
@@ -1173,8 +1173,8 @@ public class Main {
         p.addIntProperty("lfdd");
         p.addIntProperty("ludl");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p12(Schema schema) {
@@ -1189,8 +1189,8 @@ public class Main {
         p.addIntProperty("last");
         p.addIntProperty("lemd");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p13(Schema schema) {
@@ -1202,8 +1202,8 @@ public class Main {
         p.addIntProperty("lfie");
         p.addIntProperty("eedp");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p14(Schema schema) {
@@ -1214,8 +1214,8 @@ public class Main {
         p.addIntProperty("semd");
         p.addStringProperty("srrd");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p15(Schema schema) {
@@ -1233,8 +1233,8 @@ public class Main {
         p.addIntProperty("ppqn");
         p.addIntProperty("csus");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p16(Schema schema) {
@@ -1245,8 +1245,8 @@ public class Main {
         p.addIntProperty("eaes");
         p.addIntProperty("edyv");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p17(Schema schema) {
@@ -1257,8 +1257,8 @@ public class Main {
         p.addIntProperty("euac");
         p.addIntProperty("nepl");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p18(Schema schema) {
@@ -1271,8 +1271,8 @@ public class Main {
         p.addIntProperty("rcsa");
         p.addIntProperty("pcep");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p19(Schema schema) {
@@ -1287,8 +1287,8 @@ public class Main {
         p.addIntProperty("duch");
         p.addIntProperty("lvmn");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear6p20(Schema schema) {
@@ -1300,8 +1300,8 @@ public class Main {
         p.addIntProperty("mono");
         p.addIntProperty("lfbs");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     /* Principio 6 */
@@ -1313,8 +1313,8 @@ public class Main {
         p.addIntProperty("fdrl");
         p.addIntProperty("srao");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear7p2(Schema schema) {
@@ -1329,8 +1329,8 @@ public class Main {
         p.addIntProperty("hpaq");
         p.addIntProperty("sipy");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear7p3(Schema schema) {
@@ -1342,8 +1342,8 @@ public class Main {
         p.addIntProperty("lfcp");
         p.addIntProperty("lfas");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear7p4(Schema schema) {
@@ -1354,8 +1354,8 @@ public class Main {
         p.addIntProperty("lfcd");
         p.addIntProperty("lfau");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear7p5(Schema schema) {
@@ -1365,8 +1365,8 @@ public class Main {
         p.addIntProperty("lfce");
         p.addIntProperty("lfac");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear7p6(Schema schema) {
@@ -1379,8 +1379,8 @@ public class Main {
         p.addIntProperty("ddpb");
         p.addIntProperty("escr");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
     /* Principio 7 */
 
@@ -1405,8 +1405,8 @@ public class Main {
         p.addIntProperty("faam");
         p.addIntProperty("mdce");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear8p2(Schema schema) {
@@ -1433,8 +1433,8 @@ public class Main {
         p.addIntProperty("lfme");
         p.addIntProperty("srya");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear8p3(Schema schema) {
@@ -1447,8 +1447,8 @@ public class Main {
         p.addIntProperty("enep");
         p.addIntProperty("lfda");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear8p4(Schema schema) {
@@ -1464,8 +1464,8 @@ public class Main {
         p.addIntProperty("sqnp");
         p.addIntProperty("nsbu");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear8p5(Schema schema) {
@@ -1476,8 +1476,8 @@ public class Main {
         p.addIntProperty("pprl");
         p.addIntProperty("seep");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear8p6(Schema schema) {
@@ -1488,8 +1488,8 @@ public class Main {
         p.addIntProperty("nshi");
         p.addIntProperty("sdye");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear8p7(Schema schema) {
@@ -1506,8 +1506,8 @@ public class Main {
         p.addIntProperty("pqal");
         p.addIntProperty("fcda");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear8p8(Schema schema) {
@@ -1517,8 +1517,8 @@ public class Main {
         p.addIntProperty("udfp");
         p.addIntProperty("selp");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear8p9(Schema schema) {
@@ -1529,8 +1529,8 @@ public class Main {
         p.addIntProperty("eudf");
         p.addIntProperty("fsub");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
     /* Principio 8 */
 
@@ -1545,8 +1545,8 @@ public class Main {
         p.addIntProperty("ifas");
         p.addIntProperty("uecv");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear9p2(Schema schema) {
@@ -1569,8 +1569,8 @@ public class Main {
         p.addIntProperty("rect");
         p.addIntProperty("ureo");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear9p3(Schema schema) {
@@ -1586,8 +1586,8 @@ public class Main {
         p.addIntProperty("guad");
         p.addIntProperty("herb");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear9p4(Schema schema) {
@@ -1603,8 +1603,8 @@ public class Main {
         p.addIntProperty("map");
         p.addIntProperty("qprt");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear9p5(Schema schema) {
@@ -1618,8 +1618,8 @@ public class Main {
         p.addIntProperty("tbn");
         p.addIntProperty("qpna");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
     /* Principio 9 */
 
@@ -1636,8 +1636,8 @@ public class Main {
         p.addIntProperty("ecg");
         p.addIntProperty("amda");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear10p2(Schema schema) {
@@ -1651,8 +1651,8 @@ public class Main {
         p.addIntProperty("plci");
         p.addIntProperty("poper");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear10p3(Schema schema) {
@@ -1669,8 +1669,8 @@ public class Main {
         p.addIntProperty("mdli");
         p.addStringProperty("uldf");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear10p4(Schema schema) {
@@ -1684,8 +1684,8 @@ public class Main {
         p.addIntProperty("lsh");
         p.addIntProperty("amb");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear10p5(Schema schema) {
@@ -1698,8 +1698,8 @@ public class Main {
         p.addIntProperty("dble");
         p.addIntProperty("rpc");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
 
     private static void crear10p6(Schema schema) {
@@ -1719,8 +1719,8 @@ public class Main {
         p.addIntProperty("pirg");
         p.addIntProperty("mpta");
         p.addIntProperty("origen");
+        p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
-        p.addStringProperty("observaciones");
     }
     /* Principio 10 */
 

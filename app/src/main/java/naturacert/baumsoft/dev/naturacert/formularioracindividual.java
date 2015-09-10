@@ -38,16 +38,21 @@ public class formularioracindividual extends ActionBarActivity {
     TextView numero_principio;
     private String[] principios = new String[21];
 
+    int formulario;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_formularioracindividual);
 
+        Intent mIntent = getIntent();
+        formulario = Integer.parseInt(mIntent.getStringExtra("id_formulario"));
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
-        adapter = new ViewPagerAdapter(getSupportFragmentManager(), Titles, Numboftabs, getApplication());
+        adapter = new ViewPagerAdapter(getSupportFragmentManager(), Titles, Numboftabs, getApplication(), formulario);
 
         toolbar.setVisibility(View.GONE);
 
@@ -190,30 +195,9 @@ public class formularioracindividual extends ActionBarActivity {
             }
         });
 
-        final Button btnMainD = (Button) findViewById(R.id.btnMainD);
-        final Button btnMainE = (Button) findViewById(R.id.btnMainE);
-        final Button btnMainO = (Button) findViewById(R.id.btnMainO);
+        /*
 
-        btnMainD.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                escogerOrigen(btnMainD, btnMainE, btnMainO);
-            }
-        });
-
-        btnMainE.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                escogerOrigen(btnMainE, btnMainD, btnMainO);
-            }
-        });
-
-        btnMainO.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                escogerOrigen(btnMainO, btnMainE, btnMainD);
-            }
-        });
+        */
 
         principios[0] = "none";
         principios[1] = "Sistema de Gestion Social y Ambiental";
@@ -264,12 +248,7 @@ public class formularioracindividual extends ActionBarActivity {
 
     }
 
-    private void escogerOrigen(Button botonEscogido, Button boton1, Button boton2) {
-        botonEscogido.setBackgroundResource(R.drawable.estilosbotonformularioorigen);
-        boton1.setBackgroundResource(R.drawable.estilosbotonformularioorigen);
-        boton2.setBackgroundResource(R.drawable.estilosbotonformularioorigen);
-        botonEscogido.setBackgroundResource(R.drawable.estilosbotonformularioorigenseleccionado);
-    }
+
 
     private void seleccionarPrincipio(Button escogido, int principio) {
         principio1.setBackgroundColor(Color.parseColor("#ffffff"));

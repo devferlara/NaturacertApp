@@ -1,6 +1,7 @@
 package naturacert.baumsoft.dev.naturacert;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -28,7 +29,7 @@ public class mis_fincas extends Activity {
 
         if(fincas.size()!=0){
             lista.setAdapter(null);
-            lista.setAdapter(new adapter_fincas(mis_fincas.this, fincas));
+            lista.setAdapter(new adapter_fincas(mis_fincas.this, fincas, mis_fincas.this));
         }
 
         Button buscar = (Button) findViewById(R.id.buscar);
@@ -45,13 +46,17 @@ public class mis_fincas extends Activity {
                 List fincas = qb.list();
                 if(fincas.size() != 0){
                     lista.setAdapter(null);
-                    lista.setAdapter(new adapter_fincas(mis_fincas.this, fincas));
+                    lista.setAdapter(new adapter_fincas(mis_fincas.this, fincas, mis_fincas.this));
                 }
 
             }
         });
+    }
 
-
+    public void abrir_formulario(int id){
+        Intent pasar = new Intent(mis_fincas.this, formularioracindividual.class);
+        pasar.putExtra("id_formulario", String.valueOf(id));
+        startActivity(pasar);
     }
 
 }

@@ -23,8 +23,8 @@ public class p6p2 {
     private Integer ladu;
     private Integer obje;
     private Integer origen;
+    private String obser;
     private Integer id_formulario;
-    private String observaciones;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -36,7 +36,7 @@ public class p6p2 {
         this.id = id;
     }
 
-    public p6p2(Long id, Integer lfup, Integer eupc, Integer ltcl, Integer lthr, Integer erdd, Integer lfcc, Integer ltop, Integer lmdu, Integer lafr, Integer tetr, Integer ladu, Integer obje, Integer origen, Integer id_formulario, String observaciones) {
+    public p6p2(Long id, Integer lfup, Integer eupc, Integer ltcl, Integer lthr, Integer erdd, Integer lfcc, Integer ltop, Integer lmdu, Integer lafr, Integer tetr, Integer ladu, Integer obje, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
         this.lfup = lfup;
         this.eupc = eupc;
@@ -51,8 +51,8 @@ public class p6p2 {
         this.ladu = ladu;
         this.obje = obje;
         this.origen = origen;
+        this.obser = obser;
         this.id_formulario = id_formulario;
-        this.observaciones = observaciones;
     }
 
     public Long getId() {
@@ -167,20 +167,20 @@ public class p6p2 {
         this.origen = origen;
     }
 
+    public String getObser() {
+        return obser;
+    }
+
+    public void setObser(String obser) {
+        this.obser = obser;
+    }
+
     public Integer getId_formulario() {
         return id_formulario;
     }
 
     public void setId_formulario(Integer id_formulario) {
         this.id_formulario = id_formulario;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
     }
 
     // KEEP METHODS - put your custom methods here

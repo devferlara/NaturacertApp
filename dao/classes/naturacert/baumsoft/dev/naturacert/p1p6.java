@@ -15,8 +15,8 @@ public class p1p6 {
     private Integer erac;
     private Integer eipi;
     private Integer origen;
+    private String obser;
     private Integer id_formulario;
-    private String observaciones;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -28,15 +28,15 @@ public class p1p6 {
         this.id = id;
     }
 
-    public p1p6(Long id, Integer epino, Integer erlv, Integer erac, Integer eipi, Integer origen, Integer id_formulario, String observaciones) {
+    public p1p6(Long id, Integer epino, Integer erlv, Integer erac, Integer eipi, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
         this.epino = epino;
         this.erlv = erlv;
         this.erac = erac;
         this.eipi = eipi;
         this.origen = origen;
+        this.obser = obser;
         this.id_formulario = id_formulario;
-        this.observaciones = observaciones;
     }
 
     public Long getId() {
@@ -87,20 +87,20 @@ public class p1p6 {
         this.origen = origen;
     }
 
+    public String getObser() {
+        return obser;
+    }
+
+    public void setObser(String obser) {
+        this.obser = obser;
+    }
+
     public Integer getId_formulario() {
         return id_formulario;
     }
 
     public void setId_formulario(Integer id_formulario) {
         this.id_formulario = id_formulario;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
     }
 
     // KEEP METHODS - put your custom methods here

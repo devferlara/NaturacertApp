@@ -22,8 +22,8 @@ public class p2p3 {
     private Integer arec;
     private Integer rnsc;
     private Integer origen;
+    private String obser;
     private Integer id_formulario;
-    private String observaciones;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -35,7 +35,7 @@ public class p2p3 {
         this.id = id;
     }
 
-    public p2p3(Long id, Integer apnuc, Integer pnz, Integer rvs, Integer azm, Integer spn, Integer rfp, Integer pnr, Integer dmi, Integer dcs, Integer arec, Integer rnsc, Integer origen, Integer id_formulario, String observaciones) {
+    public p2p3(Long id, Integer apnuc, Integer pnz, Integer rvs, Integer azm, Integer spn, Integer rfp, Integer pnr, Integer dmi, Integer dcs, Integer arec, Integer rnsc, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
         this.apnuc = apnuc;
         this.pnz = pnz;
@@ -49,8 +49,8 @@ public class p2p3 {
         this.arec = arec;
         this.rnsc = rnsc;
         this.origen = origen;
+        this.obser = obser;
         this.id_formulario = id_formulario;
-        this.observaciones = observaciones;
     }
 
     public Long getId() {
@@ -157,20 +157,20 @@ public class p2p3 {
         this.origen = origen;
     }
 
+    public String getObser() {
+        return obser;
+    }
+
+    public void setObser(String obser) {
+        this.obser = obser;
+    }
+
     public Integer getId_formulario() {
         return id_formulario;
     }
 
     public void setId_formulario(Integer id_formulario) {
         this.id_formulario = id_formulario;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
     }
 
     // KEEP METHODS - put your custom methods here

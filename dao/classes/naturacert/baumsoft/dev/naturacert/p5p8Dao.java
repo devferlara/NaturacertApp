@@ -43,8 +43,8 @@ public class p5p8Dao extends AbstractDao<p5p8, Long> {
         public final static Property Hnie = new Property(17, Integer.class, "hnie", false, "HNIE");
         public final static Property Tmnr = new Property(18, Integer.class, "tmnr", false, "TMNR");
         public final static Property Origen = new Property(19, Integer.class, "origen", false, "ORIGEN");
-        public final static Property Id_formulario = new Property(20, Integer.class, "id_formulario", false, "ID_FORMULARIO");
-        public final static Property Observaciones = new Property(21, String.class, "observaciones", false, "OBSERVACIONES");
+        public final static Property Obser = new Property(20, String.class, "obser", false, "OBSER");
+        public final static Property Id_formulario = new Property(21, Integer.class, "id_formulario", false, "ID_FORMULARIO");
     };
 
 
@@ -80,8 +80,8 @@ public class p5p8Dao extends AbstractDao<p5p8, Long> {
                 "'HNIE' INTEGER," + // 17: hnie
                 "'TMNR' INTEGER," + // 18: tmnr
                 "'ORIGEN' INTEGER," + // 19: origen
-                "'ID_FORMULARIO' INTEGER," + // 20: id_formulario
-                "'OBSERVACIONES' TEXT);"); // 21: observaciones
+                "'OBSER' TEXT," + // 20: obser
+                "'ID_FORMULARIO' INTEGER);"); // 21: id_formulario
     }
 
     /** Drops the underlying database table. */
@@ -195,14 +195,14 @@ public class p5p8Dao extends AbstractDao<p5p8, Long> {
             stmt.bindLong(20, origen);
         }
  
-        Integer id_formulario = entity.getId_formulario();
-        if (id_formulario != null) {
-            stmt.bindLong(21, id_formulario);
+        String obser = entity.getObser();
+        if (obser != null) {
+            stmt.bindString(21, obser);
         }
  
-        String observaciones = entity.getObservaciones();
-        if (observaciones != null) {
-            stmt.bindString(22, observaciones);
+        Integer id_formulario = entity.getId_formulario();
+        if (id_formulario != null) {
+            stmt.bindLong(22, id_formulario);
         }
     }
 
@@ -236,8 +236,8 @@ public class p5p8Dao extends AbstractDao<p5p8, Long> {
             cursor.isNull(offset + 17) ? null : cursor.getInt(offset + 17), // hnie
             cursor.isNull(offset + 18) ? null : cursor.getInt(offset + 18), // tmnr
             cursor.isNull(offset + 19) ? null : cursor.getInt(offset + 19), // origen
-            cursor.isNull(offset + 20) ? null : cursor.getInt(offset + 20), // id_formulario
-            cursor.isNull(offset + 21) ? null : cursor.getString(offset + 21) // observaciones
+            cursor.isNull(offset + 20) ? null : cursor.getString(offset + 20), // obser
+            cursor.isNull(offset + 21) ? null : cursor.getInt(offset + 21) // id_formulario
         );
         return entity;
     }
@@ -265,8 +265,8 @@ public class p5p8Dao extends AbstractDao<p5p8, Long> {
         entity.setHnie(cursor.isNull(offset + 17) ? null : cursor.getInt(offset + 17));
         entity.setTmnr(cursor.isNull(offset + 18) ? null : cursor.getInt(offset + 18));
         entity.setOrigen(cursor.isNull(offset + 19) ? null : cursor.getInt(offset + 19));
-        entity.setId_formulario(cursor.isNull(offset + 20) ? null : cursor.getInt(offset + 20));
-        entity.setObservaciones(cursor.isNull(offset + 21) ? null : cursor.getString(offset + 21));
+        entity.setObser(cursor.isNull(offset + 20) ? null : cursor.getString(offset + 20));
+        entity.setId_formulario(cursor.isNull(offset + 21) ? null : cursor.getInt(offset + 21));
      }
     
     /** @inheritdoc */

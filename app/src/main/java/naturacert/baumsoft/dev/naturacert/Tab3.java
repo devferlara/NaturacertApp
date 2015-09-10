@@ -39,6 +39,8 @@ public class Tab3 extends Fragment {
     private int numeroMaestras;
     private long idUno;
     private final JSONArray jsonDatos = new JSONArray();
+    private int origen;
+    private int formulario;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,12 @@ public class Tab3 extends Fragment {
         idUno = 1;
     }
 
+    private void escogerOrigen(Button botonEscogido, Button boton1, Button boton2) {
+        botonEscogido.setBackgroundResource(R.drawable.estilosbotonformularioorigen);
+        boton1.setBackgroundResource(R.drawable.estilosbotonformularioorigen);
+        boton2.setBackgroundResource(R.drawable.estilosbotonformularioorigen);
+        botonEscogido.setBackgroundResource(R.drawable.estilosbotonformularioorigenseleccionado);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -75,6 +83,9 @@ public class Tab3 extends Fragment {
             JSONObject maestra = new JSONObject(objeto.getString("maestra"));
             TextView tituloMaestra = (TextView) v.findViewById(R.id.titulo_pregunta_maestra);
             tituloMaestra.setText(maestra.getString("pregunta"));
+
+            Log.d("Json Datos", jsonDatos.toString());
+
 
             String[] rtasMaestras = new String[5];
             rtasMaestras[1] = "1";
@@ -320,7 +331,65 @@ public class Tab3 extends Fragment {
 
                 LinearLayout rayaDivisoria = crearRayaVerde(getActivity());
                 contenedorInformativas.addView(rayaDivisoria);
+
+
             }
+
+            /* asociamos los puntos de origen */
+            final Button btnMainD = (Button) v.findViewById(R.id.btnMainD);
+            final Button btnMainE = (Button) v.findViewById(R.id.btnMainE);
+            final Button btnMainO = (Button) v.findViewById(R.id.btnMainO);
+
+            btnMainD.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    escogerOrigen(btnMainD, btnMainE, btnMainO);
+                    origen = 1;
+                    guardar(contexto);
+                }
+            });
+
+            btnMainE.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    escogerOrigen(btnMainE, btnMainD, btnMainO);
+                    origen = 2;
+                    guardar(contexto);
+                }
+            });
+
+            btnMainO.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    escogerOrigen(btnMainO, btnMainE, btnMainD);
+                    origen = 3;
+                    guardar(contexto);
+                }
+            });
+
+            Log.d("Sacar preg", String.valueOf(jsonDatos.getInt(numeroPregunta + 1)));
+            int rtaOri = jsonDatos.getInt(numeroPregunta + 1);
+            if(rtaOri == 1){
+                origen = 1;
+                Log.d("Origen =", "1");
+                escogerOrigen(btnMainD, btnMainE, btnMainO);
+            }
+            if(rtaOri == 2){
+                origen = 2;
+                Log.d("Origen =", "1");
+                escogerOrigen(btnMainE, btnMainD, btnMainO);
+            }
+            if(rtaOri == 3){
+                origen = 3;
+                Log.d("Origen =", "1");
+                escogerOrigen(btnMainO, btnMainE, btnMainD);
+            }
+
+            if(rtaOri == 9){
+                origen = 9;
+            }
+
+
             /* entramos a la parte maestra */
 
 
@@ -334,11 +403,13 @@ public class Tab3 extends Fragment {
     }
 
     public void guardar(Context contexto) {
-        int[] datosEnviar = new int[numeroPregunta + 1];
+        int[] datosEnviar = new int[numeroPregunta + 2];
         Log.d("NumeroPregunta", String.valueOf(numeroPregunta));
-        String[] cadenaEnviar = new String[numeroCadenaPregunta];
+        String[] cadenaEnviar = new String[numeroCadenaPregunta + 1];
         int contadorTexto = 0;
         datosEnviar[0] = rtaMaestra;
+        int finalInt = 0;
+        int finalString = 0;
 
         for (int p = 1; p <= numeroPregunta; p++) {
 
@@ -348,20 +419,27 @@ public class Tab3 extends Fragment {
 
             if (f instanceof Button) {
                 Button boton = (Button) v.findViewById(id);
-                Log.d(json + "instancia " + numeroPregunta, "Button");
                 datosEnviar[p - contadorTexto] = Integer.parseInt(boton.getTag().toString());
+                Log.d("Pre", "- " + (p - contadorTexto));
+                finalInt = p - contadorTexto;
             } else {
                 EditText texto = (EditText) v.findViewById(id);
-                Log.d(json + "instancia " + numeroPregunta, "edittext");
                 cadenaEnviar[contadorTexto] = texto.getText().toString().replace(" ", "%20");
                 contadorTexto++;
+                finalString = contadorTexto;
             }
+
         }
 
+        datosEnviar[finalInt +1] = origen;
+        cadenaEnviar[finalString] = "Diego lara";
+
         Log.d("DatosEnviarLength", String.valueOf(datosEnviar.length));
+
+
         InsertarEnBD guardar = new InsertarEnBD();
         guardar.contexto(getActivity());
-        guardar.insertarEnBD(json, datosEnviar, cadenaEnviar);
+        guardar.insertarEnBD(json, datosEnviar, cadenaEnviar, formulario);
 
 
     }
@@ -462,14 +540,14 @@ public class Tab3 extends Fragment {
 
     }
 
-    public void enviar(String nombre) {
+    public void enviar(String nombre, int id_formulario) {
 
         json = nombre;
+        formulario = id_formulario;
 
         String[] parts = nombre.split("\\.");
 
-
-        String query = "select * from p" + parts[0] + "p" + parts[1];
+        String query = "select * from p" + parts[0] + "p" + parts[1] + " where ID_FORMULARIO = " + id_formulario;
         Log.d("Query", query);
         final Cursor cu = DaoAPP.daoSession.getDatabase().rawQuery(query, null);
         if (cu.moveToFirst()) {

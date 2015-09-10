@@ -27,14 +27,14 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
             android:layout_marginRight="63dp">
 
             <LinearLayout
                 android:id="@+id/respuestas_maestras"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:orientation="vertical"
                 android:paddingTop="15dp">
 
@@ -84,6 +84,74 @@
             </LinearLayout>
 
         </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:background="#EFF7EB"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="Origen de la información"
+            android:textColor="#008748"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnMainD"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/estilosbotonformularioorigen"
+            android:text="@string/D"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnMainE"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/estilosbotonformularioorigen"
+            android:layout_margin="10dp"
+            android:text="@string/E"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnMainO"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/estilosbotonformularioorigen"
+            android:text="@string/O"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center_vertical"
+            android:text="Agregar Observaciones"
+            android:textColor="#008748"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/observaciones"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/observaciones" />
 
     </LinearLayout>
 

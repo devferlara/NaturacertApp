@@ -27,10 +27,12 @@ public class ViewPagerAdapterRG extends FragmentStatePagerAdapter {
         this.context = context;
     }
 
+
     //This method return the fragment for the every position in the View Pager
     @Override
     public Fragment getItem(int position) {
         Tab3 fra = new Tab3();
+        /*
         switch (position) {
             case 0:
                 fra.enviar("RG1.1");
@@ -96,10 +98,11 @@ public class ViewPagerAdapterRG extends FragmentStatePagerAdapter {
                 fra.enviar("RG3.9");
                 fragment = fra;
                 break;
-
         }
+        */
         return fragment;
     }
+
 
     // This method return the titles for the Tabs in the Tab Strip
 

@@ -1,10 +1,13 @@
 package naturacert.baumsoft.dev.naturacert.extras;
 
 import android.app.Activity;
+import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,6 +15,7 @@ import java.util.List;
 
 import naturacert.baumsoft.dev.naturacert.Fincas;
 import naturacert.baumsoft.dev.naturacert.R;
+import naturacert.baumsoft.dev.naturacert.mis_fincas;
 
 /**
  * Created by imac on 9/9/15.
@@ -20,10 +24,12 @@ public class adapter_fincas extends BaseAdapter {
 
     private Activity activity;
     private List<Fincas> acv;
+    Context contexto;
 
-    public adapter_fincas(Activity activity, List<Fincas> acv) {
+    public adapter_fincas(Activity activity, List<Fincas> acv, Context contexto) {
         this.activity = activity;
         this.acv = acv;
+        this.contexto = contexto;
     }
 
     @Override
@@ -70,6 +76,16 @@ public class adapter_fincas extends BaseAdapter {
 
             TextView vereda = (TextView) convertView.findViewById(R.id.vereda);
             vereda.setText(mcv.getVereda());
+
+            Log.d("EL id a pasar es", "-" + mcv.getId_formulario());
+
+            final Button formulario = (Button) convertView.findViewById(R.id.formulario);
+            formulario.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ((mis_fincas)activity).abrir_formulario(mcv.getId_formulario());
+                }
+            });
 
             //Typeface poor = Typeface.createFromAsset(activity.getAssets(), "fonts/poor.ttf");
 

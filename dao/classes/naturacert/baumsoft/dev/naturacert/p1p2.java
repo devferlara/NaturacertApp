@@ -22,8 +22,8 @@ public class p1p2 {
     private Integer pol;
     private Integer proc;
     private Integer origen;
+    private String obser;
     private Integer id_formulario;
-    private String observaciones;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -35,7 +35,7 @@ public class p1p2 {
         this.id = id;
     }
 
-    public p1p2(Long id, Integer eapcn, Integer pgsa, Integer eap, Integer alp, Integer oym, Integer res, Integer reg, Integer map, Integer laip, Integer pol, Integer proc, Integer origen, Integer id_formulario, String observaciones) {
+    public p1p2(Long id, Integer eapcn, Integer pgsa, Integer eap, Integer alp, Integer oym, Integer res, Integer reg, Integer map, Integer laip, Integer pol, Integer proc, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
         this.eapcn = eapcn;
         this.pgsa = pgsa;
@@ -49,8 +49,8 @@ public class p1p2 {
         this.pol = pol;
         this.proc = proc;
         this.origen = origen;
+        this.obser = obser;
         this.id_formulario = id_formulario;
-        this.observaciones = observaciones;
     }
 
     public Long getId() {
@@ -157,20 +157,20 @@ public class p1p2 {
         this.origen = origen;
     }
 
+    public String getObser() {
+        return obser;
+    }
+
+    public void setObser(String obser) {
+        this.obser = obser;
+    }
+
     public Integer getId_formulario() {
         return id_formulario;
     }
 
     public void setId_formulario(Integer id_formulario) {
         this.id_formulario = id_formulario;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
     }
 
     // KEEP METHODS - put your custom methods here

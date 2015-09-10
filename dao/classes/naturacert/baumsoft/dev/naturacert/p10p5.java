@@ -17,8 +17,8 @@ public class p10p5 {
     private Integer dble;
     private Integer rpc;
     private Integer origen;
+    private String obser;
     private Integer id_formulario;
-    private String observaciones;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -30,7 +30,7 @@ public class p10p5 {
         this.id = id;
     }
 
-    public p10p5(Long id, Integer flsd, Integer fel, Integer fip, Integer rapa, Integer dble, Integer rpc, Integer origen, Integer id_formulario, String observaciones) {
+    public p10p5(Long id, Integer flsd, Integer fel, Integer fip, Integer rapa, Integer dble, Integer rpc, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
         this.flsd = flsd;
         this.fel = fel;
@@ -39,8 +39,8 @@ public class p10p5 {
         this.dble = dble;
         this.rpc = rpc;
         this.origen = origen;
+        this.obser = obser;
         this.id_formulario = id_formulario;
-        this.observaciones = observaciones;
     }
 
     public Long getId() {
@@ -107,20 +107,20 @@ public class p10p5 {
         this.origen = origen;
     }
 
+    public String getObser() {
+        return obser;
+    }
+
+    public void setObser(String obser) {
+        this.obser = obser;
+    }
+
     public Integer getId_formulario() {
         return id_formulario;
     }
 
     public void setId_formulario(Integer id_formulario) {
         this.id_formulario = id_formulario;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
     }
 
     // KEEP METHODS - put your custom methods here

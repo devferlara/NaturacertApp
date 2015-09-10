@@ -14,8 +14,8 @@ public class p8p8 {
     private Integer udfp;
     private Integer selp;
     private Integer origen;
+    private String obser;
     private Integer id_formulario;
-    private String observaciones;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -27,14 +27,14 @@ public class p8p8 {
         this.id = id;
     }
 
-    public p8p8(Long id, Integer nslp, Integer udfp, Integer selp, Integer origen, Integer id_formulario, String observaciones) {
+    public p8p8(Long id, Integer nslp, Integer udfp, Integer selp, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
         this.nslp = nslp;
         this.udfp = udfp;
         this.selp = selp;
         this.origen = origen;
+        this.obser = obser;
         this.id_formulario = id_formulario;
-        this.observaciones = observaciones;
     }
 
     public Long getId() {
@@ -77,20 +77,20 @@ public class p8p8 {
         this.origen = origen;
     }
 
+    public String getObser() {
+        return obser;
+    }
+
+    public void setObser(String obser) {
+        this.obser = obser;
+    }
+
     public Integer getId_formulario() {
         return id_formulario;
     }
 
     public void setId_formulario(Integer id_formulario) {
         this.id_formulario = id_formulario;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
     }
 
     // KEEP METHODS - put your custom methods here

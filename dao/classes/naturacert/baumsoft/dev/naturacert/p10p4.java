@@ -18,8 +18,8 @@ public class p10p4 {
     private Integer lsh;
     private Integer amb;
     private Integer origen;
+    private String obser;
     private Integer id_formulario;
-    private String observaciones;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -31,7 +31,7 @@ public class p10p4 {
         this.id = id;
     }
 
-    public p10p4(Long id, Integer fnedt, Integer ebat, String eda, String ebea, Integer qrdc, Integer lsh, Integer amb, Integer origen, Integer id_formulario, String observaciones) {
+    public p10p4(Long id, Integer fnedt, Integer ebat, String eda, String ebea, Integer qrdc, Integer lsh, Integer amb, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
         this.fnedt = fnedt;
         this.ebat = ebat;
@@ -41,8 +41,8 @@ public class p10p4 {
         this.lsh = lsh;
         this.amb = amb;
         this.origen = origen;
+        this.obser = obser;
         this.id_formulario = id_formulario;
-        this.observaciones = observaciones;
     }
 
     public Long getId() {
@@ -117,20 +117,20 @@ public class p10p4 {
         this.origen = origen;
     }
 
+    public String getObser() {
+        return obser;
+    }
+
+    public void setObser(String obser) {
+        this.obser = obser;
+    }
+
     public Integer getId_formulario() {
         return id_formulario;
     }
 
     public void setId_formulario(Integer id_formulario) {
         this.id_formulario = id_formulario;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
     }
 
     // KEEP METHODS - put your custom methods here

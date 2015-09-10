@@ -14,8 +14,8 @@ public class p3p4 {
     private Integer cprt;
     private Integer cifc;
     private Integer origen;
+    private String obser;
     private Integer id_formulario;
-    private String observaciones;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -27,14 +27,14 @@ public class p3p4 {
         this.id = id;
     }
 
-    public p3p4(Long id, Integer nmac, Integer cprt, Integer cifc, Integer origen, Integer id_formulario, String observaciones) {
+    public p3p4(Long id, Integer nmac, Integer cprt, Integer cifc, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
         this.nmac = nmac;
         this.cprt = cprt;
         this.cifc = cifc;
         this.origen = origen;
+        this.obser = obser;
         this.id_formulario = id_formulario;
-        this.observaciones = observaciones;
     }
 
     public Long getId() {
@@ -77,20 +77,20 @@ public class p3p4 {
         this.origen = origen;
     }
 
+    public String getObser() {
+        return obser;
+    }
+
+    public void setObser(String obser) {
+        this.obser = obser;
+    }
+
     public Integer getId_formulario() {
         return id_formulario;
     }
 
     public void setId_formulario(Integer id_formulario) {
         this.id_formulario = id_formulario;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
     }
 
     // KEEP METHODS - put your custom methods here
