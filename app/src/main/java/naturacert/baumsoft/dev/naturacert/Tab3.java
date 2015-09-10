@@ -1,5 +1,6 @@
 package naturacert.baumsoft.dev.naturacert;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -41,6 +43,7 @@ public class Tab3 extends Fragment {
     private final JSONArray jsonDatos = new JSONArray();
     private int origen;
     private int formulario;
+    private String observaciones;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -85,7 +88,6 @@ public class Tab3 extends Fragment {
             tituloMaestra.setText(maestra.getString("pregunta"));
 
             Log.d("Json Datos", jsonDatos.toString());
-
 
             String[] rtasMaestras = new String[5];
             rtasMaestras[1] = "1";
@@ -388,6 +390,32 @@ public class Tab3 extends Fragment {
             if(rtaOri == 9){
                 origen = 9;
             }
+
+
+            ImageButton observaciones = (ImageButton) v.findViewById(R.id.observaciones);
+            observaciones.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    LayoutInflater inflater = getActivity().getLayoutInflater();
+                    final View dialoglayout = inflater.inflate(R.layout.layout_observaciones, null);
+                    final AlertDialog constructor = new AlertDialog.Builder(getActivity()).create();
+                    constructor.setView(dialoglayout);
+                    constructor.show();
+                    constructor.setCancelable(true);
+
+                    
+
+                    Button cancelar = (Button) dialoglayout.findViewById(R.id.cancelar);
+                    cancelar.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            constructor.dismiss();
+                        }
+                    });
+
+                }
+            });
 
 
             /* entramos a la parte maestra */
