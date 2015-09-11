@@ -14,6 +14,7 @@ public class ViewPagerAdapterRG extends FragmentStatePagerAdapter {
     private Fragment fragment;
     private Tab3 t3;
     int formulario;
+    Boolean group;
 
     CharSequence Titles[]; // This will Store the Titles of the Tabs which are Going to be passed when ViewPagerAdapter is created
     int NumbOfTabs; // Store the number of tabs, this will also be passed when the ViewPagerAdapter is created
@@ -27,6 +28,7 @@ public class ViewPagerAdapterRG extends FragmentStatePagerAdapter {
         this.NumbOfTabs = mNumbOfTabsumb;
         this.context = context;
         formulario = formulario_numero;
+        group = true;
     }
 
 
@@ -37,67 +39,67 @@ public class ViewPagerAdapterRG extends FragmentStatePagerAdapter {
        
         switch (position) {
             case 0:
-                fra.enviar("RG1.1", formulario);
+                fra.enviar("RG1.1", formulario, group);
                 fragment = fra;
                 break;
             case 1:
-                fra.enviar("RG1.2", formulario);
+                fra.enviar("RG1.2", formulario, group);
                 fragment = fra;
                 break;
             case 2:
-                fra.enviar("RG1.3", formulario);
+                fra.enviar("RG1.3", formulario, group);
                 fragment = fra;
                 break;
             case 3:
-                fra.enviar("RG1.4", formulario);
+                fra.enviar("RG1.4", formulario, group);
                 fragment = fra;
                 break;
             case 4:
-                fra.enviar("RG2.1", formulario);
+                fra.enviar("RG2.1", formulario, group);
                 fragment = fra;
                 break;
             case 5:
-                fra.enviar("RG2.2", formulario);
+                fra.enviar("RG2.2", formulario, group);
                 fragment = fra;
                 break;
             case 6:
-                fra.enviar("RG2.3", formulario);
+                fra.enviar("RG2.3", formulario, group);
                 fragment = fra;
                 break;
             case 7:
-                fra.enviar("RG3.1", formulario);
+                fra.enviar("RG3.1", formulario, group);
                 fragment = fra;
                 break;
             case 8:
-                fra.enviar("RG3.2", formulario);
+                fra.enviar("RG3.2", formulario, group);
                 fragment = fra;
                 break;
             case 9:
-                fra.enviar("RG3.3", formulario);
+                fra.enviar("RG3.3", formulario, group);
                 fragment = fra;
                 break;
             case 10:
-                fra.enviar("RG3.4", formulario);
+                fra.enviar("RG3.4", formulario, group);
                 fragment = fra;
                 break;
             case 11:
-                fra.enviar("RG3.5", formulario);
+                fra.enviar("RG3.5", formulario, group);
                 fragment = fra;
                 break;
             case 12:
-                fra.enviar("RG3.6", formulario);
+                fra.enviar("RG3.6", formulario, group);
                 fragment = fra;
                 break;
             case 13:
-                fra.enviar("RG3.7", formulario);
+                fra.enviar("RG3.7", formulario, group);
                 fragment = fra;
                 break;
             case 14:
-                fra.enviar("RG3.8", formulario);
+                fra.enviar("RG3.8", formulario, group);
                 fragment = fra;
                 break;
             case 15:
-                fra.enviar("RG3.9", formulario);
+                fra.enviar("RG3.9", formulario, group);
                 fragment = fra;
                 break;
         }

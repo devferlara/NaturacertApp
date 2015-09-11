@@ -480,60 +480,28 @@ public class crear_finca_individual extends ActionBarActivity {
                 JSONObject objeto = new JSONObject(result);
                 if (objeto.getString("status").equals("OK")) {
                     finca.setRef_finca(objeto.getInt("finca"));
+                    finca.setId_formulario(objeto.getInt("formulario"));
 
-                    progress = ProgressDialog.show(crear_finca_individual.this, "Información",
-                            "Estamos creando la finca, espere un momento.", true);
-                    new crearFormulario().execute("api/rac_get/?finca=" + objeto.getInt("finca"));
-                } else {
-                    Toast.makeText(crear_finca_individual.this, "Hubo un error al crear la finca, intentelo de nuevo", Toast.LENGTH_SHORT).show();
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-        }
-    }
-
-
-    /**
-     * crear el formulario de la finca
-     */
-    private class crearFormulario extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... params) {
-            return OAuth2Client.token.getResource(OAuth2Client.token, params[0]);
-        }
-
-        protected void onPostExecute(String result) {
-            if(progress.isShowing())
-                progress.dismiss();
-            try {
-                JSONObject objeto = new JSONObject(result);
-                if(objeto.getString("status").equals("OK")){
-                    Toast.makeText(crear_finca_individual.this, "Finca creada correctamente", Toast.LENGTH_SHORT).show();
-                    finca.setId_formulario(objeto.getInt("rac"));
-                    DaoAPP.daoSession.getFincasDao().insert(finca);
-
-                    if(tipo == 1){
+                    if(objeto.getString("type").equals("rac")){
                         poblarBD poblar = new poblarBD();
-                        poblar.poblar(objeto.getInt("rac"));
+                        poblar.poblar(objeto.getInt("formulario"));
                     } else {
                         poblarBD poblar = new poblarBD();
-                        poblar.poblar(objeto.getInt("rac"), true);
+                        poblar.poblar(objeto.getInt("formulario"), true);
                     }
 
+                    DaoAPP.daoSession.getFincasDao().insert(finca);
 
                 } else {
                     Toast.makeText(crear_finca_individual.this, "Hubo un error al crear la finca, intentelo de nuevo", Toast.LENGTH_SHORT).show();
                 }
-
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
-
         }
     }
+
 
 
     /**

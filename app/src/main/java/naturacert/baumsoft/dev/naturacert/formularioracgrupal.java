@@ -102,61 +102,6 @@ public class formularioracgrupal extends ActionBarActivity {
             }
         });
 
-        principio1 = (Button) findViewById(R.id.principio1);
-        principio2 = (Button) findViewById(R.id.principio2);
-        principio3 = (Button) findViewById(R.id.principio3);
-
-        label_principio = (TextView) findViewById(R.id.nombre_principio_label);
-        numero_principio = (TextView) findViewById(R.id.principio_label);
-
-        principio1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pager.setCurrentItem(0);
-                seleccionarPrincipio(principio1, 1);
-            }
-        });
-        principio2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pager.setCurrentItem(4);
-                seleccionarPrincipio(principio2, 2);
-            }
-        });
-        principio3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pager.setCurrentItem(8);
-                seleccionarPrincipio(principio3, 3);
-            }
-        });
-
-
-        final Button btnMainD = (Button) findViewById(R.id.btnMainD);
-        final Button btnMainE = (Button) findViewById(R.id.btnMainE);
-        final Button btnMainO = (Button) findViewById(R.id.btnMainO);
-
-        btnMainD.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                escogerOrigen(btnMainD, btnMainE, btnMainO);
-            }
-        });
-
-        btnMainE.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                escogerOrigen(btnMainE, btnMainD, btnMainO);
-            }
-        });
-
-        btnMainO.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                escogerOrigen(btnMainO, btnMainE, btnMainD);
-            }
-        });
-
         principios[0] = "none";
         principios[1] = "Capacitación";
         principios[2] = "Evaluación de Riesgo";
@@ -178,13 +123,6 @@ public class formularioracgrupal extends ActionBarActivity {
 
     }
 
-    private void escogerOrigen(Button botonEscogido, Button boton1, Button boton2) {
-        botonEscogido.setBackgroundResource(R.drawable.estilosbotonformularioorigen);
-        boton1.setBackgroundResource(R.drawable.estilosbotonformularioorigen);
-        boton2.setBackgroundResource(R.drawable.estilosbotonformularioorigen);
-        botonEscogido.setBackgroundResource(R.drawable.estilosbotonformularioorigenseleccionado);
-    }
-
     private void seleccionarPrincipio(Button escogido, int principio) {
         principio1.setBackgroundColor(Color.parseColor("#ffffff"));
         principio2.setBackgroundColor(Color.parseColor("#ffffff"));
@@ -194,6 +132,11 @@ public class formularioracgrupal extends ActionBarActivity {
 
         label_principio.setText(principios[principio]);
         numero_principio.setText("Principio " + principio);
+    }
+
+    public void exp(String datos){
+        TextView reporte = (TextView) findViewById(R.id.reporte);
+        reporte.setText(datos);
     }
 
 

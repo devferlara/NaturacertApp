@@ -621,6 +621,29 @@ public class Tab3 extends Fragment {
         Log.d("DMCP", jsonDatos.toString());
     }
 
+    public void enviar(String nombre, int id_formulario, Boolean grupal) {
+
+        json = nombre;
+        formulario = id_formulario;
+
+        String[] parts = nombre.split("\\.");
+        parts[0] = parts[0].replace("R", "").toLowerCase();
+
+
+        String query = "select * from " + parts[0] + "p" + parts[1] + " where ID_FORMULARIO = " + id_formulario;
+        Log.d("Query", query);
+        final Cursor cu = DaoAPP.daoSession.getDatabase().rawQuery(query, null);
+        if (cu.moveToFirst()) {
+            do {
+                final int iterar = cu.getColumnCount();
+                for (int j = 1; j < iterar; j++) {
+                    jsonDatos.put(cu.getString(j));
+                }
+            } while (cu.moveToNext());
+        }
+        Log.d("DMCP", jsonDatos.toString());
+    }
+
     public void reportar(String rta){
 
     }
