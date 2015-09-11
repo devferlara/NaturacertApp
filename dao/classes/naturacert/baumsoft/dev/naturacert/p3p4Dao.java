@@ -27,9 +27,10 @@ public class p3p4Dao extends AbstractDao<p3p4, Long> {
         public final static Property Nmac = new Property(1, Integer.class, "nmac", false, "NMAC");
         public final static Property Cprt = new Property(2, Integer.class, "cprt", false, "CPRT");
         public final static Property Cifc = new Property(3, Integer.class, "cifc", false, "CIFC");
-        public final static Property Origen = new Property(4, Integer.class, "origen", false, "ORIGEN");
-        public final static Property Obser = new Property(5, String.class, "obser", false, "OBSER");
-        public final static Property Id_formulario = new Property(6, Integer.class, "id_formulario", false, "ID_FORMULARIO");
+        public final static Property Neac = new Property(4, Integer.class, "neac", false, "NEAC");
+        public final static Property Origen = new Property(5, Integer.class, "origen", false, "ORIGEN");
+        public final static Property Obser = new Property(6, String.class, "obser", false, "OBSER");
+        public final static Property Id_formulario = new Property(7, Integer.class, "id_formulario", false, "ID_FORMULARIO");
     };
 
 
@@ -49,9 +50,10 @@ public class p3p4Dao extends AbstractDao<p3p4, Long> {
                 "'NMAC' INTEGER," + // 1: nmac
                 "'CPRT' INTEGER," + // 2: cprt
                 "'CIFC' INTEGER," + // 3: cifc
-                "'ORIGEN' INTEGER," + // 4: origen
-                "'OBSER' TEXT," + // 5: obser
-                "'ID_FORMULARIO' INTEGER);"); // 6: id_formulario
+                "'NEAC' INTEGER," + // 4: neac
+                "'ORIGEN' INTEGER," + // 5: origen
+                "'OBSER' TEXT," + // 6: obser
+                "'ID_FORMULARIO' INTEGER);"); // 7: id_formulario
     }
 
     /** Drops the underlying database table. */
@@ -85,19 +87,24 @@ public class p3p4Dao extends AbstractDao<p3p4, Long> {
             stmt.bindLong(4, cifc);
         }
  
+        Integer neac = entity.getNeac();
+        if (neac != null) {
+            stmt.bindLong(5, neac);
+        }
+ 
         Integer origen = entity.getOrigen();
         if (origen != null) {
-            stmt.bindLong(5, origen);
+            stmt.bindLong(6, origen);
         }
  
         String obser = entity.getObser();
         if (obser != null) {
-            stmt.bindString(6, obser);
+            stmt.bindString(7, obser);
         }
  
         Integer id_formulario = entity.getId_formulario();
         if (id_formulario != null) {
-            stmt.bindLong(7, id_formulario);
+            stmt.bindLong(8, id_formulario);
         }
     }
 
@@ -115,9 +122,10 @@ public class p3p4Dao extends AbstractDao<p3p4, Long> {
             cursor.isNull(offset + 1) ? null : cursor.getInt(offset + 1), // nmac
             cursor.isNull(offset + 2) ? null : cursor.getInt(offset + 2), // cprt
             cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3), // cifc
-            cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4), // origen
-            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // obser
-            cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6) // id_formulario
+            cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4), // neac
+            cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5), // origen
+            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // obser
+            cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7) // id_formulario
         );
         return entity;
     }
@@ -129,9 +137,10 @@ public class p3p4Dao extends AbstractDao<p3p4, Long> {
         entity.setNmac(cursor.isNull(offset + 1) ? null : cursor.getInt(offset + 1));
         entity.setCprt(cursor.isNull(offset + 2) ? null : cursor.getInt(offset + 2));
         entity.setCifc(cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3));
-        entity.setOrigen(cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4));
-        entity.setObser(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
-        entity.setId_formulario(cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6));
+        entity.setNeac(cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4));
+        entity.setOrigen(cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5));
+        entity.setObser(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
+        entity.setId_formulario(cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7));
      }
     
     /** @inheritdoc */

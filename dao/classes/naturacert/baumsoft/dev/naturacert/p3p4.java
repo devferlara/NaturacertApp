@@ -13,6 +13,7 @@ public class p3p4 {
     private Integer nmac;
     private Integer cprt;
     private Integer cifc;
+    private Integer neac;
     private Integer origen;
     private String obser;
     private Integer id_formulario;
@@ -27,11 +28,12 @@ public class p3p4 {
         this.id = id;
     }
 
-    public p3p4(Long id, Integer nmac, Integer cprt, Integer cifc, Integer origen, String obser, Integer id_formulario) {
+    public p3p4(Long id, Integer nmac, Integer cprt, Integer cifc, Integer neac, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
         this.nmac = nmac;
         this.cprt = cprt;
         this.cifc = cifc;
+        this.neac = neac;
         this.origen = origen;
         this.obser = obser;
         this.id_formulario = id_formulario;
@@ -67,6 +69,14 @@ public class p3p4 {
 
     public void setCifc(Integer cifc) {
         this.cifc = cifc;
+    }
+
+    public Integer getNeac() {
+        return neac;
+    }
+
+    public void setNeac(Integer neac) {
+        this.neac = neac;
     }
 
     public Integer getOrigen() {

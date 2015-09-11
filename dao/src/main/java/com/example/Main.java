@@ -432,11 +432,11 @@ public class Main {
     private static void crear2p4(Schema schema) {
         Entity p = schema.addEntity("p2p4");
         p.addIdProperty();
-        p.addIntProperty("fndsn");
-        p.addIntProperty("eav");
-        p.addIntProperty("nede");
-        p.addIntProperty("ndedc");
-        p.addIntProperty("nden");
+        p.addIntProperty("nsep");
+        p.addIntProperty("ntpm");
+        p.addIntProperty("cpms");
+        p.addIntProperty("cpdl");
+        p.addIntProperty("npep");
         p.addIntProperty("origen");
         p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
@@ -562,6 +562,7 @@ public class Main {
         p.addIntProperty("nmac");
         p.addIntProperty("cprt");
         p.addIntProperty("cifc");
+        p.addIntProperty("neac");
         p.addIntProperty("origen");
         p.addStringProperty("obser");
         p.addIntProperty("id_formulario");

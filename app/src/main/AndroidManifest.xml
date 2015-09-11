@@ -29,28 +29,34 @@
         </activity>
         <activity
             android:name=".iniciorac"
-            android:label="@string/title_activity_iniciorac" >
+            android:label="@string/title_activity_iniciorac"
+            android:screenOrientation="landscape">
         </activity>
         <activity
+            android:screenOrientation="landscape"
             android:name=".recomendaciones"
             android:label="@string/title_activity_recomendaciones" >
         </activity>
         <activity
             android:name=".mis_fincas"
             android:label="@string/title_activity_mis_fincas"
+            android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden|adjustPan" >
         </activity>
         <activity
             android:name=".formularioracindividual"
+            android:screenOrientation="landscape"
             android:label="@string/title_activity_formularioracindividual"
             android:windowSoftInputMode="stateHidden|adjustPan" >
         </activity>
         <activity
             android:name=".formularioracgrupal"
+            android:screenOrientation="landscape"
             android:label="@string/title_activity_formularioracgrupal" >
         </activity>
         <activity
             android:name=".crear_finca_individual"
+            android:screenOrientation="landscape"
             android:label="@string/title_activity_crear_finca_individual"
             android:windowSoftInputMode="stateHidden|adjustPan">
         </activity>

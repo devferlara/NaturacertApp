@@ -195,11 +195,11 @@ public class poblarBD {
         DaoAPP.daoSession.getP2p3Dao().insert(op2p3);
 
         p2p4 op2p4 = new p2p4();
-        op2p4.setFndsn(9);
-        op2p4.setEav(9);
-        op2p4.setNede(9);
-        op2p4.setNdedc(9);
-        op2p4.setNden(9);
+        op2p4.setNpep(9);
+        op2p4.setNtpm(9);
+        op2p4.setCpms(9);
+        op2p4.setCpdl(9);
+        op2p4.setNsep(9);
         op2p4.setOrigen(9);
         op2p4.setId_formulario(referencia);
         op2p4.setObser("9");
@@ -308,6 +308,7 @@ public class poblarBD {
         op3p4.setNmac(9);
         op3p4.setCprt(9);
         op3p4.setCifc(9);
+        op3p4.setNeac(9);
         op3p4.setOrigen(9);
         op3p4.setId_formulario(referencia);
         op3p4.setObser("9");

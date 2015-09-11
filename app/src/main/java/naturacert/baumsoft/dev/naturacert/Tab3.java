@@ -14,6 +14,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -43,7 +44,7 @@ public class Tab3 extends Fragment {
     private final JSONArray jsonDatos = new JSONArray();
     private int origen;
     private int formulario;
-    private String observaciones;
+    private String observaciones_cadena;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -371,6 +372,9 @@ public class Tab3 extends Fragment {
 
             Log.d("Sacar preg", String.valueOf(jsonDatos.getInt(numeroPregunta + 1)));
             int rtaOri = jsonDatos.getInt(numeroPregunta + 1);
+            observaciones_cadena = jsonDatos.getString(numeroPregunta + 2);
+            if(observaciones_cadena.equals("9"))
+                observaciones_cadena = "";
             if(rtaOri == 1){
                 origen = 1;
                 Log.d("Origen =", "1");
@@ -404,7 +408,8 @@ public class Tab3 extends Fragment {
                     constructor.show();
                     constructor.setCancelable(true);
 
-                    
+                    final EditText obser_caja = (EditText) dialoglayout.findViewById(R.id.editText);
+                    obser_caja.setText(observaciones_cadena);
 
                     Button cancelar = (Button) dialoglayout.findViewById(R.id.cancelar);
                     cancelar.setOnClickListener(new View.OnClickListener() {
@@ -414,9 +419,35 @@ public class Tab3 extends Fragment {
                         }
                     });
 
+                    Button aceptar = (Button) dialoglayout.findViewById(R.id.aceptar);
+                    aceptar.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            observaciones_cadena = obser_caja.getText().toString();
+                            constructor.dismiss();
+                        }
+                    });
+
                 }
             });
 
+
+
+            LinearLayout ocultarTeclado = (LinearLayout) v.findViewById(R.id.ocultar_teclado);
+            ocultarTeclado.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    hideKeyboard();
+                }
+            });
+
+            LinearLayout ocultarTeclado2 = (LinearLayout) v.findViewById(R.id.respuestas_maestras);
+            ocultarTeclado2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    hideKeyboard();
+                }
+            });
 
             /* entramos a la parte maestra */
 
@@ -448,7 +479,6 @@ public class Tab3 extends Fragment {
             if (f instanceof Button) {
                 Button boton = (Button) v.findViewById(id);
                 datosEnviar[p - contadorTexto] = Integer.parseInt(boton.getTag().toString());
-                Log.d("Pre", "- " + (p - contadorTexto));
                 finalInt = p - contadorTexto;
             } else {
                 EditText texto = (EditText) v.findViewById(id);
@@ -460,15 +490,14 @@ public class Tab3 extends Fragment {
         }
 
         datosEnviar[finalInt +1] = origen;
-        cadenaEnviar[finalString] = "Diego lara";
 
-        Log.d("DatosEnviarLength", String.valueOf(datosEnviar.length));
-
+        if(observaciones_cadena.equals(""))
+            observaciones_cadena = " ";
+        cadenaEnviar[finalString] = observaciones_cadena;
 
         InsertarEnBD guardar = new InsertarEnBD();
         guardar.contexto(getActivity());
         guardar.insertarEnBD(json, datosEnviar, cadenaEnviar, formulario);
-
 
     }
 
@@ -508,7 +537,7 @@ public class Tab3 extends Fragment {
                 repintar(contexto);
                 guardar(contexto);
 
-                switch(rtaMaestra){
+                switch (rtaMaestra) {
                     case 1:
                         boton.setBackgroundResource(R.drawable.btnmnsi);
                         break;
@@ -593,5 +622,14 @@ public class Tab3 extends Fragment {
 
     }
 
+    private void hideKeyboard() {
+        // Check if no view has focus:
+        Log.d("PResed", "efmsjdfnsdf");
+        View view = getActivity().getCurrentFocus();
+        if (view != null) {
+            InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
 
 }

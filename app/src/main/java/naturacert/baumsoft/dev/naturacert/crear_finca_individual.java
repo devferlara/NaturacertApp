@@ -2,18 +2,22 @@ package naturacert.baumsoft.dev.naturacert;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -74,6 +78,28 @@ public class crear_finca_individual extends ActionBarActivity {
                 }
             }
         });
+
+        EditText grupo = (EditText) findViewById(R.id.grupo);
+        TextView grupo_textview = (TextView) findViewById(R.id.grupo_textview);
+        TextView nueva_finca = (TextView) findViewById(R.id.nueva_finca);
+        Intent intent = getIntent();
+        if(intent.getStringExtra("tipo").equals("1")){
+            grupo.setVisibility(View.GONE);
+            grupo_textview.setVisibility(View.GONE);
+            nueva_finca.setText("Nueva Finca Individual");
+        } else {
+            nueva_finca.setText("Nueva Finca Grupal");
+        }
+
+        LinearLayout padre_de_todo = (LinearLayout) findViewById(R.id.padre_de_todo);
+        padre_de_todo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hideKeyboard();
+            }
+        });
+
+
 
         final TextView hora = (TextView) findViewById(R.id.hora);
         final TextView fecha = (TextView) findViewById(R.id.fecha);
@@ -237,6 +263,7 @@ public class crear_finca_individual extends ActionBarActivity {
 
         if (!nombre.getText().toString().equals("") && departamento.getSelectedItemId() != 0 && !codigo.getText().toString().equals("") && !hora.getText().toString().equals("") && !fecha.getText().toString().equals("") && !municipio.getText().toString().equals("") && !vereda.getText().toString().equals("") && !altura.getText().toString().equals("") && !latitud.getText().toString().equals("") && !longitud.getText().toString().equals("") && !propietario.getText().toString().equals("") && !area_finca.getText().toString().equals("") && !area_conservacion.getText().toString().equals("") && !area_infraestructura.getText().toString().equals("") && !periodo_cosecha.getText().toString().equals("") && !produccion_regional.getText().toString().equals("") && !fr_cafe.getText().toString().equals("") && !trabajadores_temporales.getText().toString().equals("") && !almendra_sana.getText().toString().equals("") && !problemas_sanitarios.getText().toString().equals("") && !trabajadores_permanentes.getText().toString().equals("") && !documentos_anexos.getText().toString().equals("") && !proveedores_visitados.getText().toString().equals("") && !observaciones.getText().toString().equals("")) {
 
+            StringBuilder cultivos = new StringBuilder("");
 
             CheckBox check1 = (CheckBox) findViewById(R.id.check1);
             if(check1.isChecked()){
@@ -248,6 +275,17 @@ public class crear_finca_individual extends ActionBarActivity {
                 if(tabla_cultivo_1.getText().toString().isEmpty() || tabla_variedad_1.getText().toString().isEmpty() || tabla_produccionyear_1.getText().toString().isEmpty() || tabla_produccionha_1.getText().toString().isEmpty() || tabla_produccionestimada_1.getText().toString().isEmpty()){
                     Toast.makeText(crear_finca_individual.this, "Hemos encontrado datos incompletos en la tabla de cultivos, fila # 1, complételos o elimínelos antes de continuar", Toast.LENGTH_LONG).show();
                     return;
+                } else {
+                    cultivos.append("&cul_var[]=");
+                    cultivos.append(tabla_cultivo_1.getText().toString());
+                    cultivos.append("&area[]=");
+                    cultivos.append(tabla_variedad_1.getText().toString());
+                    cultivos.append("&prod_year_ant[]=");
+                    cultivos.append(tabla_produccionyear_1.getText().toString());
+                    cultivos.append("&prod_hect[]=");
+                    cultivos.append(tabla_produccionha_1.getText().toString());
+                    cultivos.append("&prod_esti[]=");
+                    cultivos.append(tabla_produccionestimada_1.getText().toString());
                 }
             }
 
@@ -409,6 +447,8 @@ public class crear_finca_individual extends ActionBarActivity {
             List<Auditores> auditores = DaoAPP.daoSession.getAuditoresDao().loadAll();
             finca.setIdAuditor(auditores.get(0).getId());
 
+            sb.append(cultivos);
+
             Log.d("La URL", sb.toString().replace(" ", "%20"));
             new guardarFinca().execute();
 
@@ -532,6 +572,16 @@ public class crear_finca_individual extends ActionBarActivity {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             clientes_spinner.setAdapter(null);
             clientes_spinner.setAdapter(adapter);
+        }
+    }
+
+    private void hideKeyboard() {
+        // Check if no view has focus:
+        Log.d("PResed", "efmsjdfnsdf");
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
 

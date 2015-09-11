@@ -63,6 +63,7 @@ public class iniciorac extends Activity {
             @Override
             public void onClick(View v) {
                 Intent pasar = new Intent(iniciorac.this, crear_finca_individual.class);
+                pasar.putExtra("tipo", "1");
                 startActivity(pasar);
             }
         });
@@ -70,7 +71,8 @@ public class iniciorac extends Activity {
         grupal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent pasar = new Intent(iniciorac.this, formularioracgrupal.class);
+                Intent pasar = new Intent(iniciorac.this, crear_finca_individual.class);
+                pasar.putExtra("tipo", "2");
                 startActivity(pasar);
             }
         });

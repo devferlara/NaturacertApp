@@ -10,11 +10,11 @@ package naturacert.baumsoft.dev.naturacert;
 public class p2p4 {
 
     private Long id;
-    private Integer fndsn;
-    private Integer eav;
-    private Integer nede;
-    private Integer ndedc;
-    private Integer nden;
+    private Integer npep;
+    private Integer ntpm;
+    private Integer cpms;
+    private Integer cpdl;
+    private Integer nsep;
     private Integer origen;
     private String obser;
     private Integer id_formulario;
@@ -29,13 +29,13 @@ public class p2p4 {
         this.id = id;
     }
 
-    public p2p4(Long id, Integer fndsn, Integer eav, Integer nede, Integer ndedc, Integer nden, Integer origen, String obser, Integer id_formulario) {
+    public p2p4(Long id, Integer npep, Integer ntpm, Integer cpms, Integer cpdl, Integer nsep, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
-        this.fndsn = fndsn;
-        this.eav = eav;
-        this.nede = nede;
-        this.ndedc = ndedc;
-        this.nden = nden;
+        this.npep = npep;
+        this.ntpm = ntpm;
+        this.cpms = cpms;
+        this.cpdl = cpdl;
+        this.nsep = nsep;
         this.origen = origen;
         this.obser = obser;
         this.id_formulario = id_formulario;
@@ -49,44 +49,44 @@ public class p2p4 {
         this.id = id;
     }
 
-    public Integer getFndsn() {
-        return fndsn;
+    public Integer getNpep() {
+        return npep;
     }
 
-    public void setFndsn(Integer fndsn) {
-        this.fndsn = fndsn;
+    public void setNpep(Integer npep) {
+        this.npep = npep;
     }
 
-    public Integer getEav() {
-        return eav;
+    public Integer getNtpm() {
+        return ntpm;
     }
 
-    public void setEav(Integer eav) {
-        this.eav = eav;
+    public void setNtpm(Integer ntpm) {
+        this.ntpm = ntpm;
     }
 
-    public Integer getNede() {
-        return nede;
+    public Integer getCpms() {
+        return cpms;
     }
 
-    public void setNede(Integer nede) {
-        this.nede = nede;
+    public void setCpms(Integer cpms) {
+        this.cpms = cpms;
     }
 
-    public Integer getNdedc() {
-        return ndedc;
+    public Integer getCpdl() {
+        return cpdl;
     }
 
-    public void setNdedc(Integer ndedc) {
-        this.ndedc = ndedc;
+    public void setCpdl(Integer cpdl) {
+        this.cpdl = cpdl;
     }
 
-    public Integer getNden() {
-        return nden;
+    public Integer getNsep() {
+        return nsep;
     }
 
-    public void setNden(Integer nden) {
-        this.nden = nden;
+    public void setNsep(Integer nsep) {
+        this.nsep = nsep;
     }
 
     public Integer getOrigen() {

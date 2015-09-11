@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -543,11 +544,11 @@ public class InsertarEnBD extends Application {
                     }
                 }
                 p2p4 op2p4 = DaoAPP.daoSession.getP2p4Dao().load(idCons);
-                op2p4.setFndsn(datos[0]);
-                op2p4.setEav(datos[1]);
-                op2p4.setNede(datos[2]);
-                op2p4.setNdedc(datos[3]);
-                op2p4.setNden(datos[4]);
+                op2p4.setNpep(datos[0]);
+                op2p4.setNtpm(datos[1]);
+                op2p4.setCpms(datos[2]);
+                op2p4.setCpdl(datos[3]);
+                op2p4.setNsep(datos[4]);
                 op2p4.setOrigen(datos[5]);
                 op2p4.setObser(valores[0]);
                 DaoAPP.daoSession.getP2p4Dao().update(op2p4);
@@ -800,7 +801,7 @@ public class InsertarEnBD extends Application {
                 urlEnviar.append("rpthree_trespcuatro");
                 columnas = DaoAPP.daoSession.getP3p4Dao().getAllColumns();
                 for (int m = 1; m < columnas.length - 1; m++) {
-                    if (m == 5) {
+                    if (m == 6) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -817,7 +818,8 @@ public class InsertarEnBD extends Application {
                 op3p4.setNmac(datos[0]);
                 op3p4.setCprt(datos[1]);
                 op3p4.setCifc(datos[2]);
-                op3p4.setOrigen(datos[3]);
+                op3p4.setNeac(datos[3]);
+                op3p4.setOrigen(datos[4]);
                 op3p4.setObser(valores[0]);
                 DaoAPP.daoSession.getP3p4Dao().update(op3p4);
                 new enviar().execute(urlEnviar.toString());
@@ -1169,6 +1171,7 @@ public class InsertarEnBD extends Application {
                 op5p1.setRdtya(datos[8]);
                 op5p1.setOrigen(datos[9]);
                 op5p1.setObser(valores[0]);
+                DaoAPP.daoSession.getP5p1Dao().update(op5p1);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1198,6 +1201,7 @@ public class InsertarEnBD extends Application {
                 op5p2.setNdplc(datos[5]);
                 op5p2.setOrigen(datos[6]);
                 op5p2.setObser(valores[0]);
+                DaoAPP.daoSession.getP5p2Dao().update(op5p2);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1226,6 +1230,7 @@ public class InsertarEnBD extends Application {
                 op5p3.setNdpe(datos[4]);
                 op5p3.setOrigen(datos[5]);
                 op5p3.setObser(valores[0]);
+                DaoAPP.daoSession.getP5p3Dao().update(op5p3);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1267,6 +1272,7 @@ public class InsertarEnBD extends Application {
                 op5p4.setPagn(datos[17]);
                 op5p4.setOrigen(datos[18]);
                 op5p4.setObser(valores[1]);
+                DaoAPP.daoSession.getP5p4Dao().update(op5p4);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1298,6 +1304,7 @@ public class InsertarEnBD extends Application {
                 op5p5.setTacn(datos[7]);
                 op5p5.setOrigen(datos[8]);
                 op5p5.setObser(valores[0]);
+                DaoAPP.daoSession.getP5p5Dao().update(op5p5);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1330,6 +1337,7 @@ public class InsertarEnBD extends Application {
                 op5p6.setDybc(datos[5]);
                 op5p6.setOrigen(datos[6]);
                 op5p6.setObser(valores[3]);
+                DaoAPP.daoSession.getP5p6Dao().update(op5p6);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1362,6 +1370,7 @@ public class InsertarEnBD extends Application {
                 op5p7.setCcec(datos[8]);
                 op5p7.setOrigen(datos[9]);
                 op5p7.setObser(valores[0]);
+                DaoAPP.daoSession.getP5p7Dao().update(op5p7);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1403,6 +1412,7 @@ public class InsertarEnBD extends Application {
                 op5p8.setTmnr(datos[17]);
                 op5p8.setOrigen(datos[18]);
                 op5p8.setObser(valores[2]);
+                DaoAPP.daoSession.getP5p8Dao().update(op5p8);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1428,6 +1438,7 @@ public class InsertarEnBD extends Application {
                 op5p9.setMetf(datos[1]);
                 op5p9.setOrigen(datos[2]);
                 op5p9.setObser(valores[0]);
+                DaoAPP.daoSession.getP5p9Dao().update(op5p9);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1458,6 +1469,7 @@ public class InsertarEnBD extends Application {
                 op5p10.setFotl(datos[6]);
                 op5p10.setOrigen(datos[7]);
                 op5p10.setObser(valores[0]);
+                DaoAPP.daoSession.getP5p10Dao().update(op5p10);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1485,6 +1497,7 @@ public class InsertarEnBD extends Application {
                 op5p11.setMfmt(datos[3]);
                 op5p11.setOrigen(datos[4]);
                 op5p11.setObser(valores[0]);
+                DaoAPP.daoSession.getP5p11Dao().update(op5p11);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1519,6 +1532,7 @@ public class InsertarEnBD extends Application {
                 op5p12.setDe(valores[0]);
                 op5p12.setOrigen(datos[9]);
                 op5p12.setObser(valores[1]);
+                DaoAPP.daoSession.getP5p12Dao().update(op5p12);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1547,6 +1561,7 @@ public class InsertarEnBD extends Application {
                 op5p13.setTrcp(datos[4]);
                 op5p13.setOrigen(datos[5]);
                 op5p13.setObser(valores[0]);
+                DaoAPP.daoSession.getP5p13Dao().update(op5p13);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1579,6 +1594,7 @@ public class InsertarEnBD extends Application {
                 op5p14.setMemc(datos[8]);
                 op5p14.setOrigen(datos[9]);
                 op5p14.setObser(valores[0]);
+                DaoAPP.daoSession.getP5p14Dao().update(op5p14);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1614,6 +1630,7 @@ public class InsertarEnBD extends Application {
                 op5p15.setHagu(datos[11]);
                 op5p15.setOrigen(datos[12]);
                 op5p15.setObser(valores[2]);
+                DaoAPP.daoSession.getP5p15Dao().update(op5p15);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1644,6 +1661,7 @@ public class InsertarEnBD extends Application {
                 op5p16.setCual(valores[0]);
                 op5p16.setOrigen(datos[6]);
                 op5p16.setObser(valores[1]);
+                DaoAPP.daoSession.getP5p16Dao().update(op5p16);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1671,6 +1689,7 @@ public class InsertarEnBD extends Application {
                 op5p17.setEapf(datos[3]);
                 op5p17.setOrigen(datos[4]);
                 op5p17.setObser(valores[0]);
+                DaoAPP.daoSession.getP5p17Dao().update(op5p17);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1698,6 +1717,7 @@ public class InsertarEnBD extends Application {
                 op5p18.setIftf(datos[3]);
                 op5p18.setOrigen(datos[4]);
                 op5p18.setObser(valores[0]);
+                DaoAPP.daoSession.getP5p18Dao().update(op5p18);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1723,6 +1743,7 @@ public class InsertarEnBD extends Application {
                 op5p19.setMetc(datos[1]);
                 op5p19.setOrigen(datos[2]);
                 op5p19.setObser(valores[0]);
+                DaoAPP.daoSession.getP5p19Dao().update(op5p19);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1760,6 +1781,7 @@ public class InsertarEnBD extends Application {
                 op6p1.setPeps(datos[11]);
                 op6p1.setOrigen(datos[12]);
                 op6p1.setObser(valores[0]);
+                DaoAPP.daoSession.getP6p1Dao().update(op6p1);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1795,6 +1817,7 @@ public class InsertarEnBD extends Application {
                 op6p2.setObje(datos[11]);
                 op6p2.setOrigen(datos[12]);
                 op6p2.setObser(valores[0]);
+                DaoAPP.daoSession.getP6p2Dao().update(op6p2);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1823,6 +1846,7 @@ public class InsertarEnBD extends Application {
                 op6p3.setFdlu(valores[0]);
                 op6p3.setOrigen(datos[4]);
                 op6p3.setObser(valores[1]);
+                DaoAPP.daoSession.getP6p3Dao().update(op6p3);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1855,6 +1879,7 @@ public class InsertarEnBD extends Application {
                 op6p4.setSgta(datos[8]);
                 op6p4.setOrigen(datos[9]);
                 op6p4.setObser(valores[1]);
+                DaoAPP.daoSession.getP6p4Dao().update(op6p4);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1887,6 +1912,7 @@ public class InsertarEnBD extends Application {
                 op6p5.setEtta(datos[8]);
                 op6p5.setOrigen(datos[9]);
                 op6p5.setObser(valores[0]);
+                DaoAPP.daoSession.getP6p5Dao().update(op6p5);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1916,6 +1942,7 @@ public class InsertarEnBD extends Application {
                 op6p6.setSeeu(datos[5]);
                 op6p6.setOrigen(datos[6]);
                 op6p6.setObser(valores[0]);
+                DaoAPP.daoSession.getP6p6Dao().update(op6p6);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1945,6 +1972,7 @@ public class InsertarEnBD extends Application {
                 op6p7.setScep(datos[5]);
                 op6p7.setOrigen(datos[6]);
                 op6p7.setObser(valores[0]);
+                DaoAPP.daoSession.getP6p7Dao().update(op6p7);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -1973,6 +2001,7 @@ public class InsertarEnBD extends Application {
                 op6p8.setEdcc(datos[4]);
                 op6p8.setOrigen(datos[5]);
                 op6p8.setObser(valores[0]);
+                DaoAPP.daoSession.getP6p8Dao().update(op6p8);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2005,6 +2034,7 @@ public class InsertarEnBD extends Application {
                 op6p9.setLade(datos[8]);
                 op6p9.setOrigen(datos[9]);
                 op6p9.setObser(valores[0]);
+                DaoAPP.daoSession.getP6p9Dao().update(op6p9);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2039,6 +2069,7 @@ public class InsertarEnBD extends Application {
                 op6p10.setShea(datos[10]);
                 op6p10.setOrigen(datos[11]);
                 op6p10.setObser(valores[0]);
+                DaoAPP.daoSession.getP6p10Dao().update(op6p10);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2064,6 +2095,7 @@ public class InsertarEnBD extends Application {
                 op6p11.setLudl(datos[1]);
                 op6p11.setOrigen(datos[2]);
                 op6p11.setObser(valores[0]);
+                DaoAPP.daoSession.getP6p11Dao().update(op6p11);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2095,6 +2127,7 @@ public class InsertarEnBD extends Application {
                 op6p12.setLemd(datos[7]);
                 op6p12.setOrigen(datos[8]);
                 op6p12.setObser(valores[0]);
+                DaoAPP.daoSession.getP6p12Dao().update(op6p12);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2123,6 +2156,7 @@ public class InsertarEnBD extends Application {
                 op6p13.setEedp(datos[4]);
                 op6p13.setOrigen(datos[5]);
                 op6p13.setObser(valores[0]);
+                DaoAPP.daoSession.getP6p13Dao().update(op6p13);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2150,6 +2184,7 @@ public class InsertarEnBD extends Application {
                 op6p14.setSrrd(valores[1]);
                 op6p14.setOrigen(datos[2]);
                 op6p14.setObser(valores[2]);
+                DaoAPP.daoSession.getP6p14Dao().update(op6p14);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2184,7 +2219,7 @@ public class InsertarEnBD extends Application {
                 op6p15.setCsus(datos[9]);
                 op6p15.setOrigen(datos[10]);
                 op6p15.setObser(valores[1]);
-
+                DaoAPP.daoSession.getP6p15Dao().update(op6p15);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2212,6 +2247,7 @@ public class InsertarEnBD extends Application {
                 op6p16.setEdyv(datos[3]);
                 op6p16.setOrigen(datos[4]);
                 op6p16.setObser(valores[0]);
+                DaoAPP.daoSession.getP6p16Dao().update(op6p16);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2239,6 +2275,7 @@ public class InsertarEnBD extends Application {
                 op6p17.setNepl(datos[3]);
                 op6p17.setOrigen(datos[4]);
                 op6p17.setObser(valores[0]);
+                DaoAPP.daoSession.getP6p17Dao().update(op6p17);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2268,6 +2305,7 @@ public class InsertarEnBD extends Application {
                 op6p18.setPcep(datos[5]);
                 op6p18.setOrigen(datos[6]);
                 op6p18.setObser(valores[0]);
+                DaoAPP.daoSession.getP6p18Dao().update(op6p18);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2299,6 +2337,7 @@ public class InsertarEnBD extends Application {
                 op6p19.setLvmn(datos[7]);
                 op6p19.setOrigen(datos[8]);
                 op6p19.setObser(valores[0]);
+                DaoAPP.daoSession.getP6p19Dao().update(op6p19);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2327,6 +2366,7 @@ public class InsertarEnBD extends Application {
                 op6p20.setLfbs(datos[4]);
                 op6p20.setOrigen(datos[5]);
                 op6p20.setObser(valores[0]);
+                DaoAPP.daoSession.getP6p20Dao().update(op6p20);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2353,7 +2393,7 @@ public class InsertarEnBD extends Application {
                 op7p1.setSrao(datos[1]);
                 op7p1.setOrigen(datos[2]);
                 op7p1.setObser(valores[0]);
-
+                DaoAPP.daoSession.getP7p1Dao().update(op7p1);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2385,7 +2425,7 @@ public class InsertarEnBD extends Application {
                 op7p2.setSipy(datos[7]);
                 op7p2.setOrigen(datos[8]);
                 op7p2.setObser(valores[0]);
-
+                DaoAPP.daoSession.getP7p2Dao().update(op7p2);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2414,6 +2454,7 @@ public class InsertarEnBD extends Application {
                 op7p3.setLfas(datos[4]);
                 op7p3.setOrigen(datos[5]);
                 op7p3.setObser(valores[0]);
+                DaoAPP.daoSession.getP7p3Dao().update(op7p3);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2441,6 +2482,7 @@ public class InsertarEnBD extends Application {
                 op7p4.setLfau(datos[3]);
                 op7p4.setOrigen(datos[4]);
                 op7p4.setObser(valores[0]);
+                DaoAPP.daoSession.getP7p4Dao().update(op7p4);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2467,6 +2509,7 @@ public class InsertarEnBD extends Application {
                 op7p5.setLfac(datos[2]);
                 op7p5.setOrigen(datos[3]);
                 op7p5.setObser(valores[0]);
+                DaoAPP.daoSession.getP7p5Dao().update(op7p5);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2496,6 +2539,7 @@ public class InsertarEnBD extends Application {
                 op7p6.setEscr(datos[5]);
                 op7p6.setOrigen(datos[6]);
                 op7p6.setObser(valores[0]);
+                DaoAPP.daoSession.getP7p6Dao().update(op7p6);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2537,6 +2581,7 @@ public class InsertarEnBD extends Application {
                 op8p1.setMdce(datos[15]);
                 op8p1.setOrigen(datos[16]);
                 op8p1.setObser(valores[0]);
+                DaoAPP.daoSession.getP8p1Dao().update(op8p1);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2580,6 +2625,7 @@ public class InsertarEnBD extends Application {
                 op8p2.setSrya(datos[19]);
                 op8p2.setOrigen(datos[20]);
                 op8p2.setObser(valores[0]);
+                DaoAPP.daoSession.getP8p2Dao().update(op8p2);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2610,6 +2656,7 @@ public class InsertarEnBD extends Application {
                 op8p3.setOrigen(datos[6]);
                 op8p3.setOrigen(datos[7]);
                 op8p3.setObser(valores[0]);
+                DaoAPP.daoSession.getP8p3Dao().update(op8p3);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2642,6 +2689,7 @@ public class InsertarEnBD extends Application {
                 op8p4.setNsbu(datos[8]);
                 op8p4.setOrigen(datos[9]);
                 op8p4.setObser(valores[0]);
+                DaoAPP.daoSession.getP8p4Dao().update(op8p4);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2669,6 +2717,7 @@ public class InsertarEnBD extends Application {
                 op8p5.setSeep(datos[3]);
                 op8p5.setOrigen(datos[4]);
                 op8p5.setObser(valores[0]);
+                DaoAPP.daoSession.getP8p5Dao().update(op8p5);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2696,6 +2745,7 @@ public class InsertarEnBD extends Application {
                 op8p6.setSdye(datos[3]);
                 op8p6.setOrigen(datos[4]);
                 op8p6.setObser(valores[0]);
+                DaoAPP.daoSession.getP8p6Dao().update(op8p6);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2729,6 +2779,7 @@ public class InsertarEnBD extends Application {
                 op8p7.setFcda(datos[9]);
                 op8p7.setOrigen(datos[9]);
                 op8p7.setObser(valores[0]);
+                DaoAPP.daoSession.getP8p7Dao().update(op8p7);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2755,6 +2806,7 @@ public class InsertarEnBD extends Application {
                 op8p8.setSelp(datos[2]);
                 op8p8.setOrigen(datos[3]);
                 op8p8.setObser(valores[0]);
+                DaoAPP.daoSession.getP8p8Dao().update(op8p8);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2782,6 +2834,7 @@ public class InsertarEnBD extends Application {
                 op8p9.setFsub(datos[3]);
                 op8p9.setOrigen(datos[4]);
                 op8p9.setObser(valores[0]);
+                DaoAPP.daoSession.getP8p9Dao().update(op8p9);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2812,6 +2865,7 @@ public class InsertarEnBD extends Application {
                 op9p1.setUecv(datos[4]);
                 op9p1.setOrigen(datos[5]);
                 op9p1.setObser(valores[0]);
+                DaoAPP.daoSession.getP9p1Dao().update(op9p1);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2851,6 +2905,7 @@ public class InsertarEnBD extends Application {
                 op9p2.setUreo(datos[14]);
                 op9p2.setOrigen(datos[15]);
                 op9p2.setObser(valores[1]);
+                DaoAPP.daoSession.getP9p2Dao().update(op9p2);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2883,6 +2938,7 @@ public class InsertarEnBD extends Application {
                 op9p3.setHerb(datos[8]);
                 op9p3.setOrigen(datos[9]);
                 op9p3.setObser(valores[0]);
+                DaoAPP.daoSession.getP9p3Dao().update(op9p3);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2915,6 +2971,7 @@ public class InsertarEnBD extends Application {
                 op9p4.setQprt(datos[8]);
                 op9p4.setOrigen(datos[9]);
                 op9p4.setObser(valores[0]);
+                DaoAPP.daoSession.getP9p4Dao().update(op9p4);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2945,6 +3002,7 @@ public class InsertarEnBD extends Application {
                 op9p5.setQpna(datos[6]);
                 op9p5.setOrigen(datos[7]);
                 op9p5.setObser(valores[0]);
+                DaoAPP.daoSession.getP9p5Dao().update(op9p5);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2978,6 +3036,7 @@ public class InsertarEnBD extends Application {
                 op10p1.setAmda(datos[7]);
                 op10p1.setOrigen(datos[8]);
                 op10p1.setObser(valores[0]);
+                DaoAPP.daoSession.getP10p1Dao().update(op10p1);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -3008,6 +3067,7 @@ public class InsertarEnBD extends Application {
                 op10p2.setPoper(datos[6]);
                 op10p2.setOrigen(datos[7]);
                 op10p2.setObser(valores[0]);
+                DaoAPP.daoSession.getP10p2Dao().update(op10p2);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -3041,6 +3101,7 @@ public class InsertarEnBD extends Application {
                 op10p3.setUldf(valores[0]);
                 op10p3.setOrigen(datos[9]);
                 op10p3.setObser(valores[1]);
+                DaoAPP.daoSession.getP10p3Dao().update(op10p3);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -3071,6 +3132,7 @@ public class InsertarEnBD extends Application {
                 op10p4.setAmb(datos[4]);
                 op10p4.setOrigen(datos[5]);
                 op10p4.setObser(valores[2]);
+                DaoAPP.daoSession.getP10p4Dao().update(op10p4);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -3101,6 +3163,7 @@ public class InsertarEnBD extends Application {
                 op10p5.setRpc(datos[5]);
                 op10p5.setOrigen(datos[6]);
                 op10p5.setObser(valores[0]);
+                DaoAPP.daoSession.getP10p5Dao().update(op10p5);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -3137,6 +3200,7 @@ public class InsertarEnBD extends Application {
                 op10p6.setMpta(datos[12]);
                 op10p6.setOrigen(datos[13]);
                 op10p6.setObser(valores[0]);
+                DaoAPP.daoSession.getP10p6Dao().update(op10p6);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -3153,6 +3217,7 @@ public class InsertarEnBD extends Application {
         @Override
         protected void onPostExecute(String res) {
             Log.d("Retorno", res.toString());
+            Toast.makeText(contexto, res.toString(), Toast.LENGTH_SHORT).show();
             Log.d("La URL FInal es ", urlEnviar.toString().replace(" ", "%20"));
             /*
             try {
