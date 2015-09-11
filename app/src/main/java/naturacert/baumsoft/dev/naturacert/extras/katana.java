@@ -1,6 +1,8 @@
 package naturacert.baumsoft.dev.naturacert.extras;
 
 import android.app.Application;
+import android.os.AsyncTask;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -8,11 +10,15 @@ import org.json.JSONObject;
 
 import java.util.List;
 
+import de.greenrobot.dao.query.QueryBuilder;
 import naturacert.baumsoft.dev.naturacert.Auditores;
 import naturacert.baumsoft.dev.naturacert.Clientes;
+import naturacert.baumsoft.dev.naturacert.ClientesDao;
 import naturacert.baumsoft.dev.naturacert.DaoAPP;
 import naturacert.baumsoft.dev.naturacert.Fincas;
 import naturacert.baumsoft.dev.naturacert.TokensBD;
+import naturacert.baumsoft.dev.naturacert.extras.oauth2Client.OAuth2Client;
+import naturacert.baumsoft.dev.naturacert.extras.oauth2Client.OAuthUtils;
 
 /**
  * Created by imac on 9/6/15.
@@ -99,7 +105,6 @@ public class katana extends Application {
             JSONObject fields = datos.getJSONObject("fields");
 
             Fincas finca = new Fincas();
-
             finca.setNombre(fields.getString("nombre"));
             finca.setCodigo(fields.getString("ref_finca"));
             finca.setFecha(fields.getString("fecha"));
@@ -109,9 +114,10 @@ public class katana extends Application {
             finca.setVereda(fields.getString("vereda"));
             finca.setLongitud(Double.valueOf(json.getString("lng")));
             finca.setLatitud(Double.valueOf(json.getString("lat")));
-            finca.setAltitud(Integer.parseInt(fields.getString("altitud")));
+            finca.setAltitud(fields.getInt("altitud"));
             finca.setPropietario(fields.getString("propietario"));
-            //finca.setGrupo(grupo.getText().toString());
+            //finca.setGrupo(1);
+            finca.setTipo_finca(1);
             finca.setTipo_auditoria(fields.getLong("tipo_auditoria"));
             finca.setTipo_auditor(fields.getLong("tipo_auditor"));
             finca.setArea_finca(fields.getInt("area_finca"));
@@ -123,33 +129,47 @@ public class katana extends Application {
             finca.setAlmendra_sana(fields.getString("alm_sana"));
             finca.setProblemas_sanitarios(fields.getString("prob_cult"));
             finca.setDocumentos_anexos(fields.getString("doc_anex"));
+            finca.setTrabajadores_permanentes(fields.getInt("ntrabper"));
+            finca.setTrabajadores_temporales(fields.getInt("ntrabtem"));
+            finca.setProveedores_visitados(fields.getString("proveedo"));
+            finca.setObservaciones(fields.getString("observ"));
+            finca.setIdCliente(fields.getInt("cliente"));
+            finca.setIdAuditor(fields.getInt("auditor"));
+            finca.setRef_finca(datos.getInt("pk"));
+            finca.setId_formulario(8);
+            DaoAPP.daoSession.getFincasDao().insert(finca);
 
-            /*
+            QueryBuilder qb = DaoAPP.daoSession.getClientesDao().queryBuilder();
+            qb.where(ClientesDao.Properties.Referencia.eq(fields.getInt("cliente")));
 
-        if(grupo.getText().toString().equals("")){
-            finca.setTipo_finca(1);
-            tipo = 1;
-        } else {
-            finca.setTipo_finca(2);
-            tipo = 2;
-        }
-
-        finca.setProveedores_visitados(proveedores_visitados.getText().toString());
-        finca.setObservaciones(observaciones.getText().toString());
-        finca.setIdCliente(clienteBD.getId());
-        List<Auditores> auditores = DaoAPP.daoSession.getAuditoresDao().loadAll();
-        finca.setIdAuditor(auditores.get(0).getId());
-        finca.setRef_finca(objeto.getInt("finca"));
-        finca.setId_formulario(objeto.getInt("rac"));
-        DaoAPP.daoSession.getFincasDao().insert(finca);
-
-*/
+            List<Clientes> clientes = qb.list();
+            if(clientes.size()==0){
+                Log.d("Id enviar", "- " + fields.getString("cliente"));
+                new descargarCliente().execute(fields.getString("cliente"));
+            }
 
         }
-
 
         return 1;
 
+    }
+
+    class descargarCliente extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            OAuthUtils oau = new OAuthUtils();
+            StringBuilder sb = new StringBuilder(httpConections.API);
+            sb.append("api/get_cliente/?client=");
+            sb.append(params[0]);
+            return oau.getProtectedResource(OAuth2Client.token, sb.toString());
+        }
+
+        protected void onPostExecute(String values) {
+            Log.d("Cliente", values);
+            if (values != null) {
+
+            }
+        }
     }
 
 

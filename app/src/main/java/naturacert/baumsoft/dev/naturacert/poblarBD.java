@@ -1351,8 +1351,156 @@ public class poblarBD {
         og1p2.setOrigen(9);
         og1p2.setId_formulario(referencia);
         og1p2.setObser("9");
-        DaoAPP.daoSession.getG1p1Dao().insert(og1p1);
+        DaoAPP.daoSession.getG1p2Dao().insert(og1p2);
 
+        g1p3 og1p3 = new g1p3();
+        og1p3.setEadg(9);
+        og1p3.setCali(9);
+        og1p3.setResu(9);
+        og1p3.setFech(9);
+        og1p3.setNomb(9);
+        og1p3.setNoca(9);
+        og1p3.setUbic(9);
+        og1p3.setFirm(9);
+        og1p3.setOrigen(9);
+        og1p3.setId_formulario(referencia);
+        og1p3.setObser("9");
+        DaoAPP.daoSession.getG1p3Dao().insert(og1p3);
+
+
+        g1p4 og1p4 = new g1p4();
+        og1p4.setLcds(9);
+        og1p4.setOrigen(9);
+        og1p4.setObser("9");
+        og1p4.setId_formulario(referencia);
+        DaoAPP.daoSession.getG1p4Dao().insert(og1p4);
+
+        g2p1 og2p1 = new g2p1();
+        og2p1.setEadg(9);
+        og2p1.setInsp(9);
+        og2p1.setAudi(9);
+        og2p1.setMiem(9);
+        og2p1.setProd(9);
+        og2p1.setCade(9);
+        og2p1.setCost(9);
+        og2p1.setDese(9);
+        og2p1.setOrigen(9);
+        og2p1.setObser("9");
+        og2p1.setId_formulario(referencia);
+        DaoAPP.daoSession.getG2p1Dao().insert(og2p1);
+
+        g2p2 og2p2 = new g2p2();
+        og2p2.setEadg(9);
+        og2p2.setOrigen(9);
+        og2p2.setObser("9");
+        og2p2.setId_formulario(referencia);
+        DaoAPP.daoSession.getG2p2Dao().insert(og2p2);
+
+        g2p3 og2p3 = new g2p3();
+        og2p3.setEadg(9);
+        og2p3.setProc(9);
+        og2p3.setLmdg(9);
+        og2p3.setOrigen(9);
+        og2p3.setObser("9");
+        og2p3.setId_formulario(referencia);
+        DaoAPP.daoSession.getG2p3Dao().insert(og2p3);
+
+        g3p1 og3p1 = new g3p1();
+        og3p1.setEadg(9);
+        og3p1.setOrga(9);
+        og3p1.setRcyc(9);
+        og3p1.setPpid(9);
+        og3p1.setRdmr(9);
+        og3p1.setPpii(9);
+        og3p1.setPpdy(9);
+        og3p1.setOrigen(9);
+        og3p1.setObser("9");
+        og3p1.setId_formulario(referencia);
+        DaoAPP.daoSession.getG3p1Dao().insert(og3p1);
+
+
+        g3p2 og3p2 = new g3p2();
+        og3p2.setCmdg(9);
+        og3p2.setAcfi(9);
+        og3p2.setLcdl(9);
+        og3p2.setLmsi(9);
+        og3p2.setLmsc(9);
+        og3p2.setOrigen(9);
+        og3p2.setObser("9");
+        og3p2.setId_formulario(referencia);
+        DaoAPP.daoSession.getG3p2Dao().insert(og3p2);
+
+        g3p3 og3p3 = new g3p3();
+        og3p3.setEpyl(9);
+        og3p3.setOrigen(9);
+        og3p3.setObser("9");
+        og3p3.setId_formulario(referencia);
+        DaoAPP.daoSession.getG3p3Dao().insert(og3p3);
+
+        g3p4 og3p4 = new g3p4();
+        og3p4.setEsid(9);
+        og3p4.setOrigen(9);
+        og3p4.setObser("9");
+        og3p4.setId_formulario(referencia);
+        DaoAPP.daoSession.getG3p4Dao().insert(og3p4);
+
+        g3p5 og3p5 = new g3p5();
+        og3p5.setEadg(9);
+        og3p5.setSein(9);
+        og3p5.setFech("9");
+        og3p5.setHain(9);
+        og3p5.setLanu(9);
+        og3p5.setOrigen(9);
+        og3p5.setObser("9");
+        og3p5.setId_formulario(referencia);
+        DaoAPP.daoSession.getG3p5Dao().insert(og3p5);
+
+        g3p6 og3p6 = new g3p6();
+        og3p6.setEsid(9);
+        og3p6.setPoli(9);
+        og3p6.setMedi(9);
+        og3p6.setLomi(9);
+        og3p6.setRegi(9);
+        og3p6.setLmtd(9);
+        og3p6.setOrigen(9);
+        og3p6.setObser("9");
+        og3p6.setId_formulario(referencia);
+        DaoAPP.daoSession.getG3p6Dao().insert(og3p6);
+
+        g3p7 og3p7 = new g3p7();
+        og3p7.setEcdl(9);
+        og3p7.setOrigen(9);
+        og3p7.setObser("9");
+        og3p7.setId_formulario(referencia);
+        DaoAPP.daoSession.getG3p7Dao().insert(og3p7);
+
+        g3p8 og3p8 = new g3p8();
+        og3p8.setLdda(9);
+        og3p8.setNive("9");
+        og3p8.setOrigen(9);
+        og3p8.setObser("9");
+        og3p8.setId_formulario(referencia);
+        DaoAPP.daoSession.getG3p8Dao().insert(og3p8);
+
+        g3p9 og3p9 = new g3p9();
+        og3p9.setEadg(9);
+        og3p9.setNomb(9);
+        og3p9.setFein(9);
+        og3p9.setIdas(9);
+        og3p9.setEsdc(9);
+        og3p9.setUbic(9);
+        og3p9.setArto(9);
+        og3p9.setArtp(9);
+        og3p9.setVadp(9);
+        og3p9.setMapa(9);
+        og3p9.setMrob(9);
+        og3p9.setVdpc(9);
+        og3p9.setAeei(9);
+        og3p9.setRdnc(9);
+        og3p9.setOrigen(9);
+        og3p9.setObser("9");
+        og3p9.setId_formulario(referencia);
+        DaoAPP.daoSession.getG3p9Dao().insert(og3p9);
 
 
     }

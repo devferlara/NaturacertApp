@@ -3,6 +3,7 @@ package naturacert.baumsoft.dev.naturacert;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,9 +45,6 @@ public class MainActivity extends Activity {
 
         setContentView(R.layout.activity_main);
 
-
-
-        /*
         katana kata = new katana();
         if(kata.checkUser()){
             TokensBD tkn = kata.getToken();
@@ -56,7 +54,6 @@ public class MainActivity extends Activity {
             startActivity(pasar);
             finish();
         }
-        */
 
         LinearLayout contenedor = (LinearLayout) findViewById(R.id.contenedor);
         contenedor.setOnClickListener(new View.OnClickListener() {
@@ -271,7 +268,7 @@ public class MainActivity extends Activity {
                 }
 
             } else {
-                Toast.makeText(MainActivity.this, "No hemos podido iniciar sesión, asegurate de estar ocnectado a internet.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "No hemos podido iniciar sesión, asegurate de estar conectado a internet.", Toast.LENGTH_SHORT).show();
             }
         }
     }

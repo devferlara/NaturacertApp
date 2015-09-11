@@ -83,15 +83,17 @@ public class adapter_fincas extends BaseAdapter {
             formulario.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ((mis_fincas)activity).abrir_formulario(mcv.getId_formulario(), mcv.getTipo_finca());
+                    ((mis_fincas) activity).abrir_formulario(mcv.getId_formulario(), mcv.getTipo_finca());
                 }
             });
 
-            //Typeface poor = Typeface.createFromAsset(activity.getAssets(), "fonts/poor.ttf");
-
-            //TextView nombre = (TextView) convertView.findViewById(R.id.nombreconcatenado);
-
-
+            final Button ver_finca = (Button) convertView.findViewById(R.id.ver_finca);
+            ver_finca.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ((mis_fincas)activity).ver_finca(mcv.getId());
+                }
+            });
 
         }
         return convertView;

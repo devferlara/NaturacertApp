@@ -41,6 +41,8 @@ public class Fincas {
     private String problemas_sanitarios;
     private String documentos_anexos;
     private String proveedores_visitados;
+    private Integer trabajadores_permanentes;
+    private Integer trabajadores_temporales;
     private String observaciones;
     private long idCliente;
     private long idAuditor;
@@ -68,7 +70,7 @@ public class Fincas {
         this.id = id;
     }
 
-    public Fincas(Long id, Integer ref_finca, String nombre, Integer tipo_finca, Integer id_formulario, Long departamento, String codigo, String hora, String fecha, String imagen, String municipio, String vereda, Double latitud, Double longitud, Integer altitud, String grupo, Long tipo_auditoria, Long tipo_auditor, String propietario, Integer area_finca, Integer area_conservacion, Integer area_infraestructura, String periodo_cosecha, String produccion_regional, Integer fr_cafe, String almendra_sana, String problemas_sanitarios, String documentos_anexos, String proveedores_visitados, String observaciones, long idCliente, long idAuditor) {
+    public Fincas(Long id, Integer ref_finca, String nombre, Integer tipo_finca, Integer id_formulario, Long departamento, String codigo, String hora, String fecha, String imagen, String municipio, String vereda, Double latitud, Double longitud, Integer altitud, String grupo, Long tipo_auditoria, Long tipo_auditor, String propietario, Integer area_finca, Integer area_conservacion, Integer area_infraestructura, String periodo_cosecha, String produccion_regional, Integer fr_cafe, String almendra_sana, String problemas_sanitarios, String documentos_anexos, String proveedores_visitados, Integer trabajadores_permanentes, Integer trabajadores_temporales, String observaciones, long idCliente, long idAuditor) {
         this.id = id;
         this.ref_finca = ref_finca;
         this.nombre = nombre;
@@ -98,6 +100,8 @@ public class Fincas {
         this.problemas_sanitarios = problemas_sanitarios;
         this.documentos_anexos = documentos_anexos;
         this.proveedores_visitados = proveedores_visitados;
+        this.trabajadores_permanentes = trabajadores_permanentes;
+        this.trabajadores_temporales = trabajadores_temporales;
         this.observaciones = observaciones;
         this.idCliente = idCliente;
         this.idAuditor = idAuditor;
@@ -339,6 +343,22 @@ public class Fincas {
 
     public void setProveedores_visitados(String proveedores_visitados) {
         this.proveedores_visitados = proveedores_visitados;
+    }
+
+    public Integer getTrabajadores_permanentes() {
+        return trabajadores_permanentes;
+    }
+
+    public void setTrabajadores_permanentes(Integer trabajadores_permanentes) {
+        this.trabajadores_permanentes = trabajadores_permanentes;
+    }
+
+    public Integer getTrabajadores_temporales() {
+        return trabajadores_temporales;
+    }
+
+    public void setTrabajadores_temporales(Integer trabajadores_temporales) {
+        this.trabajadores_temporales = trabajadores_temporales;
     }
 
     public String getObservaciones() {

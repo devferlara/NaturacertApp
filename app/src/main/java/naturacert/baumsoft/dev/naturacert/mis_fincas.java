@@ -67,4 +67,10 @@ public class mis_fincas extends Activity {
         }
     }
 
+    public void ver_finca(long idFinca){
+        Intent pasar = new Intent(mis_fincas.this, editar_finca.class);
+        pasar.putExtra("idFinca", String.valueOf(idFinca));
+        startActivity(pasar);
+    }
+
 }

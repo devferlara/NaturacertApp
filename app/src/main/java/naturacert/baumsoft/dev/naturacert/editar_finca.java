@@ -45,7 +45,7 @@ public class editar_finca extends ActionBarActivity {
     Fincas finca;
     List<Clientes> clientes_lista;
     ProgressDialog progress;
-    int idFinca;
+    long idFinca;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class editar_finca extends ActionBarActivity {
         setContentView(R.layout.activity_editar_finca);
 
         Intent mIntent = getIntent();
-        idFinca = Integer.parseInt(mIntent.getStringExtra("id_formulario"));
+        idFinca = Long.parseLong(mIntent.getStringExtra("idFinca"));
 
         Button guardar = (Button) findViewById(R.id.guardar);
         guardar.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +62,8 @@ public class editar_finca extends ActionBarActivity {
                 capturarFinca();
             }
         });
+
+        montarFinca(idFinca);
 
         montarClientes();
 
@@ -416,7 +418,7 @@ public class editar_finca extends ActionBarActivity {
             sb.append(kata.getUserId());
 
 
-            finca = new Fincas();
+            finca = DaoAPP.daoSession.getFincasDao().load(idFinca);
             if(grupo.getText().toString().equals("")){
                 finca.setTipo_finca(1);
             } else {
@@ -587,6 +589,99 @@ public class editar_finca extends ActionBarActivity {
             InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
             inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
+    }
+
+    private void montarFinca(long idFinca){
+
+        Fincas finca_ = DaoAPP.daoSession.getFincasDao().load(idFinca);
+
+        EditText nombre = (EditText) findViewById(R.id.nombre);
+        nombre.setText(finca_.getNombre());
+
+        EditText codigo = (EditText) findViewById(R.id.codigo);
+        codigo.setText(finca_.getCodigo());
+
+        TextView hora = (TextView) findViewById(R.id.hora);
+        hora.setText(finca_.getHora());
+
+        TextView fecha = (TextView) findViewById(R.id.fecha);
+        fecha.setText(finca_.getHora());
+
+        ImageButton imagen = (ImageButton) findViewById(R.id.camara);
+        //Pendiente subir imagen
+
+        Spinner departamento = (Spinner) findViewById(R.id.departamento);
+        departamento.setSelection((int) (long) finca_.getDepartamento());
+
+        EditText municipio = (EditText) findViewById(R.id.municipio);
+        municipio.setText(finca_.getMunicipio());
+
+        EditText vereda = (EditText) findViewById(R.id.vereda);
+        vereda.setText(finca_.getVereda());
+
+        EditText altura = (EditText) findViewById(R.id.altura);
+        altura.setText(finca_.getAltitud());
+
+        EditText latitud = (EditText) findViewById(R.id.latitud);
+        latitud.setText(String.valueOf(finca_.getLatitud()));
+
+        EditText longitud = (EditText) findViewById(R.id.longitud);
+        longitud.setText(String.valueOf(finca_.getLongitud()));
+
+        EditText propietario = (EditText) findViewById(R.id.propietario);
+        propietario.setText(finca_.getPropietario());
+
+        EditText grupo = (EditText) findViewById(R.id.grupo);
+        if(!finca_.getGrupo().isEmpty())
+            grupo.setText(finca_.getGrupo());
+
+        Spinner tipo_auditoria = (Spinner) findViewById(R.id.tipo_auditoria);
+        tipo_auditoria.setSelection((int) (long) finca_.getTipo_auditoria());
+
+        Spinner tipo_auditor = (Spinner) findViewById(R.id.tipo_auditor);
+        tipo_auditor.setSelection((int) (long) finca_.getTipo_auditor());
+
+        EditText area_finca = (EditText) findViewById(R.id.area_finca);
+        area_finca.setText(finca_.getArea_finca());
+
+        EditText area_conservacion = (EditText) findViewById(R.id.area_conservacion);
+        area_conservacion.setText(finca_.getArea_conservacion());
+
+        EditText area_infraestructura = (EditText) findViewById(R.id.area_infraestructura);
+        area_infraestructura.setText(finca_.getArea_infraestructura());
+
+        EditText periodo_cosecha = (EditText) findViewById(R.id.periodo_cosecha);
+        periodo_cosecha.setText(finca_.getPeriodo_cosecha());
+
+        EditText produccion_regional = (EditText) findViewById(R.id.produccion_regional);
+        produccion_regional.setText(finca_.getProduccion_regional());
+
+        EditText fr_cafe = (EditText) findViewById(R.id.fr_cafe);
+        fr_cafe.setText(finca_.getFr_cafe());
+
+        EditText almendra_sana = (EditText) findViewById(R.id.almendra_sana);
+        almendra_sana.setText(finca_.getAlmendra_sana());
+
+        EditText problemas_sanitarios = (EditText) findViewById(R.id.problemas_sanitarios);
+        problemas_sanitarios.setText(finca_.getProblemas_sanitarios());
+
+        EditText trabajadores_permanentes = (EditText) findViewById(R.id.trabajadores_permanentes);
+        trabajadores_permanentes.setText(finca_.getTrabajadores_permanentes());
+
+        EditText trabajadores_temporales = (EditText) findViewById(R.id.trabajadores_temporales);
+        trabajadores_temporales.setText(finca_.getTrabajadores_temporales());
+
+        EditText documentos_anexos = (EditText) findViewById(R.id.documentos_anexos);
+        documentos_anexos.setText(finca_.getDocumentos_anexos());
+
+        EditText proveedores_visitados = (EditText) findViewById(R.id.proveedores_visitados);
+        proveedores_visitados.setText(finca_.getProveedores_visitados());
+
+        EditText observaciones = (EditText) findViewById(R.id.observaciones);
+        observaciones.setText(finca_.getObservaciones());
+
+
+
     }
 
 }

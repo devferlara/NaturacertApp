@@ -4,8 +4,10 @@ package naturacert.baumsoft.dev.naturacert;
 import android.app.Application;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -3217,17 +3219,14 @@ public class InsertarEnBD extends Application {
 
         @Override
         protected void onPostExecute(String res) {
-            Log.d("Retorno", res.toString());
-            Toast.makeText(contexto, res.toString(), Toast.LENGTH_SHORT).show();
-            Log.d("La URL FInal es ", urlEnviar.toString().replace(" ", "%20"));
-            /*
+            
             try {
                 JSONObject diego = new JSONObject(res.toString());
                 Toast.makeText(contexto, diego.getString("status"), Toast.LENGTH_SHORT).show();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            */
+
 
         }
     }

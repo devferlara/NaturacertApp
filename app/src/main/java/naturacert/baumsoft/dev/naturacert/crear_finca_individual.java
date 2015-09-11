@@ -445,6 +445,8 @@ public class crear_finca_individual extends ActionBarActivity {
             finca.setProblemas_sanitarios(problemas_sanitarios.getText().toString());
             finca.setDocumentos_anexos(documentos_anexos.getText().toString());
             finca.setProveedores_visitados(proveedores_visitados.getText().toString());
+            finca.setTrabajadores_permanentes(Integer.parseInt(trabajadores_permanentes.getText().toString()));
+            finca.setTrabajadores_temporales(Integer.parseInt(trabajadores_temporales.getText().toString()));
             finca.setObservaciones(observaciones.getText().toString());
             finca.setIdCliente(clienteBD.getId());
             List<Auditores> auditores = DaoAPP.daoSession.getAuditoresDao().loadAll();

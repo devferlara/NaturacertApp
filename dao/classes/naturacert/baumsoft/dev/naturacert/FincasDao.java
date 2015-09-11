@@ -57,9 +57,11 @@ public class FincasDao extends AbstractDao<Fincas, Long> {
         public final static Property Problemas_sanitarios = new Property(26, String.class, "problemas_sanitarios", false, "PROBLEMAS_SANITARIOS");
         public final static Property Documentos_anexos = new Property(27, String.class, "documentos_anexos", false, "DOCUMENTOS_ANEXOS");
         public final static Property Proveedores_visitados = new Property(28, String.class, "proveedores_visitados", false, "PROVEEDORES_VISITADOS");
-        public final static Property Observaciones = new Property(29, String.class, "observaciones", false, "OBSERVACIONES");
-        public final static Property IdCliente = new Property(30, long.class, "idCliente", false, "ID_CLIENTE");
-        public final static Property IdAuditor = new Property(31, long.class, "idAuditor", false, "ID_AUDITOR");
+        public final static Property Trabajadores_permanentes = new Property(29, Integer.class, "trabajadores_permanentes", false, "TRABAJADORES_PERMANENTES");
+        public final static Property Trabajadores_temporales = new Property(30, Integer.class, "trabajadores_temporales", false, "TRABAJADORES_TEMPORALES");
+        public final static Property Observaciones = new Property(31, String.class, "observaciones", false, "OBSERVACIONES");
+        public final static Property IdCliente = new Property(32, long.class, "idCliente", false, "ID_CLIENTE");
+        public final static Property IdAuditor = new Property(33, long.class, "idAuditor", false, "ID_AUDITOR");
     };
 
     private DaoSession daoSession;
@@ -109,9 +111,11 @@ public class FincasDao extends AbstractDao<Fincas, Long> {
                 "'PROBLEMAS_SANITARIOS' TEXT," + // 26: problemas_sanitarios
                 "'DOCUMENTOS_ANEXOS' TEXT," + // 27: documentos_anexos
                 "'PROVEEDORES_VISITADOS' TEXT," + // 28: proveedores_visitados
-                "'OBSERVACIONES' TEXT," + // 29: observaciones
-                "'ID_CLIENTE' INTEGER NOT NULL ," + // 30: idCliente
-                "'ID_AUDITOR' INTEGER NOT NULL );"); // 31: idAuditor
+                "'TRABAJADORES_PERMANENTES' INTEGER," + // 29: trabajadores_permanentes
+                "'TRABAJADORES_TEMPORALES' INTEGER," + // 30: trabajadores_temporales
+                "'OBSERVACIONES' TEXT," + // 31: observaciones
+                "'ID_CLIENTE' INTEGER NOT NULL ," + // 32: idCliente
+                "'ID_AUDITOR' INTEGER NOT NULL );"); // 33: idAuditor
     }
 
     /** Drops the underlying database table. */
@@ -270,12 +274,22 @@ public class FincasDao extends AbstractDao<Fincas, Long> {
             stmt.bindString(29, proveedores_visitados);
         }
  
+        Integer trabajadores_permanentes = entity.getTrabajadores_permanentes();
+        if (trabajadores_permanentes != null) {
+            stmt.bindLong(30, trabajadores_permanentes);
+        }
+ 
+        Integer trabajadores_temporales = entity.getTrabajadores_temporales();
+        if (trabajadores_temporales != null) {
+            stmt.bindLong(31, trabajadores_temporales);
+        }
+ 
         String observaciones = entity.getObservaciones();
         if (observaciones != null) {
-            stmt.bindString(30, observaciones);
+            stmt.bindString(32, observaciones);
         }
-        stmt.bindLong(31, entity.getIdCliente());
-        stmt.bindLong(32, entity.getIdAuditor());
+        stmt.bindLong(33, entity.getIdCliente());
+        stmt.bindLong(34, entity.getIdAuditor());
     }
 
     @Override
@@ -323,9 +337,11 @@ public class FincasDao extends AbstractDao<Fincas, Long> {
             cursor.isNull(offset + 26) ? null : cursor.getString(offset + 26), // problemas_sanitarios
             cursor.isNull(offset + 27) ? null : cursor.getString(offset + 27), // documentos_anexos
             cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28), // proveedores_visitados
-            cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29), // observaciones
-            cursor.getLong(offset + 30), // idCliente
-            cursor.getLong(offset + 31) // idAuditor
+            cursor.isNull(offset + 29) ? null : cursor.getInt(offset + 29), // trabajadores_permanentes
+            cursor.isNull(offset + 30) ? null : cursor.getInt(offset + 30), // trabajadores_temporales
+            cursor.isNull(offset + 31) ? null : cursor.getString(offset + 31), // observaciones
+            cursor.getLong(offset + 32), // idCliente
+            cursor.getLong(offset + 33) // idAuditor
         );
         return entity;
     }
@@ -362,9 +378,11 @@ public class FincasDao extends AbstractDao<Fincas, Long> {
         entity.setProblemas_sanitarios(cursor.isNull(offset + 26) ? null : cursor.getString(offset + 26));
         entity.setDocumentos_anexos(cursor.isNull(offset + 27) ? null : cursor.getString(offset + 27));
         entity.setProveedores_visitados(cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28));
-        entity.setObservaciones(cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29));
-        entity.setIdCliente(cursor.getLong(offset + 30));
-        entity.setIdAuditor(cursor.getLong(offset + 31));
+        entity.setTrabajadores_permanentes(cursor.isNull(offset + 29) ? null : cursor.getInt(offset + 29));
+        entity.setTrabajadores_temporales(cursor.isNull(offset + 30) ? null : cursor.getInt(offset + 30));
+        entity.setObservaciones(cursor.isNull(offset + 31) ? null : cursor.getString(offset + 31));
+        entity.setIdCliente(cursor.getLong(offset + 32));
+        entity.setIdAuditor(cursor.getLong(offset + 33));
      }
     
     /** @inheritdoc */

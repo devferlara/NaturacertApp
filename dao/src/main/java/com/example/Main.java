@@ -214,6 +214,8 @@ public class Main {
         fincas.addStringProperty("problemas_sanitarios");
         fincas.addStringProperty("documentos_anexos");
         fincas.addStringProperty("proveedores_visitados");
+        fincas.addIntProperty("trabajadores_permanentes");
+        fincas.addIntProperty("trabajadores_temporales");
         fincas.addStringProperty("observaciones");
 
 
