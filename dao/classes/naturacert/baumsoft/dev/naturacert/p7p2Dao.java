@@ -30,11 +30,10 @@ public class p7p2Dao extends AbstractDao<p7p2, Long> {
         public final static Property Sdlq = new Property(4, Integer.class, "sdlq", false, "SDLQ");
         public final static Property Salp = new Property(5, Integer.class, "salp", false, "SALP");
         public final static Property Shpa = new Property(6, Integer.class, "shpa", false, "SHPA");
-        public final static Property Hpaq = new Property(7, Integer.class, "hpaq", false, "HPAQ");
-        public final static Property Sipy = new Property(8, Integer.class, "sipy", false, "SIPY");
-        public final static Property Origen = new Property(9, Integer.class, "origen", false, "ORIGEN");
-        public final static Property Obser = new Property(10, String.class, "obser", false, "OBSER");
-        public final static Property Id_formulario = new Property(11, Integer.class, "id_formulario", false, "ID_FORMULARIO");
+        public final static Property Sipy = new Property(7, Integer.class, "sipy", false, "SIPY");
+        public final static Property Origen = new Property(8, Integer.class, "origen", false, "ORIGEN");
+        public final static Property Obser = new Property(9, String.class, "obser", false, "OBSER");
+        public final static Property Id_formulario = new Property(10, Integer.class, "id_formulario", false, "ID_FORMULARIO");
     };
 
 
@@ -57,11 +56,10 @@ public class p7p2Dao extends AbstractDao<p7p2, Long> {
                 "'SDLQ' INTEGER," + // 4: sdlq
                 "'SALP' INTEGER," + // 5: salp
                 "'SHPA' INTEGER," + // 6: shpa
-                "'HPAQ' INTEGER," + // 7: hpaq
-                "'SIPY' INTEGER," + // 8: sipy
-                "'ORIGEN' INTEGER," + // 9: origen
-                "'OBSER' TEXT," + // 10: obser
-                "'ID_FORMULARIO' INTEGER);"); // 11: id_formulario
+                "'SIPY' INTEGER," + // 7: sipy
+                "'ORIGEN' INTEGER," + // 8: origen
+                "'OBSER' TEXT," + // 9: obser
+                "'ID_FORMULARIO' INTEGER);"); // 10: id_formulario
     }
 
     /** Drops the underlying database table. */
@@ -110,29 +108,24 @@ public class p7p2Dao extends AbstractDao<p7p2, Long> {
             stmt.bindLong(7, shpa);
         }
  
-        Integer hpaq = entity.getHpaq();
-        if (hpaq != null) {
-            stmt.bindLong(8, hpaq);
-        }
- 
         Integer sipy = entity.getSipy();
         if (sipy != null) {
-            stmt.bindLong(9, sipy);
+            stmt.bindLong(8, sipy);
         }
  
         Integer origen = entity.getOrigen();
         if (origen != null) {
-            stmt.bindLong(10, origen);
+            stmt.bindLong(9, origen);
         }
  
         String obser = entity.getObser();
         if (obser != null) {
-            stmt.bindString(11, obser);
+            stmt.bindString(10, obser);
         }
  
         Integer id_formulario = entity.getId_formulario();
         if (id_formulario != null) {
-            stmt.bindLong(12, id_formulario);
+            stmt.bindLong(11, id_formulario);
         }
     }
 
@@ -153,11 +146,10 @@ public class p7p2Dao extends AbstractDao<p7p2, Long> {
             cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4), // sdlq
             cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5), // salp
             cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6), // shpa
-            cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7), // hpaq
-            cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8), // sipy
-            cursor.isNull(offset + 9) ? null : cursor.getInt(offset + 9), // origen
-            cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10), // obser
-            cursor.isNull(offset + 11) ? null : cursor.getInt(offset + 11) // id_formulario
+            cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7), // sipy
+            cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8), // origen
+            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9), // obser
+            cursor.isNull(offset + 10) ? null : cursor.getInt(offset + 10) // id_formulario
         );
         return entity;
     }
@@ -172,11 +164,10 @@ public class p7p2Dao extends AbstractDao<p7p2, Long> {
         entity.setSdlq(cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4));
         entity.setSalp(cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5));
         entity.setShpa(cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6));
-        entity.setHpaq(cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7));
-        entity.setSipy(cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8));
-        entity.setOrigen(cursor.isNull(offset + 9) ? null : cursor.getInt(offset + 9));
-        entity.setObser(cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10));
-        entity.setId_formulario(cursor.isNull(offset + 11) ? null : cursor.getInt(offset + 11));
+        entity.setSipy(cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7));
+        entity.setOrigen(cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8));
+        entity.setObser(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
+        entity.setId_formulario(cursor.isNull(offset + 10) ? null : cursor.getInt(offset + 10));
      }
     
     /** @inheritdoc */

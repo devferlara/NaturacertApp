@@ -23,6 +23,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.greenrobot.dao.query.QueryBuilder;
 import naturacert.baumsoft.dev.naturacert.extras.httpConections;
 import naturacert.baumsoft.dev.naturacert.extras.katana;
 import naturacert.baumsoft.dev.naturacert.extras.oauth2Client.OAuth2Client;
@@ -70,9 +71,6 @@ public class MainActivity extends Activity {
             }
         });
 
-        //poblarBD poblarbase = new poblarBD();
-        //poblarbase.poblar();
-
         Button iniciar = (Button) findViewById(R.id.iniciar);
         iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,13 +79,15 @@ public class MainActivity extends Activity {
                 EditText usuario = (EditText) findViewById(R.id.usuario);
                 EditText pass = (EditText) findViewById(R.id.pass);
 
-                ArrayList<String> accesos = new ArrayList<String>();
-                accesos.add(usuario.getText().toString());
-                accesos.add(pass.getText().toString());
+                if(!usuario.getText().toString().equals("") && !pass.getText().toString().equals("")){
+                    ArrayList<String> accesos = new ArrayList<String>();
+                    accesos.add(usuario.getText().toString());
+                    accesos.add(pass.getText().toString());
 
-                progress = ProgressDialog.show(MainActivity.this, "Información",
-                        "Iniciando sesión, por favor espere un momento.", true);
-                new iniciarSesion().execute(accesos);
+                    progress = ProgressDialog.show(MainActivity.this, "Información",
+                            "Iniciando sesión, por favor espere un momento.", true);
+                    new iniciarSesion().execute(accesos);
+                }
 
             }
         });
@@ -185,13 +185,6 @@ public class MainActivity extends Activity {
                     user.setRef_auditor(obj.getInt("auditor"));
                     DaoAPP.daoSession.getAuditoresDao().insert(user);
 
-                    if(progress.isShowing())
-                        progress.dismiss();
-
-                    //Intent pasar = new Intent(MainActivity.this, iniciorac.class);
-                    //finish();
-                    //startActivity(pasar);
-
                     progress = ProgressDialog.show(MainActivity.this, "Información",
                             "Descargando datos del usuario, por favor espere.", true);
 
@@ -201,7 +194,7 @@ public class MainActivity extends Activity {
                     e.printStackTrace();
                 }
             } else {
-                Toast.makeText(MainActivity.this, "No hemos podido iniciar sesión, asegurate de estar ocnectado a internet.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "No hemos podido iniciar sesión, asegurate de estar conectado a internet.", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -222,14 +215,19 @@ public class MainActivity extends Activity {
 
                 try {
                     JSONObject res = new JSONObject(values);
-                    JSONArray resultado = res.getJSONArray("result");
-                    for(int f = 0; f < resultado.length() ; f++ ){
-                        JSONObject interno = new JSONObject(resultado.getString(f));
-                        new descargarFincaIndividual().execute(String.valueOf(interno.getInt("id")));
+                    if(res.getString("status").equals("OK")){
+                        JSONArray resultado = res.getJSONArray("result");
+                        for(int f = 0; f < resultado.length() ; f++ ){
+                            JSONObject interno = new JSONObject(resultado.getString(f));
+                            new descargarFincaIndividual().execute(String.valueOf(interno.getInt("id")));
+                        }
+                    } else {
+                        if(progress.isShowing())
+                            progress.dismiss();
+                        Intent pasar = new Intent(MainActivity.this, iniciorac.class);
+                        startActivity(pasar);
+                        finish();
                     }
-
-                    if(progress.isShowing())
-                        progress.dismiss();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -237,7 +235,7 @@ public class MainActivity extends Activity {
             } else {
                 if(progress.isShowing())
                     progress.dismiss();
-                Toast.makeText(MainActivity.this, "No hemos podido iniciar sesión, asegurate de estar ocnectado a internet.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "No hemos podido iniciar sesión, asegurate de estar conectado a internet.", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -260,15 +258,75 @@ public class MainActivity extends Activity {
 
             if (values != null) {
 
+
                 katana kata = new katana();
                 try {
                     long fer = kata.crearFincaEnInicio(new JSONObject(values));
+                    if (fer != 0) {
+                        QueryBuilder qb = DaoAPP.daoSession.getClientesDao().queryBuilder();
+                        qb.where(ClientesDao.Properties.Referencia.eq(fer));
+                        List<Clientes> clientes = qb.list();
+                        if(clientes.size()==0){
+                            new descargarCliente().execute(String.valueOf(fer));
+                        }
+                    }
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
             } else {
                 Toast.makeText(MainActivity.this, "No hemos podido iniciar sesión, asegurate de estar conectado a internet.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    class descargarCliente extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            OAuthUtils oau = new OAuthUtils();
+            StringBuilder sb = new StringBuilder(httpConections.API);
+            sb.append("get_cliente/?client=");
+            sb.append(params[0]);
+            return oau.getProtectedResource(OAuth2Client.token, sb.toString());
+        }
+
+        protected void onPreExecute() {
+            progress = ProgressDialog.show(MainActivity.this, "Información",
+                    "Descargando datos del usuario, por favor espere.", true);
+        }
+
+        protected void onPostExecute(String values) {
+
+            if (values != null) {
+                try {
+                    JSONObject json = new JSONObject(values);
+                    if(json.getString("status").equals("OK")){
+
+                        JSONArray result = json.getJSONArray("result");
+                        JSONObject datos = new JSONObject(result.getString(0));
+                        JSONObject fields_ = datos.getJSONObject("fields");
+
+                        Clientes cliente = new Clientes();
+                        cliente.setNombres(fields_.getString("nombres"));
+                        cliente.setApellidos(fields_.getString("apellidos"));
+                        cliente.setDirección("No disponible");
+                        cliente.setDocumento("1105683985");
+                        cliente.setEmail(fields_.getString("email"));
+                        cliente.setReferencia(datos.getInt("pk"));
+                        cliente.setTelefono("6700572");
+
+                        QueryBuilder qb = DaoAPP.daoSession.getClientesDao().queryBuilder();
+                        qb.where(ClientesDao.Properties.Referencia.eq(datos.getInt("pk")));
+                        List<Clientes> clientes = qb.list();
+                        if(clientes.size()==0){
+                            DaoAPP.daoSession.getClientesDao().insert(cliente);
+                        }
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

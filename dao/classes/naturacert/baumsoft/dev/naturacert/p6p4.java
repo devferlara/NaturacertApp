@@ -16,7 +16,7 @@ public class p6p4 {
     private String fech;
     private Integer srad;
     private Integer ltta;
-    private String hipe;
+    private Integer hipe;
     private Integer siap;
     private Integer sgta;
     private Integer origen;
@@ -33,7 +33,7 @@ public class p6p4 {
         this.id = id;
     }
 
-    public p6p4(Long id, Integer ltqr, Integer exme, Integer anua, String fech, Integer srad, Integer ltta, String hipe, Integer siap, Integer sgta, Integer origen, String obser, Integer id_formulario) {
+    public p6p4(Long id, Integer ltqr, Integer exme, Integer anua, String fech, Integer srad, Integer ltta, Integer hipe, Integer siap, Integer sgta, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
         this.ltqr = ltqr;
         this.exme = exme;
@@ -105,11 +105,11 @@ public class p6p4 {
         this.ltta = ltta;
     }
 
-    public String getHipe() {
+    public Integer getHipe() {
         return hipe;
     }
 
-    public void setHipe(String hipe) {
+    public void setHipe(Integer hipe) {
         this.hipe = hipe;
     }
 

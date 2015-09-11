@@ -30,7 +30,7 @@ public class p6p4Dao extends AbstractDao<p6p4, Long> {
         public final static Property Fech = new Property(4, String.class, "fech", false, "FECH");
         public final static Property Srad = new Property(5, Integer.class, "srad", false, "SRAD");
         public final static Property Ltta = new Property(6, Integer.class, "ltta", false, "LTTA");
-        public final static Property Hipe = new Property(7, String.class, "hipe", false, "HIPE");
+        public final static Property Hipe = new Property(7, Integer.class, "hipe", false, "HIPE");
         public final static Property Siap = new Property(8, Integer.class, "siap", false, "SIAP");
         public final static Property Sgta = new Property(9, Integer.class, "sgta", false, "SGTA");
         public final static Property Origen = new Property(10, Integer.class, "origen", false, "ORIGEN");
@@ -58,7 +58,7 @@ public class p6p4Dao extends AbstractDao<p6p4, Long> {
                 "'FECH' TEXT," + // 4: fech
                 "'SRAD' INTEGER," + // 5: srad
                 "'LTTA' INTEGER," + // 6: ltta
-                "'HIPE' TEXT," + // 7: hipe
+                "'HIPE' INTEGER," + // 7: hipe
                 "'SIAP' INTEGER," + // 8: siap
                 "'SGTA' INTEGER," + // 9: sgta
                 "'ORIGEN' INTEGER," + // 10: origen
@@ -112,9 +112,9 @@ public class p6p4Dao extends AbstractDao<p6p4, Long> {
             stmt.bindLong(7, ltta);
         }
  
-        String hipe = entity.getHipe();
+        Integer hipe = entity.getHipe();
         if (hipe != null) {
-            stmt.bindString(8, hipe);
+            stmt.bindLong(8, hipe);
         }
  
         Integer siap = entity.getSiap();
@@ -160,7 +160,7 @@ public class p6p4Dao extends AbstractDao<p6p4, Long> {
             cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // fech
             cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5), // srad
             cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6), // ltta
-            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // hipe
+            cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7), // hipe
             cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8), // siap
             cursor.isNull(offset + 9) ? null : cursor.getInt(offset + 9), // sgta
             cursor.isNull(offset + 10) ? null : cursor.getInt(offset + 10), // origen
@@ -180,7 +180,7 @@ public class p6p4Dao extends AbstractDao<p6p4, Long> {
         entity.setFech(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
         entity.setSrad(cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5));
         entity.setLtta(cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6));
-        entity.setHipe(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
+        entity.setHipe(cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7));
         entity.setSiap(cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8));
         entity.setSgta(cursor.isNull(offset + 9) ? null : cursor.getInt(offset + 9));
         entity.setOrigen(cursor.isNull(offset + 10) ? null : cursor.getInt(offset + 10));

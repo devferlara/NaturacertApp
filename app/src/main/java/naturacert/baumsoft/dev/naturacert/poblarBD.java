@@ -756,7 +756,7 @@ public class poblarBD {
         op6p4.setFech("9");
         op6p4.setSrad(9);
         op6p4.setLtta(9);
-        op6p4.setHipe("9");
+        op6p4.setHipe(9);
         op6p4.setSiap(9);
         op6p4.setSgta(9);
         op6p4.setOrigen(9);
@@ -981,7 +981,6 @@ public class poblarBD {
         op7p2.setSdlq(9);
         op7p2.setSalp(9);
         op7p2.setShpa(9);
-        op7p2.setHpaq(9);
         op7p2.setSipy(9);
         op7p2.setOrigen(9);
         op7p2.setId_formulario(referencia);

@@ -4,6 +4,7 @@ package naturacert.baumsoft.dev.naturacert;
 import android.app.Application;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -122,7 +123,7 @@ public class InsertarEnBD extends Application {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
-                        urlEnviar.append(datos[m - 1]);
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
                     }
                 }
                 p1p2 op1p2 = DaoAPP.daoSession.getP1p2Dao().load(idCons);
@@ -158,7 +159,7 @@ public class InsertarEnBD extends Application {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
-                        urlEnviar.append(datos[m - 1]);
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
                     }
                 }
 
@@ -1518,7 +1519,7 @@ public class InsertarEnBD extends Application {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
-                        urlEnviar.append(datos[m - 1]);
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
                     }
                 }
                 p5p12 op5p12 = DaoAPP.daoSession.getP5p12Dao().load(idCons);
@@ -1728,7 +1729,7 @@ public class InsertarEnBD extends Application {
                 urlEnviar.append("rpfive_cincopdiezynueve");
                 columnas = DaoAPP.daoSession.getP5p19Dao().getAllColumns();
                 for (int m = 1; m < columnas.length - 1; m++) {
-                    if (m == 6) {
+                    if (m == 4) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -1857,7 +1858,7 @@ public class InsertarEnBD extends Application {
                 urlEnviar.append("rpsix_seispcuatro");
                 columnas = DaoAPP.daoSession.getP6p4Dao().getAllColumns();
                 for (int m = 1; m < columnas.length - 1; m++) {
-                    if (m == 4 || m == 7 || m == 11) {
+                    if (m == 4 || m == 11) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -1875,13 +1876,13 @@ public class InsertarEnBD extends Application {
                 op6p4.setExme(datos[1]);
                 op6p4.setAnua(datos[2]);
                 op6p4.setFech(valores[0]);
-                op6p4.setSrad(datos[4]);
-                op6p4.setLtta(datos[5]);
-                op6p4.setHipe(valores[1]);
-                op6p4.setSiap(datos[7]);
-                op6p4.setSgta(datos[8]);
-                op6p4.setOrigen(datos[9]);
-                op6p4.setObser(valores[2]);
+                op6p4.setSrad(datos[3]);
+                op6p4.setLtta(datos[4]);
+                op6p4.setHipe(datos[5]);
+                op6p4.setSiap(datos[6]);
+                op6p4.setSgta(datos[7]);
+                op6p4.setOrigen(datos[8]);
+                op6p4.setObser(valores[1]);
                 DaoAPP.daoSession.getP6p4Dao().update(op6p4);
                 new enviar().execute(urlEnviar.toString());
                 break;
@@ -2404,7 +2405,7 @@ public class InsertarEnBD extends Application {
                 urlEnviar.append("rpseven_sietepdos");
                 columnas = DaoAPP.daoSession.getP7p2Dao().getAllColumns();
                 for (int m = 1; m < columnas.length - 1; m++) {
-                    if (m == 10) {
+                    if (m == 9) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -2424,9 +2425,8 @@ public class InsertarEnBD extends Application {
                 op7p2.setSdlq(datos[3]);
                 op7p2.setSalp(datos[4]);
                 op7p2.setShpa(datos[5]);
-                op7p2.setHpaq(datos[6]);
-                op7p2.setSipy(datos[7]);
-                op7p2.setOrigen(datos[8]);
+                op7p2.setSipy(datos[6]);
+                op7p2.setOrigen(datos[7]);
                 op7p2.setObser(valores[0]);
                 DaoAPP.daoSession.getP7p2Dao().update(op7p2);
                 new enviar().execute(urlEnviar.toString());
@@ -2436,7 +2436,7 @@ public class InsertarEnBD extends Application {
                 urlEnviar.append("rpseven_sieteptres");
                 columnas = DaoAPP.daoSession.getP7p3Dao().getAllColumns();
                 for (int m = 1; m < columnas.length - 1; m++) {
-                    if (m == 5) {
+                    if (m == 7) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -2491,7 +2491,7 @@ public class InsertarEnBD extends Application {
 
             case "7.5":
                 urlEnviar.append("rpseven_sietepcinco");
-                columnas = DaoAPP.daoSession.getP7p1Dao().getAllColumns();
+                columnas = DaoAPP.daoSession.getP7p5Dao().getAllColumns();
                 for (int m = 1; m < columnas.length - 1; m++) {
                     if (m == 5) {
                         urlEnviar.append("&");
@@ -2636,7 +2636,7 @@ public class InsertarEnBD extends Application {
                 urlEnviar.append("rpeight_ochoptres");
                 columnas = DaoAPP.daoSession.getP8p3Dao().getAllColumns();
                 for (int m = 1; m < columnas.length - 1; m++) {
-                    if (m == 9) {
+                    if (m == 8) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -2657,7 +2657,6 @@ public class InsertarEnBD extends Application {
                 op8p3.setEnep(datos[4]);
                 op8p3.setLfda(datos[5]);
                 op8p3.setOrigen(datos[6]);
-                op8p3.setOrigen(datos[7]);
                 op8p3.setObser(valores[0]);
                 DaoAPP.daoSession.getP8p3Dao().update(op8p3);
                 new enviar().execute(urlEnviar.toString());
@@ -2728,7 +2727,7 @@ public class InsertarEnBD extends Application {
                 urlEnviar.append("rpeight_ochopseis");
                 columnas = DaoAPP.daoSession.getP8p6Dao().getAllColumns();
                 for (int m = 1; m < columnas.length - 1; m++) {
-                    if (m == 4) {
+                    if (m == 6) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -2756,7 +2755,7 @@ public class InsertarEnBD extends Application {
                 urlEnviar.append("rpeight_ochopsiete");
                 columnas = DaoAPP.daoSession.getP8p7Dao().getAllColumns();
                 for (int m = 1; m < columnas.length - 1; m++) {
-                    if (m == 11) {
+                    if (m == 12) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -2780,7 +2779,7 @@ public class InsertarEnBD extends Application {
                 op8p7.setDlpq(datos[7]);
                 op8p7.setPqal(datos[8]);
                 op8p7.setFcda(datos[9]);
-                op8p7.setOrigen(datos[9]);
+                op8p7.setOrigen(datos[10]);
                 op8p7.setObser(valores[0]);
                 DaoAPP.daoSession.getP8p7Dao().update(op8p7);
                 new enviar().execute(urlEnviar.toString());
@@ -2876,7 +2875,7 @@ public class InsertarEnBD extends Application {
                 urlEnviar.append("rpnine_nuevepdos");
                 columnas = DaoAPP.daoSession.getP9p2Dao().getAllColumns();
                 for (int m = 1; m < columnas.length - 1; m++) {
-                    if (m == 12 || m == 17) {
+                    if (m == 12 || m == 18) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -3193,10 +3192,10 @@ public class InsertarEnBD extends Application {
                 op10p6.setIpcd(datos[2]);
                 op10p6.setCobs(datos[3]);
                 op10p6.setSia(datos[4]);
-                op10p6.setMac(datos[5]);
-                op10p6.setMaf(datos[6]);
-                op10p6.setUee(datos[7]);
-                op10p6.setMir(datos[8]);
+                op10p6.setMir(datos[5]);
+                op10p6.setMac(datos[6]);
+                op10p6.setMaf(datos[7]);
+                op10p6.setUee(datos[8]);
                 op10p6.setUtl(datos[9]);
                 op10p6.setMpps(datos[10]);
                 op10p6.setPirg(datos[11]);
@@ -3219,9 +3218,10 @@ public class InsertarEnBD extends Application {
 
         @Override
         protected void onPostExecute(String res) {
-            
+            Log.d("URL", urlEnviar.toString().replace(" ", "%20"));
             try {
                 JSONObject diego = new JSONObject(res.toString());
+                Log.d("Error", diego.toString());
                 Toast.makeText(contexto, diego.getString("status"), Toast.LENGTH_SHORT).show();
             } catch (JSONException e) {
                 e.printStackTrace();

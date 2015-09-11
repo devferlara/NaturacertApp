@@ -1,8 +1,6 @@
 package naturacert.baumsoft.dev.naturacert.extras;
 
 import android.app.Application;
-import android.os.AsyncTask;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -10,15 +8,11 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-import de.greenrobot.dao.query.QueryBuilder;
 import naturacert.baumsoft.dev.naturacert.Auditores;
 import naturacert.baumsoft.dev.naturacert.Clientes;
-import naturacert.baumsoft.dev.naturacert.ClientesDao;
 import naturacert.baumsoft.dev.naturacert.DaoAPP;
 import naturacert.baumsoft.dev.naturacert.Fincas;
 import naturacert.baumsoft.dev.naturacert.TokensBD;
-import naturacert.baumsoft.dev.naturacert.extras.oauth2Client.OAuth2Client;
-import naturacert.baumsoft.dev.naturacert.extras.oauth2Client.OAuthUtils;
 
 /**
  * Created by imac on 9/6/15.
@@ -95,7 +89,10 @@ public class katana extends Application {
         return cadena;
     }
 
+
+
     public long crearFincaEnInicio(JSONObject json) throws JSONException {
+        long cliente = 0;
 
         if (json.getString("status").equals("OK")) {
 
@@ -139,38 +136,14 @@ public class katana extends Application {
             finca.setId_formulario(8);
             DaoAPP.daoSession.getFincasDao().insert(finca);
 
-            QueryBuilder qb = DaoAPP.daoSession.getClientesDao().queryBuilder();
-            qb.where(ClientesDao.Properties.Referencia.eq(fields.getInt("cliente")));
-
-            List<Clientes> clientes = qb.list();
-            if(clientes.size()==0){
-                Log.d("Id enviar", "- " + fields.getString("cliente"));
-                new descargarCliente().execute(fields.getString("cliente"));
-            }
+            cliente = Long.parseLong(fields.getString("cliente"));
 
         }
 
-        return 1;
+        return cliente;
 
     }
 
-    class descargarCliente extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... params) {
-            OAuthUtils oau = new OAuthUtils();
-            StringBuilder sb = new StringBuilder(httpConections.API);
-            sb.append("api/get_cliente/?client=");
-            sb.append(params[0]);
-            return oau.getProtectedResource(OAuth2Client.token, sb.toString());
-        }
-
-        protected void onPostExecute(String values) {
-            Log.d("Cliente", values);
-            if (values != null) {
-
-            }
-        }
-    }
 
 
 }

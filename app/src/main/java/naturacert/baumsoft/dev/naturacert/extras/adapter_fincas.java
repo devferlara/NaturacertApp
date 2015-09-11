@@ -2,7 +2,6 @@ package naturacert.baumsoft.dev.naturacert.extras;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,15 +68,13 @@ public class adapter_fincas extends BaseAdapter {
             codigo_finca.setText(mcv.getCodigo());
 
             TextView nombre_cliente = (TextView) convertView.findViewById(R.id.nombre_cliente);
-            nombre_cliente.setText(mcv.getClientes().getNombres() + " " + mcv.getClientes().getApellidos());
+            //nombre_cliente.setText(mcv.getClientes().getNombres() + " " + mcv.getClientes().getApellidos());
 
             TextView fecha_agregado = (TextView) convertView.findViewById(R.id.fecha_agregado);
             fecha_agregado.setText(mcv.getFecha());
 
             TextView vereda = (TextView) convertView.findViewById(R.id.vereda);
             vereda.setText(mcv.getVereda());
-
-            Log.d("EL id a pasar es", "-" + mcv.getId_formulario());
 
             final Button formulario = (Button) convertView.findViewById(R.id.formulario);
             formulario.setOnClickListener(new View.OnClickListener() {

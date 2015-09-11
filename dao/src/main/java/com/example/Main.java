@@ -1098,7 +1098,7 @@ public class Main {
         p.addStringProperty("fech");
         p.addIntProperty("srad");
         p.addIntProperty("ltta");
-        p.addStringProperty("hipe");
+        p.addIntProperty("hipe");
         p.addIntProperty("siap");
         p.addIntProperty("sgta");
         p.addIntProperty("origen");
@@ -1359,7 +1359,6 @@ public class Main {
         p.addIntProperty("sdlq");
         p.addIntProperty("salp");
         p.addIntProperty("shpa");
-        p.addIntProperty("hpaq");
         p.addIntProperty("sipy");
         p.addIntProperty("origen");
         p.addStringProperty("obser");
@@ -1743,10 +1742,10 @@ public class Main {
         p.addIntProperty("ipcd");
         p.addIntProperty("cobs");
         p.addIntProperty("sia");
+        p.addIntProperty("mir");
         p.addIntProperty("mac");
         p.addIntProperty("maf");
         p.addIntProperty("uee");
-        p.addIntProperty("mir");
         p.addIntProperty("utl");
         p.addIntProperty("mpps");
         p.addIntProperty("pirg");

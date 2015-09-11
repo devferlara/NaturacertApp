@@ -371,7 +371,6 @@ public class Tab3 extends Fragment {
                 }
             });
 
-            Log.d("Sacar preg", String.valueOf(jsonDatos.getInt(numeroPregunta + 1)));
             int rtaOri = jsonDatos.getInt(numeroPregunta + 1);
             observaciones_cadena = jsonDatos.getString(numeroPregunta + 2);
             if(observaciones_cadena.equals("9"))
@@ -486,11 +485,14 @@ public class Tab3 extends Fragment {
                 cadenaEnviar[contadorTexto] = texto.getText().toString().replace(" ", "%20");
                 contadorTexto++;
                 finalString = contadorTexto;
+                Log.d("FInal String", String.valueOf(finalString));
             }
 
         }
 
         datosEnviar[finalInt + 1] = origen;
+
+        Log.d("Datos enviar origen", String.valueOf(datosEnviar[finalInt + 1]));
 
         if(observaciones_cadena.equals(""))
             observaciones_cadena = "%20";

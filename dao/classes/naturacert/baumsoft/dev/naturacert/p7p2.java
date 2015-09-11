@@ -16,7 +16,6 @@ public class p7p2 {
     private Integer sdlq;
     private Integer salp;
     private Integer shpa;
-    private Integer hpaq;
     private Integer sipy;
     private Integer origen;
     private String obser;
@@ -32,7 +31,7 @@ public class p7p2 {
         this.id = id;
     }
 
-    public p7p2(Long id, Integer ladf, Integer expo, Integer expr, Integer sdlq, Integer salp, Integer shpa, Integer hpaq, Integer sipy, Integer origen, String obser, Integer id_formulario) {
+    public p7p2(Long id, Integer ladf, Integer expo, Integer expr, Integer sdlq, Integer salp, Integer shpa, Integer sipy, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
         this.ladf = ladf;
         this.expo = expo;
@@ -40,7 +39,6 @@ public class p7p2 {
         this.sdlq = sdlq;
         this.salp = salp;
         this.shpa = shpa;
-        this.hpaq = hpaq;
         this.sipy = sipy;
         this.origen = origen;
         this.obser = obser;
@@ -101,14 +99,6 @@ public class p7p2 {
 
     public void setShpa(Integer shpa) {
         this.shpa = shpa;
-    }
-
-    public Integer getHpaq() {
-        return hpaq;
-    }
-
-    public void setHpaq(Integer hpaq) {
-        this.hpaq = hpaq;
     }
 
     public Integer getSipy() {
