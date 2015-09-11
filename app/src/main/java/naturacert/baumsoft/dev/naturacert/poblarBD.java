@@ -1353,13 +1353,7 @@ public class poblarBD {
         og1p2.setObser("9");
         DaoAPP.daoSession.getG1p1Dao().insert(og1p1);
 
-        g1p2 og1p2 = new g1p2();
-        og1p2.setEadg(9);
-        og1p2.setFech("9");
-        og1p2.setOrigen(9);
-        og1p2.setId_formulario(referencia);
-        og1p2.setObser("9");
-        DaoAPP.daoSession.getG1p1Dao().insert(og1p1);
+
 
     }
 }

@@ -2,11 +2,16 @@ package naturacert.baumsoft.dev.naturacert.extras;
 
 import android.app.Application;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.List;
 
 import naturacert.baumsoft.dev.naturacert.Auditores;
 import naturacert.baumsoft.dev.naturacert.Clientes;
 import naturacert.baumsoft.dev.naturacert.DaoAPP;
+import naturacert.baumsoft.dev.naturacert.Fincas;
 import naturacert.baumsoft.dev.naturacert.TokensBD;
 
 /**
@@ -72,7 +77,7 @@ public class katana extends Application {
     }
 
 
-    public String[] informacionAuditor(){
+    public String[] informacionAuditor() {
         String[] cadena = new String[3];
 
         List<Auditores> auditores_lista = DaoAPP.daoSession.getAuditoresDao().loadAll();
@@ -82,6 +87,69 @@ public class katana extends Application {
         cadena[2] = auditor.getFoto();
 
         return cadena;
+    }
+
+    public long crearFincaEnInicio(JSONObject json) throws JSONException {
+
+        if (json.getString("status").equals("OK")) {
+
+            JSONArray resultado = json.getJSONArray("result");
+            JSONObject datos = new JSONObject(resultado.getString(0));
+
+            JSONObject fields = datos.getJSONObject("fields");
+
+            Fincas finca = new Fincas();
+
+            finca.setNombre(fields.getString("nombre"));
+            finca.setCodigo(fields.getString("ref_finca"));
+            finca.setFecha(fields.getString("fecha"));
+            finca.setImagen(fields.getString("foto"));
+            finca.setDepartamento(fields.getLong("dpto"));
+            finca.setMunicipio(fields.getString("municipio"));
+            finca.setVereda(fields.getString("vereda"));
+            finca.setLongitud(Double.valueOf(json.getString("lng")));
+            finca.setLatitud(Double.valueOf(json.getString("lat")));
+            finca.setAltitud(Integer.parseInt(fields.getString("altitud")));
+            finca.setPropietario(fields.getString("propietario"));
+            //finca.setGrupo(grupo.getText().toString());
+            finca.setTipo_auditoria(fields.getLong("tipo_auditoria"));
+            finca.setTipo_auditor(fields.getLong("tipo_auditor"));
+            finca.setArea_finca(fields.getInt("area_finca"));
+            finca.setArea_conservacion(fields.getInt("area_conser"));
+            finca.setArea_infraestructura(fields.getInt("area_infra"));
+            finca.setPeriodo_cosecha(fields.getString("per_cosecha"));
+            finca.setProduccion_regional("prod_reg");
+            finca.setFr_cafe(fields.getInt("fr_cafe"));
+            finca.setAlmendra_sana(fields.getString("alm_sana"));
+            finca.setProblemas_sanitarios(fields.getString("prob_cult"));
+            finca.setDocumentos_anexos(fields.getString("doc_anex"));
+
+            /*
+
+        if(grupo.getText().toString().equals("")){
+            finca.setTipo_finca(1);
+            tipo = 1;
+        } else {
+            finca.setTipo_finca(2);
+            tipo = 2;
+        }
+
+        finca.setProveedores_visitados(proveedores_visitados.getText().toString());
+        finca.setObservaciones(observaciones.getText().toString());
+        finca.setIdCliente(clienteBD.getId());
+        List<Auditores> auditores = DaoAPP.daoSession.getAuditoresDao().loadAll();
+        finca.setIdAuditor(auditores.get(0).getId());
+        finca.setRef_finca(objeto.getInt("finca"));
+        finca.setId_formulario(objeto.getInt("rac"));
+        DaoAPP.daoSession.getFincasDao().insert(finca);
+
+*/
+
+        }
+
+
+        return 1;
+
     }
 
 

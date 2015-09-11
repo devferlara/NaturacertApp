@@ -3,7 +3,6 @@ package naturacert.baumsoft.dev.naturacert;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -47,6 +46,7 @@ public class MainActivity extends Activity {
 
 
 
+        /*
         katana kata = new katana();
         if(kata.checkUser()){
             TokensBD tkn = kata.getToken();
@@ -56,6 +56,7 @@ public class MainActivity extends Activity {
             startActivity(pasar);
             finish();
         }
+        */
 
         LinearLayout contenedor = (LinearLayout) findViewById(R.id.contenedor);
         contenedor.setOnClickListener(new View.OnClickListener() {
@@ -220,21 +221,55 @@ public class MainActivity extends Activity {
 
         protected void onPostExecute(String values) {
 
+            if (values != null) {
+
+                try {
+                    JSONObject res = new JSONObject(values);
+                    JSONArray resultado = res.getJSONArray("result");
+                    for(int f = 0; f < resultado.length() ; f++ ){
+                        JSONObject interno = new JSONObject(resultado.getString(f));
+                        new descargarFincaIndividual().execute(String.valueOf(interno.getInt("id")));
+                    }
+
+                    if(progress.isShowing())
+                        progress.dismiss();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                if(progress.isShowing())
+                    progress.dismiss();
+                Toast.makeText(MainActivity.this, "No hemos podido iniciar sesión, asegurate de estar ocnectado a internet.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+
+    class descargarFincaIndividual extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            OAuthUtils oau = new OAuthUtils();
+            StringBuilder sb = new StringBuilder(httpConections.API);
+            sb.append("get_finca/?finca=");
+            sb.append(params[0]);
+            return oau.getProtectedResource(OAuth2Client.token, sb.toString());
+        }
+
+        protected void onPostExecute(String values) {
+
             if(progress.isShowing())
                 progress.dismiss();
 
             if (values != null) {
 
-                JSONArray res;
+                katana kata = new katana();
                 try {
-                    res = new JSONArray(values);
-                    JSONObject obj = res.getJSONObject(0);
-                    Log.d("RTA", obj.toString());
-
-
+                    long fer = kata.crearFincaEnInicio(new JSONObject(values));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
             } else {
                 Toast.makeText(MainActivity.this, "No hemos podido iniciar sesión, asegurate de estar ocnectado a internet.", Toast.LENGTH_SHORT).show();
             }
