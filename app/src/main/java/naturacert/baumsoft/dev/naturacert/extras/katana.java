@@ -53,6 +53,8 @@ public class katana extends Application {
     public void clearUserBD() {
         DaoAPP.daoSession.getTokensBDDao().deleteAll();
         DaoAPP.daoSession.getAuditoresDao().deleteAll();
+        DaoAPP.daoSession.getFincasDao().deleteAll();
+        DaoAPP.daoSession.getClientesDao().deleteAll();
     }
 
 
@@ -81,5 +83,6 @@ public class katana extends Application {
 
         return cadena;
     }
+
 
 }

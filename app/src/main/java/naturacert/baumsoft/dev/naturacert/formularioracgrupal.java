@@ -31,6 +31,8 @@ public class formularioracgrupal extends ActionBarActivity {
     TextView numero_principio;
     private String[] principios = new String[5];
 
+    int formulario;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +41,10 @@ public class formularioracgrupal extends ActionBarActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
-        adapter = new ViewPagerAdapterRG(getSupportFragmentManager(), Titles, Numboftabs, getApplication());
+        Intent mIntent = getIntent();
+        formulario = Integer.parseInt(mIntent.getStringExtra("id_formulario"));
+
+        adapter = new ViewPagerAdapterRG(getSupportFragmentManager(), Titles, Numboftabs, getApplication(), formulario);
 
         toolbar.setVisibility(View.GONE);
 

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -58,20 +57,6 @@ public class MainActivity extends Activity {
             finish();
         }
 
-        JSONArray jsonDatos = new JSONArray();
-        String query = "select * from p6p5";
-        Log.d("Query", query);
-        final Cursor cu = DaoAPP.daoSession.getDatabase().rawQuery(query, null);
-        if (cu.moveToFirst()) {
-            do {
-                final int iterar = cu.getColumnCount();
-                for (int j = 1; j < iterar; j++) {
-                    jsonDatos.put(cu.getString(j));
-                }
-            } while (cu.moveToNext());
-        }
-        Log.d("DMCP", jsonDatos.toString());
-
         LinearLayout contenedor = (LinearLayout) findViewById(R.id.contenedor);
         contenedor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,17 +88,8 @@ public class MainActivity extends Activity {
                 accesos.add(pass.getText().toString());
 
                 progress = ProgressDialog.show(MainActivity.this, "Información",
-                        "Iniciando sesión, por favor espere un momento", true);
+                        "Iniciando sesión, por favor espere un momento.", true);
                 new iniciarSesion().execute(accesos);
-
-                //if(usuario.getText().toString().equals("usuario@naturacert.com") && pass.getText().toString().equals("123456789")){
-                //Intent pasar = new Intent(MainActivity.this, iniciorac.class);
-                //Intent pasar = new Intent(MainActivity.this, formularioracindividual.class);
-
-                //)} else {
-
-                //}
-
 
             }
         });
@@ -150,7 +126,7 @@ public class MainActivity extends Activity {
             else{
                 if(progress.isShowing())
                     progress.dismiss();
-                Toast.makeText(MainActivity.this, "Usuario y clave inválido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Usuario y clave inválido.", Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -196,7 +172,6 @@ public class MainActivity extends Activity {
         }
 
         protected void onPostExecute(String values) {
-            Log.d("Values", values);
             if (values != null) {
                 Auditores user = new Auditores();
                 JSONArray res;
@@ -215,12 +190,53 @@ public class MainActivity extends Activity {
                     if(progress.isShowing())
                         progress.dismiss();
 
-                    Intent pasar = new Intent(MainActivity.this, crear_finca_individual.class);
-                    startActivity(pasar);
+                    //Intent pasar = new Intent(MainActivity.this, iniciorac.class);
+                    //finish();
+                    //startActivity(pasar);
+
+                    progress = ProgressDialog.show(MainActivity.this, "Información",
+                            "Descargando datos del usuario, por favor espere.", true);
+
+                    new descargarFincas().execute();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+            } else {
+                Toast.makeText(MainActivity.this, "No hemos podido iniciar sesión, asegurate de estar ocnectado a internet.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+
+    class descargarFincas extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            OAuthUtils oau = new OAuthUtils();
+            StringBuilder sb = new StringBuilder(httpConections.API);
+            sb.append("get_fincas/");
+            return oau.getProtectedResource(OAuth2Client.token, sb.toString());
+        }
+
+        protected void onPostExecute(String values) {
+
+            if(progress.isShowing())
+                progress.dismiss();
+
+            if (values != null) {
+
+                JSONArray res;
+                try {
+                    res = new JSONArray(values);
+                    JSONObject obj = res.getJSONObject(0);
+                    Log.d("RTA", obj.toString());
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                Toast.makeText(MainActivity.this, "No hemos podido iniciar sesión, asegurate de estar ocnectado a internet.", Toast.LENGTH_SHORT).show();
             }
         }
     }

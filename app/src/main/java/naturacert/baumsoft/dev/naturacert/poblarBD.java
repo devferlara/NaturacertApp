@@ -756,7 +756,7 @@ public class poblarBD {
         op6p4.setFech("9");
         op6p4.setSrad(9);
         op6p4.setLtta(9);
-        op6p4.setHipe(9);
+        op6p4.setHipe("9");
         op6p4.setSiap(9);
         op6p4.setSgta(9);
         op6p4.setOrigen(9);
@@ -1334,4 +1334,32 @@ public class poblarBD {
 
     }
 
+    public static void poblar(int referencia, Boolean grupal) {
+
+        g1p1 og1p1 = new g1p1();
+        og1p1.setEadg(9);
+        og1p1.setEprog(9);
+        og1p1.setRegi(9);
+        og1p1.setOrigen(9);
+        og1p1.setId_formulario(referencia);
+        og1p1.setObser("9");
+        DaoAPP.daoSession.getG1p1Dao().insert(og1p1);
+
+        g1p2 og1p2 = new g1p2();
+        og1p2.setEadg(9);
+        og1p2.setFech("9");
+        og1p2.setOrigen(9);
+        og1p2.setId_formulario(referencia);
+        og1p2.setObser("9");
+        DaoAPP.daoSession.getG1p1Dao().insert(og1p1);
+
+        g1p2 og1p2 = new g1p2();
+        og1p2.setEadg(9);
+        og1p2.setFech("9");
+        og1p2.setOrigen(9);
+        og1p2.setId_formulario(referencia);
+        og1p2.setObser("9");
+        DaoAPP.daoSession.getG1p1Dao().insert(og1p1);
+
+    }
 }

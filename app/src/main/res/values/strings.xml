@@ -82,5 +82,6 @@
         <item>Vaupés</item>
         <item>Vichada</item>
     </string-array>
+    <string name="title_activity_editar_finca">editar_finca</string>
 
 </resources>

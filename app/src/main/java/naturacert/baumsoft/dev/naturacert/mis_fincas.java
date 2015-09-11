@@ -55,10 +55,16 @@ public class mis_fincas extends Activity {
         });
     }
 
-    public void abrir_formulario(int id){
-        Intent pasar = new Intent(mis_fincas.this, formularioracindividual.class);
-        pasar.putExtra("id_formulario", String.valueOf(id));
-        startActivity(pasar);
+    public void abrir_formulario(int id, int tipo){
+        if(tipo == 1){
+            Intent pasar = new Intent(mis_fincas.this, formularioracindividual.class);
+            pasar.putExtra("id_formulario", String.valueOf(id));
+            startActivity(pasar);
+        } else {
+            Intent pasar = new Intent(mis_fincas.this, formularioracgrupal.class);
+            pasar.putExtra("id_formulario", String.valueOf(id));
+            startActivity(pasar);
+        }
     }
 
 }

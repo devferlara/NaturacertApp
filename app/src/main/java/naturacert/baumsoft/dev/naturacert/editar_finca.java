@@ -37,20 +37,23 @@ import naturacert.baumsoft.dev.naturacert.extras.oauth2Client.OAuth2Client;
 import naturacert.baumsoft.dev.naturacert.extras.oauth2Client.OAuthUtils;
 
 
-public class crear_finca_individual extends ActionBarActivity {
+public class editar_finca extends ActionBarActivity {
 
     StringBuilder sb, sbp;
     int hour, minute, day, month, year;
     Clientes cliente;
     Fincas finca;
-    int tipo;
     List<Clientes> clientes_lista;
     ProgressDialog progress;
+    int idFinca;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crear_finca_individual);
+        setContentView(R.layout.activity_editar_finca);
+
+        Intent mIntent = getIntent();
+        idFinca = Integer.parseInt(mIntent.getStringExtra("id_formulario"));
 
         Button guardar = (Button) findViewById(R.id.guardar);
         guardar.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +69,7 @@ public class crear_finca_individual extends ActionBarActivity {
         getCoordenadas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GPSTracker gps = new GPSTracker(crear_finca_individual.this);
+                GPSTracker gps = new GPSTracker(editar_finca.this);
                 if (gps.canGetLocation()) {
                     EditText latitud = (EditText) findViewById(R.id.latitud);
                     EditText longitud = (EditText) findViewById(R.id.longitud);
@@ -111,7 +114,7 @@ public class crear_finca_individual extends ActionBarActivity {
 
                 LayoutInflater inflater = getLayoutInflater();
                 final View dialoglayout = inflater.inflate(R.layout.hora, null);
-                final AlertDialog constructor = new AlertDialog.Builder(crear_finca_individual.this).create();
+                final AlertDialog constructor = new AlertDialog.Builder(editar_finca.this).create();
                 constructor.setView(dialoglayout);
                 constructor.show();
                 constructor.setCancelable(true);
@@ -138,7 +141,7 @@ public class crear_finca_individual extends ActionBarActivity {
 
                 LayoutInflater inflater = getLayoutInflater();
                 final View dialoglayout = inflater.inflate(R.layout.fecha, null);
-                final AlertDialog constructor = new AlertDialog.Builder(crear_finca_individual.this).create();
+                final AlertDialog constructor = new AlertDialog.Builder(editar_finca.this).create();
                 constructor.setView(dialoglayout);
                 constructor.show();
                 constructor.setCancelable(true);
@@ -166,7 +169,7 @@ public class crear_finca_individual extends ActionBarActivity {
             public void onClick(View view) {
                 LayoutInflater inflater = getLayoutInflater();
                 final View dialoglayout = inflater.inflate(R.layout.agregar_cliente, null);
-                final AlertDialog constructor = new AlertDialog.Builder(crear_finca_individual.this).create();
+                final AlertDialog constructor = new AlertDialog.Builder(editar_finca.this).create();
                 constructor.setView(dialoglayout);
                 constructor.show();
                 constructor.setCancelable(true);
@@ -184,7 +187,7 @@ public class crear_finca_individual extends ActionBarActivity {
                     public void onClick(View view) {
                         if (!nombres.getText().toString().equals("") && !apellidos.getText().toString().equals("") && !documento.getText().toString().equals("") && !telefono.getText().toString().equals("") && !direccion.getText().toString().equals("") && isEmailValid(email.getText().toString())) {
 
-                            progress = ProgressDialog.show(crear_finca_individual.this, "Información",
+                            progress = ProgressDialog.show(editar_finca.this, "Información",
                                     "Estamos creando el cliente, espere un momento.", true);
 
                             sbp = new StringBuilder(httpConections.API);
@@ -214,7 +217,7 @@ public class crear_finca_individual extends ActionBarActivity {
                             constructor.dismiss();
 
                         } else {
-                            Toast.makeText(crear_finca_individual.this, "Diligencie todos los datos antes de guardar la finca.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(editar_finca.this, "Diligencie todos los datos antes de guardar la finca.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -274,7 +277,7 @@ public class crear_finca_individual extends ActionBarActivity {
                 EditText tabla_produccionha_1 = (EditText) findViewById(R.id.tabla_produccionha_1);
                 EditText tabla_produccionestimada_1 = (EditText) findViewById(R.id.tabla_produccionestimada_1);
                 if(tabla_cultivo_1.getText().toString().isEmpty() || tabla_variedad_1.getText().toString().isEmpty() || tabla_produccionyear_1.getText().toString().isEmpty() || tabla_produccionha_1.getText().toString().isEmpty() || tabla_produccionestimada_1.getText().toString().isEmpty()){
-                    Toast.makeText(crear_finca_individual.this, "Hemos encontrado datos incompletos en la tabla de cultivos, fila # 1, complételos o elimínelos antes de continuar", Toast.LENGTH_LONG).show();
+                    Toast.makeText(editar_finca.this, "Hemos encontrado datos incompletos en la tabla de cultivos, fila # 1, complételos o elimínelos antes de continuar", Toast.LENGTH_LONG).show();
                     return;
                 } else {
                     cultivos.append("&cul_var[]=");
@@ -298,7 +301,7 @@ public class crear_finca_individual extends ActionBarActivity {
                 EditText tabla_produccionha_2 = (EditText) findViewById(R.id.tabla_produccionha_2);
                 EditText tabla_produccionestimada_2 = (EditText) findViewById(R.id.tabla_produccionestimada_2);
                 if(tabla_cultivo_2.getText().toString().isEmpty() || tabla_variedad_2.getText().toString().isEmpty() || tabla_produccionyear_2.getText().toString().isEmpty() || tabla_produccionha_2.getText().toString().isEmpty() || tabla_produccionestimada_2.getText().toString().isEmpty()){
-                    Toast.makeText(crear_finca_individual.this, "Hemos encontrado datos incompletos en la tabla de cultivos, fila # 2, complételos o elimínelos antes de continuar", Toast.LENGTH_LONG).show();
+                    Toast.makeText(editar_finca.this, "Hemos encontrado datos incompletos en la tabla de cultivos, fila # 2, complételos o elimínelos antes de continuar", Toast.LENGTH_LONG).show();
                     return;
                 }
             }
@@ -311,7 +314,7 @@ public class crear_finca_individual extends ActionBarActivity {
                 EditText tabla_produccionha_3 = (EditText) findViewById(R.id.tabla_produccionha_3);
                 EditText tabla_produccionestimada_3 = (EditText) findViewById(R.id.tabla_produccionestimada_3);
                 if(tabla_cultivo_3.getText().toString().isEmpty() || tabla_variedad_3.getText().toString().isEmpty() || tabla_produccionyear_3.getText().toString().isEmpty() || tabla_produccionha_3.getText().toString().isEmpty() || tabla_produccionestimada_3.getText().toString().isEmpty()){
-                    Toast.makeText(crear_finca_individual.this, "Hemos encontrado datos incompletos en la tabla de cultivos, fila # 3, complételos o elimínelos antes de continuar", Toast.LENGTH_LONG).show();
+                    Toast.makeText(editar_finca.this, "Hemos encontrado datos incompletos en la tabla de cultivos, fila # 3, complételos o elimínelos antes de continuar", Toast.LENGTH_LONG).show();
                     return;
                 }
             }
@@ -324,7 +327,7 @@ public class crear_finca_individual extends ActionBarActivity {
                 EditText tabla_produccionha_4 = (EditText) findViewById(R.id.tabla_produccionha_4);
                 EditText tabla_produccionestimada_4 = (EditText) findViewById(R.id.tabla_produccionestimada_4);
                 if(tabla_cultivo_4.getText().toString().isEmpty() || tabla_variedad_4.getText().toString().isEmpty() || tabla_produccionyear_4.getText().toString().isEmpty() || tabla_produccionha_4.getText().toString().isEmpty() || tabla_produccionestimada_4.getText().toString().isEmpty()){
-                    Toast.makeText(crear_finca_individual.this, "Hemos encontrado datos incompletos en la tabla de cultivos, fila # 4, complételos o elimínelos antes de continuar", Toast.LENGTH_LONG).show();
+                    Toast.makeText(editar_finca.this, "Hemos encontrado datos incompletos en la tabla de cultivos, fila # 4, complételos o elimínelos antes de continuar", Toast.LENGTH_LONG).show();
                     return;
                 }
             }
@@ -337,13 +340,13 @@ public class crear_finca_individual extends ActionBarActivity {
                 EditText tabla_produccionha_5 = (EditText) findViewById(R.id.tabla_produccionha_5);
                 EditText tabla_produccionestimada_5 = (EditText) findViewById(R.id.tabla_produccionestimada_5);
                 if(tabla_cultivo_5.getText().toString().isEmpty() || tabla_variedad_5.getText().toString().isEmpty() || tabla_produccionyear_5.getText().toString().isEmpty() || tabla_produccionha_5.getText().toString().isEmpty() || tabla_produccionestimada_5.getText().toString().isEmpty()){
-                    Toast.makeText(crear_finca_individual.this, "Hemos encontrado datos incompletos en la tabla de cultivos, fila # 5, complételos o elimínelos antes de continuar", Toast.LENGTH_LONG).show();
+                    Toast.makeText(editar_finca.this, "Hemos encontrado datos incompletos en la tabla de cultivos, fila # 5, complételos o elimínelos antes de continuar", Toast.LENGTH_LONG).show();
                     return;
                 }
             }
-            
 
-            progress = ProgressDialog.show(crear_finca_individual.this, "Información",
+
+            progress = ProgressDialog.show(editar_finca.this, "Información",
                     "Estamos creando la finca, espere un momento.", true);
 
             sb.append("?nombre=");
@@ -416,10 +419,8 @@ public class crear_finca_individual extends ActionBarActivity {
             finca = new Fincas();
             if(grupo.getText().toString().equals("")){
                 finca.setTipo_finca(1);
-                tipo = 1;
             } else {
                 finca.setTipo_finca(2);
-                tipo = 2;
             }
             finca.setNombre(nombre.getText().toString());
             finca.setCodigo(codigo.getText().toString());
@@ -456,7 +457,7 @@ public class crear_finca_individual extends ActionBarActivity {
             new guardarFinca().execute();
 
         } else {
-            Toast.makeText(crear_finca_individual.this, "Diligencie todos los datos antes de guardar la finca.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(editar_finca.this, "Diligencie todos los datos antes de guardar la finca.", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -479,11 +480,11 @@ public class crear_finca_individual extends ActionBarActivity {
                 if (objeto.getString("status").equals("OK")) {
                     finca.setRef_finca(objeto.getInt("finca"));
 
-                    progress = ProgressDialog.show(crear_finca_individual.this, "Información",
+                    progress = ProgressDialog.show(editar_finca.this, "Información",
                             "Estamos creando la finca, espere un momento.", true);
                     new crearFormulario().execute("api/rac_get/?finca=" + objeto.getInt("finca"));
                 } else {
-                    Toast.makeText(crear_finca_individual.this, "Hubo un error al crear la finca, intentelo de nuevo", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(editar_finca.this, "Hubo un error al crear la finca, intentelo de nuevo", Toast.LENGTH_SHORT).show();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -508,21 +509,13 @@ public class crear_finca_individual extends ActionBarActivity {
             try {
                 JSONObject objeto = new JSONObject(result);
                 if(objeto.getString("status").equals("OK")){
-                    Toast.makeText(crear_finca_individual.this, "Finca creada correctamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(editar_finca.this, "Finca creada correctamente", Toast.LENGTH_SHORT).show();
                     finca.setId_formulario(objeto.getInt("rac"));
                     DaoAPP.daoSession.getFincasDao().insert(finca);
-
-                    if(tipo == 1){
-                        poblarBD poblar = new poblarBD();
-                        poblar.poblar(objeto.getInt("rac"));
-                    } else {
-                        poblarBD poblar = new poblarBD();
-                        poblar.poblar(objeto.getInt("rac"), true);
-                    }
-
-
+                    poblarBD poblar = new poblarBD();
+                    poblar.poblar(objeto.getInt("rac"));
                 } else {
-                    Toast.makeText(crear_finca_individual.this, "Hubo un error al crear la finca, intentelo de nuevo", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(editar_finca.this, "Hubo un error al crear la finca, intentelo de nuevo", Toast.LENGTH_SHORT).show();
                 }
 
             } catch (JSONException e) {
@@ -550,12 +543,12 @@ public class crear_finca_individual extends ActionBarActivity {
                 try {
                     JSONObject objeto = new JSONObject(result);
                     if (objeto.getString("status").equals("OK")) {
-                        Toast.makeText(crear_finca_individual.this, "Cliente creado correctamente", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(editar_finca.this, "Cliente creado correctamente", Toast.LENGTH_SHORT).show();
                         cliente.setReferencia(objeto.getInt("client"));
                         DaoAPP.daoSession.getClientesDao().insert(cliente);
                         montarClientes();
                     } else {
-                        Toast.makeText(crear_finca_individual.this, "Hubo un error al agregar el cliente", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(editar_finca.this, "Hubo un error al agregar el cliente", Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (JSONException e) {
@@ -595,6 +588,5 @@ public class crear_finca_individual extends ActionBarActivity {
             inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
-
 
 }

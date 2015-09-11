@@ -9,7 +9,7 @@ import de.greenrobot.daogenerator.ToMany;
 public class Main {
 
 
-    public static void main(String [] args) throws Exception {
+    public static void main(String[] args) throws Exception {
 
         Schema schema = new Schema(1, "naturacert.baumsoft.dev.naturacert");
         schema.enableKeepSectionsByDefault();
@@ -125,6 +125,23 @@ public class Main {
         crear10p5(schema);
         crear10p6(schema);
 
+        grupo1p1(schema);
+        grupo1p2(schema);
+        grupo1p3(schema);
+        grupo1p4(schema);
+        grupo2p1(schema);
+        grupo2p2(schema);
+        grupo2p3(schema);
+        grupo3p1(schema);
+        grupo3p2(schema);
+        grupo3p3(schema);
+        grupo3p4(schema);
+        grupo3p5(schema);
+        grupo3p6(schema);
+        grupo3p7(schema);
+        grupo3p8(schema);
+        grupo3p9(schema);
+
         crearTablasBase(schema);
 
         /* creaciones */
@@ -134,7 +151,7 @@ public class Main {
     }
 
 
-    private static void crearTablasBase(Schema schema){
+    private static void crearTablasBase(Schema schema) {
 
         Entity tokenBD = schema.addEntity("TokensBD");
         tokenBD.addIdProperty();
@@ -212,7 +229,7 @@ public class Main {
 
     }
 
-    private static void crear1p1(Schema schema){
+    private static void crear1p1(Schema schema) {
         Entity p = schema.addEntity("p1p1");
         p.addIdProperty();
         p.addIntProperty("sgsate");
@@ -228,7 +245,7 @@ public class Main {
         p.addIntProperty("id_formulario");
     }
 
-    private static void crear1p2(Schema schema){
+    private static void crear1p2(Schema schema) {
         Entity p = schema.addEntity("p1p2");
         p.addIdProperty();
         p.addIntProperty("eapcn");
@@ -247,7 +264,7 @@ public class Main {
         p.addIntProperty("id_formulario");
     }
 
-    private static void crear1p3(Schema schema){
+    private static void crear1p3(Schema schema) {
         Entity p = schema.addEntity("p1p3");
         p.addIdProperty();
         p.addIntProperty("dfdc");
@@ -259,7 +276,7 @@ public class Main {
         p.addIntProperty("id_formulario");
     }
 
-    private static void crear1p4(Schema schema){
+    private static void crear1p4(Schema schema) {
         Entity p = schema.addEntity("p1p4");
         p.addIdProperty();
         p.addIntProperty("sgsdt");
@@ -353,7 +370,7 @@ public class Main {
         p.addIdProperty();
         p.addIntProperty("spem");
         p.addIntProperty("sef");
-        p.addIntProperty("set") ;
+        p.addIntProperty("set");
         p.addIntProperty("poi");
         p.addIntProperty("rtra");
         p.addIntProperty("pad");
@@ -781,6 +798,7 @@ public class Main {
         p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
     }
+
     private static void crear5p5(Schema schema) {
         Entity p = schema.addEntity("p5p5");
         p.addIdProperty();
@@ -813,6 +831,7 @@ public class Main {
         p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
     }
+
     private static void crear5p7(Schema schema) {
         Entity p = schema.addEntity("p5p7");
         p.addIdProperty();
@@ -830,6 +849,7 @@ public class Main {
         p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
     }
+
     private static void crear5p8(Schema schema) {
         Entity p = schema.addEntity("p5p8");
         p.addIdProperty();
@@ -865,6 +885,7 @@ public class Main {
         p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
     }
+
     private static void crear5p10(Schema schema) {
         Entity p = schema.addEntity("p5p10");
         p.addIdProperty();
@@ -910,6 +931,7 @@ public class Main {
         p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
     }
+
     private static void crear5p13(Schema schema) {
         Entity p = schema.addEntity("p5p13");
         p.addIdProperty();
@@ -922,6 +944,7 @@ public class Main {
         p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
     }
+
     private static void crear5p14(Schema schema) {
         Entity p = schema.addEntity("p5p14");
         p.addIdProperty();
@@ -938,6 +961,7 @@ public class Main {
         p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
     }
+
     private static void crear5p15(Schema schema) {
         Entity p = schema.addEntity("p5p15");
         p.addIdProperty();
@@ -957,6 +981,7 @@ public class Main {
         p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
     }
+
     private static void crear5p16(Schema schema) {
         Entity p = schema.addEntity("p5p16");
         p.addIdProperty();
@@ -971,6 +996,7 @@ public class Main {
         p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
     }
+
     private static void crear5p17(Schema schema) {
         Entity p = schema.addEntity("p5p17");
         p.addIdProperty();
@@ -983,6 +1009,7 @@ public class Main {
         p.addIntProperty("id_formulario");
 
     }
+
     private static void crear5p18(Schema schema) {
         Entity p = schema.addEntity("p5p18");
         p.addIdProperty();
@@ -994,6 +1021,7 @@ public class Main {
         p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
     }
+
     private static void crear5p19(Schema schema) {
         Entity p = schema.addEntity("p5p19");
         p.addIdProperty();
@@ -1068,7 +1096,7 @@ public class Main {
         p.addStringProperty("fech");
         p.addIntProperty("srad");
         p.addIntProperty("ltta");
-        p.addIntProperty("hipe");
+        p.addStringProperty("hipe");
         p.addIntProperty("siap");
         p.addIntProperty("sgta");
         p.addIntProperty("origen");
@@ -1120,6 +1148,7 @@ public class Main {
         p.addStringProperty("obser");
         p.addIntProperty("id_formulario");
     }
+
     private static void crear6p8(Schema schema) {
         Entity p = schema.addEntity("p6p8");
         p.addIdProperty();
@@ -1727,7 +1756,202 @@ public class Main {
     /* Principio 10 */
 
 
+    /* formularios grupales */
+    private static void grupo1p1(Schema schema) {
+        Entity p = schema.addEntity("g1p1");
+        p.addIdProperty();
+        p.addIntProperty("eadg");
+        p.addIntProperty("eprog");
+        p.addIntProperty("regi");
+        p.addIntProperty("origen");
+        p.addStringProperty("obser");
+        p.addIntProperty("id_formulario");
+    }
 
+    private static void grupo1p2(Schema schema) {
+        Entity p = schema.addEntity("g1p2");
+        p.addIdProperty();
+        p.addIntProperty("eadg");
+        p.addStringProperty("fech");
+        p.addIntProperty("origen");
+        p.addStringProperty("obser");
+        p.addIntProperty("id_formulario");
+    }
+
+    private static void grupo1p3(Schema schema) {
+        Entity p = schema.addEntity("g1p3");
+        p.addIdProperty();
+        p.addIntProperty("eadg");
+        p.addIntProperty("cali");
+        p.addIntProperty("resu");
+        p.addIntProperty("fech");
+        p.addIntProperty("nomb");
+        p.addIntProperty("noca");
+        p.addIntProperty("ubic");
+        p.addIntProperty("firm");
+        p.addIntProperty("origen");
+        p.addStringProperty("obser");
+        p.addIntProperty("id_formulario");
+    }
+
+    private static void grupo1p4(Schema schema) {
+        Entity p = schema.addEntity("g1p4");
+        p.addIdProperty();
+        p.addIntProperty("lcds");
+        p.addIntProperty("origen");
+        p.addStringProperty("obser");
+        p.addIntProperty("id_formulario");
+    }
+
+    private static void grupo2p1(Schema schema) {
+        Entity p = schema.addEntity("g2p1");
+        p.addIdProperty();
+        p.addIntProperty("eadg");
+        p.addIntProperty("insp");
+        p.addIntProperty("audi");
+        p.addIntProperty("miem");
+        p.addIntProperty("prod");
+        p.addIntProperty("cade");
+        p.addIntProperty("cost");
+        p.addIntProperty("dese");
+        p.addIntProperty("origen");
+        p.addStringProperty("obser");
+        p.addIntProperty("id_formulario");
+    }
+
+    private static void grupo2p2(Schema schema) {
+        Entity p = schema.addEntity("g2p2");
+        p.addIdProperty();
+        p.addIntProperty("eadg");
+        p.addIntProperty("origen");
+        p.addStringProperty("obser");
+        p.addIntProperty("id_formulario");
+    }
+
+    private static void grupo2p3(Schema schema) {
+        Entity p = schema.addEntity("g2p3");
+        p.addIdProperty();
+        p.addIntProperty("eadg");
+        p.addIntProperty("proc");
+        p.addIntProperty("lmdg");
+        p.addIntProperty("origen");
+        p.addStringProperty("obser");
+        p.addIntProperty("id_formulario");
+    }
+
+    private static void grupo3p1(Schema schema) {
+        Entity p = schema.addEntity("g3p1");
+        p.addIdProperty();
+        p.addIntProperty("eadg");
+        p.addIntProperty("orga");
+        p.addIntProperty("rcyc");
+        p.addIntProperty("ppid");
+        p.addIntProperty("rdmr");
+        p.addIntProperty("ppii");
+        p.addIntProperty("ppdy");
+        p.addIntProperty("origen");
+        p.addStringProperty("obser");
+        p.addIntProperty("id_formulario");
+    }
+
+    private static void grupo3p2(Schema schema) {
+        Entity p = schema.addEntity("g3p2");
+        p.addIdProperty();
+        p.addIntProperty("cmdg");
+        p.addIntProperty("acfi");
+        p.addIntProperty("lcdl");
+        p.addIntProperty("lmsi");
+        p.addIntProperty("lmsc");
+        p.addIntProperty("origen");
+        p.addStringProperty("obser");
+        p.addIntProperty("id_formulario");
+    }
+
+    private static void grupo3p3(Schema schema) {
+        Entity p = schema.addEntity("g3p3");
+        p.addIdProperty();
+        p.addIntProperty("epyl");
+        p.addIntProperty("origen");
+        p.addStringProperty("obser");
+        p.addIntProperty("id_formulario");
+    }
+
+    private static void grupo3p4(Schema schema) {
+        Entity p = schema.addEntity("g3p4");
+        p.addIdProperty();
+        p.addIntProperty("esid");
+        p.addIntProperty("origen");
+        p.addStringProperty("obser");
+        p.addIntProperty("id_formulario");
+    }
+
+    private static void grupo3p5(Schema schema) {
+        Entity p = schema.addEntity("g3p5");
+        p.addIdProperty();
+        p.addIntProperty("eadg");
+        p.addIntProperty("sein");
+        p.addStringProperty("fech");
+        p.addIntProperty("hain");
+        p.addIntProperty("lanu");
+        p.addIntProperty("origen");
+        p.addStringProperty("obser");
+        p.addIntProperty("id_formulario");
+    }
+
+    private static void grupo3p6(Schema schema) {
+        Entity p = schema.addEntity("g3p6");
+        p.addIdProperty();
+        p.addIntProperty("esid");
+        p.addIntProperty("poli");
+        p.addIntProperty("medi");
+        p.addIntProperty("lomi");
+        p.addIntProperty("regi");
+        p.addIntProperty("lmtd");
+        p.addIntProperty("origen");
+        p.addStringProperty("obser");
+        p.addIntProperty("id_formulario");
+    }
+
+    private static void grupo3p7(Schema schema) {
+        Entity p = schema.addEntity("g3p7");
+        p.addIdProperty();
+        p.addIntProperty("ecdl");
+        p.addIntProperty("origen");
+        p.addStringProperty("obser");
+        p.addIntProperty("id_formulario");
+    }
+
+    private static void grupo3p8(Schema schema) {
+        Entity p = schema.addEntity("g3p8");
+        p.addIdProperty();
+        p.addIntProperty("ldda");
+        p.addStringProperty("nive");
+        p.addIntProperty("origen");
+        p.addStringProperty("obser");
+        p.addIntProperty("id_formulario");
+    }
+
+    private static void grupo3p9(Schema schema) {
+        Entity p = schema.addEntity("g3p9");
+        p.addIdProperty();
+        p.addIntProperty("eadg");
+        p.addIntProperty("nomb");
+        p.addIntProperty("fein");
+        p.addIntProperty("idas");
+        p.addIntProperty("esdc");
+        p.addIntProperty("ubic");
+        p.addIntProperty("arto");
+        p.addIntProperty("artp");
+        p.addIntProperty("vadp");
+        p.addIntProperty("mapa");
+        p.addIntProperty("mrob");
+        p.addIntProperty("vdpc");
+        p.addIntProperty("aeei");
+        p.addIntProperty("rdnc");
+        p.addIntProperty("origen");
+        p.addStringProperty("obser");
+        p.addIntProperty("id_formulario");
+    }
 
 
 }

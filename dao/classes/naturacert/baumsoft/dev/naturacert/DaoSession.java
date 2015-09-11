@@ -109,6 +109,22 @@ import naturacert.baumsoft.dev.naturacert.p10p3;
 import naturacert.baumsoft.dev.naturacert.p10p4;
 import naturacert.baumsoft.dev.naturacert.p10p5;
 import naturacert.baumsoft.dev.naturacert.p10p6;
+import naturacert.baumsoft.dev.naturacert.g1p1;
+import naturacert.baumsoft.dev.naturacert.g1p2;
+import naturacert.baumsoft.dev.naturacert.g1p3;
+import naturacert.baumsoft.dev.naturacert.g1p4;
+import naturacert.baumsoft.dev.naturacert.g2p1;
+import naturacert.baumsoft.dev.naturacert.g2p2;
+import naturacert.baumsoft.dev.naturacert.g2p3;
+import naturacert.baumsoft.dev.naturacert.g3p1;
+import naturacert.baumsoft.dev.naturacert.g3p2;
+import naturacert.baumsoft.dev.naturacert.g3p3;
+import naturacert.baumsoft.dev.naturacert.g3p4;
+import naturacert.baumsoft.dev.naturacert.g3p5;
+import naturacert.baumsoft.dev.naturacert.g3p6;
+import naturacert.baumsoft.dev.naturacert.g3p7;
+import naturacert.baumsoft.dev.naturacert.g3p8;
+import naturacert.baumsoft.dev.naturacert.g3p9;
 import naturacert.baumsoft.dev.naturacert.TokensBD;
 import naturacert.baumsoft.dev.naturacert.Auditores;
 import naturacert.baumsoft.dev.naturacert.Clientes;
@@ -214,6 +230,22 @@ import naturacert.baumsoft.dev.naturacert.p10p3Dao;
 import naturacert.baumsoft.dev.naturacert.p10p4Dao;
 import naturacert.baumsoft.dev.naturacert.p10p5Dao;
 import naturacert.baumsoft.dev.naturacert.p10p6Dao;
+import naturacert.baumsoft.dev.naturacert.g1p1Dao;
+import naturacert.baumsoft.dev.naturacert.g1p2Dao;
+import naturacert.baumsoft.dev.naturacert.g1p3Dao;
+import naturacert.baumsoft.dev.naturacert.g1p4Dao;
+import naturacert.baumsoft.dev.naturacert.g2p1Dao;
+import naturacert.baumsoft.dev.naturacert.g2p2Dao;
+import naturacert.baumsoft.dev.naturacert.g2p3Dao;
+import naturacert.baumsoft.dev.naturacert.g3p1Dao;
+import naturacert.baumsoft.dev.naturacert.g3p2Dao;
+import naturacert.baumsoft.dev.naturacert.g3p3Dao;
+import naturacert.baumsoft.dev.naturacert.g3p4Dao;
+import naturacert.baumsoft.dev.naturacert.g3p5Dao;
+import naturacert.baumsoft.dev.naturacert.g3p6Dao;
+import naturacert.baumsoft.dev.naturacert.g3p7Dao;
+import naturacert.baumsoft.dev.naturacert.g3p8Dao;
+import naturacert.baumsoft.dev.naturacert.g3p9Dao;
 import naturacert.baumsoft.dev.naturacert.TokensBDDao;
 import naturacert.baumsoft.dev.naturacert.AuditoresDao;
 import naturacert.baumsoft.dev.naturacert.ClientesDao;
@@ -328,6 +360,22 @@ public class DaoSession extends AbstractDaoSession {
     private final DaoConfig p10p4DaoConfig;
     private final DaoConfig p10p5DaoConfig;
     private final DaoConfig p10p6DaoConfig;
+    private final DaoConfig g1p1DaoConfig;
+    private final DaoConfig g1p2DaoConfig;
+    private final DaoConfig g1p3DaoConfig;
+    private final DaoConfig g1p4DaoConfig;
+    private final DaoConfig g2p1DaoConfig;
+    private final DaoConfig g2p2DaoConfig;
+    private final DaoConfig g2p3DaoConfig;
+    private final DaoConfig g3p1DaoConfig;
+    private final DaoConfig g3p2DaoConfig;
+    private final DaoConfig g3p3DaoConfig;
+    private final DaoConfig g3p4DaoConfig;
+    private final DaoConfig g3p5DaoConfig;
+    private final DaoConfig g3p6DaoConfig;
+    private final DaoConfig g3p7DaoConfig;
+    private final DaoConfig g3p8DaoConfig;
+    private final DaoConfig g3p9DaoConfig;
     private final DaoConfig tokensBDDaoConfig;
     private final DaoConfig auditoresDaoConfig;
     private final DaoConfig clientesDaoConfig;
@@ -433,6 +481,22 @@ public class DaoSession extends AbstractDaoSession {
     private final p10p4Dao p10p4Dao;
     private final p10p5Dao p10p5Dao;
     private final p10p6Dao p10p6Dao;
+    private final g1p1Dao g1p1Dao;
+    private final g1p2Dao g1p2Dao;
+    private final g1p3Dao g1p3Dao;
+    private final g1p4Dao g1p4Dao;
+    private final g2p1Dao g2p1Dao;
+    private final g2p2Dao g2p2Dao;
+    private final g2p3Dao g2p3Dao;
+    private final g3p1Dao g3p1Dao;
+    private final g3p2Dao g3p2Dao;
+    private final g3p3Dao g3p3Dao;
+    private final g3p4Dao g3p4Dao;
+    private final g3p5Dao g3p5Dao;
+    private final g3p6Dao g3p6Dao;
+    private final g3p7Dao g3p7Dao;
+    private final g3p8Dao g3p8Dao;
+    private final g3p9Dao g3p9Dao;
     private final TokensBDDao tokensBDDao;
     private final AuditoresDao auditoresDao;
     private final ClientesDao clientesDao;
@@ -742,6 +806,54 @@ public class DaoSession extends AbstractDaoSession {
         p10p6DaoConfig = daoConfigMap.get(p10p6Dao.class).clone();
         p10p6DaoConfig.initIdentityScope(type);
 
+        g1p1DaoConfig = daoConfigMap.get(g1p1Dao.class).clone();
+        g1p1DaoConfig.initIdentityScope(type);
+
+        g1p2DaoConfig = daoConfigMap.get(g1p2Dao.class).clone();
+        g1p2DaoConfig.initIdentityScope(type);
+
+        g1p3DaoConfig = daoConfigMap.get(g1p3Dao.class).clone();
+        g1p3DaoConfig.initIdentityScope(type);
+
+        g1p4DaoConfig = daoConfigMap.get(g1p4Dao.class).clone();
+        g1p4DaoConfig.initIdentityScope(type);
+
+        g2p1DaoConfig = daoConfigMap.get(g2p1Dao.class).clone();
+        g2p1DaoConfig.initIdentityScope(type);
+
+        g2p2DaoConfig = daoConfigMap.get(g2p2Dao.class).clone();
+        g2p2DaoConfig.initIdentityScope(type);
+
+        g2p3DaoConfig = daoConfigMap.get(g2p3Dao.class).clone();
+        g2p3DaoConfig.initIdentityScope(type);
+
+        g3p1DaoConfig = daoConfigMap.get(g3p1Dao.class).clone();
+        g3p1DaoConfig.initIdentityScope(type);
+
+        g3p2DaoConfig = daoConfigMap.get(g3p2Dao.class).clone();
+        g3p2DaoConfig.initIdentityScope(type);
+
+        g3p3DaoConfig = daoConfigMap.get(g3p3Dao.class).clone();
+        g3p3DaoConfig.initIdentityScope(type);
+
+        g3p4DaoConfig = daoConfigMap.get(g3p4Dao.class).clone();
+        g3p4DaoConfig.initIdentityScope(type);
+
+        g3p5DaoConfig = daoConfigMap.get(g3p5Dao.class).clone();
+        g3p5DaoConfig.initIdentityScope(type);
+
+        g3p6DaoConfig = daoConfigMap.get(g3p6Dao.class).clone();
+        g3p6DaoConfig.initIdentityScope(type);
+
+        g3p7DaoConfig = daoConfigMap.get(g3p7Dao.class).clone();
+        g3p7DaoConfig.initIdentityScope(type);
+
+        g3p8DaoConfig = daoConfigMap.get(g3p8Dao.class).clone();
+        g3p8DaoConfig.initIdentityScope(type);
+
+        g3p9DaoConfig = daoConfigMap.get(g3p9Dao.class).clone();
+        g3p9DaoConfig.initIdentityScope(type);
+
         tokensBDDaoConfig = daoConfigMap.get(TokensBDDao.class).clone();
         tokensBDDaoConfig.initIdentityScope(type);
 
@@ -854,6 +966,22 @@ public class DaoSession extends AbstractDaoSession {
         p10p4Dao = new p10p4Dao(p10p4DaoConfig, this);
         p10p5Dao = new p10p5Dao(p10p5DaoConfig, this);
         p10p6Dao = new p10p6Dao(p10p6DaoConfig, this);
+        g1p1Dao = new g1p1Dao(g1p1DaoConfig, this);
+        g1p2Dao = new g1p2Dao(g1p2DaoConfig, this);
+        g1p3Dao = new g1p3Dao(g1p3DaoConfig, this);
+        g1p4Dao = new g1p4Dao(g1p4DaoConfig, this);
+        g2p1Dao = new g2p1Dao(g2p1DaoConfig, this);
+        g2p2Dao = new g2p2Dao(g2p2DaoConfig, this);
+        g2p3Dao = new g2p3Dao(g2p3DaoConfig, this);
+        g3p1Dao = new g3p1Dao(g3p1DaoConfig, this);
+        g3p2Dao = new g3p2Dao(g3p2DaoConfig, this);
+        g3p3Dao = new g3p3Dao(g3p3DaoConfig, this);
+        g3p4Dao = new g3p4Dao(g3p4DaoConfig, this);
+        g3p5Dao = new g3p5Dao(g3p5DaoConfig, this);
+        g3p6Dao = new g3p6Dao(g3p6DaoConfig, this);
+        g3p7Dao = new g3p7Dao(g3p7DaoConfig, this);
+        g3p8Dao = new g3p8Dao(g3p8DaoConfig, this);
+        g3p9Dao = new g3p9Dao(g3p9DaoConfig, this);
         tokensBDDao = new TokensBDDao(tokensBDDaoConfig, this);
         auditoresDao = new AuditoresDao(auditoresDaoConfig, this);
         clientesDao = new ClientesDao(clientesDaoConfig, this);
@@ -959,6 +1087,22 @@ public class DaoSession extends AbstractDaoSession {
         registerDao(p10p4.class, p10p4Dao);
         registerDao(p10p5.class, p10p5Dao);
         registerDao(p10p6.class, p10p6Dao);
+        registerDao(g1p1.class, g1p1Dao);
+        registerDao(g1p2.class, g1p2Dao);
+        registerDao(g1p3.class, g1p3Dao);
+        registerDao(g1p4.class, g1p4Dao);
+        registerDao(g2p1.class, g2p1Dao);
+        registerDao(g2p2.class, g2p2Dao);
+        registerDao(g2p3.class, g2p3Dao);
+        registerDao(g3p1.class, g3p1Dao);
+        registerDao(g3p2.class, g3p2Dao);
+        registerDao(g3p3.class, g3p3Dao);
+        registerDao(g3p4.class, g3p4Dao);
+        registerDao(g3p5.class, g3p5Dao);
+        registerDao(g3p6.class, g3p6Dao);
+        registerDao(g3p7.class, g3p7Dao);
+        registerDao(g3p8.class, g3p8Dao);
+        registerDao(g3p9.class, g3p9Dao);
         registerDao(TokensBD.class, tokensBDDao);
         registerDao(Auditores.class, auditoresDao);
         registerDao(Clientes.class, clientesDao);
@@ -1066,6 +1210,22 @@ public class DaoSession extends AbstractDaoSession {
         p10p4DaoConfig.getIdentityScope().clear();
         p10p5DaoConfig.getIdentityScope().clear();
         p10p6DaoConfig.getIdentityScope().clear();
+        g1p1DaoConfig.getIdentityScope().clear();
+        g1p2DaoConfig.getIdentityScope().clear();
+        g1p3DaoConfig.getIdentityScope().clear();
+        g1p4DaoConfig.getIdentityScope().clear();
+        g2p1DaoConfig.getIdentityScope().clear();
+        g2p2DaoConfig.getIdentityScope().clear();
+        g2p3DaoConfig.getIdentityScope().clear();
+        g3p1DaoConfig.getIdentityScope().clear();
+        g3p2DaoConfig.getIdentityScope().clear();
+        g3p3DaoConfig.getIdentityScope().clear();
+        g3p4DaoConfig.getIdentityScope().clear();
+        g3p5DaoConfig.getIdentityScope().clear();
+        g3p6DaoConfig.getIdentityScope().clear();
+        g3p7DaoConfig.getIdentityScope().clear();
+        g3p8DaoConfig.getIdentityScope().clear();
+        g3p9DaoConfig.getIdentityScope().clear();
         tokensBDDaoConfig.getIdentityScope().clear();
         auditoresDaoConfig.getIdentityScope().clear();
         clientesDaoConfig.getIdentityScope().clear();
@@ -1470,6 +1630,70 @@ public class DaoSession extends AbstractDaoSession {
 
     public p10p6Dao getP10p6Dao() {
         return p10p6Dao;
+    }
+
+    public g1p1Dao getG1p1Dao() {
+        return g1p1Dao;
+    }
+
+    public g1p2Dao getG1p2Dao() {
+        return g1p2Dao;
+    }
+
+    public g1p3Dao getG1p3Dao() {
+        return g1p3Dao;
+    }
+
+    public g1p4Dao getG1p4Dao() {
+        return g1p4Dao;
+    }
+
+    public g2p1Dao getG2p1Dao() {
+        return g2p1Dao;
+    }
+
+    public g2p2Dao getG2p2Dao() {
+        return g2p2Dao;
+    }
+
+    public g2p3Dao getG2p3Dao() {
+        return g2p3Dao;
+    }
+
+    public g3p1Dao getG3p1Dao() {
+        return g3p1Dao;
+    }
+
+    public g3p2Dao getG3p2Dao() {
+        return g3p2Dao;
+    }
+
+    public g3p3Dao getG3p3Dao() {
+        return g3p3Dao;
+    }
+
+    public g3p4Dao getG3p4Dao() {
+        return g3p4Dao;
+    }
+
+    public g3p5Dao getG3p5Dao() {
+        return g3p5Dao;
+    }
+
+    public g3p6Dao getG3p6Dao() {
+        return g3p6Dao;
+    }
+
+    public g3p7Dao getG3p7Dao() {
+        return g3p7Dao;
+    }
+
+    public g3p8Dao getG3p8Dao() {
+        return g3p8Dao;
+    }
+
+    public g3p9Dao getG3p9Dao() {
+        return g3p9Dao;
     }
 
     public TokensBDDao getTokensBDDao() {

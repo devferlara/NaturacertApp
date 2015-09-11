@@ -83,7 +83,7 @@ public class adapter_fincas extends BaseAdapter {
             formulario.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ((mis_fincas)activity).abrir_formulario(mcv.getId_formulario());
+                    ((mis_fincas)activity).abrir_formulario(mcv.getId_formulario(), mcv.getTipo_finca());
                 }
             });
 

@@ -1855,7 +1855,7 @@ public class InsertarEnBD extends Application {
                 urlEnviar.append("rpsix_seispcuatro");
                 columnas = DaoAPP.daoSession.getP6p4Dao().getAllColumns();
                 for (int m = 1; m < columnas.length - 1; m++) {
-                    if (m == 4 || m == 11) {
+                    if (m == 4 || m == 7 || m == 11) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -1875,11 +1875,11 @@ public class InsertarEnBD extends Application {
                 op6p4.setFech(valores[0]);
                 op6p4.setSrad(datos[4]);
                 op6p4.setLtta(datos[5]);
-                op6p4.setHipe(datos[6]);
+                op6p4.setHipe(valores[1]);
                 op6p4.setSiap(datos[7]);
                 op6p4.setSgta(datos[8]);
                 op6p4.setOrigen(datos[9]);
-                op6p4.setObser(valores[1]);
+                op6p4.setObser(valores[2]);
                 DaoAPP.daoSession.getP6p4Dao().update(op6p4);
                 new enviar().execute(urlEnviar.toString());
                 break;
