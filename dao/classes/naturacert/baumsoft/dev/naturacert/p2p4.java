@@ -10,11 +10,11 @@ package naturacert.baumsoft.dev.naturacert;
 public class p2p4 {
 
     private Long id;
-    private Integer npep;
+    private Integer nsep;
     private Integer ntpm;
     private Integer cpms;
     private Integer cpdl;
-    private Integer nsep;
+    private Integer npep;
     private Integer origen;
     private String obser;
     private Integer id_formulario;
@@ -29,13 +29,13 @@ public class p2p4 {
         this.id = id;
     }
 
-    public p2p4(Long id, Integer npep, Integer ntpm, Integer cpms, Integer cpdl, Integer nsep, Integer origen, String obser, Integer id_formulario) {
+    public p2p4(Long id, Integer nsep, Integer ntpm, Integer cpms, Integer cpdl, Integer npep, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
-        this.npep = npep;
+        this.nsep = nsep;
         this.ntpm = ntpm;
         this.cpms = cpms;
         this.cpdl = cpdl;
-        this.nsep = nsep;
+        this.npep = npep;
         this.origen = origen;
         this.obser = obser;
         this.id_formulario = id_formulario;
@@ -49,12 +49,12 @@ public class p2p4 {
         this.id = id;
     }
 
-    public Integer getNpep() {
-        return npep;
+    public Integer getNsep() {
+        return nsep;
     }
 
-    public void setNpep(Integer npep) {
-        this.npep = npep;
+    public void setNsep(Integer nsep) {
+        this.nsep = nsep;
     }
 
     public Integer getNtpm() {
@@ -81,12 +81,12 @@ public class p2p4 {
         this.cpdl = cpdl;
     }
 
-    public Integer getNsep() {
-        return nsep;
+    public Integer getNpep() {
+        return npep;
     }
 
-    public void setNsep(Integer nsep) {
-        this.nsep = nsep;
+    public void setNpep(Integer npep) {
+        this.npep = npep;
     }
 
     public Integer getOrigen() {

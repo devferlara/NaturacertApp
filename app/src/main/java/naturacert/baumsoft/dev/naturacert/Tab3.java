@@ -10,7 +10,6 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -313,12 +312,14 @@ public class Tab3 extends Fragment {
                         }
 
 
+                        /*
                         inputPreguntaInformativa.setOnKeyListener(new View.OnKeyListener() {
                             public boolean onKey(View v, int keyCode, KeyEvent event) {
                                 guardar(contexto);
                                 return false;
                             }
                         });
+                        */
                         LLI.addView(inputPreguntaInformativa);
                     }
 
@@ -489,10 +490,10 @@ public class Tab3 extends Fragment {
 
         }
 
-        datosEnviar[finalInt +1] = origen;
+        datosEnviar[finalInt + 1] = origen;
 
         if(observaciones_cadena.equals(""))
-            observaciones_cadena = " ";
+            observaciones_cadena = "%20";
         cadenaEnviar[finalString] = observaciones_cadena;
 
         InsertarEnBD guardar = new InsertarEnBD();

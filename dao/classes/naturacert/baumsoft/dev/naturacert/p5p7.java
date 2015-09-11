@@ -14,8 +14,9 @@ public class p5p7 {
     private Integer sthe;
     private Integer thev;
     private Integer cppa;
-    private Integer mhef;
-    private Integer hela;
+    private Integer scpy;
+    private String mhef;
+    private String hela;
     private Integer hepa;
     private Integer upeh;
     private Integer ccec;
@@ -33,12 +34,13 @@ public class p5p7 {
         this.id = id;
     }
 
-    public p5p7(Long id, Integer armf, Integer sthe, Integer thev, Integer cppa, Integer mhef, Integer hela, Integer hepa, Integer upeh, Integer ccec, Integer origen, String obser, Integer id_formulario) {
+    public p5p7(Long id, Integer armf, Integer sthe, Integer thev, Integer cppa, Integer scpy, String mhef, String hela, Integer hepa, Integer upeh, Integer ccec, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
         this.armf = armf;
         this.sthe = sthe;
         this.thev = thev;
         this.cppa = cppa;
+        this.scpy = scpy;
         this.mhef = mhef;
         this.hela = hela;
         this.hepa = hepa;
@@ -89,19 +91,27 @@ public class p5p7 {
         this.cppa = cppa;
     }
 
-    public Integer getMhef() {
+    public Integer getScpy() {
+        return scpy;
+    }
+
+    public void setScpy(Integer scpy) {
+        this.scpy = scpy;
+    }
+
+    public String getMhef() {
         return mhef;
     }
 
-    public void setMhef(Integer mhef) {
+    public void setMhef(String mhef) {
         this.mhef = mhef;
     }
 
-    public Integer getHela() {
+    public String getHela() {
         return hela;
     }
 
-    public void setHela(Integer hela) {
+    public void setHela(String hela) {
         this.hela = hela;
     }
 

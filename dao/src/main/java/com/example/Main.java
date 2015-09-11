@@ -820,8 +820,9 @@ public class Main {
         p.addIntProperty("sthe");
         p.addIntProperty("thev");
         p.addIntProperty("cppa");
-        p.addIntProperty("mhef");
-        p.addIntProperty("hela");
+        p.addIntProperty("scpy");
+        p.addStringProperty("mhef");
+        p.addStringProperty("hela");
         p.addIntProperty("hepa");
         p.addIntProperty("upeh");
         p.addIntProperty("ccec");

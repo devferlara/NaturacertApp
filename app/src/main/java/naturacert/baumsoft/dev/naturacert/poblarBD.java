@@ -531,8 +531,9 @@ public class poblarBD {
         op5p7.setSthe(9);
         op5p7.setThev(9);
         op5p7.setCppa(9);
-        op5p7.setMhef(9);
-        op5p7.setHela(9);
+        op5p7.setScpy(9);
+        op5p7.setMhef("9");
+        op5p7.setHela("9");
         op5p7.setHepa(9);
         op5p7.setUpeh(9);
         op5p7.setCcec(9);
@@ -591,6 +592,9 @@ public class poblarBD {
         op5p11.setFtrt(9);
         op5p11.setSnat(9);
         op5p11.setMfmt(9);
+        op5p11.setOrigen(9);
+        op5p11.setId_formulario(referencia);
+        op5p11.setObser("9");
         DaoAPP.daoSession.getP5p11Dao().insert(op5p11);
 
         p5p12 op5p12 = new p5p12();

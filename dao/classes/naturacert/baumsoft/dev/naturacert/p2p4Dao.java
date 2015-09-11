@@ -24,11 +24,11 @@ public class p2p4Dao extends AbstractDao<p2p4, Long> {
     */
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
-        public final static Property Npep = new Property(1, Integer.class, "npep", false, "NPEP");
+        public final static Property Nsep = new Property(1, Integer.class, "nsep", false, "NSEP");
         public final static Property Ntpm = new Property(2, Integer.class, "ntpm", false, "NTPM");
         public final static Property Cpms = new Property(3, Integer.class, "cpms", false, "CPMS");
         public final static Property Cpdl = new Property(4, Integer.class, "cpdl", false, "CPDL");
-        public final static Property Nsep = new Property(5, Integer.class, "nsep", false, "NSEP");
+        public final static Property Npep = new Property(5, Integer.class, "npep", false, "NPEP");
         public final static Property Origen = new Property(6, Integer.class, "origen", false, "ORIGEN");
         public final static Property Obser = new Property(7, String.class, "obser", false, "OBSER");
         public final static Property Id_formulario = new Property(8, Integer.class, "id_formulario", false, "ID_FORMULARIO");
@@ -48,11 +48,11 @@ public class p2p4Dao extends AbstractDao<p2p4, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "'P2P4' (" + //
                 "'_id' INTEGER PRIMARY KEY ," + // 0: id
-                "'NPEP' INTEGER," + // 1: npep
+                "'NSEP' INTEGER," + // 1: nsep
                 "'NTPM' INTEGER," + // 2: ntpm
                 "'CPMS' INTEGER," + // 3: cpms
                 "'CPDL' INTEGER," + // 4: cpdl
-                "'NSEP' INTEGER," + // 5: nsep
+                "'NPEP' INTEGER," + // 5: npep
                 "'ORIGEN' INTEGER," + // 6: origen
                 "'OBSER' TEXT," + // 7: obser
                 "'ID_FORMULARIO' INTEGER);"); // 8: id_formulario
@@ -74,9 +74,9 @@ public class p2p4Dao extends AbstractDao<p2p4, Long> {
             stmt.bindLong(1, id);
         }
  
-        Integer npep = entity.getNpep();
-        if (npep != null) {
-            stmt.bindLong(2, npep);
+        Integer nsep = entity.getNsep();
+        if (nsep != null) {
+            stmt.bindLong(2, nsep);
         }
  
         Integer ntpm = entity.getNtpm();
@@ -94,9 +94,9 @@ public class p2p4Dao extends AbstractDao<p2p4, Long> {
             stmt.bindLong(5, cpdl);
         }
  
-        Integer nsep = entity.getNsep();
-        if (nsep != null) {
-            stmt.bindLong(6, nsep);
+        Integer npep = entity.getNpep();
+        if (npep != null) {
+            stmt.bindLong(6, npep);
         }
  
         Integer origen = entity.getOrigen();
@@ -126,11 +126,11 @@ public class p2p4Dao extends AbstractDao<p2p4, Long> {
     public p2p4 readEntity(Cursor cursor, int offset) {
         p2p4 entity = new p2p4( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.isNull(offset + 1) ? null : cursor.getInt(offset + 1), // npep
+            cursor.isNull(offset + 1) ? null : cursor.getInt(offset + 1), // nsep
             cursor.isNull(offset + 2) ? null : cursor.getInt(offset + 2), // ntpm
             cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3), // cpms
             cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4), // cpdl
-            cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5), // nsep
+            cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5), // npep
             cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6), // origen
             cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // obser
             cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8) // id_formulario
@@ -142,11 +142,11 @@ public class p2p4Dao extends AbstractDao<p2p4, Long> {
     @Override
     public void readEntity(Cursor cursor, p2p4 entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setNpep(cursor.isNull(offset + 1) ? null : cursor.getInt(offset + 1));
+        entity.setNsep(cursor.isNull(offset + 1) ? null : cursor.getInt(offset + 1));
         entity.setNtpm(cursor.isNull(offset + 2) ? null : cursor.getInt(offset + 2));
         entity.setCpms(cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3));
         entity.setCpdl(cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4));
-        entity.setNsep(cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5));
+        entity.setNpep(cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5));
         entity.setOrigen(cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6));
         entity.setObser(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
         entity.setId_formulario(cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8));

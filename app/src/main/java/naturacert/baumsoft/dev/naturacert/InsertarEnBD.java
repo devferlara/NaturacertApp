@@ -1345,7 +1345,7 @@ public class InsertarEnBD extends Application {
                 urlEnviar.append("rpfive_cincopsiete");
                 columnas = DaoAPP.daoSession.getP5p7Dao().getAllColumns();
                 for (int m = 1; m < columnas.length - 1; m++) {
-                    if (m == 11) {
+                    if (m == 6 || m == 7 || m == 12) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -1363,13 +1363,14 @@ public class InsertarEnBD extends Application {
                 op5p7.setSthe(datos[1]);
                 op5p7.setThev(datos[2]);
                 op5p7.setCppa(datos[3]);
-                op5p7.setMhef(datos[4]);
-                op5p7.setHela(datos[5]);
-                op5p7.setHepa(datos[6]);
-                op5p7.setUpeh(datos[7]);
-                op5p7.setCcec(datos[8]);
-                op5p7.setOrigen(datos[9]);
-                op5p7.setObser(valores[0]);
+                op5p7.setScpy(datos[4]);
+                op5p7.setMhef(valores[0]);
+                op5p7.setHela(valores[1]);
+                op5p7.setHepa(datos[7]);
+                op5p7.setUpeh(datos[8]);
+                op5p7.setCcec(datos[9]);
+                op5p7.setOrigen(datos[10]);
+                op5p7.setObser(valores[2]);
                 DaoAPP.daoSession.getP5p7Dao().update(op5p7);
                 new enviar().execute(urlEnviar.toString());
                 break;
@@ -1530,7 +1531,7 @@ public class InsertarEnBD extends Application {
                 op5p12.setPol(datos[8]);
                 op5p12.setCul(datos[9]);
                 op5p12.setDe(valores[0]);
-                op5p12.setOrigen(datos[9]);
+                op5p12.setOrigen(datos[10]);
                 op5p12.setObser(valores[1]);
                 DaoAPP.daoSession.getP5p12Dao().update(op5p12);
                 new enviar().execute(urlEnviar.toString());
