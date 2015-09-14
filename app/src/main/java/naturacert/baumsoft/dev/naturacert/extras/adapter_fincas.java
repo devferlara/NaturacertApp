@@ -88,7 +88,7 @@ public class adapter_fincas extends BaseAdapter {
             ver_finca.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ((mis_fincas)activity).ver_finca(mcv.getId());
+                    ((mis_fincas)activity).ver_finca(mcv.getId(), mcv.getTipo_finca());
                 }
             });
 

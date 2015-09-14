@@ -55,6 +55,8 @@ public class editar_finca extends ActionBarActivity {
         Intent mIntent = getIntent();
         idFinca = Long.parseLong(mIntent.getStringExtra("idFinca"));
 
+        Log.d("Id Finca", "- " + idFinca);
+
         Button guardar = (Button) findViewById(R.id.guardar);
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -620,7 +622,7 @@ public class editar_finca extends ActionBarActivity {
         vereda.setText(finca_.getVereda());
 
         EditText altura = (EditText) findViewById(R.id.altura);
-        altura.setText(finca_.getAltitud());
+        altura.setText(String.valueOf(finca_.getAltitud()));
 
         EditText latitud = (EditText) findViewById(R.id.latitud);
         latitud.setText(String.valueOf(finca_.getLatitud()));
@@ -632,8 +634,13 @@ public class editar_finca extends ActionBarActivity {
         propietario.setText(finca_.getPropietario());
 
         EditText grupo = (EditText) findViewById(R.id.grupo);
-        if(!finca_.getGrupo().isEmpty())
+
+        /*
+        if(finca_.getGrupo().equals("")){
             grupo.setText(finca_.getGrupo());
+        }
+        */
+
 
         Spinner tipo_auditoria = (Spinner) findViewById(R.id.tipo_auditoria);
         tipo_auditoria.setSelection((int) (long) finca_.getTipo_auditoria());
@@ -642,34 +649,34 @@ public class editar_finca extends ActionBarActivity {
         tipo_auditor.setSelection((int) (long) finca_.getTipo_auditor());
 
         EditText area_finca = (EditText) findViewById(R.id.area_finca);
-        area_finca.setText(finca_.getArea_finca());
+        area_finca.setText(String.valueOf(finca_.getArea_finca()));
 
         EditText area_conservacion = (EditText) findViewById(R.id.area_conservacion);
-        area_conservacion.setText(finca_.getArea_conservacion());
+        area_conservacion.setText(String.valueOf(finca_.getArea_conservacion()));
 
         EditText area_infraestructura = (EditText) findViewById(R.id.area_infraestructura);
-        area_infraestructura.setText(finca_.getArea_infraestructura());
+        area_infraestructura.setText(String.valueOf(finca_.getArea_infraestructura()));
 
         EditText periodo_cosecha = (EditText) findViewById(R.id.periodo_cosecha);
         periodo_cosecha.setText(finca_.getPeriodo_cosecha());
 
         EditText produccion_regional = (EditText) findViewById(R.id.produccion_regional);
-        produccion_regional.setText(finca_.getProduccion_regional());
+        produccion_regional.setText(String.valueOf(finca_.getProduccion_regional()));
 
         EditText fr_cafe = (EditText) findViewById(R.id.fr_cafe);
-        fr_cafe.setText(finca_.getFr_cafe());
+        fr_cafe.setText(String.valueOf(finca_.getFr_cafe()));
 
         EditText almendra_sana = (EditText) findViewById(R.id.almendra_sana);
-        almendra_sana.setText(finca_.getAlmendra_sana());
+        almendra_sana.setText(String.valueOf(finca_.getAlmendra_sana()));
 
         EditText problemas_sanitarios = (EditText) findViewById(R.id.problemas_sanitarios);
         problemas_sanitarios.setText(finca_.getProblemas_sanitarios());
 
         EditText trabajadores_permanentes = (EditText) findViewById(R.id.trabajadores_permanentes);
-        trabajadores_permanentes.setText(finca_.getTrabajadores_permanentes());
+        trabajadores_permanentes.setText(String.valueOf(finca_.getTrabajadores_permanentes()));
 
         EditText trabajadores_temporales = (EditText) findViewById(R.id.trabajadores_temporales);
-        trabajadores_temporales.setText(finca_.getTrabajadores_temporales());
+        trabajadores_temporales.setText(String.valueOf(finca_.getTrabajadores_temporales()));
 
         EditText documentos_anexos = (EditText) findViewById(R.id.documentos_anexos);
         documentos_anexos.setText(finca_.getDocumentos_anexos());
@@ -679,8 +686,6 @@ public class editar_finca extends ActionBarActivity {
 
         EditText observaciones = (EditText) findViewById(R.id.observaciones);
         observaciones.setText(finca_.getObservaciones());
-
-
 
     }
 

@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+
 import org.apache.http.NameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +39,7 @@ public class MainActivity extends Activity {
     private String usuarioLogin, password;
     private long id_row_token;
     ProgressDialog progress;
+    MaterialDialog dialogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +53,6 @@ public class MainActivity extends Activity {
         if(kata.checkUser()){
             TokensBD tkn = kata.getToken();
             OAuth2Client.token = new Token(tkn.getExpiresIn(), tkn.getTokenType(), tkn.getRefreshToken(), tkn.getAccessToken());
-            //Intent pasar = new Intent(MainActivity.this, crear_finca_individual.class);
             Intent pasar = new Intent(MainActivity.this, iniciorac.class);
             startActivity(pasar);
             finish();
@@ -83,10 +85,14 @@ public class MainActivity extends Activity {
                     ArrayList<String> accesos = new ArrayList<String>();
                     accesos.add(usuario.getText().toString());
                     accesos.add(pass.getText().toString());
-
-                    progress = ProgressDialog.show(MainActivity.this, "Información",
-                            "Iniciando sesión, por favor espere un momento.", true);
+                    dialogo = new MaterialDialog.Builder(MainActivity.this)
+                            .title("Información")
+                            .content("Por favor espere")
+                            .progress(true, 0)
+                            .show();
                     new iniciarSesion().execute(accesos);
+                } else {
+                    Toast.makeText(MainActivity.this, "Por favor ingrese los datos completos antes de iniciar sesión.", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -184,16 +190,24 @@ public class MainActivity extends Activity {
                     user.setIdToken(id_row_token);
                     user.setRef_auditor(obj.getInt("auditor"));
                     DaoAPP.daoSession.getAuditoresDao().insert(user);
-
-                    progress = ProgressDialog.show(MainActivity.this, "Información",
-                            "Descargando datos del usuario, por favor espere.", true);
-
+                    dialogo.setContent("Descargando datos del usuario, por favor espere.");
                     new descargarFincas().execute();
-
+                    new android.os.Handler().postDelayed(
+                            new Runnable() {
+                                public void run() {
+                                    dialogo.dismiss();
+                                    Intent pasar = new Intent(MainActivity.this, iniciorac.class);
+                                    startActivity(pasar);
+                                    finish();
+                                }
+                            },
+                            700);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             } else {
+                if(dialogo.isShowing())
+                    dialogo.dismiss();
                 Toast.makeText(MainActivity.this, "No hemos podido iniciar sesión, asegurate de estar conectado a internet.", Toast.LENGTH_SHORT).show();
             }
         }
@@ -209,10 +223,14 @@ public class MainActivity extends Activity {
             return oau.getProtectedResource(OAuth2Client.token, sb.toString());
         }
 
+        protected void onProgressUpdate(Void... progress) {
+            dialogo.setContent("Descargando fincas, espere por favor");
+            dialogo.show();
+        }
+
         protected void onPostExecute(String values) {
-
+            dialogo.hide();
             if (values != null) {
-
                 try {
                     JSONObject res = new JSONObject(values);
                     if(res.getString("status").equals("OK")){
@@ -221,20 +239,16 @@ public class MainActivity extends Activity {
                             JSONObject interno = new JSONObject(resultado.getString(f));
                             new descargarFincaIndividual().execute(String.valueOf(interno.getInt("id")));
                         }
+
                     } else {
-                        if(progress.isShowing())
-                            progress.dismiss();
-                        Intent pasar = new Intent(MainActivity.this, iniciorac.class);
-                        startActivity(pasar);
-                        finish();
+                        dialogo.dismiss();
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             } else {
-                if(progress.isShowing())
-                    progress.dismiss();
+                dialogo.dismiss();
                 Toast.makeText(MainActivity.this, "No hemos podido iniciar sesión, asegurate de estar conectado a internet.", Toast.LENGTH_SHORT).show();
             }
         }
@@ -251,14 +265,14 @@ public class MainActivity extends Activity {
             return oau.getProtectedResource(OAuth2Client.token, sb.toString());
         }
 
+        protected void onPreExecute() {
+            dialogo.setContent("Descargando fincas individuales, espere por favor");
+            dialogo.show();
+        }
+
         protected void onPostExecute(String values) {
-
-            if(progress.isShowing())
-                progress.dismiss();
-
+            dialogo.hide();
             if (values != null) {
-
-
                 katana kata = new katana();
                 try {
                     long fer = kata.crearFincaEnInicio(new JSONObject(values));
@@ -270,7 +284,6 @@ public class MainActivity extends Activity {
                             new descargarCliente().execute(String.valueOf(fer));
                         }
                     }
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -292,12 +305,12 @@ public class MainActivity extends Activity {
         }
 
         protected void onPreExecute() {
-            progress = ProgressDialog.show(MainActivity.this, "Información",
-                    "Descargando datos del usuario, por favor espere.", true);
+            dialogo.setContent("Descargando clientes, espere por favor");
+            dialogo.show();
         }
 
         protected void onPostExecute(String values) {
-
+            dialogo.hide();
             if (values != null) {
                 try {
                     JSONObject json = new JSONObject(values);
