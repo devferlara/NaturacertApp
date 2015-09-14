@@ -15,12 +15,12 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 
 public class InsertarEnBD extends Application {
 
     private String[] columnas;
     private StringBuilder urlEnviar = new StringBuilder("http://naturacert.ddns.net/api/rac_save_new/?rac=");
+    private StringBuilder urlEnviarGrupo = new StringBuilder("http://naturacert.ddns.net/api/rac_save_new/?racg=");
     private Context contexto;
 
     public static String getUrlContent(String page) {
@@ -66,12 +66,17 @@ public class InsertarEnBD extends Application {
         urlEnviar.append(idCons);
         urlEnviar.append("&item=");
 
+        urlEnviarGrupo.append(idCons);
+        urlEnviarGrupo.append("&item=");
+
+        /*
         List<p1p1> tabla = DaoAPP.daoSession.getP1p1Dao().queryBuilder()
                 .where(p1p1Dao.Properties.Id_formulario.eq(idCons))
                 .list();
 
         p1p1 elemento = tabla.get(0);
         idCons = elemento.getId();
+        */
 
         int contadorValores = 0;
         switch (punto) {
@@ -3203,6 +3208,33 @@ public class InsertarEnBD extends Application {
                 op10p6.setOrigen(datos[13]);
                 op10p6.setObser(valores[0]);
                 DaoAPP.daoSession.getP10p6Dao().update(op10p6);
+                new enviar().execute(urlEnviar.toString());
+                break;
+
+            case "RG1.1":
+                urlEnviarGrupo.append("rgpone_unopuno");
+                columnas = DaoAPP.daoSession.getP10p6Dao().getAllColumns();
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 15) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
+                }
+                g1p1 g1p1 = DaoAPP.daoSession.getG1p1Dao().load(idCons);
+                g1p1.setEadg(datos[0]);
+                g1p1.setEprog(datos[1]);
+                g1p1.setRegi(datos[2]);
+                g1p1.setOrigen(datos[3]);
+                g1p1.setObser(valores[0]);
+                DaoAPP.daoSession.getG1p1Dao().update(g1p1);
                 new enviar().execute(urlEnviar.toString());
                 break;
 

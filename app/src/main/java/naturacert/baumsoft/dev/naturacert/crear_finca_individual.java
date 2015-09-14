@@ -412,7 +412,6 @@ public class crear_finca_individual extends ActionBarActivity {
             katana kata = new katana();
             sb.append(kata.getUserId());
 
-
             finca = new Fincas();
             if(grupo.getText().toString().equals("")){
                 finca.setTipo_finca(1);
@@ -421,6 +420,7 @@ public class crear_finca_individual extends ActionBarActivity {
                 finca.setTipo_finca(2);
                 tipo = 2;
             }
+
             finca.setNombre(nombre.getText().toString());
             finca.setCodigo(codigo.getText().toString());
             finca.setFecha(date.format(new Date()));

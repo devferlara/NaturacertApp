@@ -237,7 +237,7 @@ public class editar_finca extends ActionBarActivity {
          */
 
         sb = new StringBuilder(httpConections.API);
-        sb.append("fincas/agregar/");
+        sb.append("fincas/editar/");
 
         EditText nombre = (EditText) findViewById(R.id.nombre);
         EditText codigo = (EditText) findViewById(R.id.codigo);

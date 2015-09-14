@@ -96,6 +96,9 @@ public class katana extends Application {
 
         if (json.getString("status").equals("OK")) {
 
+            JSONArray types = json.getJSONArray("type");
+            JSONObject rtaType = types.getJSONObject(0);
+
             JSONArray resultado = json.getJSONArray("result");
             JSONObject datos = new JSONObject(resultado.getString(0));
 
@@ -113,15 +116,14 @@ public class katana extends Application {
             finca.setLatitud(Double.valueOf(json.getString("lat")));
             finca.setAltitud(fields.getInt("altitud"));
             finca.setPropietario(fields.getString("propietario"));
-            //finca.setGrupo(1);
-            finca.setTipo_finca(1);
+
             finca.setTipo_auditoria(fields.getLong("tipo_auditoria"));
             finca.setTipo_auditor(fields.getLong("tipo_auditor"));
             finca.setArea_finca(fields.getInt("area_finca"));
             finca.setArea_conservacion(fields.getInt("area_conser"));
             finca.setArea_infraestructura(fields.getInt("area_infra"));
             finca.setPeriodo_cosecha(fields.getString("per_cosecha"));
-            finca.setProduccion_regional("prod_reg");
+            finca.setProduccion_regional(fields.getString("prod_reg"));
             finca.setFr_cafe(fields.getInt("fr_cafe"));
             finca.setAlmendra_sana(fields.getString("alm_sana"));
             finca.setProblemas_sanitarios(fields.getString("prob_cult"));
@@ -133,8 +135,19 @@ public class katana extends Application {
             finca.setIdCliente(fields.getInt("cliente"));
             finca.setIdAuditor(fields.getInt("auditor"));
             finca.setRef_finca(datos.getInt("pk"));
-            finca.setId_formulario(8);
-            DaoAPP.daoSession.getFincasDao().insert(finca);
+
+            if(rtaType.getString("type").equals("rac")){
+                finca.setTipo_finca(1);
+                finca.setId_formulario(rtaType.getInt("rac"));
+                DaoAPP.daoSession.getFincasDao().insert(finca);
+            }
+
+            /*
+            if(rtaType.getString("type").equals("racg")){
+                finca.setTipo_finca(2);
+                finca.setId_formulario(rtaType.getInt("rac"));
+            }
+            */
 
             cliente = Long.parseLong(fields.getString("cliente"));
 
