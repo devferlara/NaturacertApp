@@ -139,15 +139,15 @@ public class katana extends Application {
             if(rtaType.getString("type").equals("rac")){
                 finca.setTipo_finca(1);
                 finca.setId_formulario(rtaType.getInt("rac"));
+                finca.setGrupo("");
                 DaoAPP.daoSession.getFincasDao().insert(finca);
             }
 
-            /*
             if(rtaType.getString("type").equals("racg")){
                 finca.setTipo_finca(2);
+                finca.setGrupo(fields.getString("grupo"));
                 finca.setId_formulario(rtaType.getInt("rac"));
             }
-            */
 
             cliente = Long.parseLong(fields.getString("cliente"));
 

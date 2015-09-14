@@ -14,13 +14,11 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -107,65 +105,6 @@ public class editar_finca extends ActionBarActivity {
             }
         });
 
-
-
-        final TextView hora = (TextView) findViewById(R.id.hora);
-        final TextView fecha = (TextView) findViewById(R.id.fecha);
-
-        hora.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                LayoutInflater inflater = getLayoutInflater();
-                final View dialoglayout = inflater.inflate(R.layout.hora, null);
-                final AlertDialog constructor = new AlertDialog.Builder(editar_finca.this).create();
-                constructor.setView(dialoglayout);
-                constructor.show();
-                constructor.setCancelable(true);
-
-                final TimePicker horaTomar = (TimePicker) dialoglayout.findViewById(R.id.hora);
-
-                Button aceptar = (Button) dialoglayout.findViewById(R.id.aceptar);
-                aceptar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        String formarHora = horaTomar.getCurrentHour() + ":" + horaTomar.getCurrentMinute();
-                        hour = horaTomar.getCurrentHour();
-                        minute = horaTomar.getCurrentMinute();
-                        hora.setText(formarHora);
-                        constructor.dismiss();
-                    }
-                });
-            }
-        });
-
-        fecha.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                LayoutInflater inflater = getLayoutInflater();
-                final View dialoglayout = inflater.inflate(R.layout.fecha, null);
-                final AlertDialog constructor = new AlertDialog.Builder(editar_finca.this).create();
-                constructor.setView(dialoglayout);
-                constructor.show();
-                constructor.setCancelable(true);
-
-                final DatePicker fechaTomar = (DatePicker) dialoglayout.findViewById(R.id.fecha);
-
-                Button aceptar = (Button) dialoglayout.findViewById(R.id.aceptar);
-                aceptar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        String formarFecha = fechaTomar.getDayOfMonth() + "-" + (fechaTomar.getMonth() + 1) + "-" + fechaTomar.getYear();
-                        day = fechaTomar.getDayOfMonth();
-                        month = fechaTomar.getMonth();
-                        year = fechaTomar.getYear();
-                        fecha.setText(formarFecha);
-                        constructor.dismiss();
-                    }
-                });
-            }
-        });
 
         ImageButton agregarCliente = (ImageButton) findViewById(R.id.agregarCliente);
         agregarCliente.setOnClickListener(new View.OnClickListener() {
@@ -269,7 +208,7 @@ public class editar_finca extends ActionBarActivity {
         EditText proveedores_visitados = (EditText) findViewById(R.id.proveedores_visitados);
         EditText observaciones = (EditText) findViewById(R.id.observaciones);
 
-        if (!nombre.getText().toString().equals("") && departamento.getSelectedItemId() != 0 && !codigo.getText().toString().equals("") && !hora.getText().toString().equals("") && !fecha.getText().toString().equals("") && !municipio.getText().toString().equals("") && !vereda.getText().toString().equals("") && !altura.getText().toString().equals("") && !latitud.getText().toString().equals("") && !longitud.getText().toString().equals("") && !propietario.getText().toString().equals("") && !area_finca.getText().toString().equals("") && !area_conservacion.getText().toString().equals("") && !area_infraestructura.getText().toString().equals("") && !periodo_cosecha.getText().toString().equals("") && !produccion_regional.getText().toString().equals("") && !fr_cafe.getText().toString().equals("") && !trabajadores_temporales.getText().toString().equals("") && !almendra_sana.getText().toString().equals("") && !problemas_sanitarios.getText().toString().equals("") && !trabajadores_permanentes.getText().toString().equals("") && !documentos_anexos.getText().toString().equals("") && !proveedores_visitados.getText().toString().equals("") && !observaciones.getText().toString().equals("")) {
+        if (!nombre.getText().toString().equals("") && departamento.getSelectedItemId() != 0 && !codigo.getText().toString().equals("") && !municipio.getText().toString().equals("") && !vereda.getText().toString().equals("") && !altura.getText().toString().equals("") && !latitud.getText().toString().equals("") && !longitud.getText().toString().equals("") && !propietario.getText().toString().equals("") && !area_finca.getText().toString().equals("") && !area_conservacion.getText().toString().equals("") && !area_infraestructura.getText().toString().equals("") && !periodo_cosecha.getText().toString().equals("") && !produccion_regional.getText().toString().equals("") && !fr_cafe.getText().toString().equals("") && !trabajadores_temporales.getText().toString().equals("") && !almendra_sana.getText().toString().equals("") && !problemas_sanitarios.getText().toString().equals("") && !trabajadores_permanentes.getText().toString().equals("") && !documentos_anexos.getText().toString().equals("") && !proveedores_visitados.getText().toString().equals("") && !observaciones.getText().toString().equals("")) {
 
             StringBuilder cultivos = new StringBuilder("");
 
@@ -358,8 +297,6 @@ public class editar_finca extends ActionBarActivity {
             sb.append("&ref_finca=");
             sb.append(codigo.getText().toString());
             sb.append("&fecha=");
-            String armarFecha = year + "-" + month + "-" + day + " " + hour + ":" + minute + " 0";
-            //sb.append(armarFecha);
             SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             sb.append(date.format(new Date()));
             sb.append("&foto=http://a57.foxnews.com/global.fncstatic.com/static/managed/img/Entertainment/876/493/EllenPage.jpg");
@@ -418,9 +355,12 @@ public class editar_finca extends ActionBarActivity {
             sb.append("&auditor=");
             katana kata = new katana();
             sb.append(kata.getUserId());
-
+            sb.append("&finca=");
 
             finca = DaoAPP.daoSession.getFincasDao().load(idFinca);
+
+            sb.append(finca.getRef_finca());
+
             if(grupo.getText().toString().equals("")){
                 finca.setTipo_finca(1);
             } else {
@@ -482,50 +422,14 @@ public class editar_finca extends ActionBarActivity {
             try {
                 JSONObject objeto = new JSONObject(result);
                 if (objeto.getString("status").equals("OK")) {
-                    finca.setRef_finca(objeto.getInt("finca"));
-
-                    progress = ProgressDialog.show(editar_finca.this, "Información",
-                            "Estamos creando la finca, espere un momento.", true);
-                    new crearFormulario().execute("api/rac_get/?finca=" + objeto.getInt("finca"));
+                    Toast.makeText(editar_finca.this, "Finca actualizada correctamente", Toast.LENGTH_LONG).show();
+                    finish();
                 } else {
                     Toast.makeText(editar_finca.this, "Hubo un error al crear la finca, intentelo de nuevo", Toast.LENGTH_SHORT).show();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
-        }
-    }
-
-
-    /**
-     * crear el formulario de la finca
-     */
-    private class crearFormulario extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... params) {
-            return OAuth2Client.token.getResource(OAuth2Client.token, params[0]);
-        }
-
-        protected void onPostExecute(String result) {
-            if(progress.isShowing())
-                progress.dismiss();
-            try {
-                JSONObject objeto = new JSONObject(result);
-                if(objeto.getString("status").equals("OK")){
-                    Toast.makeText(editar_finca.this, "Finca creada correctamente", Toast.LENGTH_SHORT).show();
-                    finca.setId_formulario(objeto.getInt("rac"));
-                    DaoAPP.daoSession.getFincasDao().insert(finca);
-                    poblarBD poblar = new poblarBD();
-                    poblar.poblar(objeto.getInt("rac"));
-                } else {
-                    Toast.makeText(editar_finca.this, "Hubo un error al crear la finca, intentelo de nuevo", Toast.LENGTH_SHORT).show();
-                }
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
 
         }
     }
@@ -603,12 +507,6 @@ public class editar_finca extends ActionBarActivity {
         EditText codigo = (EditText) findViewById(R.id.codigo);
         codigo.setText(finca_.getCodigo());
 
-        TextView hora = (TextView) findViewById(R.id.hora);
-        hora.setText(finca_.getHora());
-
-        TextView fecha = (TextView) findViewById(R.id.fecha);
-        fecha.setText(finca_.getHora());
-
         ImageButton imagen = (ImageButton) findViewById(R.id.camara);
         //Pendiente subir imagen
 
@@ -635,12 +533,9 @@ public class editar_finca extends ActionBarActivity {
 
         EditText grupo = (EditText) findViewById(R.id.grupo);
 
-        /*
-        if(finca_.getGrupo().equals("")){
+        if(!finca_.getGrupo().equals("")){
             grupo.setText(finca_.getGrupo());
         }
-        */
-
 
         Spinner tipo_auditoria = (Spinner) findViewById(R.id.tipo_auditoria);
         tipo_auditoria.setSelection((int) (long) finca_.getTipo_auditoria());
