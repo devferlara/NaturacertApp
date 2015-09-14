@@ -3413,7 +3413,7 @@ public class InsertarEnBD extends Application {
                     }
                 }
                 g2p3 g2p3 = DaoAPP.daoSession.getG2p3Dao().load(idCons);
-                g2p3.setEadg(datos[0]);
+                g2p3.setEgdt(datos[0]);
                 g2p3.setProc(datos[1]);
                 g2p3.setLmdg(datos[2]);
                 g2p3.setOrigen(datos[3]);
@@ -3590,6 +3590,7 @@ public class InsertarEnBD extends Application {
                 g3p6.setOrigen(datos[6]);
                 g3p6.setObser(valores[0]);
                 DaoAPP.daoSession.getG3p6Dao().update(g3p6);
+                Log.d("Cadena", urlEnviarGrupo.toString());
                 new enviar().execute(urlEnviarGrupo.toString());
                 break;
 

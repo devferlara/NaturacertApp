@@ -1832,7 +1832,7 @@ public class Main {
     private static void grupo2p3(Schema schema) {
         Entity p = schema.addEntity("g2p3");
         p.addIdProperty();
-        p.addIntProperty("eadg");
+        p.addIntProperty("egdt");
         p.addIntProperty("proc");
         p.addIntProperty("lmdg");
         p.addIntProperty("origen");

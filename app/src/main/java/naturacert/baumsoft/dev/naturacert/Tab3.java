@@ -32,6 +32,7 @@ import naturacert.baumsoft.dev.naturacert.extras.others;
  */
 public class Tab3 extends Fragment {
 
+    private final JSONArray jsonDatos = new JSONArray();
     private LinearLayout contenedorInformativas;
     private String json;
     private int numeroPregunta;
@@ -40,10 +41,10 @@ public class Tab3 extends Fragment {
     private int rtaMaestra;
     private int numeroMaestras;
     private long idUno;
-    private final JSONArray jsonDatos = new JSONArray();
     private int origen;
     private int formulario;
     private String observaciones_cadena;
+    private Boolean critico;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -85,6 +86,11 @@ public class Tab3 extends Fragment {
             /* entramos a la parte maestra */
             JSONObject maestra = new JSONObject(objeto.getString("maestra"));
             TextView tituloMaestra = (TextView) v.findViewById(R.id.titulo_pregunta_maestra);
+            if (critico) {
+                tituloMaestra.setTextColor(Color.parseColor("#61B246"));
+                TextView crit = (TextView) v.findViewById(R.id.crit);
+                crit.setVisibility(View.VISIBLE);
+            }
             tituloMaestra.setText(maestra.getString("pregunta"));
 
             Log.d("Json Datos", jsonDatos.toString());
@@ -104,7 +110,6 @@ public class Tab3 extends Fragment {
             contenedorInformativas = (LinearLayout) v.findViewById(R.id.contenedor_respuestas_informativas);
 
             JSONArray informativas = new JSONArray(objeto.getString("informativas"));
-
 
 
             for (int i = 0; i < informativas.length(); i++) {
@@ -181,7 +186,6 @@ public class Tab3 extends Fragment {
                     LLI.addView(tituloPreguntaInformativa);
 
 
-
                     if (preguntaSimple.getInt("tipo") == 0) {
                         /* creamos el boton de la pregunta */
                         final ToggleButton togglePreguntaInformativa = new ToggleButton(contexto);
@@ -201,7 +205,7 @@ public class Tab3 extends Fragment {
                         togglePreguntaInformativa.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                if(togglePreguntaInformativa.getText().equals("No")){
+                                if (togglePreguntaInformativa.getText().equals("No")) {
                                     togglePreguntaInformativa.setTag(1);
                                 } else {
                                     togglePreguntaInformativa.setTag(2);
@@ -310,7 +314,7 @@ public class Tab3 extends Fragment {
                         inputPreguntaInformativa.setBackground(getResources().getDrawable(R.drawable.estilosedittextinicio));
                         inputPreguntaInformativa.setTextSize(TypedValue.COMPLEX_UNIT_PX, 16);
 
-                        if(jsonDatos.getString(numeroPregunta).equals("9") || jsonDatos.getString(numeroPregunta).equals("%20")){
+                        if (jsonDatos.getString(numeroPregunta).equals("9") || jsonDatos.getString(numeroPregunta).equals("%20")) {
                             inputPreguntaInformativa.setText(" ");
                         } else {
                             inputPreguntaInformativa.setText(jsonDatos.getString(numeroPregunta));
@@ -373,25 +377,25 @@ public class Tab3 extends Fragment {
 
             int rtaOri = jsonDatos.getInt(numeroPregunta + 1);
             observaciones_cadena = jsonDatos.getString(numeroPregunta + 2);
-            if(observaciones_cadena.equals("9"))
+            if (observaciones_cadena.equals("9"))
                 observaciones_cadena = "";
-            if(rtaOri == 1){
+            if (rtaOri == 1) {
                 origen = 1;
                 Log.d("Origen =", "1");
                 escogerOrigen(btnMainD, btnMainE, btnMainO);
             }
-            if(rtaOri == 2){
+            if (rtaOri == 2) {
                 origen = 2;
                 Log.d("Origen =", "1");
                 escogerOrigen(btnMainE, btnMainD, btnMainO);
             }
-            if(rtaOri == 3){
+            if (rtaOri == 3) {
                 origen = 3;
                 Log.d("Origen =", "1");
                 escogerOrigen(btnMainO, btnMainE, btnMainD);
             }
 
-            if(rtaOri == 9){
+            if (rtaOri == 9) {
                 origen = 9;
             }
 
@@ -432,7 +436,6 @@ public class Tab3 extends Fragment {
             });
 
 
-
             LinearLayout ocultarTeclado = (LinearLayout) v.findViewById(R.id.ocultar_teclado);
             ocultarTeclado.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -463,7 +466,7 @@ public class Tab3 extends Fragment {
 
     public void guardar(Context contexto) {
 
-        if(numeroPregunta != 0){
+        if (numeroPregunta != 0) {
             int[] datosEnviar = new int[numeroPregunta + 2];
             String[] cadenaEnviar = new String[numeroCadenaPregunta + 1];
             int contadorTexto = 0;
@@ -492,13 +495,13 @@ public class Tab3 extends Fragment {
 
             }
 
-            if(datosEnviar.length == 0){
+            if (datosEnviar.length == 0) {
                 datosEnviar[0] = origen;
             } else {
                 datosEnviar[finalInt + 1] = origen;
             }
 
-            if(observaciones_cadena.equals(""))
+            if (observaciones_cadena.equals(""))
                 observaciones_cadena = "%20";
             cadenaEnviar[finalString] = observaciones_cadena;
 
@@ -509,7 +512,7 @@ public class Tab3 extends Fragment {
             InsertarEnBD guardar = new InsertarEnBD();
             guardar.contexto(getActivity());
 
-            if(getActivity() instanceof formularioracindividual){
+            if (getActivity() instanceof formularioracindividual) {
                 guardar.insertarEnBD(json, datosEnviar, cadenaEnviar, formulario, true);
             } else {
                 guardar.insertarEnBD(json, datosEnviar, cadenaEnviar, formulario, false);
@@ -525,7 +528,7 @@ public class Tab3 extends Fragment {
 
             InsertarEnBD guardar = new InsertarEnBD();
             guardar.contexto(getActivity());
-            if(getActivity() instanceof formularioracindividual){
+            if (getActivity() instanceof formularioracindividual) {
                 guardar.insertarEnBD(json, datosEnviar, cadenaEnviar, formulario, true);
             } else {
                 guardar.insertarEnBD(json, datosEnviar, cadenaEnviar, formulario, false);
@@ -632,6 +635,10 @@ public class Tab3 extends Fragment {
     }
 
     public void enviar(String nombre, int id_formulario) {
+        critico = false;
+        if (nombre.equals("1.4") || nombre.equals("1.6") || nombre.equals("1.8") || nombre.equals("1.10") || nombre.equals("2.1") || nombre.equals("2.2") || nombre.equals("2.5") || nombre.equals("2.6") || nombre.equals("2.7") || nombre.equals("3.2") || nombre.equals("3.3") || nombre.equals("3.5") || nombre.equals("3.6") || nombre.equals("4.2") || nombre.equals("4.3") || nombre.equals("4.5") || nombre.equals("4.6") || nombre.equals("4.7") || nombre.equals("4.9") || nombre.equals("5.1") || nombre.equals("5.2") || nombre.equals("5.3") || nombre.equals("5.4") || nombre.equals("5.5") || nombre.equals("5.7") || nombre.equals("5.8") || nombre.equals("5.9") || nombre.equals("5.10") || nombre.equals("5.11") || nombre.equals("5.12") || nombre.equals("5.13") || nombre.equals("5.14") || nombre.equals("5.19") || nombre.equals("6.3") || nombre.equals("6.4") || nombre.equals("6.5") || nombre.equals("6.9") || nombre.equals("6.10") || nombre.equals("6.11") || nombre.equals("6.12") || nombre.equals("6.13") || nombre.equals("6.14") || nombre.equals("6.15") || nombre.equals("6.16") || nombre.equals("6.17") || nombre.equals("7.2") || nombre.equals("8.2") || nombre.equals("8.3") || nombre.equals("8.4") || nombre.equals("8.5") || nombre.equals("8.6") || nombre.equals("8.7") || nombre.equals("8.8") || nombre.equals("8.9") || nombre.equals("9.5") || nombre.equals("10.4")){
+            critico = true;
+        }
 
         json = nombre;
         formulario = id_formulario;
@@ -653,6 +660,10 @@ public class Tab3 extends Fragment {
     }
 
     public void enviar(String nombre, int id_formulario, Boolean grupal) {
+        critico = false;
+        if (nombre.equals("RG2.3") || nombre.equals("RG3.1") || nombre.equals("RG3.2") || nombre.equals("RG3.5") || nombre.equals("RG3.9")) {
+            critico = true;
+        }
 
         json = nombre;
         formulario = id_formulario;
@@ -675,7 +686,7 @@ public class Tab3 extends Fragment {
         Log.d("DMCP", jsonDatos.toString());
     }
 
-    public void reportar(String rta){
+    public void reportar(String rta) {
 
     }
 

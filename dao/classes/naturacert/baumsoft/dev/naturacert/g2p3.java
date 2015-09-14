@@ -10,7 +10,7 @@ package naturacert.baumsoft.dev.naturacert;
 public class g2p3 {
 
     private Long id;
-    private Integer eadg;
+    private Integer egdt;
     private Integer proc;
     private Integer lmdg;
     private Integer origen;
@@ -27,9 +27,9 @@ public class g2p3 {
         this.id = id;
     }
 
-    public g2p3(Long id, Integer eadg, Integer proc, Integer lmdg, Integer origen, String obser, Integer id_formulario) {
+    public g2p3(Long id, Integer egdt, Integer proc, Integer lmdg, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
-        this.eadg = eadg;
+        this.egdt = egdt;
         this.proc = proc;
         this.lmdg = lmdg;
         this.origen = origen;
@@ -45,12 +45,12 @@ public class g2p3 {
         this.id = id;
     }
 
-    public Integer getEadg() {
-        return eadg;
+    public Integer getEgdt() {
+        return egdt;
     }
 
-    public void setEadg(Integer eadg) {
-        this.eadg = eadg;
+    public void setEgdt(Integer egdt) {
+        this.egdt = egdt;
     }
 
     public Integer getProc() {

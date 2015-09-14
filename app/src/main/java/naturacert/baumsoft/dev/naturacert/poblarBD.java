@@ -1396,7 +1396,7 @@ public class poblarBD {
         DaoAPP.daoSession.getG2p2Dao().insert(og2p2);
 
         g2p3 og2p3 = new g2p3();
-        og2p3.setEadg(9);
+        og2p3.setEgdt(9);
         og2p3.setProc(9);
         og2p3.setLmdg(9);
         og2p3.setOrigen(9);

@@ -24,7 +24,7 @@ public class g2p3Dao extends AbstractDao<g2p3, Long> {
     */
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
-        public final static Property Eadg = new Property(1, Integer.class, "eadg", false, "EADG");
+        public final static Property Egdt = new Property(1, Integer.class, "egdt", false, "EGDT");
         public final static Property Proc = new Property(2, Integer.class, "proc", false, "PROC");
         public final static Property Lmdg = new Property(3, Integer.class, "lmdg", false, "LMDG");
         public final static Property Origen = new Property(4, Integer.class, "origen", false, "ORIGEN");
@@ -46,7 +46,7 @@ public class g2p3Dao extends AbstractDao<g2p3, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "'G2P3' (" + //
                 "'_id' INTEGER PRIMARY KEY ," + // 0: id
-                "'EADG' INTEGER," + // 1: eadg
+                "'EGDT' INTEGER," + // 1: egdt
                 "'PROC' INTEGER," + // 2: proc
                 "'LMDG' INTEGER," + // 3: lmdg
                 "'ORIGEN' INTEGER," + // 4: origen
@@ -70,9 +70,9 @@ public class g2p3Dao extends AbstractDao<g2p3, Long> {
             stmt.bindLong(1, id);
         }
  
-        Integer eadg = entity.getEadg();
-        if (eadg != null) {
-            stmt.bindLong(2, eadg);
+        Integer egdt = entity.getEgdt();
+        if (egdt != null) {
+            stmt.bindLong(2, egdt);
         }
  
         Integer proc = entity.getProc();
@@ -112,7 +112,7 @@ public class g2p3Dao extends AbstractDao<g2p3, Long> {
     public g2p3 readEntity(Cursor cursor, int offset) {
         g2p3 entity = new g2p3( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.isNull(offset + 1) ? null : cursor.getInt(offset + 1), // eadg
+            cursor.isNull(offset + 1) ? null : cursor.getInt(offset + 1), // egdt
             cursor.isNull(offset + 2) ? null : cursor.getInt(offset + 2), // proc
             cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3), // lmdg
             cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4), // origen
@@ -126,7 +126,7 @@ public class g2p3Dao extends AbstractDao<g2p3, Long> {
     @Override
     public void readEntity(Cursor cursor, g2p3 entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setEadg(cursor.isNull(offset + 1) ? null : cursor.getInt(offset + 1));
+        entity.setEgdt(cursor.isNull(offset + 1) ? null : cursor.getInt(offset + 1));
         entity.setProc(cursor.isNull(offset + 2) ? null : cursor.getInt(offset + 2));
         entity.setLmdg(cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3));
         entity.setOrigen(cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4));
