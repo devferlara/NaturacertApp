@@ -3215,7 +3215,7 @@ public class InsertarEnBD extends Application {
                 urlEnviarGrupo.append("rgpone_unopuno");
                 columnas = DaoAPP.daoSession.getP10p6Dao().getAllColumns();
                 for (int m = 1; m < columnas.length - 1; m++) {
-                    if (m == 15) {
+                    if (m == 5) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -3235,6 +3235,57 @@ public class InsertarEnBD extends Application {
                 g1p1.setOrigen(datos[3]);
                 g1p1.setObser(valores[0]);
                 DaoAPP.daoSession.getG1p1Dao().update(g1p1);
+                new enviar().execute(urlEnviar.toString());
+                break;
+
+            case "RG1.2":
+                urlEnviarGrupo.append("rgpone_unopdos");
+                columnas = DaoAPP.daoSession.getP10p6Dao().getAllColumns();
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 2 || m == 4) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
+                }
+                g1p2 g1p2 = DaoAPP.daoSession.getG1p2Dao().load(idCons);
+                g1p2.setEadg(datos[0]);
+                g1p2.setFech(valores[0]);
+                g1p2.setOrigen(datos[1]);
+                g1p2.setObser(valores[1]);
+                DaoAPP.daoSession.getG1p2Dao().update(g1p2);
+                new enviar().execute(urlEnviar.toString());
+                break;
+
+            case "RG1.3":
+                urlEnviarGrupo.append("rgpone_unoptres");
+                columnas = DaoAPP.daoSession.getP10p6Dao().getAllColumns();
+                for (int m = 1; m < columnas.length - 1; m++) {
+                    if (m == 2 || m == 4) {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(valores[contadorValores]);
+                        contadorValores++;
+                    } else {
+                        urlEnviar.append("&");
+                        urlEnviar.append(columnas[m].toLowerCase());
+                        urlEnviar.append("=");
+                        urlEnviar.append(datos[(m - 1) - contadorValores]);
+                    }
+                }
+                g1p3 g1p3 = DaoAPP.daoSession.getG1p3Dao().load(idCons);
+
+                g1p3.setOrigen(datos[1]);
+                g1p3.setObser(valores[1]);
+                DaoAPP.daoSession.getG1p3Dao().update(g1p3);
                 new enviar().execute(urlEnviar.toString());
                 break;
 
