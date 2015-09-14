@@ -1337,7 +1337,7 @@ public class poblarBD {
 
         g1p1 og1p1 = new g1p1();
         og1p1.setEadg(9);
-        og1p1.setEprog(9);
+        og1p1.setProg(9);
         og1p1.setRegi(9);
         og1p1.setOrigen(9);
         og1p1.setId_formulario(referencia);

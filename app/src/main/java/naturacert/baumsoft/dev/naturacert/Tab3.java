@@ -104,6 +104,9 @@ public class Tab3 extends Fragment {
             contenedorInformativas = (LinearLayout) v.findViewById(R.id.contenedor_respuestas_informativas);
 
             JSONArray informativas = new JSONArray(objeto.getString("informativas"));
+
+
+
             for (int i = 0; i < informativas.length(); i++) {
 
                 JSONObject seccion = new JSONObject(informativas.getString(i));
@@ -176,6 +179,8 @@ public class Tab3 extends Fragment {
                     /* creamos el titulo de la pregunta */
 
                     LLI.addView(tituloPreguntaInformativa);
+
+
 
                     if (preguntaSimple.getInt("tipo") == 0) {
                         /* creamos el boton de la pregunta */
@@ -311,15 +316,6 @@ public class Tab3 extends Fragment {
                             inputPreguntaInformativa.setText(jsonDatos.getString(numeroPregunta));
                         }
 
-
-                        /*
-                        inputPreguntaInformativa.setOnKeyListener(new View.OnKeyListener() {
-                            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                                guardar(contexto);
-                                return false;
-                            }
-                        });
-                        */
                         LLI.addView(inputPreguntaInformativa);
                     }
 
@@ -344,12 +340,15 @@ public class Tab3 extends Fragment {
             final Button btnMainE = (Button) v.findViewById(R.id.btnMainE);
             final Button btnMainO = (Button) v.findViewById(R.id.btnMainO);
 
+            Log.d("origen", "Wiiiiiii");
+
             btnMainD.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     escogerOrigen(btnMainD, btnMainE, btnMainO);
                     origen = 1;
                     guardar(contexto);
+                    Log.d("Click origen", "Oprimido");
                 }
             });
 
@@ -370,6 +369,7 @@ public class Tab3 extends Fragment {
                     guardar(contexto);
                 }
             });
+
 
             int rtaOri = jsonDatos.getInt(numeroPregunta + 1);
             observaciones_cadena = jsonDatos.getString(numeroPregunta + 2);
@@ -462,45 +462,76 @@ public class Tab3 extends Fragment {
     }
 
     public void guardar(Context contexto) {
-        int[] datosEnviar = new int[numeroPregunta + 2];
-        Log.d("NumeroPregunta", String.valueOf(numeroPregunta));
-        String[] cadenaEnviar = new String[numeroCadenaPregunta + 1];
-        int contadorTexto = 0;
-        datosEnviar[0] = rtaMaestra;
-        int finalInt = 0;
-        int finalString = 0;
 
-        for (int p = 1; p <= numeroPregunta; p++) {
+        if(numeroPregunta != 0){
+            int[] datosEnviar = new int[numeroPregunta + 2];
+            String[] cadenaEnviar = new String[numeroCadenaPregunta + 1];
+            int contadorTexto = 0;
+            datosEnviar[0] = rtaMaestra;
+            int finalInt = 0;
+            int finalString = 0;
 
-            String idCadena = String.valueOf(p);
-            int id = getResources().getIdentifier(idCadena, "id", contexto.getPackageName());
-            View f = ((View) v.findViewById(id));
+            for (int p = 1; p <= numeroPregunta; p++) {
 
-            if (f instanceof Button) {
-                Button boton = (Button) v.findViewById(id);
-                datosEnviar[p - contadorTexto] = Integer.parseInt(boton.getTag().toString());
-                finalInt = p - contadorTexto;
-            } else {
-                EditText texto = (EditText) v.findViewById(id);
-                cadenaEnviar[contadorTexto] = texto.getText().toString().replace(" ", "%20");
-                contadorTexto++;
-                finalString = contadorTexto;
-                Log.d("FInal String", String.valueOf(finalString));
+                String idCadena = String.valueOf(p);
+                int id = getResources().getIdentifier(idCadena, "id", contexto.getPackageName());
+                View f = ((View) v.findViewById(id));
+
+                if (f instanceof Button) {
+                    Button boton = (Button) v.findViewById(id);
+                    datosEnviar[p - contadorTexto] = Integer.parseInt(boton.getTag().toString());
+                    finalInt = p - contadorTexto;
+                    Log.d("zing", "zing");
+                } else {
+                    EditText texto = (EditText) v.findViewById(id);
+                    cadenaEnviar[contadorTexto] = texto.getText().toString().replace(" ", "%20");
+                    contadorTexto++;
+                    finalString = contadorTexto;
+                    Log.d("CLick", "click");
+                }
+
             }
 
+            if(datosEnviar.length == 0){
+                datosEnviar[0] = origen;
+            } else {
+                datosEnviar[finalInt + 1] = origen;
+            }
+
+            if(observaciones_cadena.equals(""))
+                observaciones_cadena = "%20";
+            cadenaEnviar[finalString] = observaciones_cadena;
+
+            Log.d("Largo datos", "- " + datosEnviar.length);
+            Log.d("Largo valores", "- " + cadenaEnviar.length);
+
+
+            InsertarEnBD guardar = new InsertarEnBD();
+            guardar.contexto(getActivity());
+
+            if(getActivity() instanceof formularioracindividual){
+                guardar.insertarEnBD(json, datosEnviar, cadenaEnviar, formulario, true);
+            } else {
+                guardar.insertarEnBD(json, datosEnviar, cadenaEnviar, formulario, false);
+            }
+        } else {
+            Log.d("Esta esta", "soola");
+            int[] datosEnviar = new int[2];
+            String[] cadenaEnviar = new String[1];
+
+            datosEnviar[0] = rtaMaestra;
+            datosEnviar[1] = origen;
+            cadenaEnviar[0] = "sds";
+
+            InsertarEnBD guardar = new InsertarEnBD();
+            guardar.contexto(getActivity());
+            if(getActivity() instanceof formularioracindividual){
+                guardar.insertarEnBD(json, datosEnviar, cadenaEnviar, formulario, true);
+            } else {
+                guardar.insertarEnBD(json, datosEnviar, cadenaEnviar, formulario, false);
+            }
         }
 
-        datosEnviar[finalInt + 1] = origen;
-
-        Log.d("Datos enviar origen", String.valueOf(datosEnviar[finalInt + 1]));
-
-        if(observaciones_cadena.equals(""))
-            observaciones_cadena = "%20";
-        cadenaEnviar[finalString] = observaciones_cadena;
-
-        InsertarEnBD guardar = new InsertarEnBD();
-        guardar.contexto(getActivity());
-        guardar.insertarEnBD(json, datosEnviar, cadenaEnviar, formulario);
 
     }
 

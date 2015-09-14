@@ -11,7 +11,7 @@ public class g1p1 {
 
     private Long id;
     private Integer eadg;
-    private Integer eprog;
+    private Integer prog;
     private Integer regi;
     private Integer origen;
     private String obser;
@@ -27,10 +27,10 @@ public class g1p1 {
         this.id = id;
     }
 
-    public g1p1(Long id, Integer eadg, Integer eprog, Integer regi, Integer origen, String obser, Integer id_formulario) {
+    public g1p1(Long id, Integer eadg, Integer prog, Integer regi, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
         this.eadg = eadg;
-        this.eprog = eprog;
+        this.prog = prog;
         this.regi = regi;
         this.origen = origen;
         this.obser = obser;
@@ -53,12 +53,12 @@ public class g1p1 {
         this.eadg = eadg;
     }
 
-    public Integer getEprog() {
-        return eprog;
+    public Integer getProg() {
+        return prog;
     }
 
-    public void setEprog(Integer eprog) {
-        this.eprog = eprog;
+    public void setProg(Integer prog) {
+        this.prog = prog;
     }
 
     public Integer getRegi() {

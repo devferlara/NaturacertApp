@@ -60,6 +60,10 @@ public class formularioracgrupal extends ActionBarActivity {
         });
         tabs.setViewPager(pager);
 
+        principio1 = (Button) findViewById(R.id.principio1);
+        principio2 = (Button) findViewById(R.id.principio2);
+        principio3 = (Button) findViewById(R.id.principio3);
+
         ImageButton ayuda = (ImageButton) findViewById(R.id.ayuda);
         ayuda.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,10 +106,35 @@ public class formularioracgrupal extends ActionBarActivity {
             }
         });
 
+        label_principio = (TextView) findViewById(R.id.nombre_principio_label);
+        numero_principio = (TextView) findViewById(R.id.principio_label);
+
         principios[0] = "none";
         principios[1] = "Capacitación";
         principios[2] = "Evaluación de Riesgo";
         principios[3] = "Sistema de Gestión";
+
+        principio1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pager.setCurrentItem(0);
+                seleccionarPrincipio(principio1, 1);
+            }
+        });
+        principio2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pager.setCurrentItem(3);
+                seleccionarPrincipio(principio2, 2);
+            }
+        });
+        principio3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pager.setCurrentItem(7);
+                seleccionarPrincipio(principio3, 3);
+            }
+        });
 
     }
 

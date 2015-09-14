@@ -13,6 +13,7 @@ import naturacert.baumsoft.dev.naturacert.Clientes;
 import naturacert.baumsoft.dev.naturacert.DaoAPP;
 import naturacert.baumsoft.dev.naturacert.Fincas;
 import naturacert.baumsoft.dev.naturacert.TokensBD;
+import naturacert.baumsoft.dev.naturacert.poblarBD;
 
 /**
  * Created by imac on 9/6/15.
@@ -141,12 +142,17 @@ public class katana extends Application {
                 finca.setId_formulario(rtaType.getInt("rac"));
                 finca.setGrupo("");
                 DaoAPP.daoSession.getFincasDao().insert(finca);
+                poblarBD poblar = new poblarBD();
+                poblar.poblar(rtaType.getInt("rac"));
             }
 
             if(rtaType.getString("type").equals("racg")){
                 finca.setTipo_finca(2);
-                finca.setGrupo(fields.getString("grupo"));
-                finca.setId_formulario(rtaType.getInt("rac"));
+                finca.setGrupo(rtaType.getString("grupo"));
+                finca.setId_formulario(rtaType.getInt("racg"));
+                poblarBD poblar = new poblarBD();
+                poblar.poblar(rtaType.getInt("racg"), true);
+                DaoAPP.daoSession.getFincasDao().insert(finca);
             }
 
             cliente = Long.parseLong(fields.getString("cliente"));

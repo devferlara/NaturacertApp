@@ -25,7 +25,7 @@ public class g1p1Dao extends AbstractDao<g1p1, Long> {
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Eadg = new Property(1, Integer.class, "eadg", false, "EADG");
-        public final static Property Eprog = new Property(2, Integer.class, "eprog", false, "EPROG");
+        public final static Property Prog = new Property(2, Integer.class, "prog", false, "PROG");
         public final static Property Regi = new Property(3, Integer.class, "regi", false, "REGI");
         public final static Property Origen = new Property(4, Integer.class, "origen", false, "ORIGEN");
         public final static Property Obser = new Property(5, String.class, "obser", false, "OBSER");
@@ -47,7 +47,7 @@ public class g1p1Dao extends AbstractDao<g1p1, Long> {
         db.execSQL("CREATE TABLE " + constraint + "'G1P1' (" + //
                 "'_id' INTEGER PRIMARY KEY ," + // 0: id
                 "'EADG' INTEGER," + // 1: eadg
-                "'EPROG' INTEGER," + // 2: eprog
+                "'PROG' INTEGER," + // 2: prog
                 "'REGI' INTEGER," + // 3: regi
                 "'ORIGEN' INTEGER," + // 4: origen
                 "'OBSER' TEXT," + // 5: obser
@@ -75,9 +75,9 @@ public class g1p1Dao extends AbstractDao<g1p1, Long> {
             stmt.bindLong(2, eadg);
         }
  
-        Integer eprog = entity.getEprog();
-        if (eprog != null) {
-            stmt.bindLong(3, eprog);
+        Integer prog = entity.getProg();
+        if (prog != null) {
+            stmt.bindLong(3, prog);
         }
  
         Integer regi = entity.getRegi();
@@ -113,7 +113,7 @@ public class g1p1Dao extends AbstractDao<g1p1, Long> {
         g1p1 entity = new g1p1( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.isNull(offset + 1) ? null : cursor.getInt(offset + 1), // eadg
-            cursor.isNull(offset + 2) ? null : cursor.getInt(offset + 2), // eprog
+            cursor.isNull(offset + 2) ? null : cursor.getInt(offset + 2), // prog
             cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3), // regi
             cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4), // origen
             cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // obser
@@ -127,7 +127,7 @@ public class g1p1Dao extends AbstractDao<g1p1, Long> {
     public void readEntity(Cursor cursor, g1p1 entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setEadg(cursor.isNull(offset + 1) ? null : cursor.getInt(offset + 1));
-        entity.setEprog(cursor.isNull(offset + 2) ? null : cursor.getInt(offset + 2));
+        entity.setProg(cursor.isNull(offset + 2) ? null : cursor.getInt(offset + 2));
         entity.setRegi(cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3));
         entity.setOrigen(cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4));
         entity.setObser(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));

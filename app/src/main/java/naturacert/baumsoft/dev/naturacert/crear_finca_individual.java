@@ -491,7 +491,8 @@ public class crear_finca_individual extends ActionBarActivity {
                     }
 
                     DaoAPP.daoSession.getFincasDao().insert(finca);
-
+                    Toast.makeText(crear_finca_individual.this, "Finca creada correctamente", Toast.LENGTH_LONG).show();
+                    finish();
                 } else {
                     Toast.makeText(crear_finca_individual.this, "Hubo un error al crear la finca, intentelo de nuevo", Toast.LENGTH_SHORT).show();
                 }

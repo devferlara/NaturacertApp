@@ -15,10 +15,10 @@ public class p10p6 {
     private Integer ipcd;
     private Integer cobs;
     private Integer sia;
+    private Integer mir;
     private Integer mac;
     private Integer maf;
     private Integer uee;
-    private Integer mir;
     private Integer utl;
     private Integer mpps;
     private Integer pirg;
@@ -37,17 +37,17 @@ public class p10p6 {
         this.id = id;
     }
 
-    public p10p6(Long id, Integer fiprg, Integer iprg, Integer ipcd, Integer cobs, Integer sia, Integer mac, Integer maf, Integer uee, Integer mir, Integer utl, Integer mpps, Integer pirg, Integer mpta, Integer origen, String obser, Integer id_formulario) {
+    public p10p6(Long id, Integer fiprg, Integer iprg, Integer ipcd, Integer cobs, Integer sia, Integer mir, Integer mac, Integer maf, Integer uee, Integer utl, Integer mpps, Integer pirg, Integer mpta, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
         this.fiprg = fiprg;
         this.iprg = iprg;
         this.ipcd = ipcd;
         this.cobs = cobs;
         this.sia = sia;
+        this.mir = mir;
         this.mac = mac;
         this.maf = maf;
         this.uee = uee;
-        this.mir = mir;
         this.utl = utl;
         this.mpps = mpps;
         this.pirg = pirg;
@@ -105,6 +105,14 @@ public class p10p6 {
         this.sia = sia;
     }
 
+    public Integer getMir() {
+        return mir;
+    }
+
+    public void setMir(Integer mir) {
+        this.mir = mir;
+    }
+
     public Integer getMac() {
         return mac;
     }
@@ -127,14 +135,6 @@ public class p10p6 {
 
     public void setUee(Integer uee) {
         this.uee = uee;
-    }
-
-    public Integer getMir() {
-        return mir;
-    }
-
-    public void setMir(Integer mir) {
-        this.mir = mir;
     }
 
     public Integer getUtl() {

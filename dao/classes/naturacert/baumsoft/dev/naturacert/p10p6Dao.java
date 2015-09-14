@@ -29,10 +29,10 @@ public class p10p6Dao extends AbstractDao<p10p6, Long> {
         public final static Property Ipcd = new Property(3, Integer.class, "ipcd", false, "IPCD");
         public final static Property Cobs = new Property(4, Integer.class, "cobs", false, "COBS");
         public final static Property Sia = new Property(5, Integer.class, "sia", false, "SIA");
-        public final static Property Mac = new Property(6, Integer.class, "mac", false, "MAC");
-        public final static Property Maf = new Property(7, Integer.class, "maf", false, "MAF");
-        public final static Property Uee = new Property(8, Integer.class, "uee", false, "UEE");
-        public final static Property Mir = new Property(9, Integer.class, "mir", false, "MIR");
+        public final static Property Mir = new Property(6, Integer.class, "mir", false, "MIR");
+        public final static Property Mac = new Property(7, Integer.class, "mac", false, "MAC");
+        public final static Property Maf = new Property(8, Integer.class, "maf", false, "MAF");
+        public final static Property Uee = new Property(9, Integer.class, "uee", false, "UEE");
         public final static Property Utl = new Property(10, Integer.class, "utl", false, "UTL");
         public final static Property Mpps = new Property(11, Integer.class, "mpps", false, "MPPS");
         public final static Property Pirg = new Property(12, Integer.class, "pirg", false, "PIRG");
@@ -61,10 +61,10 @@ public class p10p6Dao extends AbstractDao<p10p6, Long> {
                 "'IPCD' INTEGER," + // 3: ipcd
                 "'COBS' INTEGER," + // 4: cobs
                 "'SIA' INTEGER," + // 5: sia
-                "'MAC' INTEGER," + // 6: mac
-                "'MAF' INTEGER," + // 7: maf
-                "'UEE' INTEGER," + // 8: uee
-                "'MIR' INTEGER," + // 9: mir
+                "'MIR' INTEGER," + // 6: mir
+                "'MAC' INTEGER," + // 7: mac
+                "'MAF' INTEGER," + // 8: maf
+                "'UEE' INTEGER," + // 9: uee
                 "'UTL' INTEGER," + // 10: utl
                 "'MPPS' INTEGER," + // 11: mpps
                 "'PIRG' INTEGER," + // 12: pirg
@@ -115,24 +115,24 @@ public class p10p6Dao extends AbstractDao<p10p6, Long> {
             stmt.bindLong(6, sia);
         }
  
+        Integer mir = entity.getMir();
+        if (mir != null) {
+            stmt.bindLong(7, mir);
+        }
+ 
         Integer mac = entity.getMac();
         if (mac != null) {
-            stmt.bindLong(7, mac);
+            stmt.bindLong(8, mac);
         }
  
         Integer maf = entity.getMaf();
         if (maf != null) {
-            stmt.bindLong(8, maf);
+            stmt.bindLong(9, maf);
         }
  
         Integer uee = entity.getUee();
         if (uee != null) {
-            stmt.bindLong(9, uee);
-        }
- 
-        Integer mir = entity.getMir();
-        if (mir != null) {
-            stmt.bindLong(10, mir);
+            stmt.bindLong(10, uee);
         }
  
         Integer utl = entity.getUtl();
@@ -187,10 +187,10 @@ public class p10p6Dao extends AbstractDao<p10p6, Long> {
             cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3), // ipcd
             cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4), // cobs
             cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5), // sia
-            cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6), // mac
-            cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7), // maf
-            cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8), // uee
-            cursor.isNull(offset + 9) ? null : cursor.getInt(offset + 9), // mir
+            cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6), // mir
+            cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7), // mac
+            cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8), // maf
+            cursor.isNull(offset + 9) ? null : cursor.getInt(offset + 9), // uee
             cursor.isNull(offset + 10) ? null : cursor.getInt(offset + 10), // utl
             cursor.isNull(offset + 11) ? null : cursor.getInt(offset + 11), // mpps
             cursor.isNull(offset + 12) ? null : cursor.getInt(offset + 12), // pirg
@@ -211,10 +211,10 @@ public class p10p6Dao extends AbstractDao<p10p6, Long> {
         entity.setIpcd(cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3));
         entity.setCobs(cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4));
         entity.setSia(cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5));
-        entity.setMac(cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6));
-        entity.setMaf(cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7));
-        entity.setUee(cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8));
-        entity.setMir(cursor.isNull(offset + 9) ? null : cursor.getInt(offset + 9));
+        entity.setMir(cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6));
+        entity.setMac(cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7));
+        entity.setMaf(cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8));
+        entity.setUee(cursor.isNull(offset + 9) ? null : cursor.getInt(offset + 9));
         entity.setUtl(cursor.isNull(offset + 10) ? null : cursor.getInt(offset + 10));
         entity.setMpps(cursor.isNull(offset + 11) ? null : cursor.getInt(offset + 11));
         entity.setPirg(cursor.isNull(offset + 12) ? null : cursor.getInt(offset + 12));

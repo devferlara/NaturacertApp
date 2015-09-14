@@ -1762,7 +1762,7 @@ public class Main {
         Entity p = schema.addEntity("g1p1");
         p.addIdProperty();
         p.addIntProperty("eadg");
-        p.addIntProperty("eprog");
+        p.addIntProperty("prog");
         p.addIntProperty("regi");
         p.addIntProperty("origen");
         p.addStringProperty("obser");
