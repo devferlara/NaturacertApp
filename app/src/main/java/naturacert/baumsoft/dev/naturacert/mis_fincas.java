@@ -9,11 +9,13 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.List;
 
 import de.greenrobot.dao.query.QueryBuilder;
 import naturacert.baumsoft.dev.naturacert.extras.adapter_fincas;
+import naturacert.baumsoft.dev.naturacert.extras.katana;
 
 
 public class mis_fincas extends Activity {
@@ -27,6 +29,13 @@ public class mis_fincas extends Activity {
         List<Fincas> fincas = DaoAPP.daoSession.getFincasDao().loadAll();
 
         ListView lista = (ListView) findViewById(R.id.lista);
+
+        katana kata = new katana();
+        String[] datosAuditor;
+        datosAuditor = kata.informacionAuditor();
+
+        TextView nombre_auditor = (TextView) findViewById(R.id.nombre_auditor);
+        nombre_auditor.setText(datosAuditor[0] + " " + datosAuditor[1]);
 
         if(fincas.size()!=0){
             lista.setAdapter(null);

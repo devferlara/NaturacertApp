@@ -20,8 +20,8 @@ import java.util.List;
 public class InsertarEnBD extends Application {
 
     private String[] columnas;
-    private StringBuilder urlEnviar = new StringBuilder("http://naturacert.ddns.net/api/rac_save_new/?rac=");
-    private StringBuilder urlEnviarGrupo = new StringBuilder("http://naturacert.ddns.net/api/rac_save_new/?racg=");
+    private StringBuilder urlEnviar = new StringBuilder("http://naturacert.ddns.net/api/rac_save_new/?type=rac&rac=");
+    private StringBuilder urlEnviarGrupo = new StringBuilder("http://naturacert.ddns.net/api/rac_save_new/?type=racg&racg=");
     private Context contexto;
 
     public static String getUrlContent(String page) {
@@ -3699,7 +3699,9 @@ public class InsertarEnBD extends Application {
             try {
                 JSONObject diego = new JSONObject(res.toString());
                 Log.d("Error", diego.toString());
-                Toast.makeText(contexto, diego.getString("status"), Toast.LENGTH_SHORT).show();
+                if(diego.getString("status").equals("OK")){
+                    Toast.makeText(contexto, "Guardado", Toast.LENGTH_SHORT).show();
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }

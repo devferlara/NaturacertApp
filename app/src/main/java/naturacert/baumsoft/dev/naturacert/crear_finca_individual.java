@@ -60,6 +60,13 @@ public class crear_finca_individual extends ActionBarActivity {
             }
         });
 
+        katana kata = new katana();
+        String[] datosAuditor;
+        datosAuditor = kata.informacionAuditor();
+
+        TextView nombre_auditor = (TextView) findViewById(R.id.nombre_auditor);
+        nombre_auditor.setText(datosAuditor[0] + " " + datosAuditor[1]);
+
         montarClientes();
 
         ImageButton getCoordenadas = (ImageButton) findViewById(R.id.getCoordenadas);

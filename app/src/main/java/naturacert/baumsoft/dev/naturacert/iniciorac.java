@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.Animation;
@@ -36,15 +35,10 @@ public class iniciorac extends Activity {
         String[] datosAuditor;
         datosAuditor = kata.informacionAuditor();
 
-        Toast.makeText(iniciorac.this, "Bienvenido" + datosAuditor[0] + " " + datosAuditor[1], Toast.LENGTH_SHORT).show();
-
         TextView nombre_auditor = (TextView) findViewById(R.id.nombre_auditor);
         nombre_auditor.setText(datosAuditor[0] + " " + datosAuditor[1]);
 
-        Log.d("Foto", datosAuditor[2]);
-        ImageView imagen_auditor = (ImageView) findViewById(R.id.foto_auditor);
-        imagen_auditor.setTag("http://vignette3.wikia.nocookie.net/penguinsofmadagascar/images/0/00/Private.gif");
-        new DownloadImagesTask().execute(imagen_auditor);
+        Toast.makeText(iniciorac.this, "Bienvenido " + datosAuditor[0] + " " + datosAuditor[1], Toast.LENGTH_SHORT).show();
 
         LinearLayout finca = (LinearLayout) findViewById(R.id.finca);
 
@@ -81,7 +75,7 @@ public class iniciorac extends Activity {
         cerrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                //finish();
             }
         });
 

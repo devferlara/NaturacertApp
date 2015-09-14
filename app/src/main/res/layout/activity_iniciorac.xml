@@ -64,13 +64,6 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="60dp"
-                android:id="@+id/foto_auditor"
-                android:scaleType="fitXY"
-                android:layout_height="60dp"
-                android:adjustViewBounds="true"/>
-
         </LinearLayout>
 
 
