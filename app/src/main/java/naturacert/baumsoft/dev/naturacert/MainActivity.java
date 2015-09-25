@@ -267,7 +267,7 @@ public class MainActivity extends Activity {
 
         protected void onPreExecute() {
             dialogo.setContent("Descargando fincas individuales, espere por favor");
-            dialogo.show();
+            //dialogo.show();
         }
 
         protected void onPostExecute(String values) {
@@ -306,7 +306,7 @@ public class MainActivity extends Activity {
 
         protected void onPreExecute() {
             dialogo.setContent("Descargando clientes, espere por favor");
-            dialogo.show();
+            //dialogo.show();
         }
 
         protected void onPostExecute(String values) {

@@ -2209,6 +2209,7 @@ public class InsertarEnBD extends Application {
                 op6p14.setOrigen(datos[2]);
                 op6p14.setObser(valores[2]);
                 DaoAPP.daoSession.getP6p14Dao().update(op6p14);
+                Log.d("DAvid", urlEnviar.toString());
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2273,6 +2274,7 @@ public class InsertarEnBD extends Application {
                 op6p16.setObser(valores[0]);
                 DaoAPP.daoSession.getP6p16Dao().update(op6p16);
                 new enviar().execute(urlEnviar.toString());
+                Log.d("DAvid", urlEnviar.toString());
                 break;
 
             case "6.17":
@@ -2301,6 +2303,7 @@ public class InsertarEnBD extends Application {
                 op6p17.setObser(valores[0]);
                 DaoAPP.daoSession.getP6p17Dao().update(op6p17);
                 new enviar().execute(urlEnviar.toString());
+                Log.d("DAvid", urlEnviar.toString());
                 break;
 
             case "6.18":
@@ -2330,6 +2333,7 @@ public class InsertarEnBD extends Application {
                 op6p18.setOrigen(datos[6]);
                 op6p18.setObser(valores[0]);
                 DaoAPP.daoSession.getP6p18Dao().update(op6p18);
+                Log.d("DAvid", urlEnviar.toString());
                 new enviar().execute(urlEnviar.toString());
                 break;
 
@@ -2362,6 +2366,7 @@ public class InsertarEnBD extends Application {
                 op6p19.setOrigen(datos[8]);
                 op6p19.setObser(valores[0]);
                 DaoAPP.daoSession.getP6p19Dao().update(op6p19);
+                Log.d("DAvid", urlEnviar.toString());
                 new enviar().execute(urlEnviar.toString());
                 break;
 
