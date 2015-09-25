@@ -24,7 +24,7 @@ import java.util.List;
  */
 public class httpConections {
     private static final String LOG_TAG = "Naturacert";
-    public static final String SERVER = "http://naturacert.ddns.net/";
+    public static final String SERVER = "http://www.naturacert.com/";
     public static final String API = "api/";
     public static final String MEDIA = "media/";
 

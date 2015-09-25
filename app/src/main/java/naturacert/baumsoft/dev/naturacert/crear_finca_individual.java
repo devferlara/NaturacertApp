@@ -566,7 +566,6 @@ public class crear_finca_individual extends ActionBarActivity {
 
     private void hideKeyboard() {
         // Check if no view has focus:
-        Log.d("PResed", "efmsjdfnsdf");
         View view = this.getCurrentFocus();
         if (view != null) {
             InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);

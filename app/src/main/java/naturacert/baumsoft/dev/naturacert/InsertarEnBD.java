@@ -20,8 +20,8 @@ import java.util.List;
 public class InsertarEnBD extends Application {
 
     private String[] columnas;
-    private StringBuilder urlEnviar = new StringBuilder("http://naturacert.ddns.net/api/rac_save_new/?type=rac&rac=");
-    private StringBuilder urlEnviarGrupo = new StringBuilder("http://naturacert.ddns.net/api/rac_save_new/?type=racg&racg=");
+    private StringBuilder urlEnviar = new StringBuilder("http://www.naturacert.com/api/rac_save_new/?type=rac&rac=");
+    private StringBuilder urlEnviarGrupo = new StringBuilder("http://www.naturacert.com/api/rac_save_new/?type=racg&racg=");
     private Context contexto;
 
     public static String getUrlContent(String page) {
