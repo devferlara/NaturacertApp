@@ -14,6 +14,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import naturacert.baumsoft.dev.naturacert.extras.katana;
+
 
 public class formularioracindividual extends ActionBarActivity {
 
@@ -55,6 +57,12 @@ public class formularioracindividual extends ActionBarActivity {
         adapter = new ViewPagerAdapter(getSupportFragmentManager(), Titles, Numboftabs, getApplication(), formulario);
 
         toolbar.setVisibility(View.GONE);
+
+        katana kata = new katana();
+        String[] datos = kata.informacionAuditor();
+
+        TextView nombre_auditor = (TextView) findViewById(R.id.nombre_auditor);
+        nombre_auditor.setText(datos[0] + " " + datos[1]);
 
         pager = (ViewPager) findViewById(R.id.pager);
         pager.setAdapter(adapter);

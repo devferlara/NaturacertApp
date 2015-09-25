@@ -805,10 +805,10 @@ public class Main {
         Entity p = schema.addEntity("p5p5");
         p.addIdProperty();
         p.addIntProperty("armf");
-        p.addIntProperty("salj");
-        p.addIntProperty("cuot");
-        p.addIntProperty("piez");
-        p.addIntProperty("prod");
+        p.addStringProperty("salj");
+        p.addStringProperty("cuot");
+        p.addStringProperty("piez");
+        p.addStringProperty("prod");
         p.addIntProperty("sios");
         p.addIntProperty("snpc");
         p.addIntProperty("tacn");

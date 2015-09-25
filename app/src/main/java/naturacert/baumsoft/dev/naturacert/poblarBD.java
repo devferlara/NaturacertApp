@@ -499,10 +499,10 @@ public class poblarBD {
 
         p5p5 op5p5 = new p5p5();
         op5p5.setArmf(9);
-        op5p5.setSalj(9);
-        op5p5.setCuot(9);
-        op5p5.setPiez(9);
-        op5p5.setProd(9);
+        op5p5.setSalj("9");
+        op5p5.setCuot("9");
+        op5p5.setPiez("9");
+        op5p5.setProd("9");
         op5p5.setSios(9);
         op5p5.setSnpc(9);
         op5p5.setTacn(9);

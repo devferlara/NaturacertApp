@@ -128,8 +128,8 @@ public class MainActivity extends Activity {
             if (values)
                 guardarToken();
             else{
-                if(progress.isShowing())
-                    progress.dismiss();
+                if(dialogo.isShowing())
+                    dialogo.dismiss();
                 Toast.makeText(MainActivity.this, "Usuario y clave inválido.", Toast.LENGTH_SHORT).show();
             }
 

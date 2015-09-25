@@ -422,6 +422,7 @@ public class editar_finca extends ActionBarActivity {
             try {
                 JSONObject objeto = new JSONObject(result);
                 if (objeto.getString("status").equals("OK")) {
+                    DaoAPP.daoSession.getFincasDao().update(finca);
                     Toast.makeText(editar_finca.this, "Finca actualizada correctamente", Toast.LENGTH_LONG).show();
                     finish();
                 } else {

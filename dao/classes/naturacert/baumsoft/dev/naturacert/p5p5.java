@@ -11,10 +11,10 @@ public class p5p5 {
 
     private Long id;
     private Integer armf;
-    private Integer salj;
-    private Integer cuot;
-    private Integer piez;
-    private Integer prod;
+    private String salj;
+    private String cuot;
+    private String piez;
+    private String prod;
     private Integer sios;
     private Integer snpc;
     private Integer tacn;
@@ -32,7 +32,7 @@ public class p5p5 {
         this.id = id;
     }
 
-    public p5p5(Long id, Integer armf, Integer salj, Integer cuot, Integer piez, Integer prod, Integer sios, Integer snpc, Integer tacn, Integer origen, String obser, Integer id_formulario) {
+    public p5p5(Long id, Integer armf, String salj, String cuot, String piez, String prod, Integer sios, Integer snpc, Integer tacn, Integer origen, String obser, Integer id_formulario) {
         this.id = id;
         this.armf = armf;
         this.salj = salj;
@@ -63,35 +63,35 @@ public class p5p5 {
         this.armf = armf;
     }
 
-    public Integer getSalj() {
+    public String getSalj() {
         return salj;
     }
 
-    public void setSalj(Integer salj) {
+    public void setSalj(String salj) {
         this.salj = salj;
     }
 
-    public Integer getCuot() {
+    public String getCuot() {
         return cuot;
     }
 
-    public void setCuot(Integer cuot) {
+    public void setCuot(String cuot) {
         this.cuot = cuot;
     }
 
-    public Integer getPiez() {
+    public String getPiez() {
         return piez;
     }
 
-    public void setPiez(Integer piez) {
+    public void setPiez(String piez) {
         this.piez = piez;
     }
 
-    public Integer getProd() {
+    public String getProd() {
         return prod;
     }
 
-    public void setProd(Integer prod) {
+    public void setProd(String prod) {
         this.prod = prod;
     }
 

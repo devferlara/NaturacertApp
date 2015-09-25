@@ -1302,7 +1302,7 @@ public class InsertarEnBD extends Application {
                 urlEnviar.append("rpfive_cincopcinco");
                 columnas = DaoAPP.daoSession.getP5p5Dao().getAllColumns();
                 for (int m = 1; m < columnas.length - 1; m++) {
-                    if (m == 10) {
+                    if ( m == 2 || m == 3 || m == 4 || m == 5 || m == 10 ) {
                         urlEnviar.append("&");
                         urlEnviar.append(columnas[m].toLowerCase());
                         urlEnviar.append("=");
@@ -1317,17 +1317,18 @@ public class InsertarEnBD extends Application {
                 }
                 p5p5 op5p5 = DaoAPP.daoSession.getP5p5Dao().load(idCons);
                 op5p5.setArmf(datos[0]);
-                op5p5.setSalj(datos[1]);
-                op5p5.setCuot(datos[2]);
-                op5p5.setPiez(datos[3]);
-                op5p5.setProd(datos[4]);
-                op5p5.setSios(datos[5]);
-                op5p5.setSnpc(datos[6]);
-                op5p5.setTacn(datos[7]);
-                op5p5.setOrigen(datos[8]);
-                op5p5.setObser(valores[0]);
+                op5p5.setSalj(valores[0]);
+                op5p5.setCuot(valores[1]);
+                op5p5.setPiez(valores[2]);
+                op5p5.setProd(valores[3]);
+                op5p5.setSios(datos[1]);
+                op5p5.setSnpc(datos[2]);
+                op5p5.setTacn(datos[3]);
+                op5p5.setOrigen(datos[4]);
+                op5p5.setObser(valores[4]);
                 DaoAPP.daoSession.getP5p5Dao().update(op5p5);
                 new enviar().execute(urlEnviar.toString());
+                Log.d("DAvid", urlEnviar.toString());
                 break;
 
             case "5.6":

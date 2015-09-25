@@ -25,10 +25,10 @@ public class p5p5Dao extends AbstractDao<p5p5, Long> {
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Armf = new Property(1, Integer.class, "armf", false, "ARMF");
-        public final static Property Salj = new Property(2, Integer.class, "salj", false, "SALJ");
-        public final static Property Cuot = new Property(3, Integer.class, "cuot", false, "CUOT");
-        public final static Property Piez = new Property(4, Integer.class, "piez", false, "PIEZ");
-        public final static Property Prod = new Property(5, Integer.class, "prod", false, "PROD");
+        public final static Property Salj = new Property(2, String.class, "salj", false, "SALJ");
+        public final static Property Cuot = new Property(3, String.class, "cuot", false, "CUOT");
+        public final static Property Piez = new Property(4, String.class, "piez", false, "PIEZ");
+        public final static Property Prod = new Property(5, String.class, "prod", false, "PROD");
         public final static Property Sios = new Property(6, Integer.class, "sios", false, "SIOS");
         public final static Property Snpc = new Property(7, Integer.class, "snpc", false, "SNPC");
         public final static Property Tacn = new Property(8, Integer.class, "tacn", false, "TACN");
@@ -52,10 +52,10 @@ public class p5p5Dao extends AbstractDao<p5p5, Long> {
         db.execSQL("CREATE TABLE " + constraint + "'P5P5' (" + //
                 "'_id' INTEGER PRIMARY KEY ," + // 0: id
                 "'ARMF' INTEGER," + // 1: armf
-                "'SALJ' INTEGER," + // 2: salj
-                "'CUOT' INTEGER," + // 3: cuot
-                "'PIEZ' INTEGER," + // 4: piez
-                "'PROD' INTEGER," + // 5: prod
+                "'SALJ' TEXT," + // 2: salj
+                "'CUOT' TEXT," + // 3: cuot
+                "'PIEZ' TEXT," + // 4: piez
+                "'PROD' TEXT," + // 5: prod
                 "'SIOS' INTEGER," + // 6: sios
                 "'SNPC' INTEGER," + // 7: snpc
                 "'TACN' INTEGER," + // 8: tacn
@@ -85,24 +85,24 @@ public class p5p5Dao extends AbstractDao<p5p5, Long> {
             stmt.bindLong(2, armf);
         }
  
-        Integer salj = entity.getSalj();
+        String salj = entity.getSalj();
         if (salj != null) {
-            stmt.bindLong(3, salj);
+            stmt.bindString(3, salj);
         }
  
-        Integer cuot = entity.getCuot();
+        String cuot = entity.getCuot();
         if (cuot != null) {
-            stmt.bindLong(4, cuot);
+            stmt.bindString(4, cuot);
         }
  
-        Integer piez = entity.getPiez();
+        String piez = entity.getPiez();
         if (piez != null) {
-            stmt.bindLong(5, piez);
+            stmt.bindString(5, piez);
         }
  
-        Integer prod = entity.getProd();
+        String prod = entity.getProd();
         if (prod != null) {
-            stmt.bindLong(6, prod);
+            stmt.bindString(6, prod);
         }
  
         Integer sios = entity.getSios();
@@ -148,10 +148,10 @@ public class p5p5Dao extends AbstractDao<p5p5, Long> {
         p5p5 entity = new p5p5( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.isNull(offset + 1) ? null : cursor.getInt(offset + 1), // armf
-            cursor.isNull(offset + 2) ? null : cursor.getInt(offset + 2), // salj
-            cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3), // cuot
-            cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4), // piez
-            cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5), // prod
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // salj
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // cuot
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // piez
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // prod
             cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6), // sios
             cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7), // snpc
             cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8), // tacn
@@ -167,10 +167,10 @@ public class p5p5Dao extends AbstractDao<p5p5, Long> {
     public void readEntity(Cursor cursor, p5p5 entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setArmf(cursor.isNull(offset + 1) ? null : cursor.getInt(offset + 1));
-        entity.setSalj(cursor.isNull(offset + 2) ? null : cursor.getInt(offset + 2));
-        entity.setCuot(cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3));
-        entity.setPiez(cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4));
-        entity.setProd(cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5));
+        entity.setSalj(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setCuot(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setPiez(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setProd(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
         entity.setSios(cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6));
         entity.setSnpc(cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7));
         entity.setTacn(cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8));
