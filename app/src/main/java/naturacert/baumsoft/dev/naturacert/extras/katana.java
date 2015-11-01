@@ -1,6 +1,8 @@
 package naturacert.baumsoft.dev.naturacert.extras;
 
 import android.app.Application;
+import android.content.Context;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -107,6 +109,8 @@ public class katana extends Application {
 
             Fincas finca = new Fincas();
             finca.setNombre(fields.getString("nombre"));
+            Log.d("Vamos a crear", finca.getNombre());
+            Log.d("Esta es", rtaType.getString("type"));
             finca.setCodigo(fields.getString("ref_finca"));
             finca.setFecha(fields.getString("fecha"));
             finca.setImagen(fields.getString("foto"));
@@ -124,6 +128,8 @@ public class katana extends Application {
             finca.setArea_conservacion(fields.getInt("area_conser"));
             finca.setArea_infraestructura(fields.getInt("area_infra"));
             finca.setPeriodo_cosecha(fields.getString("per_cosecha"));
+
+            /*
             finca.setProduccion_regional(fields.getString("prod_reg"));
             finca.setFr_cafe(fields.getInt("fr_cafe"));
             finca.setAlmendra_sana(fields.getString("alm_sana"));
@@ -132,10 +138,14 @@ public class katana extends Application {
             finca.setTrabajadores_permanentes(fields.getInt("ntrabper"));
             finca.setTrabajadores_temporales(fields.getInt("ntrabtem"));
             finca.setProveedores_visitados(fields.getString("proveedo"));
+            */
+
             finca.setObservaciones(fields.getString("observ"));
             finca.setIdCliente(fields.getInt("cliente"));
             finca.setIdAuditor(fields.getInt("auditor"));
             finca.setRef_finca(datos.getInt("pk"));
+
+
 
             if(rtaType.getString("type").equals("rac")){
                 finca.setTipo_finca(1);
@@ -161,6 +171,11 @@ public class katana extends Application {
 
         return cliente;
 
+    }
+
+
+    public void subirDatosEnBatch(Context contexto){
+        //DaoAPP.daoSession.getP10p1Dao().
     }
 
 

@@ -259,6 +259,8 @@ public class crear_finca_individual extends ActionBarActivity {
         EditText area_conservacion = (EditText) findViewById(R.id.area_conservacion);
         EditText area_infraestructura = (EditText) findViewById(R.id.area_infraestructura);
         EditText periodo_cosecha = (EditText) findViewById(R.id.periodo_cosecha);
+
+        /*
         EditText produccion_regional = (EditText) findViewById(R.id.produccion_regional);
         EditText fr_cafe = (EditText) findViewById(R.id.fr_cafe);
         EditText almendra_sana = (EditText) findViewById(R.id.almendra_sana);
@@ -267,9 +269,13 @@ public class crear_finca_individual extends ActionBarActivity {
         EditText trabajadores_temporales = (EditText) findViewById(R.id.trabajadores_temporales);
         EditText documentos_anexos = (EditText) findViewById(R.id.documentos_anexos);
         EditText proveedores_visitados = (EditText) findViewById(R.id.proveedores_visitados);
+        */
+
         EditText observaciones = (EditText) findViewById(R.id.observaciones);
 
-        if (!nombre.getText().toString().equals("") && departamento.getSelectedItemId() != 0 && !codigo.getText().toString().equals("") && !hora.getText().toString().equals("") && !fecha.getText().toString().equals("") && !municipio.getText().toString().equals("") && !vereda.getText().toString().equals("") && !altura.getText().toString().equals("") && !latitud.getText().toString().equals("") && !longitud.getText().toString().equals("") && !propietario.getText().toString().equals("") && !area_finca.getText().toString().equals("") && !area_conservacion.getText().toString().equals("") && !area_infraestructura.getText().toString().equals("") && !periodo_cosecha.getText().toString().equals("") && !produccion_regional.getText().toString().equals("") && !fr_cafe.getText().toString().equals("") && !trabajadores_temporales.getText().toString().equals("") && !almendra_sana.getText().toString().equals("") && !problemas_sanitarios.getText().toString().equals("") && !trabajadores_permanentes.getText().toString().equals("") && !documentos_anexos.getText().toString().equals("") && !proveedores_visitados.getText().toString().equals("") && !observaciones.getText().toString().equals("")) {
+        //if (!nombre.getText().toString().equals("") && departamento.getSelectedItemId() != 0 && !codigo.getText().toString().equals("") && !hora.getText().toString().equals("") && !fecha.getText().toString().equals("") && !municipio.getText().toString().equals("") && !vereda.getText().toString().equals("") && !altura.getText().toString().equals("") && !latitud.getText().toString().equals("") && !longitud.getText().toString().equals("") && !propietario.getText().toString().equals("") && !area_finca.getText().toString().equals("") && !area_conservacion.getText().toString().equals("") && !area_infraestructura.getText().toString().equals("") && !periodo_cosecha.getText().toString().equals("") && !produccion_regional.getText().toString().equals("") && !fr_cafe.getText().toString().equals("") && !trabajadores_temporales.getText().toString().equals("") && !almendra_sana.getText().toString().equals("") && !problemas_sanitarios.getText().toString().equals("") && !trabajadores_permanentes.getText().toString().equals("") && !documentos_anexos.getText().toString().equals("") && !proveedores_visitados.getText().toString().equals("") && !observaciones.getText().toString().equals("")) {
+
+        if (!nombre.getText().toString().equals("") && departamento.getSelectedItemId() != 0 && !codigo.getText().toString().equals("") && !hora.getText().toString().equals("") && !fecha.getText().toString().equals("") && !municipio.getText().toString().equals("") && !vereda.getText().toString().equals("") && !altura.getText().toString().equals("") && !latitud.getText().toString().equals("") && !longitud.getText().toString().equals("") && !propietario.getText().toString().equals("") && !area_finca.getText().toString().equals("") && !area_conservacion.getText().toString().equals("") && !area_infraestructura.getText().toString().equals("") && !periodo_cosecha.getText().toString().equals("") && !observaciones.getText().toString().equals("")) {
 
             StringBuilder cultivos = new StringBuilder("");
 
@@ -391,6 +397,7 @@ public class crear_finca_individual extends ActionBarActivity {
             sb.append(area_infraestructura.getText().toString());
             sb.append("&per_cosecha=");
             sb.append(periodo_cosecha.getText().toString());
+            /*
             sb.append("&prod_reg=");
             sb.append(produccion_regional.getText().toString());
             sb.append("&fr_cafe=");
@@ -407,6 +414,7 @@ public class crear_finca_individual extends ActionBarActivity {
             sb.append(documentos_anexos.getText().toString());
             sb.append("&proveedo=");
             sb.append(proveedores_visitados.getText().toString());
+            */
             sb.append("&observ=");
             sb.append(observaciones.getText().toString());
 
@@ -446,6 +454,7 @@ public class crear_finca_individual extends ActionBarActivity {
             finca.setArea_conservacion(Integer.parseInt(area_conservacion.getText().toString()));
             finca.setArea_infraestructura(Integer.parseInt(area_infraestructura.getText().toString()));
             finca.setPeriodo_cosecha(periodo_cosecha.getText().toString());
+            /*
             finca.setProduccion_regional(produccion_regional.getText().toString());
             finca.setFr_cafe(Integer.parseInt(fr_cafe.getText().toString()));
             finca.setAlmendra_sana(almendra_sana.getText().toString());
@@ -454,6 +463,7 @@ public class crear_finca_individual extends ActionBarActivity {
             finca.setProveedores_visitados(proveedores_visitados.getText().toString());
             finca.setTrabajadores_permanentes(Integer.parseInt(trabajadores_permanentes.getText().toString()));
             finca.setTrabajadores_temporales(Integer.parseInt(trabajadores_temporales.getText().toString()));
+            */
             finca.setObservaciones(observaciones.getText().toString());
             finca.setIdCliente(clienteBD.getId());
             List<Auditores> auditores = DaoAPP.daoSession.getAuditoresDao().loadAll();

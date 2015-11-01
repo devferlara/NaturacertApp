@@ -27,6 +27,7 @@ public class mis_fincas extends Activity {
         setContentView(R.layout.activity_mis_fincas);
 
         List<Fincas> fincas = DaoAPP.daoSession.getFincasDao().loadAll();
+        Log.d("Largo fincas es", "- " + fincas.size());
 
         ListView lista = (ListView) findViewById(R.id.lista);
 

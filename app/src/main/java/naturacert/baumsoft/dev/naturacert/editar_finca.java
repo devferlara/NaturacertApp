@@ -53,8 +53,6 @@ public class editar_finca extends ActionBarActivity {
         Intent mIntent = getIntent();
         idFinca = Long.parseLong(mIntent.getStringExtra("idFinca"));
 
-        Log.d("Id Finca", "- " + idFinca);
-
         Button guardar = (Button) findViewById(R.id.guardar);
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,10 +60,8 @@ public class editar_finca extends ActionBarActivity {
                 capturarFinca();
             }
         });
-
-        montarFinca(idFinca);
-
         montarClientes();
+        montarFinca(idFinca);
 
         ImageButton getCoordenadas = (ImageButton) findViewById(R.id.getCoordenadas);
         getCoordenadas.setOnClickListener(new View.OnClickListener() {
@@ -198,6 +194,8 @@ public class editar_finca extends ActionBarActivity {
         EditText area_conservacion = (EditText) findViewById(R.id.area_conservacion);
         EditText area_infraestructura = (EditText) findViewById(R.id.area_infraestructura);
         EditText periodo_cosecha = (EditText) findViewById(R.id.periodo_cosecha);
+
+        /*
         EditText produccion_regional = (EditText) findViewById(R.id.produccion_regional);
         EditText fr_cafe = (EditText) findViewById(R.id.fr_cafe);
         EditText almendra_sana = (EditText) findViewById(R.id.almendra_sana);
@@ -206,9 +204,12 @@ public class editar_finca extends ActionBarActivity {
         EditText trabajadores_temporales = (EditText) findViewById(R.id.trabajadores_temporales);
         EditText documentos_anexos = (EditText) findViewById(R.id.documentos_anexos);
         EditText proveedores_visitados = (EditText) findViewById(R.id.proveedores_visitados);
+        */
+
         EditText observaciones = (EditText) findViewById(R.id.observaciones);
 
-        if (!nombre.getText().toString().equals("") && departamento.getSelectedItemId() != 0 && !codigo.getText().toString().equals("") && !municipio.getText().toString().equals("") && !vereda.getText().toString().equals("") && !altura.getText().toString().equals("") && !latitud.getText().toString().equals("") && !longitud.getText().toString().equals("") && !propietario.getText().toString().equals("") && !area_finca.getText().toString().equals("") && !area_conservacion.getText().toString().equals("") && !area_infraestructura.getText().toString().equals("") && !periodo_cosecha.getText().toString().equals("") && !produccion_regional.getText().toString().equals("") && !fr_cafe.getText().toString().equals("") && !trabajadores_temporales.getText().toString().equals("") && !almendra_sana.getText().toString().equals("") && !problemas_sanitarios.getText().toString().equals("") && !trabajadores_permanentes.getText().toString().equals("") && !documentos_anexos.getText().toString().equals("") && !proveedores_visitados.getText().toString().equals("") && !observaciones.getText().toString().equals("")) {
+        //if (!nombre.getText().toString().equals("") && departamento.getSelectedItemId() != 0 && !codigo.getText().toString().equals("") && !municipio.getText().toString().equals("") && !vereda.getText().toString().equals("") && !altura.getText().toString().equals("") && !latitud.getText().toString().equals("") && !longitud.getText().toString().equals("") && !propietario.getText().toString().equals("") && !area_finca.getText().toString().equals("") && !area_conservacion.getText().toString().equals("") && !area_infraestructura.getText().toString().equals("") && !periodo_cosecha.getText().toString().equals("") && !produccion_regional.getText().toString().equals("") && !fr_cafe.getText().toString().equals("") && !trabajadores_temporales.getText().toString().equals("") && !almendra_sana.getText().toString().equals("") && !problemas_sanitarios.getText().toString().equals("") && !trabajadores_permanentes.getText().toString().equals("") && !documentos_anexos.getText().toString().equals("") && !proveedores_visitados.getText().toString().equals("") && !observaciones.getText().toString().equals("")) {
+        if (!nombre.getText().toString().equals("") && departamento.getSelectedItemId() != 0 && !codigo.getText().toString().equals("") && !municipio.getText().toString().equals("") && !vereda.getText().toString().equals("") && !altura.getText().toString().equals("") && !latitud.getText().toString().equals("") && !longitud.getText().toString().equals("") && !propietario.getText().toString().equals("") && !area_finca.getText().toString().equals("") && !area_conservacion.getText().toString().equals("") && !area_infraestructura.getText().toString().equals("") && !periodo_cosecha.getText().toString().equals("") && !observaciones.getText().toString().equals("")) {
 
             StringBuilder cultivos = new StringBuilder("");
 
@@ -328,6 +329,8 @@ public class editar_finca extends ActionBarActivity {
             sb.append(area_infraestructura.getText().toString());
             sb.append("&per_cosecha=");
             sb.append(periodo_cosecha.getText().toString());
+
+            /*
             sb.append("&prod_reg=");
             sb.append(produccion_regional.getText().toString());
             sb.append("&fr_cafe=");
@@ -344,6 +347,8 @@ public class editar_finca extends ActionBarActivity {
             sb.append(documentos_anexos.getText().toString());
             sb.append("&proveedo=");
             sb.append(proveedores_visitados.getText().toString());
+            */
+
             sb.append("&observ=");
             sb.append(observaciones.getText().toString());
 
@@ -384,12 +389,15 @@ public class editar_finca extends ActionBarActivity {
             finca.setArea_conservacion(Integer.parseInt(area_conservacion.getText().toString()));
             finca.setArea_infraestructura(Integer.parseInt(area_infraestructura.getText().toString()));
             finca.setPeriodo_cosecha(periodo_cosecha.getText().toString());
+
+            /*
             finca.setProduccion_regional(produccion_regional.getText().toString());
             finca.setFr_cafe(Integer.parseInt(fr_cafe.getText().toString()));
             finca.setAlmendra_sana(almendra_sana.getText().toString());
             finca.setProblemas_sanitarios(problemas_sanitarios.getText().toString());
             finca.setDocumentos_anexos(documentos_anexos.getText().toString());
             finca.setProveedores_visitados(proveedores_visitados.getText().toString());
+            */
             finca.setObservaciones(observaciones.getText().toString());
             finca.setIdCliente(clienteBD.getId());
             List<Auditores> auditores = DaoAPP.daoSession.getAuditoresDao().loadAll();
@@ -475,6 +483,7 @@ public class editar_finca extends ActionBarActivity {
     public void montarClientes() {
         Spinner clientes_spinner = (Spinner) findViewById(R.id.clientes);
         katana kata = new katana();
+
         if (kata.checkClientes()) {
             clientes_lista = kata.getClientes();
             List<String> list = new ArrayList<String>();
@@ -486,6 +495,7 @@ public class editar_finca extends ActionBarActivity {
             clientes_spinner.setAdapter(null);
             clientes_spinner.setAdapter(adapter);
         }
+
     }
 
     private void hideKeyboard() {
@@ -531,31 +541,32 @@ public class editar_finca extends ActionBarActivity {
 
         EditText propietario = (EditText) findViewById(R.id.propietario);
         propietario.setText(finca_.getPropietario());
-
         EditText grupo = (EditText) findViewById(R.id.grupo);
 
         if(!finca_.getGrupo().equals("")){
             grupo.setText(finca_.getGrupo());
         }
 
+        /*
         Spinner tipo_auditoria = (Spinner) findViewById(R.id.tipo_auditoria);
         tipo_auditoria.setSelection((int) (long) finca_.getTipo_auditoria());
+        */
 
+        /*
         Spinner tipo_auditor = (Spinner) findViewById(R.id.tipo_auditor);
         tipo_auditor.setSelection((int) (long) finca_.getTipo_auditor());
-
+        */
         EditText area_finca = (EditText) findViewById(R.id.area_finca);
         area_finca.setText(String.valueOf(finca_.getArea_finca()));
 
         EditText area_conservacion = (EditText) findViewById(R.id.area_conservacion);
         area_conservacion.setText(String.valueOf(finca_.getArea_conservacion()));
-
         EditText area_infraestructura = (EditText) findViewById(R.id.area_infraestructura);
         area_infraestructura.setText(String.valueOf(finca_.getArea_infraestructura()));
 
         EditText periodo_cosecha = (EditText) findViewById(R.id.periodo_cosecha);
         periodo_cosecha.setText(finca_.getPeriodo_cosecha());
-
+        /*
         EditText produccion_regional = (EditText) findViewById(R.id.produccion_regional);
         produccion_regional.setText(String.valueOf(finca_.getProduccion_regional()));
 
@@ -579,10 +590,10 @@ public class editar_finca extends ActionBarActivity {
 
         EditText proveedores_visitados = (EditText) findViewById(R.id.proveedores_visitados);
         proveedores_visitados.setText(finca_.getProveedores_visitados());
+        */
 
         EditText observaciones = (EditText) findViewById(R.id.observaciones);
         observaciones.setText(finca_.getObservaciones());
-
     }
 
 }

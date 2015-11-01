@@ -208,6 +208,8 @@ public class Main {
         fincas.addIntProperty("area_conservacion");
         fincas.addIntProperty("area_infraestructura");
         fincas.addStringProperty("periodo_cosecha");
+
+        /*
         fincas.addStringProperty("produccion_regional");
         fincas.addIntProperty("fr_cafe");
         fincas.addStringProperty("almendra_sana");
@@ -216,6 +218,8 @@ public class Main {
         fincas.addStringProperty("proveedores_visitados");
         fincas.addIntProperty("trabajadores_permanentes");
         fincas.addIntProperty("trabajadores_temporales");
+        */
+
         fincas.addStringProperty("observaciones");
 
 

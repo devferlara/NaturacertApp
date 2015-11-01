@@ -279,6 +279,7 @@ public class MainActivity extends Activity {
                     if (fer != 0) {
                         QueryBuilder qb = DaoAPP.daoSession.getClientesDao().queryBuilder();
                         qb.where(ClientesDao.Properties.Referencia.eq(fer));
+
                         List<Clientes> clientes = qb.list();
                         if(clientes.size()==0){
                             new descargarCliente().execute(String.valueOf(fer));

@@ -2,23 +2,13 @@ package naturacert.baumsoft.dev.naturacert;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 import naturacert.baumsoft.dev.naturacert.extras.katana;
 
@@ -83,6 +73,7 @@ public class iniciorac extends Activity {
         actualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
                 RotateAnimation anim = new RotateAnimation(0f, 350f, 24f, 24f);
                 anim.setInterpolator(new LinearInterpolator());
                 anim.setRepeatCount(Animation.INFINITE);
@@ -98,41 +89,11 @@ public class iniciorac extends Activity {
                                 Toast.makeText(iniciorac.this, "La aplicación se ha sincronizado correctamente con el servidor.", Toast.LENGTH_LONG).show();
                             }
                         },
-                        4000);
+                        4000);*/
             }
+
         });
     }
 
-
-    public class DownloadImagesTask extends AsyncTask<ImageView, Void, Bitmap> {
-
-        ImageView imageView = null;
-
-        @Override
-        protected Bitmap doInBackground(ImageView... imageViews) {
-            this.imageView = imageViews[0];
-            return download_Image((String)imageView.getTag());
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap result) {
-            imageView.setImageBitmap(result);
-        }
-
-        private Bitmap download_Image(String url) {
-
-            Bitmap bmp =null;
-            try{
-                URL ulrn = new URL(url);
-                HttpURLConnection con = (HttpURLConnection)ulrn.openConnection();
-                InputStream is = con.getInputStream();
-                bmp = BitmapFactory.decodeStream(is);
-                if (null != bmp)
-                    return bmp;
-
-            }catch(Exception e){}
-            return bmp;
-        }
-    }
 
 }

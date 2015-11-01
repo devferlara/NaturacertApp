@@ -35,14 +35,6 @@ public class Fincas {
     private Integer area_conservacion;
     private Integer area_infraestructura;
     private String periodo_cosecha;
-    private String produccion_regional;
-    private Integer fr_cafe;
-    private String almendra_sana;
-    private String problemas_sanitarios;
-    private String documentos_anexos;
-    private String proveedores_visitados;
-    private Integer trabajadores_permanentes;
-    private Integer trabajadores_temporales;
     private String observaciones;
     private long idCliente;
     private long idAuditor;
@@ -70,7 +62,7 @@ public class Fincas {
         this.id = id;
     }
 
-    public Fincas(Long id, Integer ref_finca, String nombre, Integer tipo_finca, Integer id_formulario, Long departamento, String codigo, String hora, String fecha, String imagen, String municipio, String vereda, Double latitud, Double longitud, Integer altitud, String grupo, Long tipo_auditoria, Long tipo_auditor, String propietario, Integer area_finca, Integer area_conservacion, Integer area_infraestructura, String periodo_cosecha, String produccion_regional, Integer fr_cafe, String almendra_sana, String problemas_sanitarios, String documentos_anexos, String proveedores_visitados, Integer trabajadores_permanentes, Integer trabajadores_temporales, String observaciones, long idCliente, long idAuditor) {
+    public Fincas(Long id, Integer ref_finca, String nombre, Integer tipo_finca, Integer id_formulario, Long departamento, String codigo, String hora, String fecha, String imagen, String municipio, String vereda, Double latitud, Double longitud, Integer altitud, String grupo, Long tipo_auditoria, Long tipo_auditor, String propietario, Integer area_finca, Integer area_conservacion, Integer area_infraestructura, String periodo_cosecha, String observaciones, long idCliente, long idAuditor) {
         this.id = id;
         this.ref_finca = ref_finca;
         this.nombre = nombre;
@@ -94,14 +86,6 @@ public class Fincas {
         this.area_conservacion = area_conservacion;
         this.area_infraestructura = area_infraestructura;
         this.periodo_cosecha = periodo_cosecha;
-        this.produccion_regional = produccion_regional;
-        this.fr_cafe = fr_cafe;
-        this.almendra_sana = almendra_sana;
-        this.problemas_sanitarios = problemas_sanitarios;
-        this.documentos_anexos = documentos_anexos;
-        this.proveedores_visitados = proveedores_visitados;
-        this.trabajadores_permanentes = trabajadores_permanentes;
-        this.trabajadores_temporales = trabajadores_temporales;
         this.observaciones = observaciones;
         this.idCliente = idCliente;
         this.idAuditor = idAuditor;
@@ -295,70 +279,6 @@ public class Fincas {
 
     public void setPeriodo_cosecha(String periodo_cosecha) {
         this.periodo_cosecha = periodo_cosecha;
-    }
-
-    public String getProduccion_regional() {
-        return produccion_regional;
-    }
-
-    public void setProduccion_regional(String produccion_regional) {
-        this.produccion_regional = produccion_regional;
-    }
-
-    public Integer getFr_cafe() {
-        return fr_cafe;
-    }
-
-    public void setFr_cafe(Integer fr_cafe) {
-        this.fr_cafe = fr_cafe;
-    }
-
-    public String getAlmendra_sana() {
-        return almendra_sana;
-    }
-
-    public void setAlmendra_sana(String almendra_sana) {
-        this.almendra_sana = almendra_sana;
-    }
-
-    public String getProblemas_sanitarios() {
-        return problemas_sanitarios;
-    }
-
-    public void setProblemas_sanitarios(String problemas_sanitarios) {
-        this.problemas_sanitarios = problemas_sanitarios;
-    }
-
-    public String getDocumentos_anexos() {
-        return documentos_anexos;
-    }
-
-    public void setDocumentos_anexos(String documentos_anexos) {
-        this.documentos_anexos = documentos_anexos;
-    }
-
-    public String getProveedores_visitados() {
-        return proveedores_visitados;
-    }
-
-    public void setProveedores_visitados(String proveedores_visitados) {
-        this.proveedores_visitados = proveedores_visitados;
-    }
-
-    public Integer getTrabajadores_permanentes() {
-        return trabajadores_permanentes;
-    }
-
-    public void setTrabajadores_permanentes(Integer trabajadores_permanentes) {
-        this.trabajadores_permanentes = trabajadores_permanentes;
-    }
-
-    public Integer getTrabajadores_temporales() {
-        return trabajadores_temporales;
-    }
-
-    public void setTrabajadores_temporales(Integer trabajadores_temporales) {
-        this.trabajadores_temporales = trabajadores_temporales;
     }
 
     public String getObservaciones() {
