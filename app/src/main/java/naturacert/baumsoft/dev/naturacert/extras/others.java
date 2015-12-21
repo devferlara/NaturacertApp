@@ -30,6 +30,20 @@ public class others {
         }
     }
 
+    public static String leerArchivoFlor(String fileName, Context c) {
+        try {
+            InputStream is = c.getAssets().open("florverde/" + fileName);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            String text = new String(buffer);
+            return text;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static String getUrlContent(String page) {
         StringBuilder results = new StringBuilder();
         HttpURLConnection conn = null;

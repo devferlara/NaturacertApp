@@ -53,7 +53,7 @@ public class MainActivity extends Activity {
         if(kata.checkUser()){
             TokensBD tkn = kata.getToken();
             OAuth2Client.token = new Token(tkn.getExpiresIn(), tkn.getTokenType(), tkn.getRefreshToken(), tkn.getAccessToken());
-            Intent pasar = new Intent(MainActivity.this, iniciorac.class);
+            Intent pasar = new Intent(MainActivity.this, seleccionar_categoria.class);
             startActivity(pasar);
             finish();
         }
@@ -196,7 +196,7 @@ public class MainActivity extends Activity {
                             new Runnable() {
                                 public void run() {
                                     dialogo.dismiss();
-                                    Intent pasar = new Intent(MainActivity.this, iniciorac.class);
+                                    Intent pasar = new Intent(MainActivity.this, seleccionar_categoria.class);
                                     startActivity(pasar);
                                     finish();
                                 }

@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFF"
-            android:text="Lista de Chequeo Norma para Agricultura Sostenible RAC"
+            android:text="Aplicación de apoyo Naturacert."
             android:textSize="20sp"
             android:layout_margin="10dp"/>
     </LinearLayout>
@@ -33,7 +33,7 @@
             android:textSize="46sp"
             android:textColor="#808080"
             android:fontFamily="sans-serif-thin"
-            android:text="Inicio red de agricultura sostenible RAS"/>
+            android:text="Seleccionar proyecto"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -76,18 +76,12 @@
         android:orientation="vertical"
         android:layout_weight="1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lista de chequeo"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#028F30"/>
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Seleccionar tipo de auditoría"
+            android:text="Seleccione el proyecto al cual desea acceder"
             android:textSize="34sp"
             android:textColor="#808080"/>
 
@@ -100,17 +94,17 @@
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:id="@+id/individual"
+                android:id="@+id/ras"
                 android:layout_height="wrap_content"
                 android:layout_margin="25dp"
-                android:src="@drawable/racfinca"/>
+                android:src="@drawable/rac"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="25dp"
-                android:id="@+id/grupal"
-                android:src="@drawable/racgrupo"/>
+                android:id="@+id/flor"
+                android:src="@drawable/florverde"/>
 
         </LinearLayout>
 
@@ -124,52 +118,13 @@
         android:orientation="horizontal"
         android:layout_marginBottom="0dp">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="right"
-            android:id="@+id/finca"
-            android:layout_weight="1">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#008E2F"
-                android:textSize="28sp"
-                android:layout_marginRight="10dp"
-                android:text="Mis Fincas"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/raciconouno"/>
-        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:id="@+id/actualizar"
-            android:layout_weight="1">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#008E2F"
-                android:textSize="28sp"
-                android:layout_marginRight="10dp"
-                android:text="Sincronizar"/>
-            <ImageView
-                android:id="@+id/rotar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/raciconodos"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="left"
             android:id="@+id/cerrar"
             android:layout_weight="1">
             <TextView

@@ -264,12 +264,21 @@ public class SlidingTabLayout extends HorizontalScrollView {
                 mTabStrip.onViewPagerPageChanged(position, 0f);
                 scrollToTab(position, 0);
             }
+
+
             for (int i = 0; i < mTabStrip.getChildCount(); i++) {
                 mTabStrip.getChildAt(i).setSelected(position == i);
+
                 if(getContext() instanceof formularioracindividual)
                     ((formularioracindividual) getContext()).actualizarTab(position);
-                else
+
+                if(getContext() instanceof formularioracgrupal)
                     ((formularioracgrupal) getContext()).actualizarTab(position);
+
+                if(getContext() instanceof formularioflorindividual)
+                    ((formularioflorindividual) getContext()).actualizarTab(position);
+
+
             }
             if (mViewPagerPageChangeListener != null) {
                 mViewPagerPageChangeListener.onPageSelected(position);
