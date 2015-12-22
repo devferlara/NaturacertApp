@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="900dp"
+    android:layout_width="match_parent"
     android:layout_height="600dp"
     android:orientation="vertical"
     android:padding="20dp"
@@ -9,7 +9,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:textSize="24sp"
+        android:textColor="#61B146"
         android:id="@+id/titulo"
         android:textStyle="bold"
         android:text=""/>

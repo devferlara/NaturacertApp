@@ -126,8 +126,12 @@ public class Tab5 extends Fragment {
                     });*/
 
                     TextView texto = (TextView) dialoglayout.findViewById(R.id.texto);
+                    TextView titulo = (TextView) dialoglayout.findViewById(R.id.titulo);
+
                     try {
                         texto.setText(maestra.getString("texto"));
+                        String concatenar = "Equivalencia RAC " + maestra.getString("equivalencia");
+                        titulo.setText(concatenar);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -136,10 +140,10 @@ public class Tab5 extends Fragment {
             });
 
             String equivalencias_string = maestra.getString("equivalencia");
-            if(!equivalencias_string.equals("0")){
+            if (!equivalencias_string.equals("0")) {
                 String[] array = equivalencias_string.split(",", -1);
 
-                for(int f = 0; f < array.length ; f++){
+                for (int f = 0; f < array.length; f++) {
 
                     TextView titulo = new TextView(getActivity());
                     LinearLayout.LayoutParams TVPreguntaParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -174,11 +178,29 @@ public class Tab5 extends Fragment {
             }
 
 
+            LinearLayout LL2 = new LinearLayout(getActivity());
+            LL2.setOrientation(LinearLayout.VERTICAL);
+            LinearLayout.LayoutParams LLParams2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            LLParams2.gravity = Gravity.CENTER_HORIZONTAL;
+            LL2.setLayoutParams(LLParams2);
+
+            TextView tituloPreguntaInformativa = new TextView(getActivity());
+            LinearLayout.LayoutParams TVPreguntaInformativaParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            TVPreguntaInformativaParams.setMargins(0, 0, 0, 40);
+            TVPreguntaInformativaParams.gravity = Gravity.LEFT;
+            tituloPreguntaInformativa.setText(infor.getString("principal"));
+            tituloPreguntaInformativa.setTextColor(Color.BLACK);
+            tituloPreguntaInformativa.setLayoutParams(TVPreguntaInformativaParams);
+            tituloPreguntaInformativa.setTextSize(TypedValue.COMPLEX_UNIT_PX, 18);
+
+            LL2.addView(tituloPreguntaInformativa);
+            contenedorInformativas.addView(LL2);
 
 
             for (int i = 0; i < informativas.length(); i++) {
 
                 String seccion = informativas.getString(i);
+
 
                 LinearLayout LL = new LinearLayout(getActivity());
                 LL.setOrientation(LinearLayout.VERTICAL);
@@ -186,31 +208,22 @@ public class Tab5 extends Fragment {
                 LLParams.gravity = Gravity.CENTER_HORIZONTAL;
                 LL.setLayoutParams(LLParams);
 
-                if(i == 0){
-                    TextView tituloPreguntaInformativa = new TextView(getActivity());
-                    LinearLayout.LayoutParams TVPreguntaInformativaParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    TVPreguntaInformativaParams.setMargins(0, 0, 0, 40);
-                    TVPreguntaInformativaParams.gravity = Gravity.LEFT;
-                    tituloPreguntaInformativa.setText(infor.getString("principal"));
-                    tituloPreguntaInformativa.setTextColor(Color.BLACK);
-                    tituloPreguntaInformativa.setLayoutParams(TVPreguntaInformativaParams);
-                    tituloPreguntaInformativa.setTextSize(TypedValue.COMPLEX_UNIT_PX, 18);
+                if (!seccion.equals("null")) {
+                    TextView tituloPreguntaInformativa2 = new TextView(getActivity());
+                    LinearLayout.LayoutParams TVPreguntaInformativaParams2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                    TVPreguntaInformativaParams2.setMargins(0, 0, 0, 10);
+                    TVPreguntaInformativaParams2.gravity = Gravity.LEFT;
+                    tituloPreguntaInformativa2.setText(seccion);
+                    tituloPreguntaInformativa2.setTextColor(Color.BLACK);
+                    tituloPreguntaInformativa2.setLayoutParams(TVPreguntaInformativaParams2);
+                    tituloPreguntaInformativa2.setTextSize(TypedValue.COMPLEX_UNIT_PX, 18);
 
-                    LL.addView(tituloPreguntaInformativa);
+                    LL.addView(tituloPreguntaInformativa2);
                 }
 
-                TextView tituloPreguntaInformativa = new TextView(getActivity());
-                LinearLayout.LayoutParams TVPreguntaInformativaParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                TVPreguntaInformativaParams.setMargins(0, 0, 0, 10);
-                TVPreguntaInformativaParams.gravity = Gravity.LEFT;
-                tituloPreguntaInformativa.setText(seccion);
-                tituloPreguntaInformativa.setTextColor(Color.BLACK);
-                tituloPreguntaInformativa.setLayoutParams(TVPreguntaInformativaParams);
-                tituloPreguntaInformativa.setTextSize(TypedValue.COMPLEX_UNIT_PX, 18);
-
-                LL.addView(tituloPreguntaInformativa);
-
                 contenedorInformativas.addView(LL);
+
+
 
             }
 
