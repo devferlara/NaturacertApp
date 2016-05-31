@@ -239,57 +239,13 @@ public class Tab3 extends Fragment {
                         botonPreguntaInformativa.setId(numeroPregunta);
                         botonPreguntaInformativa.setTag(jsonDatos.getInt(numeroPregunta));
 
-                        if (botonPreguntaInformativa.getTag() == 1) {
-                            botonPreguntaInformativa.setBackgroundResource(R.drawable.btnmnsi);
-                            botonPreguntaInformativa.setText("Si");
-                        }
-
-                        if (botonPreguntaInformativa.getTag() == 2) {
-                            botonPreguntaInformativa.setBackgroundResource(R.drawable.btnmnno);
-                            botonPreguntaInformativa.setText("No");
-                        }
-
-                        if (botonPreguntaInformativa.getTag() == 3) {
-                            botonPreguntaInformativa.setBackgroundResource(R.drawable.btnmnna);
-                            botonPreguntaInformativa.setText("NA");
-                        }
 
 
                         botonPreguntaInformativa.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
 
-                                if (botonPreguntaInformativa.getTag() == 1) {
-                                    botonPreguntaInformativa.setBackgroundResource(R.drawable.btnmnno);
-                                    botonPreguntaInformativa.setTag(2);
-                                    botonPreguntaInformativa.setText("No");
-                                    guardar(contexto);
-                                    return;
-                                }
 
-                                if (botonPreguntaInformativa.getTag() == 2) {
-                                    botonPreguntaInformativa.setBackgroundResource(R.drawable.btnmnna);
-                                    botonPreguntaInformativa.setTag(3);
-                                    botonPreguntaInformativa.setText("NA");
-                                    guardar(contexto);
-                                    return;
-                                }
-
-                                if (botonPreguntaInformativa.getTag() == 3) {
-                                    botonPreguntaInformativa.setBackgroundResource(R.drawable.btnmnsi);
-                                    botonPreguntaInformativa.setTag(1);
-                                    botonPreguntaInformativa.setText("Si");
-                                    guardar(contexto);
-                                    return;
-                                }
-
-                                if (botonPreguntaInformativa.getTag() == 9) {
-                                    botonPreguntaInformativa.setBackgroundResource(R.drawable.btnmnsi);
-                                    botonPreguntaInformativa.setTag(1);
-                                    botonPreguntaInformativa.setText("Si");
-                                    guardar(contexto);
-                                    return;
-                                }
 
                             }
                         });
