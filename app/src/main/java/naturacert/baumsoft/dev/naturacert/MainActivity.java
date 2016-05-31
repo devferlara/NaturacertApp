@@ -15,8 +15,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.afollestad.materialdialogs.MaterialDialog;
-
 import org.apache.http.NameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,7 +37,7 @@ public class MainActivity extends Activity {
     private String usuarioLogin, password;
     private long id_row_token;
     ProgressDialog progress;
-    MaterialDialog dialogo;
+    //MaterialDialog dialogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,11 +83,13 @@ public class MainActivity extends Activity {
                     ArrayList<String> accesos = new ArrayList<String>();
                     accesos.add(usuario.getText().toString());
                     accesos.add(pass.getText().toString());
+                    /*
                     dialogo = new MaterialDialog.Builder(MainActivity.this)
                             .title("Información")
                             .content("Por favor espere")
                             .progress(true, 0)
                             .show();
+                            */
                     new iniciarSesion().execute(accesos);
                 } else {
                     Toast.makeText(MainActivity.this, "Por favor ingrese los datos completos antes de iniciar sesión.", Toast.LENGTH_SHORT).show();
@@ -128,8 +128,10 @@ public class MainActivity extends Activity {
             if (values)
                 guardarToken();
             else{
+                /*
                 if(dialogo.isShowing())
                     dialogo.dismiss();
+                */
                 Toast.makeText(MainActivity.this, "Usuario y clave inválido.", Toast.LENGTH_SHORT).show();
             }
 
@@ -190,12 +192,12 @@ public class MainActivity extends Activity {
                     user.setIdToken(id_row_token);
                     user.setRef_auditor(obj.getInt("auditor"));
                     DaoAPP.daoSession.getAuditoresDao().insert(user);
-                    dialogo.setContent("Descargando datos del usuario, por favor espere.");
+                    //dialogo.setContent("Descargando datos del usuario, por favor espere.");
                     new descargarFincas().execute();
                     new android.os.Handler().postDelayed(
                             new Runnable() {
                                 public void run() {
-                                    dialogo.dismiss();
+                                    //dialogo.dismiss();
                                     Intent pasar = new Intent(MainActivity.this, seleccionar_categoria.class);
                                     startActivity(pasar);
                                     finish();
@@ -206,8 +208,10 @@ public class MainActivity extends Activity {
                     e.printStackTrace();
                 }
             } else {
+                /*
                 if(dialogo.isShowing())
                     dialogo.dismiss();
+                    */
                 Toast.makeText(MainActivity.this, "No hemos podido iniciar sesión, asegurate de estar conectado a internet.", Toast.LENGTH_SHORT).show();
             }
         }
@@ -224,12 +228,13 @@ public class MainActivity extends Activity {
         }
 
         protected void onProgressUpdate(Void... progress) {
-            dialogo.setContent("Descargando fincas, espere por favor");
-            dialogo.show();
+
+            //dialogo.setContent("Descargando fincas, espere por favor");
+            //dialogo.show();
         }
 
         protected void onPostExecute(String values) {
-            dialogo.hide();
+            //dialogo.hide();
             if (values != null) {
                 try {
                     JSONObject res = new JSONObject(values);
@@ -241,14 +246,14 @@ public class MainActivity extends Activity {
                         }
 
                     } else {
-                        dialogo.dismiss();
+                        //dialogo.dismiss();
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             } else {
-                dialogo.dismiss();
+                //dialogo.dismiss();
                 Toast.makeText(MainActivity.this, "No hemos podido iniciar sesión, asegurate de estar conectado a internet.", Toast.LENGTH_SHORT).show();
             }
         }
@@ -266,12 +271,12 @@ public class MainActivity extends Activity {
         }
 
         protected void onPreExecute() {
-            dialogo.setContent("Descargando fincas individuales, espere por favor");
+            //dialogo.setContent("Descargando fincas individuales, espere por favor");
             //dialogo.show();
         }
 
         protected void onPostExecute(String values) {
-            dialogo.hide();
+            //dialogo.hide();
             if (values != null) {
                 katana kata = new katana();
                 try {
@@ -306,12 +311,12 @@ public class MainActivity extends Activity {
         }
 
         protected void onPreExecute() {
-            dialogo.setContent("Descargando clientes, espere por favor");
+            //dialogo.setContent("Descargando clientes, espere por favor");
             //dialogo.show();
         }
 
         protected void onPostExecute(String values) {
-            dialogo.hide();
+            //dialogo.hide();
             if (values != null) {
                 try {
                     JSONObject json = new JSONObject(values);

@@ -1,14 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    targetCompatibility = '1.7'
-    sourceCompatibility = '1.7'
     compileSdkVersion 23
-    buildToolsVersion '23.0.3'
-
-    dexOptions {
-        dexInProcess = false
-    }
+    buildToolsVersion '23.0.2'
 
     defaultConfig {
         applicationId "naturacert.baumsoft.dev.naturacert"
@@ -16,8 +10,13 @@ android {
         targetSdkVersion 19
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
     }
+
+    dexOptions {
+        javaMaxHeapSize "4g" //specify the heap size for the dex process
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -44,11 +43,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':dao')
-    compile('com.github.afollestad.material-dialogs:core:0.8.5.3@aar') {
-        transitive = true
-    }
-
-    compile 'com.android.support:appcompat-v7:23.3.0'
-    compile 'de.greenrobot:greendao:2.0.0'
-    compile 'com.android.support:design:23.3.0'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'de.greenrobot:greendao:2.1.0'
+    compile 'com.android.support:design:23.4.0'
 }
